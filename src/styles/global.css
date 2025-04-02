@@ -1,0 +1,44 @@
+/* === CSS RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Remove decoração de links */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Remove estilo de lista */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Tipografia básica */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #1e1e1e;
+    line-height: 1.6;
+  }
+  
+  /* Imagens responsivas */
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* Inputs e botões com herança de estilo */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* Cursor em botões */
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  
