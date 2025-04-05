@@ -1,0 +1,76 @@
+/* Footer Custom Styles */
+footer {
+  font-size: 0.95rem;
+}
+
+/* Estiliza os ícones sociais */
+footer .bi {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+footer .bi:hover {
+  color: #0d6efd;
+  /* cor primária do Bootstrap */
+}
+
+/* Estiliza o botão da newsletter */
+footer button {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+}
+
+.footer-img {
+  width: 60%;
+}
+
+.footer-slogan {
+  font-size: 1.23rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+
+}
+
+/* Responsivo para tablets (768px para baixo) */
+@media (max-width: 768px) {
+  footer .row>div {
+    margin-bottom: 2rem;
+  }
+
+  footer form {
+    flex-direction: column;
+  }
+
+  footer form input {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  footer form button {
+    width: 100%;
+  }
+}
+
+/* Responsivo para celulares (576px para baixo) */
+@media (max-width: 576px) {
+  footer {
+    text-align: center;
+  }
+
+  footer .row>div {
+    text-align: center !important;
+  }
+
+  footer .bi {
+    margin-right: 10px;
+  }
+
+  footer h6 {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+
+  footer input::placeholder {
+    font-size: 0.9rem;
+  }
+}
