@@ -1,4 +1,11 @@
+/* Cor fornecida para o projeto - 
+1. Tom mais claro que o original -- #8A77FF
+2 - original-logo -- #6D5DFB 
+3 - Tom mais escuro -- #4B3DB8
+*/
+
 /* === CSS RESET === */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +13,7 @@
 }
 
 html {
-  background-color: #344CB7;
+  background-color: #4B3DB8
 }
 
 /* Remove decoração de links */
@@ -14,7 +21,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
 
 
 /* Remove estilo de lista */

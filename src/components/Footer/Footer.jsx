@@ -83,7 +83,7 @@ function Footer() {
         <div className="row justify-content-center mt-4">
           <div className="col-lg-8 col-md-10 text-start">
             <h6 className="fw-bold newsletter-title">NEWSLETTER</h6>
-            <p className="small">
+            <p className="small newsletter-subtitle">
               Inscreva-se e receba diariamente todas as atualizações por e-mail.
             </p>
 
@@ -97,12 +97,12 @@ function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
-                  className="form-control mb-2 mb-lg-0 me-lg-2 py-3 fs-6"
+                  className="form-control mb-2 mb-lg-0 me-lg-2 py-2 fs-6"
                   placeholder="Escreva o seu e-mail"
                   required
                 />
                 <button
-                  className="btn-footer btn btn-primary py-3 fs-6 border border-3"
+                  className="btn-footer btn py-2 fs-6 border border-2"
                   type="submit"
                 >
                   Inscrever-se
@@ -128,7 +128,7 @@ function Footer() {
 
 
         {/* Ícones sociais - apenas no mobile (após newsletter) */}
-        <div className="mb-4 mt-4 d-flex justify-content-center gap-5  d-md-none">
+        <div className="container-icons mb-4 mt-4 d-flex justify-content-center gap-3 gap-md-4 d-md-none">
           <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-facebook fs-2  "></i></a>
           <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-twitter fs-2  "></i></a>
           <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-instagram fs-2  "></i></a>

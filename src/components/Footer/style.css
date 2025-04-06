@@ -1,7 +1,7 @@
 /* Footer Custom Styles */
 .footer {
   font-size: 0.95rem;
-  background-color: #344CB7;
+  background-color: #4B3DB8;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -12,14 +12,15 @@
 
 .footer-slogan {
   font-size: 0.95rem;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: rgb(244, 243, 243);
 }
 
 /* Links */
 .links-title,
 .newsletter-title,
-.rights {
+.rights,
+.btn-footer {
   letter-spacing: 2px;
 }
 
@@ -71,9 +72,20 @@
 }
 
 /* Footer Form */
+.newsletter-subtitle {
+  letter-spacing: 1.5px;
+
+}
+
 .btn-footer {
   min-width: 10rem;
+  background-color: #6855e4;
+  color: white;
 
+}
+
+.btn-footer:hover {
+  background-color: #6D5DFB;
 }
 
 /* Definindo a animação do efeito bounce */
@@ -84,7 +96,7 @@
   }
 
   50% {
-    color: #3c5df1;
+    color: #8A77FF;
     /* Cor azul no meio da animação */
     transform: translateY(-5px);
     /* Efeito de pulo para cima */
@@ -95,8 +107,6 @@
     transform: translateY(0);
   }
 }
-
-
 
 
 /* Responsivo para tablets (768px para baixo) */
@@ -141,4 +151,15 @@
   footer input::placeholder {
     font-size: 0.9rem;
   }
+
+  /* .container-icons {
+    gap: 1rem;
+  } */
+
+  .icons-sociais {
+    width: 50px;
+    height: 49px;
+    padding-left: 0.7rem;
+  }
+
 }
