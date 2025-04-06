@@ -37,7 +37,7 @@ function Footer() {
                 <img src={Logo2} alt="Logo" />
               </div>
               <p className="footer-slogan d-none d-sm-block">
-                Desenvolvido para trazer mais informações para te manter mais seguro.
+                Desenvolvido para trazer mais informações e te manter mais seguro.
               </p>
             </div>
           </div>
