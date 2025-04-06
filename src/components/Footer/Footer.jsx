@@ -1,10 +1,32 @@
 import "./style.css"
 import Logo2 from "../../assets/logo-branca-sem-fundo-alertae.png"
+import { useState } from "react"
 
 function Footer() {
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
+  const [tipo, setTipo] = useState(""); // "success" ou "wrong"
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const emailValido = /\S+@\S+\.\S+/;
+
+    if (!emailValido.test(email)) {
+      setMensagem("E-mail inválido. Por favor, tente novamente.  ");
+      setTipo("wrong");
+    } else {
+      setMensagem("Inscrição realizada com sucesso!  ");
+      setTipo("success");
+      setEmail("")
+      // aqui você poderia enviar o e-mail para sua API, por exemplo
+    }
+  };
+
   return (
-    <footer className="footer text-center pt-5 mt-5">
-      <div className="container d-md-flex flex-md-column">
+    <footer onSubmit={handleSubmit} className="footer text-center pt-5 mt-5">
+      <div className="container d-md-flex pt-4 flex-md-column">
 
         {/* Grid principal */}
         <div className="row text-start">
@@ -58,32 +80,65 @@ function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className="row justify-content-center  mt-4">
+        <div className="row justify-content-center mt-4">
           <div className="col-lg-8 col-md-10 text-start">
-            <h6 className="fw-bold ">NEWSLETTER</h6>
-            <p className="small ">Inscreva-se e recebe diariamente todas as atualizações por e-mail.</p>
-            <form className="d-flex justify-content-center">
-              <input
-                type="email"
-                className="form-control me-2"
-                placeholder="Escreva o seu e-mail"
-              />
-              <button className="btn btn-primary w-50 w-md-100" type="submit">Submeter</button>
-            </form>
+            <h6 className="fw-bold newsletter-title">NEWSLETTER</h6>
+            <p className="small">
+              Inscreva-se e receba diariamente todas as atualizações por e-mail.
+            </p>
+
+            {/* Mostrar o formulário apenas se tipo for diferente de 'success' */}
+            {tipo !== "success" && (
+              <form
+                className="d-flex flex-column flex-lg-row justify-content-center"
+                onSubmit={handleSubmit} // você pode ajustar conforme seu handler
+              >
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  className="form-control mb-2 mb-lg-0 me-lg-2 py-3 fs-6"
+                  placeholder="Escreva o seu e-mail"
+                  required
+                />
+                <button
+                  className="btn-footer btn btn-primary py-3 fs-6 border border-3"
+                  type="submit"
+                >
+                  Inscrever-se
+                </button>
+              </form>
+            )}
+
+            {/* Mostrar a mensagem se houver */}
+            {mensagem && (
+              <div
+                className={`alert alert-${tipo === "wrong" ? "danger" : "success"} mt-3 d-flex align-items-center fs-6`}
+                role="alert"
+              >
+                <i
+                  className={`bi ${tipo === "wrong" ? "bi-x-circle" : "bi-check-circle"
+                    } me-2`}
+                ></i>
+                {mensagem}
+              </div>
+            )}
           </div>
         </div>
 
+
         {/* Ícones sociais - apenas no mobile (após newsletter) */}
         <div className="mb-4 mt-4 d-flex justify-content-center gap-5  d-md-none">
-          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-facebook fs-2 ms-2 "></i></a>
-          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-twitter fs-2 ms-2 "></i></a>
-          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-instagram fs-2 ms-2 "></i></a>
-          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-youtube fs-2 ms-2 "></i></a>
+          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-facebook fs-2  "></i></a>
+          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-twitter fs-2  "></i></a>
+          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-instagram fs-2  "></i></a>
+          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-youtube fs-2  "></i></a>
         </div>
 
 
         {/* Rodapé final */}
-        <p className=" ">&copy; {new Date().getFullYear()} Alertaê</p>
+        <hr className="footer-bar my-5" />
+        <p className="rights">&copy; {new Date().getFullYear()} Alertaê - Todos os direitos reservados.</p>
       </div>
     </footer>
 

@@ -6,36 +6,21 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Estiliza os ícones sociais */
-footer .bi {
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-
-
-
-/* Estiliza o botão da newsletter */
-footer button {
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-}
-
 .footer-img {
-  width: 60%;
+  width: 70%;
 }
 
 .footer-slogan {
   font-size: 0.95rem;
   letter-spacing: 1px;
   color: rgb(244, 243, 243);
-
-
 }
 
 /* Links */
-.links-title {
-  letter-spacing: 1.3px;
+.links-title,
+.newsletter-title,
+.rights {
+  letter-spacing: 2px;
 }
 
 /* Links animados */
@@ -65,21 +50,14 @@ footer button {
 
 
 /* Icons Sociais */
-
-/* .icons-container {
-  display: flex;
-  gap: 1.8rem;
-} */
-
 .icons-sociais {
   width: 50px;
-  height: 49px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 5px;
   color: white;
-  margin-left: auto;
 }
 
 .icons-sociais {
@@ -90,6 +68,12 @@ footer button {
 /* Animação de troca de cor e bounce */
 .icons-sociais:hover {
   animation: bounceColor 1s infinite;
+}
+
+/* Footer Form */
+.btn-footer {
+  min-width: 10rem;
+
 }
 
 /* Definindo a animação do efeito bounce */
