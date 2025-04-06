@@ -137,8 +137,8 @@ function Footer() {
 
 
         {/* Rodapé final */}
-        <hr className="footer-bar my-5" />
-        <p className="rights">&copy; {new Date().getFullYear()} Alertaê - Todos os direitos reservados.</p>
+        <hr className="footer-bar mt-5" />
+        <p className="footer-rights">&copy; {new Date().getFullYear()} Alertaê - Todos os direitos reservados.</p>
       </div>
     </footer>
 

@@ -19,7 +19,7 @@
 /* Links */
 .links-title,
 .newsletter-title,
-.rights,
+.footer-rights,
 .btn-footer {
   letter-spacing: 2px;
 }
@@ -81,11 +81,15 @@
   min-width: 10rem;
   background-color: #6855e4;
   color: white;
-
 }
 
 .btn-footer:hover {
   background-color: #6D5DFB;
+}
+
+/* Footer - Rights */
+.footer-rights {
+  font-size: 0.9rem;
 }
 
 /* Definindo a animação do efeito bounce */
@@ -151,10 +155,6 @@
   footer input::placeholder {
     font-size: 0.9rem;
   }
-
-  /* .container-icons {
-    gap: 1rem;
-  } */
 
   .icons-sociais {
     width: 50px;
