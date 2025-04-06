@@ -1,6 +1,9 @@
 /* Footer Custom Styles */
-footer {
+.footer {
   font-size: 0.95rem;
+  background-color: #344CB7;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Estiliza os ícones sociais */
@@ -9,10 +12,8 @@ footer .bi {
   transition: color 0.3s ease;
 }
 
-footer .bi:hover {
-  color: #0d6efd;
-  /* cor primária do Bootstrap */
-}
+
+
 
 /* Estiliza o botão da newsletter */
 footer button {
@@ -25,11 +26,94 @@ footer button {
 }
 
 .footer-slogan {
-  font-size: 1.23rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
   letter-spacing: 1px;
+  color: rgb(244, 243, 243);
+
 
 }
+
+/* Links */
+.links-title {
+  letter-spacing: 1.3px;
+}
+
+/* Links animados */
+.link-animado {
+  position: relative;
+  display: inline-block;
+  color: rgb(244, 243, 243);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.link-animado::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.link-animado:hover::after {
+  width: 100%;
+}
+
+
+/* Icons Sociais */
+
+/* .icons-container {
+  display: flex;
+  gap: 1.8rem;
+} */
+
+.icons-sociais {
+  width: 50px;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  color: white;
+  margin-left: auto;
+}
+
+.icons-sociais {
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* Animação de troca de cor e bounce */
+.icons-sociais:hover {
+  animation: bounceColor 1s infinite;
+}
+
+/* Definindo a animação do efeito bounce */
+@keyframes bounceColor {
+  0% {
+    color: white;
+    transform: translateY(0);
+  }
+
+  50% {
+    color: #3c5df1;
+    /* Cor azul no meio da animação */
+    transform: translateY(-5px);
+    /* Efeito de pulo para cima */
+  }
+
+  100% {
+    color: white;
+    transform: translateY(0);
+  }
+}
+
+
+
 
 /* Responsivo para tablets (768px para baixo) */
 @media (max-width: 768px) {
