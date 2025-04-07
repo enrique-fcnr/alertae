@@ -1,7 +1,7 @@
 /* Footer Custom Styles */
 .footer {
   font-size: 0.95rem;
-  background-color: #4B3DB8;
+  background-color: #1a73e8;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -79,12 +79,14 @@
 
 .btn-footer {
   min-width: 10rem;
-  background-color: #6855e4;
+  background-color: #1a73e8;
   color: white;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-footer:hover {
-  background-color: #6D5DFB;
+  background-color: #1a73e8;
+  transform: scale(1.08); /* aumenta 8% no hover */
 }
 
 /* Footer - Rights */
@@ -100,7 +102,7 @@
   }
 
   50% {
-    color: #8A77FF;
+    color: #1a73e8;
     /* Cor azul no meio da animação */
     transform: translateY(-5px);
     /* Efeito de pulo para cima */
