@@ -86,7 +86,8 @@
 
 .btn-footer:hover {
   background-color: #1a73e8;
-  transform: scale(1.08); /* aumenta 8% no hover */
+  transform: scale(1.08);
+  /* aumenta 8% no hover */
 }
 
 /* Footer - Rights */
@@ -102,7 +103,7 @@
   }
 
   50% {
-    color: #1a73e8;
+    color: #a6c9f8;
     /* Cor azul no meio da animação */
     transform: translateY(-5px);
     /* Efeito de pulo para cima */
