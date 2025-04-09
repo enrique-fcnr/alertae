@@ -1,5 +1,5 @@
 import React from "react";
-import "./Hero.css";
+import "../styles/Hero.css";
 import mockup1 from "../assets/mockup1.png";
 import mockup2 from "../assets/mockup2.png";
 
