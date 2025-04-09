@@ -7,27 +7,28 @@ const Planos = () => {
   const planos = [
     {
       nome: "BASIC",
-      preco: "$18",
+      preco: "R$18",
       beneficios: [
-        "Voluptate fugit necessitatibus ob lorem",
-        "Nunc malesuada nulla ut commodo",
-        "Phasellus suscipit nulla elit et",
-        "Luctus fringilla ligula nisi in pretium",
-        "Suspendisse id venenatis libero",
-        "Ut pretium, massa venenatis dictum",
+        "Acesso a alertas de enchente em tempo real",
+        "Visualização de rotas seguras",
+        "Notificações push para áreas de risco",
+        "Contato direto com órgãos de emergência",
+        "Suporte via e-mail",
+        "Até 2 usuários conectados",
       ],
     },
     {
       nome: "PRO",
-      preco: "$31",
+      preco: "R$31",
       beneficios: [
-        "Voluptate fugit necessitatibus ob lorem",
-        "Nunc malesuada nulla ut commodo",
-        "Phasellus suscipit nulla elit et",
-        "Luctus fringilla ligula nisi in pretium",
-        "Suspendisse id venenatis libero",
-        "Ut pretium, massa venenatis dictum",
-      ],
+        "Tudo do plano Basic",
+        "Alertas personalizados por bairro ou cidade",
+        "Histórico de zonas de risco na sua região",
+        "Rotas seguras com atualização em tempo real",
+        "Atendimento prioritário (WhatsApp ou chat)",
+        "Suporte a múltiplos dispositivos (até 5 usuários)",
+        "Monitoramento 24h com inteligência artificial",
+      ],  
     },
   ];
 
@@ -35,11 +36,11 @@ const Planos = () => {
     <section className="planos-section">
       <Container>
         <div className="text-center mb-5">
-          <h2 className="titulo">planos</h2>
+          <h2 className="titulo">Planos</h2>
           <p className="subtitulo">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            maximus, nulla ut commodo sagittis, sapien dui mattis dui, non
-            pulvinar lorem felis nec erat!
+            Escolha o plano que melhor se adapta às suas necessidades e mantenha
+            sua família segura com alertas em tempo real,
+            rotas seguras e suporte prioritário.
           </p>
         </div>
         <Row className="justify-content-center">
@@ -56,7 +57,7 @@ const Planos = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="botao-plano">Get Started</Button>
+                <Button className="botao-plano">Começar</Button>
               </div>
             </Col>
           ))}
