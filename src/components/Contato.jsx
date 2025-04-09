@@ -34,7 +34,7 @@ function Contato() {
             <div className="icon">
               <BsGeoAltFill />
             </div>
-            <span>Vala Mariana, São Paulo - SP</span>
+            <span>Vila Mariana, São Paulo - SP</span>
           </div>
         </div>
 
