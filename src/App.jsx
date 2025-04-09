@@ -1,5 +1,5 @@
 import Footer from "./components/Footer/Footer.jsx"
-import Navbar from "./components/Navbar.jsx"
+import Navbar from "./components//Navbar/Navbar.jsx"
 import Hero from "./components/Hero.jsx"
 import Funcionalidades from "./components/Funcionalidades.jsx"
 import Depoimentos from "./components/Depoimentos.jsx"
