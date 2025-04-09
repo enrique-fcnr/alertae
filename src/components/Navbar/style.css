@@ -1,0 +1,125 @@
+.navbar {
+  background-color: #0c6be6;
+
+}
+
+/* Navbar container */
+.navbar-container {
+  width: 100%;
+
+
+}
+
+.navbar-toggler {
+  background-color: #0c6be6;
+  border: 3px solid #e6eef6;
+  padding: 2px 0.5rem;
+  font-size: 16px;
+
+}
+
+.icon-navbar {
+  color: #e6eef6;
+  background-color: #0c6be6;
+
+}
+
+.navbar-toggler-icon:hover {
+  background-color: #0c6be6;
+  /* Troque #007bff pela cor que você deseja ao passar o mouse */
+}
+
+
+/* Image */
+.box-img-logo {
+  width: 15%;
+}
+
+/* Box ul */
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+
+
+}
+
+.navbar-nav li {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.navbar-nav li button {
+  width: 70%;
+  color: white;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-link {
+  font-size: 1rem;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  color: #0d6efd;
+}
+
+
+.dropdown-menu li {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+
+.button-navbar {
+  min-width: 50%;
+  margin-bottom: 0rem;
+  cursor: pointer;
+
+}
+
+.menu-link {
+  width: 60%;
+  margin: auto;
+
+}
+
+.dropdown-menu li a {
+  color: #5a5b5d;
+}
+
+@media (max-width: 990px) {
+
+  /* Image */
+  .box-img-logo {
+    width: 25%;
+  }
+
+
+  .dropdown-menu {
+    width: 80%;
+    margin: 0;
+    padding: 0;
+
+
+  }
+
+  .button-navbar {
+    min-width: 50%;
+    cursor: pointer;
+    margin-bottom: 2em;
+  }
+
+  .btn-form-navbar {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}
