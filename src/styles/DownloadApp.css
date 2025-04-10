@@ -1,0 +1,44 @@
+.download-app-section {
+    background: rgba(0, 0, 0, 0.7) url('../assets/bg-app.png') center/cover no-repeat;
+    background-blend-mode: darken;
+    padding: 80px 20px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .download-app-content {
+    text-align: center;
+    max-width: 800px;
+  }
+  
+  .download-app-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .download-app-content p {
+    font-size: 16px;
+    margin-bottom: 40px;
+    color: #ddd;
+  }
+  
+  .download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .download-buttons img {
+    width: 160px;
+    transition: transform 0.3s ease;
+    border: none;
+  }
+  
+  .download-buttons img:hover {
+    transform: scale(1.05);
+    border: none;
+  }
+  
