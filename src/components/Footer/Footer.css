@@ -14,6 +14,7 @@
   font-size: 0.95rem;
   letter-spacing: 1.5px;
   color: rgb(244, 243, 243);
+  text-align: left;
 }
 
 /* Links */
@@ -74,6 +75,7 @@
 /* Footer Form */
 .newsletter-subtitle {
   letter-spacing: 1.5px;
+  color: #fff;
 
 }
 
@@ -94,6 +96,7 @@
 /* Footer - Rights */
 .footer-rights {
   font-size: 0.9rem;
+  color: #fff;
 }
 
 /* Definindo a animação do efeito bounce */

@@ -1,4 +1,4 @@
-import "./style.css"
+import "./Footer.css"
 import Logo2 from "../../assets/logo-branca-sem-fundo-alertae.png"
 import { useState } from "react"
 

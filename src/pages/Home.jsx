@@ -1,10 +1,12 @@
-import Navbar from '../components/Navbar/Navbar.jsx'
-import Hero from '../components/Hero.jsx'
-import Funcionalidades from '../components/Funcionalidades.jsx'
-import Depoimentos from '../components/Depoimentos.jsx'
-import Planos from '../components/Planos.jsx'
-import Contato from '../components/Contato.jsx'
-import Footer from '../components/Footer/Footer.jsx'
+import Navbar from "../components/Navbar/Navbar.jsx"
+import Hero from "../components/Hero/Hero.jsx"
+import Funcionalidades from "../components/Funcionalidades/Funcionalidades.jsx"
+import InterfaceApp from "../components/Interface/InterfaceApp.jsx"
+import Planos from "../components/Planos/Planos.jsx"
+import DownloadApp from "../components/DownloadApp/DownloadApp.jsx"
+import Depoimentos from "../components/Depoimentos/Depoimentos.jsx"
+import Contato from "../components/Contato/Contato.jsx"
+import Footer from "../components/Footer/Footer.jsx"
 
 function Home() {
   return (
@@ -12,8 +14,10 @@ function Home() {
       <Navbar />
       <Hero />
       <Funcionalidades />
-      <Depoimentos />
+      <InterfaceApp />
       <Planos />
+      <DownloadApp />
+      <Depoimentos />
       <Contato />
       <Footer />
     </>
@@ -21,3 +25,5 @@ function Home() {
 }
 
 export default Home
+
+

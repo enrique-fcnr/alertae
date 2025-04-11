@@ -3,7 +3,28 @@
     background-color: #f9f9f9;
     font-family: 'Poppins', sans-serif;
   }
+ 
+  .button.btn-primaryctt {
+     background: linear-gradient(90deg, #006eff, #00c3ff);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
   
+  .button.btn-primaryctt:hover {
+    opacity: 0.9;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transform: scale(1.08);
+  }  
+
   .contato-container {
     max-width: 1200px;
     margin: 0 auto;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { FaCheckCircle } from "react-icons/fa";
-import "../styles/Planos.css";
+import "./Planos.css";
 
 const Planos = () => {
   const planos = [
@@ -21,7 +21,6 @@ const Planos = () => {
       nome: "PRO",
       preco: "R$31",
       beneficios: [
-        "Tudo do plano Basic",
         "Alertas personalizados por bairro ou cidade",
         "Histórico de zonas de risco na sua região",
         "Rotas seguras com atualização em tempo real",

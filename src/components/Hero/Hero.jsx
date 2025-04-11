@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Hero.css";
-import mockup1 from "../assets/mockup1.png";
-import mockup2 from "../assets/mockup2.png";
+import "./Hero.css"
+import mockup1 from "../../assets/mockup1.png";
+import mockup2 from "../../assets/mockup2.png";
 
 const Hero = () => {
     return (

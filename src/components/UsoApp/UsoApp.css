@@ -1,0 +1,72 @@
+.uso-app-section {
+    background-color: #007bff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    padding-bottom: 1px;
+  }
+  
+  .uso-app-content {
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .uso-app-content h2 {
+    text-transform: lowercase;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .uso-app-content p {
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+    font-size: 16px;
+    color: #e0e0e0;
+  }
+  
+  .uso-app-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .step-item {
+    max-width: 250px;
+  }
+  
+  .step-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .step-item h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  .step-item p {
+    font-size: 14px;
+    color: #d1d1d1;
+  }
+  
+  .arrow {
+    font-size: 50px;
+    color: #fff;
+  }
+  
+  @media (max-width: 900px) {
+    .uso-app-steps {
+      flex-direction: column;
+    }
+    
+    .arrow {
+      transform: rotate(90deg);
+    }
+  }
+  

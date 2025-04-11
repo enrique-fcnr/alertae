@@ -1,7 +1,7 @@
 .hero {
     width: 100%;
     min-height: 100vh;
-    background: url("../assets/bg-hero.png") center/cover no-repeat;
+    background: url("../../assets/bg-hero.png") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +26,11 @@
   .hero-text {
     flex: 1;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* alinha tudo à esquerda */
   }
+  
   
   .hero-text h1 {
     font-size: 4.0rem;
@@ -43,8 +47,13 @@
     margin: 20px 0;
     font-size: 1.1rem;
     color: #555;
-    max-width: 500px;
+    width: 100%; /* ocupa toda a largura disponível */
+    max-width: 650px; /* opcional: limita em telas gigantes */
+    text-align: left;
   }
+  
+ 
+ 
   
   .hero-buttons {
     display: flex;
@@ -53,7 +62,7 @@
   }
   
   .btn-primary {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    background: linear-gradient(90deg, #006eff, #00c3ff);
     color: white;
     padding: 12px 24px;
     border: none;
@@ -63,8 +72,7 @@
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .btn-primary:hover {
-    background: linear-gradient(135deg,#60a5fa, #ffffff);
-    color: #1a73e8;
+    opacity: 0.9;
     padding: 12px 24px;
     border: none;
     border-radius: 8px;

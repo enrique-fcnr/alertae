@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import LogoText from "../../assets/logo-branca-sem-fundo-alertae.png"
 import userImg from "../../assets/user-img.png"

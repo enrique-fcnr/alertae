@@ -1,12 +1,12 @@
 import React from "react";
 import { BsTelephoneFill, BsEnvelopeFill, BsGeoAltFill } from "react-icons/bs";
-import "../styles/Contato.css"; // garanta que esse arquivo exista
+import "./Contato.css";
 
 function Contato() {
   return (
     <section className="contato-section">
       <div className="contato-container">
-        {/* Lado esquerdo com texto e ícones */}
+        
         <div className="contato-info">
           <h2 className="contato-title">Fale Conosco!</h2>
           <div className="linha-azul"></div>
@@ -44,7 +44,7 @@ function Contato() {
           <input type="email" placeholder="Seu melhor e-mail" required />
           <input type="text" placeholder="Assunto" required />
           <textarea placeholder="Mensagem" rows="5" required></textarea>
-          <button type="submit">Enviar</button>
+          <button type="submit" className="btn-primaryctt">Enviar</button>
         </form>
       </div>
     </section>
