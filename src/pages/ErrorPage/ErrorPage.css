@@ -1,0 +1,27 @@
+#error-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem;
+  margin: auto;
+  background-color: white;
+}
+
+#error-page h1 {
+  font-size: 5rem;
+}
+
+.error-text-sorry,
+.error-text {
+  color: rgb(101, 100, 100);
+}
+
+.error-text-sorry {
+  font-size: 1.5rem;
+}
+
+.main-error-img {
+  width: 60%;
+  min-height: 50vh;
+}

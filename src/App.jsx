@@ -13,7 +13,7 @@ import Contato from "./components/Contato/Contato.jsx"
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <Hero />
       <Funcionalidades />
       <Beneficios />
@@ -23,7 +23,7 @@ function App() {
       <DownloadApp />
       <Depoimentos />
       <Contato />
-      <Footer />
+      <Footer /> */}
     </>
   )
 }
