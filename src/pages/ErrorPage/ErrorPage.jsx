@@ -1,6 +1,6 @@
-import { useRouteError } from "react-router-dom";
-import "./ErrorPage.css"
-import errorImage from '../../assets/error-image.jpg'
+import { useRouteError, Link } from "react-router-dom";
+import "./ErrorPage.css";
+import errorImage from '../../assets/error-image.jpg';
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -11,10 +11,12 @@ export default function ErrorPage() {
       <h1 className="text-primary">Oops!</h1>
       <p className="error-text-sorry mb-6">Desculpe, ocorreu um erro inesperado.</p>
 
-      <button className="btn btn-primary mb-0 cursor-pointer
-">Valtar a página anterior</button>
+      <Link to="/" className="btn btn-primary mb-3">
+        Voltar à página inicial
+      </Link>
+
       <div className="main-error-img">
-        <img className="error-img" src={errorImage} alt="" />
+        <img className="error-img" src={errorImage} alt="Erro" />
       </div>
     </div>
   );
