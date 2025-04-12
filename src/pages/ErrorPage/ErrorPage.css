@@ -12,8 +12,7 @@
   font-size: 5rem;
 }
 
-.error-text-sorry,
-.error-text {
+.error-text-sorry {
   color: rgb(101, 100, 100);
 }
 
@@ -24,4 +23,31 @@
 .main-error-img {
   width: 60%;
   min-height: 50vh;
+}
+
+
+@media (max-width: 700px) {
+  .main-error-img {
+    min-width: 100%;
+  }
+}
+
+
+@media (max-width: 442px) {
+
+  #error-page {
+    padding: 7rem 2rem;
+
+  }
+
+  .error-text-sorry {
+    font-size: 1rem;
+
+  }
+
+  .main-error-img {
+    min-width: 100%;
+  }
+
+
 }
