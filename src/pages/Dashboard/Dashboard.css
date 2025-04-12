@@ -1,0 +1,33 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-container {
+  display: flex;
+}
+
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Footer: estilo do footer */
+.footer {
+  padding: 20px 0;
+  /* Garante que o footer sempre fique na base */
+  text-align: center;
+  position: sticky;
+  bottom: 0;
+}
+
+.footer-bar {
+  border-top: 2px solid #ccc;
+  margin-top: 10px;
+}
+
+.footer-rights {
+  font-size: 13px;
+  color: white;
+}
