@@ -17,6 +17,8 @@
   text-align: left;
 }
 
+
+
 /* Links */
 .links-title,
 .newsletter-title,
@@ -49,6 +51,11 @@
 .link-animado:hover::after {
   width: 100%;
 }
+
+.form-input {
+  max-width: 100%;
+}
+
 
 
 /* Icons Sociais */
@@ -140,6 +147,9 @@
   footer form button {
     width: 100%;
   }
+
+
+
 }
 
 /* Responsivo para celulares (576px para baixo) */

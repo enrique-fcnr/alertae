@@ -90,19 +90,19 @@ function Footer() {
             {/* Mostrar o formulário apenas se tipo for diferente de 'success' */}
             {tipo !== "success" && (
               <form
-                className="d-flex flex-column flex-lg-row justify-content-center"
+                className="d-flex flex-column flex-lg-row justify-content-start"
                 onSubmit={handleSubmit} // você pode ajustar conforme seu handler
               >
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
-                  className="form-control mb-2 mb-lg-0 me-lg-2 py-2 fs-6"
+                  className="form-input mb-2 mb-lg-0 me-lg-2 py-2 fs-6"
                   placeholder="Escreva o seu e-mail"
                   required
                 />
                 <button
-                  className="btn-footer btn py-2 fs-6 border border-2"
+                  className="btn-footer btn py-1 fs-6 border border-2"
                   type="submit"
                 >
                   Inscrever-se
