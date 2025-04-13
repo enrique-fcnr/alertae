@@ -21,6 +21,14 @@ html {
   background-color: #0c6be6;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+
 /* Remove decoração de links */
 a {
   text-decoration: none;

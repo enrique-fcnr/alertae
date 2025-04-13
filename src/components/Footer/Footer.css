@@ -75,6 +75,7 @@
 /* Footer Form */
 .newsletter-subtitle {
   letter-spacing: 1.5px;
+  text-align: start;
   color: #fff;
 
 }
@@ -90,7 +91,8 @@
   min-width: 12rem;
   background-color: #1a73e8;
   color: white;
-  transform: scale(1.08); /* aumenta 8% no hover */
+  transform: scale(1.08);
+  /* aumenta 8% no hover */
 }
 
 /* Footer - Rights */

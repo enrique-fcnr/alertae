@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Sidebar.css"
+import { Link } from 'react-router-dom'
 
 function Sidebar() {
   return (
@@ -32,21 +33,20 @@ function Sidebar() {
         <nav>
           <ul>
             <li>
-              <a href={`/contacts/1`}>Item 1</a>
+              <Link to="/dashboard/teste">Item 1</Link>
             </li>
             <li>
-              <a href={`/contacts/2`}>Item 2</a>
+              <Link to="/dashboard/teste2">Item 2</Link>
             </li>
             <li>
-              <a href={`/contacts/1`}>Item 3</a>
+              <Link to="/contacts/1">Item 3</Link>
             </li>
             <li>
-              <a href={`/contacts/2`}>Item 4</a>
+              <Link to="/contacts/2">Item 4</Link>
             </li>
             <li>
-              <a href={`/contacts/1`}>Item 5</a>
+              <Link to="/contacts/1">Item 5</Link>
             </li>
-
           </ul>
         </nav>
       </div>

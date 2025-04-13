@@ -2,7 +2,6 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/Sidebar/Sidebar'
-import Teste from '../../components/Teste/Teste'
 import "./Dashboard.css"
 
 function Dashboard() {
@@ -12,13 +11,15 @@ function Dashboard() {
       <div className="dashboard-layout" >
         <div className='dashboard-container'>
           <Sidebar />
-          <Outlet />
+          <div className='container p-5'>
+            <Outlet />
+          </div>
         </div>
         <div className="app-container" >
           <footer className="footer-dashboard m-0 footer p-0 text-center ">
-            <div className="container d-md-flex pt-4 flex-md-column">
+            <div className="container d-md-flex flex-md-column">
               <hr className="footer-bar mt-5" />
-              <p className="footer-rights">
+              <p className="footer-rights mb-4">
                 &copy; {new Date().getFullYear()} Alertaê - Todos os direitos reservados.
               </p>
             </div>

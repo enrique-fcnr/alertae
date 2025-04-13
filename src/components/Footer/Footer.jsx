@@ -82,8 +82,8 @@ function Footer() {
         {/* Newsletter */}
         <div className="row justify-content-center mt-4">
           <div className="col-lg-8 col-md-10 text-start">
-            <h6 className="fw-bold newsletter-title">NEWSLETTER</h6>
-            <p className="small newsletter-subtitle">
+            <h6 className="fw-bold newsletter-title mb-0">NEWSLETTER</h6>
+            <p className="small newsletter-subtitle mb-3  p-0">
               Inscreva-se e receba diariamente todas as atualizações por e-mail.
             </p>
 
