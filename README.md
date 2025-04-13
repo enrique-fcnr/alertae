@@ -11,11 +11,11 @@
 
 
 ## Sobre o Projeto
-O objetivo do nosso software é facilitar a vida dos pequenos produtores de leite, oferecendo uma solução completa e intuitiva para o controle e a gestão da produção. Sabemos que o dia a dia no campo é cheio de desafios, e que a rotina de monitorar a produção de leite, a saúde do rebanho e os dados financeiros pode ser complexa e demandar muito tempo. Pensando nisso, nosso software foi desenvolvido para automatizar e organizar esses processos, ajudando o produtor a ter um controle preciso sobre cada etapa.
+O AlertaE é um aplicativo desenvolvido com o objetivo de alertar de maneira amigável e eficaz a população sobre condições climáticas adversas, como chuvas fortes, altas temperaturas e outros problemas ambientais que podem representar riscos à saúde e segurança das pessoas.
 
-Com nossa plataforma, o produtor consegue registrar a quantidade diária de leite produzida, acompanhar a saúde dos animais, monitorar custos e analisar os dados financeiros da produção de maneira simples e eficiente. O software oferece relatórios detalhados que auxiliam na tomada de decisões, ajudando o produtor a identificar oportunidades para melhorar a produtividade e a qualidade do leite. Além disso, a interface foi pensada para ser fácil de usar, possibilitando que produtores de diferentes perfis e com diferentes níveis de familiaridade com tecnologia possam aproveitar ao máximo as funcionalidades do sistema.
+Com uma interface intuitiva e acessível, o app oferece notificações em tempo real sobre eventos climáticos extremos e fornece recomendações de segurança personalizadas, com base na localização do usuário. Além disso, o AlertaE tem como missão promover a conscientização ambiental, ajudando os cidadãos a tomarem decisões informadas para proteger sua saúde e bem-estar.
 
-Em resumo, o software visa aumentar a eficiência e a rentabilidade da produção, tornando o processo de gestão mais ágil e organizado, e permitindo que o produtor foque no que realmente importa: o crescimento sustentável e a qualidade da produção de leite.
+Com o AlertaE, a informação chega de forma clara e direta, garantindo que todos possam se preparar e agir com antecedência diante de situações climáticas perigosas.
 
 
 ## Cores e Fontes
@@ -81,7 +81,7 @@ VITE v4.0.0  ready in 300ms
   VITE  Server running at:
   > Local:    http://localhost:5173/
   > Network:  http://192.168.x.x:5173/
-
+```
   
 
 ## Contribuições:
