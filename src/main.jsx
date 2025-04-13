@@ -9,17 +9,26 @@ import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
 import Teste from './components/Teste/Teste.jsx';
 import Teste2 from './components/Teste2/Teste2.jsx';
-import Login from './pages/Login/Login.jsx';
+import LoginPage from './pages/LoginPage/LoginPage.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <Home />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "dashboard",
-    element: <Dashboard />,
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       {
         index: true,
@@ -36,6 +45,7 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 
 
 createRoot(document.getElementById('root')).render(

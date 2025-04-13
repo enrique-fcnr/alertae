@@ -1,39 +1,3 @@
-/* Formulário de Login */
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 60vh;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  /* Altura mínima de 100% da viewport */
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-  width: 625px;
-}
-
-.title-form {
-  color: #1a73e8;
-}
-
-.login-subtitle {
-  color: rgb(96, 95, 95);
-}
-
-.login-esqueci {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  width: 100%;
-  font-size: 0.9rem;
-}
-
 .login-esqueci p {
   font-size: 1rem;
 }
@@ -151,4 +115,12 @@ input::placeholder {
   .form-container p {
     text-align: center;
   }
+}
+
+.text-danger {
+  color: red;
+}
+
+.text-success {
+  color: green;
 }
