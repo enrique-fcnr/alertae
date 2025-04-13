@@ -9,11 +9,12 @@ import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
 import Teste from './components/Teste/Teste.jsx';
 import Teste2 from './components/Teste2/Teste2.jsx';
+import Login from './pages/Login/Login.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Login />,
     errorElement: <ErrorPage />,
   },
   {
