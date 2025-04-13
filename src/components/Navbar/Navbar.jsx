@@ -28,9 +28,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container-fluid">
-        <div className="box-img-logo">
+        <Link to={"/"} className="box-img-logo">
           <img src={LogoText} alt="Logo" />
-        </div>
+        </Link>
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
