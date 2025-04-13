@@ -4,7 +4,7 @@
   border-right: solid 1px #e3e3e3;
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
+  min-height: 76vh;
 }
 
 #sidebar>* {
@@ -131,4 +131,17 @@
 
 #sidebar nav a.pending {
   color: hsl(224, 98%, 58%);
+}
+
+@media (max-width: 807px) {
+  #sidebar {
+    min-height: 79vh;
+  }
+}
+
+
+@media (max-width: 516px) {
+  #sidebar {
+    min-height: 80vh;
+  }
 }

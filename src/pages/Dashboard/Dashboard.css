@@ -44,3 +44,11 @@
   font-size: 0.9rem;
   color: white;
 }
+
+
+@media (max-width: 800px) {
+
+  .footer-rights {
+    font-size: 0.8rem;
+  }
+}
