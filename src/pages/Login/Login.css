@@ -1,0 +1,154 @@
+/* Formulário de Login */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* Altura mínima de 100% da viewport */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 625px;
+}
+
+.title-form {
+  color: #1a73e8;
+}
+
+.login-subtitle {
+  color: rgb(96, 95, 95);
+}
+
+.login-esqueci {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.login-esqueci p {
+  font-size: 1rem;
+}
+
+.login-links {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+
+
+.form-container p {
+  margin-top: 7px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+input {
+  width: 400px;
+  height: 40px;
+  border: 1.5px solid #b4b5b7;
+  border-radius: 5px;
+  padding: .375rem .75rem;
+}
+
+textarea {
+  width: 400px;
+  border: 1.5px solid #b4b5b7;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  padding-left: 5px;
+}
+
+
+.form-btn {
+  width: 400px;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1a73e8;
+  color: white;
+}
+
+.form-btn,
+.form-group {
+  transition: transform 0.3s ease;
+}
+
+.form-btn:hover,
+.form-group:hover {
+  transform: scale(1.03);
+}
+
+.form-btn:hover {
+  background-color: #5279ae;
+}
+
+.form-group:nth-child(1) {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.form-group:nth-child(2),
+.form-group:nth-child(3),
+.form-group:nth-child(4) {
+  margin-top: 0px;
+  margin-bottom: 12px;
+}
+
+/* Para telas pequenas (sm) e médias (md) (LOGIN) */
+@media (max-width: 991px) {
+  .login-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .login-img {
+    width: 100%;
+    max-width: 150px;
+    /* Define uma largura máxima específica */
+    height: auto;
+    /* Ajusta a altura automaticamente para manter a proporção */
+    margin-bottom: 20px;
+    /* Espaçamento abaixo da imagem */
+  }
+
+  .login-img img {
+    width: 100%;
+    height: auto;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 90%;
+    height: 280px;
+  }
+
+  .divisor {
+    display: none;
+    /* Oculta a linha divisora no mobile */
+  }
+
+  input,
+  .form-btn {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .form-container p {
+    text-align: center;
+  }
+}
