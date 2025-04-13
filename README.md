@@ -5,9 +5,8 @@
 1. [Sobre o Projeto](#sobre-o-projeto)
 2. [Cores e Fontes](#cores-e-fontes)
 3. [Como usar localmente](#como-usar)
-4. [Erro: Failed building wheel for msgspec](#erro)
-5. [Contribuições](#contribuições)
-6. [Licença](#licença)
+4. [Contribuições](#contribuições)
+5. [Licença](#licença)
 
 
 ## Sobre o Projeto
