@@ -7,8 +7,16 @@ import DownloadApp from "../../components/DownloadApp/DownloadApp.jsx"
 import Depoimentos from "../../components/Depoimentos/Depoimentos.jsx"
 import Contato from "../../components/Contato/Contato.jsx"
 import Footer from "../../components/Footer/Footer.jsx"
+import { useGeolocation } from "../../hooks/useGeolocation.jsx"
+
 
 function Home() {
+
+  const { coordinates, error: locationError, geoLocation, isLoading: locationLoading } = useGeolocation();
+
+
+
+  console.log(coordinates)
   return (
     <>
       <Navbar />
