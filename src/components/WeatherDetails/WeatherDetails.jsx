@@ -23,37 +23,37 @@ function WeatherDetails({ data }) {
     {
       title: "Nascer do Sol",
       value: formatTime(sys.sunrise),
-      icon: <Sunrise className="text-warning me-2" />,
+      icon: <Sunrise size={30} className="text-warning me-2" />,
     },
     {
       title: "Pôr do Sol",
       value: formatTime(sys.sunset),
-      icon: <Sunset className="text-primary me-2" />,
+      icon: <Sunset size={30} className="text-primary me-2" />,
     },
     {
       title: "Direção dos Ventos",
       value: `${getWindDirection(wind.deg)} (${wind.deg}°)`,
-      icon: <Compass className="text-success me-2" />,
+      icon: <Compass size={30} className="text-success me-2" />,
     },
     {
       title: "Pressão Atmosférica",
       value: `${main.pressure} hPa`,
-      icon: <Gauge className="text-purple me-2" />,
+      icon: <Gauge size={30} className="text-purple me-2" />,
     },
   ];
 
   return (
-    <div className="card shadow-sm mb-4">
+    <div className="card shadow-sm mb-4 p-3 h-100">
       <div className="card-header">
         <h5 className="card-title mb-0">Detalhes do Tempo</h5>
       </div>
       <div className="card-body">
-        <div className="row">
+        <div className="row h-100">
           {details.map((detail) => (
-            <div key={detail.title} className="col-sm-6 mb-3">
+            <div key={detail.title} className="col-sm-6 mb-3 ">
               <div className="d-flex align-items-center border rounded p-3 h-100">
                 {detail.icon}
-                <div>
+                <div className="w-100">
                   <p className="mb-1 fw-medium">{detail.title}</p>
                   <p className="mb-0 text-muted small">{detail.value}</p>
                 </div>

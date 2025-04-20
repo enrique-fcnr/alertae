@@ -103,16 +103,15 @@ function DashboardPage1() {
           data={weatherQuery.data}
           locationName={locationName}
         />
-        <div className='row d-flex '>
-          <div className='col-12 col-md-6'>
+        <div className="row d-flex gap-3 gap-md-0">
+          <div className="col-12 col-md-6">
             <WeatherDetails data={weatherQuery.data} />
-
           </div>
-          <div className='col-12 col-md-6'>
+          <div className="col-12 col-md-6">
             <HourlyTemperature data={forecastQuery.data} />
           </div>
-
         </div>
+
 
       </div>
 
