@@ -25,7 +25,7 @@ function Sidebar() {
         <nav>
           <ul>
             <li>
-              <Link to="/dashboard/teste">Item 1</Link>
+              <Link to="/dashboard/teste">Temperaturas do dia</Link>
             </li>
             <li>
               <Link to="/dashboard/teste2">Item 2</Link>

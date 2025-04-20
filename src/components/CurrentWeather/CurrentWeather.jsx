@@ -30,34 +30,37 @@ function CurrentWeather({ data, locationName }) {
             {/* Temperatura principal */}
             <div className="d-flex align-items-center mb-4">
               <p className="display-1 fw-bold mb-0">{formatTemp(temp)}</p>
-              <div className="ms-3">
-                <p className="small mb-1">
-                  Feels like {formatTemp(feels_like)}
-                </p>
-                <div className="d-flex small fw-medium">
+              <div className=" d-flex flex-column justify-content-center">
+                <div className='d-flex align-items-center mb-1 justify-content-center'>
+                  <p className="small m-0  w-100">
+                    Sensação térmica
+                  </p>
+                  <span className='m-0 p-2 border border-3 rounded-2 border-primary'> {formatTemp(feels_like)}</span>
+                </div>
+                <div className="d-flex small  fw-medium justify-content-center ">
                   <span className="d-flex align-items-center text-primary me-3">
-                    <ArrowDown size={12} /> {formatTemp(temp_min)}
+                    <ArrowDown size={13} /> {formatTemp(temp_min)}
                   </span>
                   <span className="d-flex align-items-center text-danger">
-                    <ArrowUp size={12} /> {formatTemp(temp_max)}
+                    <ArrowUp size={13} /> {formatTemp(temp_max)}
                   </span>
                 </div>
               </div>
             </div>
 
             {/* Humidity & Wind */}
-            <div className="row g-4">
-              <div className="col-6 d-flex align-items-center">
-                <Droplets size={16} className="text-primary me-2" />
+            <div className="row g-0">
+              <div className="col-6 d-flex align-items-center justify-content-center">
+                <Droplets size={25} className="text-primary " />
                 <div>
-                  <p className="small mb-0 fw-medium">Humidity</p>
+                  <p className="small mb-0 fw-medium">Umidade</p>
                   <p className="small text-muted mb-0">{humidity}%</p>
                 </div>
               </div>
               <div className="col-6 d-flex align-items-center">
-                <Wind size={16} className="text-primary me-2" />
+                <Wind size={35} className="text-primary " />
                 <div>
-                  <p className="small mb-0 fw-medium">Wind Speed</p>
+                  <p className="small mb-0 fw-medium">Velocidade dos Ventos</p>
                   <p className="small text-muted mb-0">{speed} m/s</p>
                 </div>
               </div>

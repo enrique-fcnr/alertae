@@ -4,6 +4,7 @@ import { useGeolocation } from '../../hooks/useGeolocation'
 import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
 import { Alert, Button } from "@chakra-ui/react"
 import CurrentWeather from '../CurrentWeather/CurrentWeather'
+import HourlyTemperature from '../HourlyTemperature/HourlyTemperature';
 
 
 function DashboardPage1() {
@@ -13,7 +14,7 @@ function DashboardPage1() {
   const forecastQuery = useForecastQuery(coordinates)
 
 
-  console.log(locationQuery, weatherQuery.data)
+  console.log(forecastQuery.data)
 
 
   // Button for refetch
@@ -90,8 +91,8 @@ function DashboardPage1() {
 
   return (
     <>
-      <div>
-        <div className='d-flex justify-content-end mb-3'>
+      <div className='d-flex flex-column gap-4'>
+        <div className='d-flex justify-content-end mb-1'>
           <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>
             <i className="bi bi-arrow-clockwise"></i>
           </button>
@@ -101,6 +102,7 @@ function DashboardPage1() {
           data={weatherQuery.data}
           locationName={locationName}
         />
+        <HourlyTemperature data={forecastQuery.data} />
       </div>
 
 
