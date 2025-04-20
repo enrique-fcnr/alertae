@@ -24,7 +24,7 @@ function HourlyTemperature({ data }) {
 
   console.log(chartData)
   return (
-    <Card.Root className='text-light bg-light border-0 p-5' overflow="hidden">
+    <Card.Root className='text-light bg-light border-0 p-5 shadow-sm' overflow="hidden">
 
       <Card.Title className='fs-4' color="gray.600">Temperaturas do Dia</Card.Title>
       <Card.Body>

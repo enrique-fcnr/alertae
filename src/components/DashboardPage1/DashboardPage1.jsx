@@ -5,6 +5,7 @@ import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
 import { Alert, Button } from "@chakra-ui/react"
 import CurrentWeather from '../CurrentWeather/CurrentWeather'
 import HourlyTemperature from '../HourlyTemperature/HourlyTemperature';
+import WeatherDetails from '../WeatherDetails/WeatherDetails';
 
 
 function DashboardPage1() {
@@ -14,7 +15,7 @@ function DashboardPage1() {
   const forecastQuery = useForecastQuery(coordinates)
 
 
-  console.log(forecastQuery.data)
+  console.log(weatherQuery.data)
 
 
   // Button for refetch
@@ -102,7 +103,17 @@ function DashboardPage1() {
           data={weatherQuery.data}
           locationName={locationName}
         />
-        <HourlyTemperature data={forecastQuery.data} />
+        <div className='row d-flex '>
+          <div className='col-12 col-md-6'>
+            <WeatherDetails data={weatherQuery.data} />
+
+          </div>
+          <div className='col-12 col-md-6'>
+            <HourlyTemperature data={forecastQuery.data} />
+          </div>
+
+        </div>
+
       </div>
 
 
