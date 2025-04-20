@@ -3,7 +3,7 @@ import { useForecastQuery, useReverseGeocodeQuery, useWeatherQuery } from '@/hoo
 import { useGeolocation } from '../../hooks/useGeolocation'
 import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
 import { Alert, Button } from "@chakra-ui/react"
-
+import CurrentWeather from '../CurrentWeather/CurrentWeather'
 
 
 function DashboardPage1() {
@@ -13,7 +13,7 @@ function DashboardPage1() {
   const forecastQuery = useForecastQuery(coordinates)
 
 
-  console.log(coordinates, error, isLoading, locationQuery, weatherQuery.data)
+  console.log(locationQuery, weatherQuery.data)
 
 
   // Button for refetch
@@ -90,11 +90,17 @@ function DashboardPage1() {
 
   return (
     <>
-      <div className='d-flex w-full justify-content-between align-items-start pointer'>
-        <p>Teste 1 - Conteúdo referente ao primeiro link da sidebar</p>
-        <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>
-          <i className="bi bi-arrow-clockwise"></i>
-        </button>
+      <div>
+        <div className='d-flex justify-content-end mb-3'>
+          <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>
+            <i className="bi bi-arrow-clockwise"></i>
+          </button>
+        </div>
+
+        <CurrentWeather
+          data={weatherQuery.data}
+          locationName={locationName}
+        />
       </div>
 
 

@@ -4,6 +4,7 @@ export const API_CONFIG = {
   API_KEY: import.meta.env.VITE_WEATHER_API_KEY,
   DEFAULT_PARAMS: {
     units: "metric",
+    lang: "pt",
     appid: import.meta.env.VITE_WEATHER_API_KEY
   }
 }

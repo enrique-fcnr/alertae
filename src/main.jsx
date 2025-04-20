@@ -7,7 +7,6 @@ import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import Home from './pages/Home/Home.jsx';
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
-import Teste from './components/Teste/Teste.jsx';
 import Teste2 from './components/Teste2/Teste2.jsx';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';

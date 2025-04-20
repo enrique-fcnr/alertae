@@ -27,6 +27,7 @@ class WeatherAPI {
       lat: lat.toString(),
       lon: lon.toString(),
       units: "metric",
+      lang: "pt"
     });
     return this.fetchData(url);
   }
@@ -37,6 +38,7 @@ class WeatherAPI {
       lat: lat.toString(),
       lon: lon.toString(),
       units: "metric",
+      lang: "pt"
     });
     return this.fetchData(url);
   }

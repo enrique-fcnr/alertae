@@ -14,7 +14,7 @@ export function useGeolocation() {
     if (!navigator.geolocation) {
       setLocationData({
         coordinates: null,
-        error: "Geolocation is not supported by your browser",
+        error: "A geolocalização não é suportada por esse browser.",
         isLoading: false,
       });
       return;
