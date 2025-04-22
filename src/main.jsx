@@ -2,7 +2,6 @@ import './styles/global.css';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './App.jsx'
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import Home from './pages/Home/Home.jsx';
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
@@ -14,6 +13,9 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Provider } from "@/components/ui/provider"
 import DashboardPage1 from './components/DashboardPage1/DashboardPage1';
+import DashboardPage3 from './components/DashboardPage3/DashboardPage3';
+import 'font-awesome/css/font-awesome.min.css';
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -56,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "teste2",
         element: <Teste2 />,
+      },
+      {
+        path: "teste3",
+        element: <DashboardPage3 />,
       },
     ],
   },

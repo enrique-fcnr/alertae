@@ -15,7 +15,7 @@ function DashboardPage1() {
   const forecastQuery = useForecastQuery(coordinates)
 
 
-  console.log(weatherQuery.data)
+  console.log(locationQuery.data)
 
 
   // Button for refetch
@@ -92,8 +92,8 @@ function DashboardPage1() {
 
   return (
     <>
-      <div className='d-flex flex-column gap-4'>
-        <div className='d-flex justify-content-end mb-1'>
+      <div className='d-flex flex-column gap-3'>
+        <div className='d-flex justify-content-end mb-0'>
           <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>
             <i className="bi bi-arrow-clockwise"></i>
           </button>

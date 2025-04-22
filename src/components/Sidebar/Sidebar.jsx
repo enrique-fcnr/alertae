@@ -25,13 +25,13 @@ function Sidebar() {
         <nav>
           <ul>
             <li>
-              <Link to="/dashboard/teste">Temperaturas do dia</Link>
+              <Link to="/dashboard/teste">Tempo do dia</Link>
             </li>
             <li>
               <Link to="/dashboard/teste2">Item 2</Link>
             </li>
             <li>
-              <Link to="/contacts/1">Item 3</Link>
+              <Link to="/contacts/1">Mapa do tempo</Link>
             </li>
             <li>
               <Link to="/contacts/2">Item 4</Link>
