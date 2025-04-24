@@ -6,6 +6,15 @@
   font-family: 'Poppins', sans-serif;
 }
 
+input, textarea, select {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #ccc !important;
+  transition: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
 
 * {
   margin: 0;
