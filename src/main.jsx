@@ -13,6 +13,7 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Provider } from "@/components/ui/provider"
 import DashboardPage1 from './components/DashboardPage1/DashboardPage1';
+import DashboardPage2 from './components/DashboardPage2/DashboardPage2'
 import DashboardPage3 from './components/DashboardPage3/DashboardPage3';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: "teste2",
-        element: <Teste2 />,
+        element: <DashboardPage2 />,
       },
       {
         path: "teste3",

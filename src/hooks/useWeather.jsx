@@ -24,6 +24,7 @@ export function useForecastQuery(coordinates) {
   });
 }
 
+
 export function useReverseGeocodeQuery(coordinates) {
   return useQuery({
     queryKey: WEATHER_KEYS.location(coordinates || { lat: 0, lon: 0 }),

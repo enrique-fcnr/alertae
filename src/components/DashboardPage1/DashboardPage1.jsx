@@ -15,7 +15,7 @@ function DashboardPage1() {
   const forecastQuery = useForecastQuery(coordinates)
 
 
-  console.log(locationQuery.data)
+  console.log(forecastQuery.data)
 
 
   // Button for refetch
@@ -31,6 +31,8 @@ function DashboardPage1() {
   const locationName = locationQuery.data?.[0];
   //console.log(locationQuery.data[0].name)
 
+
+  // Se houver error:
   if (weatherQuery.error || forecastQuery.error) {
     return (
       <Alert.Root status="error">

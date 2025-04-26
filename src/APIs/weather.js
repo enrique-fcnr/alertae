@@ -43,6 +43,11 @@ class WeatherAPI {
     return this.fetchData(url);
   }
 
+
+
+  //api.open-meteo.com/v1/forecast?latitude=38.66&longitude=-9.15&daily=temperature_2m_max,temperature_2m_min&timezone=auto
+
+
   // É uma função assíncrona que tem como objetivo de fazer uma requisição para obter o nome de local(como uma cidade ou região) a partir das coordenadas de latitude e logitude. Este processo é chamado de geocodificação reversa, e é o oposto da geocodificação (que converte um endereço ou nome de local em coordenadas).
   async reverseGeocode({ lat, lon }) {
     const url = this.createUrl(`${API_CONFIG.GEO}/reverse`, {
