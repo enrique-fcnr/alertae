@@ -93,49 +93,49 @@ const DashboardPage3 = () => {
 
           {/* Calor intenso */}
           <li>
-            <FontAwesomeIcon icon={faSun} style={{ color: 'orange' }} />
+            <FontAwesomeIcon icon={faSun} style={{ color: 'orange', marginRight: '10px' }} />
             Calor intenso (<span>&gt; 35°C</span>)
           </li>
 
           {/* Chuva intensa */}
           <li>
-            <FontAwesomeIcon icon={faCloudShowersHeavy} style={{ color: 'blue' }} />
+            <FontAwesomeIcon icon={faCloudShowersHeavy} style={{ color: 'blue', marginRight: '10px' }} />
             Chuva intensa (<span>&gt; 10 mm/h</span>)
           </li>
 
           {/* Ventos fortes */}
           <li>
-            <FontAwesomeIcon icon={faWind} style={{ color: '#C5D3E8' }} />
+            <FontAwesomeIcon icon={faWind} style={{ color: '#C5D3E8', marginRight: '10px' }} />
             Ventos fortes (<span>&gt; 10 m/s</span>)
           </li>
 
           {/* Frio intenso */}
           <li>
-            <FontAwesomeIcon icon={faSnowflake} style={{ color: 'lightblue' }} />
+            <FontAwesomeIcon icon={faSnowflake} style={{ color: 'lightblue', marginRight: '10px' }} />
             Frio intenso (<span>&lt; 5°C</span>)
           </li>
 
           {/* Rajadas de vento */}
           <li>
-            <FontAwesomeIcon icon={faTornado} style={{ color: 'darkgray' }} />
+            <FontAwesomeIcon icon={faTornado} style={{ color: 'darkgray', marginRight: '10px' }} />
             Rajadas de vento (<span>&gt; 15 m/s</span>)
           </li>
 
           {/* Ar seco */}
           <li>
-            <FontAwesomeIcon icon={faTint} style={{ color: '#60B5FF' }} />
+            <FontAwesomeIcon icon={faTint} style={{ color: '#60B5FF', marginRight: '10px' }} />
             Ar seco (<span>&lt; 30%</span>)
           </li>
 
           {/* Baixa pressão */}
           <li>
-            <FontAwesomeIcon icon={faTachometerAlt} style={{ color: 'green' }} />
+            <FontAwesomeIcon icon={faTachometerAlt} style={{ color: 'green', marginRight: '10px' }} />
             Pressão atmosférica baixa (<span>&lt; 1000 hPa</span>)
           </li>
 
           {/* Neblina */}
           <li>
-            <FontAwesomeIcon icon={faSmog} style={{ color: 'gray' }} />
+            <FontAwesomeIcon icon={faSmog} style={{ color: 'gray', marginRight: '10px' }} />
             Neblina (<span>&lt; 1000 m</span>)
           </li>
 

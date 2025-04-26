@@ -71,6 +71,10 @@
   gap: 7px;
 }
 
+.legend-list li {
+  font-size: 0.87rem;
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -106,8 +110,8 @@
     flex-direction: row;
     width: 100%;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: -37px;
+    left: 0;
     background: white;
     padding: 10px;
     border-radius: 8px;

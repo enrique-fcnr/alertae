@@ -14,26 +14,13 @@ function Sidebar() {
       </div>
 
       <div id="sidebar">
-        <form id="search-form" role="search">
-          <input
-            className="sidebar-input"
-            id="q"
-            aria-label="Search contacts"
-            placeholder="Search"
-            type="search"
-            name="q"
-          />
-        </form>
 
-        <form method="post">
-          <button className="btn-sidebar" type="submit">New</button>
-        </form>
 
         <nav className="sidebar-nav">
           <ul>
             <li><Link to="/dashboard/teste"><FaSun /> Tempo do dia</Link></li>
             <li><Link to="/dashboard/teste2"><FaCloudSunRain /> Previsões</Link></li>
-            <li><Link to="/contacts/1"><FaMapMarkedAlt /> Mapa do tempo</Link></li>
+            <li><Link to="/dashboard/teste3"><FaMapMarkedAlt /> Mapa do tempo</Link></li>
             <li><Link to="/contacts/2"><FaChartLine /> Estatísticas</Link></li>
             <li><Link to="/contacts/3"><FaBars /> Outros dados</Link></li>
           </ul>
