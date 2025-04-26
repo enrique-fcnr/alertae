@@ -1,12 +1,12 @@
 import { format } from "date-fns";
 import { Sunrise, Sunset, Compass, Gauge } from "lucide-react";
-
+import CardDetails from '../CardDetails/CardDetails'
 
 
 function WeatherDetails({ data }) {
   const { wind, main, sys } = data;
-
   console.log(data)
+
 
   const formatTime = (timestamp) => {
     return format(new Date(timestamp * 1000), "h:mm a");
@@ -50,15 +50,7 @@ function WeatherDetails({ data }) {
       <div className="card-body">
         <div className="row h-100">
           {details.map((detail) => (
-            <div key={detail.title} className="col-sm-6 mb-3 ">
-              <div className="d-flex align-items-center border rounded p-3 h-100">
-                {detail.icon}
-                <div className="w-100">
-                  <p className="mb-1 fw-medium">{detail.title}</p>
-                  <p className="mb-0 text-muted small">{detail.value}</p>
-                </div>
-              </div>
-            </div>
+            <CardDetails key={detail.title} data={detail} />
           ))}
         </div>
       </div>

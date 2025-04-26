@@ -1,5 +1,7 @@
 
 import L from 'leaflet';
+import { faGlobe, faSun, faCloudShowersHeavy, faWind, faTint, faTachometerAlt, faSnowflake, faSmog, faTornado } from '@fortawesome/free-solid-svg-icons';
+
 
 const cities = [
   { name: 'São Paulo', lat: -23.5505, lon: -46.6333 },
@@ -71,6 +73,55 @@ const getIconWithTemp = ({ temp, rain, wind }) => {
   });
 };
 
+const legendaMeteorologica = [
+  {
+    titulo: "Calor intenso",
+    value: "Temperatura acima de 35°C, indicando risco de insolação, desidratação e desconforto extremo. (temp > 35°C)",
+    icone: faSun,
+    color: 'orange'
+  },
+  {
+    titulo: "Chuva intensa",
+    value: "Chuva superior a 10 mm/h, indicando risco de alagamentos, enchentes e baixa visibilidade. (chuva > 10 mm/h)",
+    icone: faCloudShowersHeavy,
+    color: 'blue'
+  },
+  {
+    titulo: "Ventos fortes",
+    value: "Velocidade do vento acima de 10 m/s (~36 km/h), representando risco para navegação, estruturas e atividades externas. (vento > 10 m/s)",
+    icone: faWind,
+    color: '#C5D3E8'
+  },
+  {
+    titulo: "Frio intenso",
+    value: "Temperatura inferior a 5°C, trazendo risco de hipotermia e formação de geadas. (temp < 5°C)",
+    icone: faSnowflake,
+    color: 'lightblue'
+  },
+  {
+    titulo: "Rajadas de vento",
+    value: "Rajadas acima de 15 m/s (~54 km/h), podendo causar quedas de árvores, postes e danos em estruturas. (rajada > 15 m/s)",
+    icone: faTornado,
+    color: 'darkgray'
+  },
+  {
+    titulo: "Ar seco",
+    value: "Umidade relativa do ar abaixo de 30%, aumentando risco de incêndios, alergias e problemas respiratórios. (umidade < 30%)",
+    icone: faTint,
+    color: '#60B5FF'
+  },
+  {
+    titulo: "Pressão atmosférica baixa",
+    value: "Pressão abaixo de 1000 hPa, podendo indicar frentes frias, tempestades ou ciclones. (pressão < 1000 hPa)",
+    icone: faGlobe,
+    color: 'green'
+  },
+  {
+    titulo: "Neblina",
+    value: "Visibilidade abaixo de 1000 metros, trazendo perigo para motoristas, portos e aeroportos. (visibilidade < 1000 m)",
+    icone: faSmog,
+    color: 'gray'
+  },
+];
 
-
-export { filterConditions, cities, getIconWithTemp }
+export { filterConditions, cities, getIconWithTemp, legendaMeteorologica }

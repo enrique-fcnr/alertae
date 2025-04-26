@@ -23,14 +23,13 @@ function HourlyTemperature({ data }) {
       feels_like: Math.round(item.main.feels_like),
     }));
 
-  console.log(chartData)
   return (
     <Card.Root className='text-light bg-light border-0 p-5 shadow-sm' overflow="hidden">
 
       <Card.Title className='fs-4' color="gray.600">Temperaturas do Dia</Card.Title>
       <Card.Body>
 
-        <Card.Description className='p-0'>
+        <div className='p-0'>
           <div className="w-100 " style={{ height: "270px" }}>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={chartData} >
@@ -105,7 +104,7 @@ function HourlyTemperature({ data }) {
             </ResponsiveContainer>
           </div>
 
-        </Card.Description>
+        </div>
 
       </Card.Body>
 

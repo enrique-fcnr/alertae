@@ -91,11 +91,17 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
+    width: 60%;
     flex-direction: column;
     border-right: none;
     border-bottom: 1px solid #eee;
     padding: 10px;
+  }
+
+
+  .sidebar-header {
+    gap: 0px;
+
   }
 
   .sidebar-nav {
