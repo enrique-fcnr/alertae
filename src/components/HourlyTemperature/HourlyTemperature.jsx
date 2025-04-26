@@ -8,6 +8,7 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  Legend
 } from "recharts";
 
 
@@ -36,14 +37,15 @@ function HourlyTemperature({ data }) {
                 <XAxis
                   dataKey="time"
                   stroke="#888888"
-                  fontSize={12}
+                  fontSize={11}
                   tickLine={false}
                   axisLine={false}
                   dy={15}
+
                 />
                 <YAxis
                   stroke="#888888"
-                  fontSize={12}
+                  fontSize={11}
                   tickLine={false}
                   axisLine={false}
                   tickFormatter={(value) => `${value}°`}
@@ -78,12 +80,16 @@ function HourlyTemperature({ data }) {
                     return null;
                   }}
                 />
+
+                <Legend />
                 <Line
                   type="monotone"
                   dataKey="temp"
                   stroke="#2563eb"
                   strokeWidth={2}
                   dot={true}
+                  name='Temperatura'
+
                 />
                 <Line
                   type="monotone"
@@ -92,8 +98,10 @@ function HourlyTemperature({ data }) {
                   strokeWidth={2}
                   dot={false}
                   strokeDasharray="5 5"
+                  name='Sensação térmica'
                 />
               </LineChart>
+
             </ResponsiveContainer>
           </div>
 

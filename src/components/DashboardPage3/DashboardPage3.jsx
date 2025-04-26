@@ -1,11 +1,10 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
 import { useEffect, useState } from 'react';
 import './DashboardPage3.css';
 import { weatherAPI } from '../../APIs/weather';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faCloudShowersHeavy, faWind, faTint, faTachometerAlt, faSnowflake, faSmog, faTornado } from '@fortawesome/free-solid-svg-icons';
-import cities from '../../../list-city'
+import { faGlobe, faSun, faCloudShowersHeavy, faWind, faTint, faTachometerAlt, faSnowflake, faSmog, faTornado } from '@fortawesome/free-solid-svg-icons';
+import { cities, getIconWithTemp, filterConditions } from '../../../data-dashboard-page3'
 
 
 const DashboardPage3 = () => {
@@ -34,171 +33,146 @@ const DashboardPage3 = () => {
     fetchAllWeather();
   }, []);
 
-  const getIconWithTemp = ({ temp, rain, wind }) => {
-    let url = 'https://cdn-icons-png.flaticon.com/512/1163/1163657.png';
-    if (temp > 35) url = 'https://cdn-icons-png.flaticon.com/512/869/869869.png';
-    else if (rain > 10) url = 'https://cdn-icons-png.flaticon.com/512/1163/1163624.png';
-    else if (wind > 10) url = 'https://cdn-icons-png.flaticon.com/512/4834/4834556.png';
 
-    return L.divIcon({
-      html: `
-        <div style="text-align: center;">
-          <img src="${url}" style="width: 32px; height: 32px;" />
-          <div style="color: #273F4F; font-size: 12px; font-weight: bold; margin-top: -4px; background-color: white;">
-            ${Math.round(temp)}°C
-          </div>
-        </div>
-      `,
-      className: 'custom-div-icon',
-      iconSize: [32, 42],
-      iconAnchor: [16, 42],
-      popupAnchor: [0, -42]
-    });
-  };
 
-  const filterConditions = (data) => {
-    const temp = data.main?.temp ?? 0;
-    const rain = data.rain?.['1h'] || 0;
-    const wind = data.wind?.speed ?? 0;
-    const gust = data.wind?.gust ?? 0;
-    const humidity = data.main?.humidity ?? 0;
-    const pressure = data.main?.pressure ?? 1013;
-    const visibility = data.visibility ?? 10000;
-
-    if (filter === 'all') return true;
-    if (filter === 'heat' && temp > 35) return true;
-    if (filter === 'rain' && rain > 10) return true;
-    if (filter === 'wind' && wind > 10) return true;
-    if (filter === 'cold' && temp < 5) return true;
-    if (filter === 'gust' && gust > 15) return true;
-    if (filter === 'dry' && humidity < 30) return true;
-    if (filter === 'lowPressure' && pressure < 1000) return true;
-    if (filter === 'fog' && visibility < 1000) return true;
-    return false;
-  };
 
   return (
-    <div style={{ height: '100vh', position: 'relative' }}>
+    <div className='container-map'>
+      {/* Buttons */}
       <div className="filter-buttons">
         {/* Todos */}
         <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
-          <FontAwesomeIcon icon={faSun} style={{ marginRight: 8 }} /> Todos
+          <FontAwesomeIcon className="icon-tempo" icon={faGlobe} />  <span className="btn-tempo">Todos</span>
         </button>
 
         {/* Calor */}
         <button className={filter === 'heat' ? 'active' : ''} onClick={() => setFilter('heat')}>
-          <FontAwesomeIcon icon={faSun} style={{ marginRight: 8, color: 'orange' }} /> Calor
+          <FontAwesomeIcon className="icon-tempo" icon={faSun} style={{ color: 'orange' }} />  <span className="btn-tempo">Calor</span>
         </button>
 
         {/* Chuva */}
         <button className={filter === 'rain' ? 'active' : ''} onClick={() => setFilter('rain')}>
-          <FontAwesomeIcon icon={faCloudShowersHeavy} style={{ marginRight: 8, color: 'blue' }} /> Chuva
+          <FontAwesomeIcon className="icon-tempo" icon={faCloudShowersHeavy} style={{ color: 'blue' }} />  <span className="btn-tempo">Chuva</span>
         </button>
 
         {/* Vento */}
         <button className={filter === 'wind' ? 'active' : ''} onClick={() => setFilter('wind')}>
-          <FontAwesomeIcon icon={faWind} style={{ marginRight: 8, color: '#C5D3E8' }} /> Vento
+          <FontAwesomeIcon className="icon-tempo" icon={faWind} style={{ color: '#C5D3E8' }} />  <span className="btn-tempo">Vento</span>
         </button>
 
         {/* Frio */}
         <button className={filter === 'cold' ? 'active' : ''} onClick={() => setFilter('cold')}>
-          <FontAwesomeIcon icon={faSnowflake} style={{ marginRight: 8, color: 'lightblue' }} /> Frio
+          <FontAwesomeIcon className="icon-tempo" icon={faSnowflake} style={{ color: 'lightblue' }} />  <span className="btn-tempo">Frio</span>
         </button>
 
         {/* Rajadas */}
         <button className={filter === 'gust' ? 'active' : ''} onClick={() => setFilter('gust')}>
-          <FontAwesomeIcon icon={faTornado} style={{ marginRight: 8, color: 'darkgray' }} /> Rajadas
+          <FontAwesomeIcon className="icon-tempo" icon={faTornado} style={{ color: 'darkgray' }} />  <span className="btn-tempo">Rajadas</span>
         </button>
 
         {/* Ar seco */}
         <button className={filter === 'dry' ? 'active' : ''} onClick={() => setFilter('dry')}>
-          <FontAwesomeIcon icon={faTint} style={{ marginRight: 8, color: '#60B5FF' }} /> Ar seco
+          <FontAwesomeIcon className="icon-tempo" icon={faTint} style={{ color: '#60B5FF' }} />  <span className="btn-tempo">Ar seco</span>
         </button>
 
         {/* Baixa Pressão */}
         <button className={filter === 'lowPressure' ? 'active' : ''} onClick={() => setFilter('lowPressure')}>
-          <FontAwesomeIcon icon={faTachometerAlt} style={{ marginRight: 8, color: 'green' }} /> Baixa Pressão
+          <FontAwesomeIcon className="icon-tempo" icon={faTachometerAlt} style={{ color: 'green' }} />  <span className="btn-tempo">Baixa Pressão</span>
         </button>
 
         {/* Neblina */}
         <button className={filter === 'fog' ? 'active' : ''} onClick={() => setFilter('fog')}>
-          <FontAwesomeIcon icon={faSmog} style={{ marginRight: 8, color: 'gray' }} /> Neblina
+          <FontAwesomeIcon className="icon-tempo" icon={faSmog} style={{ color: 'gray' }} />  <span className="btn-tempo">Neblina</span>
         </button>
       </div>
 
       {/* Legendas */}
       <div className="map-legend">
         <strong>Legenda:</strong>
-        <ul style={{ listStyle: 'none', padding: 0, marginTop: '6px', display: 'flex', flexDirection: 'column', gap: '7px', marginBottom: '3px' }}>
-          {/* Temperatura (Calor intenso) */}
+        <ul className='legend-list'>
+
+          {/* Calor intenso */}
           <li>
-            <FontAwesomeIcon
-              icon={faSun}
-              style={{ width: 20, verticalAlign: 'middle', marginRight: 8, color: 'orange' }}
-            />
+            <FontAwesomeIcon icon={faSun} style={{ color: 'orange' }} />
             Calor intenso (<span>&gt; 35°C</span>)
           </li>
 
-          {/* Chuva (Chuva intensa) */}
+          {/* Chuva intensa */}
           <li>
-            <FontAwesomeIcon
-              icon={faCloudShowersHeavy}
-              style={{ width: 20, verticalAlign: 'middle', marginRight: 8, color: 'blue' }}
-            />
+            <FontAwesomeIcon icon={faCloudShowersHeavy} style={{ color: 'blue' }} />
             Chuva intensa (<span>&gt; 10 mm/h</span>)
           </li>
 
-          {/* Vento (Ventos fortes) */}
+          {/* Ventos fortes */}
           <li>
-            <FontAwesomeIcon
-              icon={faWind}
-              style={{ width: 20, verticalAlign: 'middle', marginRight: 8, color: 'gray' }}
-            />
+            <FontAwesomeIcon icon={faWind} style={{ color: '#C5D3E8' }} />
             Ventos fortes (<span>&gt; 10 m/s</span>)
           </li>
 
-          {/* Umidade (Umidade alta) */}
+          {/* Frio intenso */}
           <li>
-            <FontAwesomeIcon
-              icon={faTint}
-              style={{ width: 20, verticalAlign: 'middle', marginRight: 8, color: 'blue' }}
-            />
-            Umidade alta (<span>&gt; 80%</span>)
+            <FontAwesomeIcon icon={faSnowflake} style={{ color: 'lightblue' }} />
+            Frio intenso (<span>&lt; 5°C</span>)
           </li>
 
-          {/* Pressão atmosférica (Pressão baixa) */}
+          {/* Rajadas de vento */}
           <li>
-            <FontAwesomeIcon
-              icon={faTachometerAlt}
-              style={{ width: 20, verticalAlign: 'middle', marginRight: 8, color: 'green' }}
-            />
-            Pressão atmosférica baixa (<span>&lt; 1013 hPa</span>)
+            <FontAwesomeIcon icon={faTornado} style={{ color: 'darkgray' }} />
+            Rajadas de vento (<span>&gt; 15 m/s</span>)
           </li>
+
+          {/* Ar seco */}
+          <li>
+            <FontAwesomeIcon icon={faTint} style={{ color: '#60B5FF' }} />
+            Ar seco (<span>&lt; 30%</span>)
+          </li>
+
+          {/* Baixa pressão */}
+          <li>
+            <FontAwesomeIcon icon={faTachometerAlt} style={{ color: 'green' }} />
+            Pressão atmosférica baixa (<span>&lt; 1000 hPa</span>)
+          </li>
+
+          {/* Neblina */}
+          <li>
+            <FontAwesomeIcon icon={faSmog} style={{ color: 'gray' }} />
+            Neblina (<span>&lt; 1000 m</span>)
+          </li>
+
         </ul>
       </div>
-      <MapContainer className='custom-shadow p-3 mb-5 bg-white rounded' center={[-23.5, -46.3]} zoom={9.3} style={{ height: '80%', width: '100%' }}>
-        <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
-        {weatherData.filter(filterConditions).map((data, i) => {
-          const temp = data.main?.temp ?? 0;
-          const rain = data.rain?.['1h'] || 0;
-          const wind = data.wind?.speed ?? 0;
 
-          return (
-            <Marker
-              key={i}
-              position={[data.coord?.lat, data.coord?.lon]}
-              icon={getIconWithTemp({ temp, rain, wind })}
-            >
-              <Popup>
-                <strong>{data.name}</strong><br />
-                🌡️ Temperatura: {temp}°C<br />
-                🌧️ Chuva: {rain} mm/h<br />
-                💨 Vento: {wind} m/s
-              </Popup>
-            </Marker>
-          );
-        })}
-      </MapContainer>
+      {/* Mapa */}
+      <div className="w-100" style={{ height: '70vh' }}>
+        <MapContainer
+          className="shadow bg-white rounded h-100"
+          center={[-23.5, -46.3]}
+          zoom={9.3}
+          style={{ width: '100%' }}
+        >
+          <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
+          {weatherData.filter(filterConditions).map((data, i) => {
+            const temp = data.main?.temp ?? 0;
+            const rain = data.rain?.['1h'] || 0;
+            const wind = data.wind?.speed ?? 0;
+
+            return (
+              <Marker
+                key={i}
+                position={[data.coord?.lat, data.coord?.lon]}
+                icon={getIconWithTemp({ temp, rain, wind })}
+              >
+                <Popup>
+                  <strong>{data.name}</strong><br />
+                  🌡️ Temperatura: {temp}°C<br />
+                  🌧️ Chuva: {rain} mm/h<br />
+                  💨 Vento: {wind} m/s
+                </Popup>
+              </Marker>
+            );
+          })}
+        </MapContainer>
+      </div>
     </div>
   );
 };

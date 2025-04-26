@@ -1,15 +1,21 @@
+.container-map {
+  height: 100vh;
+  position: relative;
+}
+
+
 .filter-buttons {
   position: absolute;
   top: 10px;
-  left: 60px;
+  left: 56px;
   background: white;
   border-radius: 10px;
-  padding: 12px;
+  padding: 11px;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 7px;
 }
 
 .filter-buttons button {
@@ -20,6 +26,8 @@
   cursor: pointer;
   background: #f1f1f1;
   transition: background 0.2s;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .filter-buttons button:hover {
@@ -33,19 +41,97 @@
 
 .map-legend {
   position: absolute;
-  width: 35%;
-  bottom: 176px;
-  right: 12px;
+  width: 30%;
+  bottom: 250px;
+  left: 7px;
   background: white;
   padding: 10px;
   border-radius: 8px;
   font-size: 14px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+
 }
 
 .map-legend img {
   width: 20px;
   vertical-align: middle;
   margin-right: 6px;
+}
+
+
+
+.legend-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 6px;
+  margin-bottom: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+  .filter-buttons {
+    position: absolute;
+    top: 85px;
+    left: 8px;
+    background: white;
+    border-radius: 10px;
+    padding: 7px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 14%;
+  }
+
+  .filter-buttons button {
+    font-size: 10px;
+    width: 100%;
+    padding: 8px;
+
+  }
+
+
+  .btn-tempo {
+    display: none;
+  }
+
+  .map-legend {
+    flex-direction: row;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .legend-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 20px;
+    /* espaço entre linhas e colunas */
+  }
+
+  .div-teste {
+    width: 100%;
+    height: 400px;
+    background-color: blueviolet;
+  }
+
+  .icon-tempo {
+    width: 100%;
+    height: 20px;
+  }
+
 }
