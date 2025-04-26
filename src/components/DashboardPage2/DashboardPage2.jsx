@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
 import { format } from 'date-fns';
+import { pt } from 'date-fns/locale';
 
 import { useForecastQuery, useReverseGeocodeQuery, useWeatherQuery } from '@/hooks/useWeather';
 
@@ -107,19 +108,24 @@ const DashboardPage2 = () => {
       </div>
 
       {/* Caixa com a previsão do tempo */}
-      <div className="bg-white p-5 rounded-lg shadow-lg mx-auto" style={{ maxWidth: '100%', marginTop: '2rem' }}>
-        <div className="d-flex justify-content-between align-items-center">
+      <div className="card shadow-sm my-3 p-3 h-100">
+        <div className="card-header">
+          <h5 className="card-title mb-0">Detalhes do Tempo</h5>
+        </div>
+
+        <div className="d-flex p-4 justify-content-between align-items-center">
           {forecastDates.map((date, index) => {
             const dayForecast = forecastByDay[date][0]; // Pega o primeiro item do dia
             return (
               <div key={index} className="text-center" style={{ minWidth: '60px' }}>
                 {/* Dia da Semana */}
                 <div className="font-size-small">
-                  <strong>{format(new Date(date), 'EEE')}</strong>
+                  <strong>{format(new Date(date), 'EEE', { locale: pt })}</strong> {/* Agora em português */}
                   <div className="text-muted" style={{ fontSize: '0.75rem' }}>
                     {format(new Date(date), 'dd/MM')}
                   </div>
                 </div>
+
 
                 {/* Ícone do Clima */}
                 <img
@@ -143,6 +149,7 @@ const DashboardPage2 = () => {
         </div>
       </div>
     </div>
+
   );
 };
 
