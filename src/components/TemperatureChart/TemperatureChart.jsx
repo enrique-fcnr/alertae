@@ -1,0 +1,71 @@
+import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Legend } from 'recharts';
+import { weatherData } from '../../../weatherData';
+
+function TemperatureChart() {
+  return (
+    <div className="bg-white p-3 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-500">
+      <h2 style={{ color: 'gray' }} className="text-lg font-semibold mb-4 text-center text-indigo-600">Temperatura Média Mensal e Sensação Térmica</h2>
+      <ResponsiveContainer width="100%" height={400}>
+        <LineChart
+          data={weatherData.monthlyTemperature}
+          margin={{ top: 10, right: 30, left: 0, bottom: 20 }}
+        >
+          <CartesianGrid strokeDasharray="5 5" stroke="#e0e0e0" />
+
+          <XAxis
+            dataKey="month"
+            tick={{ fontSize: 50 }}
+            axisLine={{ stroke: '#ccc' }}
+            tickLine={false}
+          />
+
+          <YAxis
+            domain={[10, 40]}
+            unit="°C"
+            tick={{ fontSize: 10 }}
+            axisLine={{ stroke: '#ccc' }}
+            tickLine={false}
+          />
+
+          <Tooltip
+            contentStyle={{ backgroundColor: '#6366f1', borderRadius: '10px', color: '#fff' }}
+            labelStyle={{ color: '#fff' }}
+            formatter={(value) => `${value}°C`}
+          />
+
+          <Legend verticalAlign="top" height={36} />
+
+          {/* Linha da Temperatura */}
+          <Line
+            type="monotone"
+            dataKey="temp"
+            name="Temperatura"
+            stroke="#6366f1"
+            strokeWidth={3}
+            dot={{ r: 6, stroke: '#6366f1', strokeWidth: 2, fill: '#fff' }}
+            activeDot={{ r: 10 }}
+            animationDuration={2000}
+            animationEasing="ease-out"
+          />
+
+          {/* Linha da Sensação Térmica */}
+          <Line
+            type="monotone"
+            dataKey="feelsLike"
+            name="Sensação Térmica"
+            stroke="#f97316"
+            strokeWidth={3}
+            dot={{ r: 6, stroke: '#f97316', strokeWidth: 2, fill: '#fff' }}
+            activeDot={{ r: 10 }}
+            strokeDasharray="5 5" // Linha tracejada para diferenciar
+            animationDuration={2500}
+            animationEasing="ease-out"
+          />
+
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
+export default TemperatureChart;

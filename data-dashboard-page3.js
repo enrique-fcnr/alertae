@@ -124,4 +124,21 @@ const legendaMeteorologica = [
   },
 ];
 
-export { filterConditions, cities, getIconWithTemp, legendaMeteorologica }
+const fetchAllWeather = async (cities, setWeatherData) => {
+  try {
+    const results = await Promise.all(
+      cities.map(async (city) => {
+        const data = await weatherAPI.getCurrentWeather({
+          lat: city.lat,
+          lon: city.lon
+        });
+        return { ...data, name: city.name };
+      })
+    );
+    setWeatherData(results);
+  } catch (error) {
+    console.error("Erro ao buscar dados do tempo:", error);
+  }
+};
+
+export { filterConditions, cities, getIconWithTemp, legendaMeteorologica, fetchAllWeather }

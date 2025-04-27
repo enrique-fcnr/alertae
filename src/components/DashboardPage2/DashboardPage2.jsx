@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useForecastQuery, useReverseGeocodeQuery } from '@/hooks/useWeather';
+import { useForecastQuery } from '@/hooks/useWeather';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
 import { format } from 'date-fns';
@@ -11,16 +11,7 @@ import { dataChart5Days } from '../../../data-hourly-temp-page';
 
 const DashboardPage2 = () => {
   const { coordinates, error, getLocation, isLoading } = useGeolocation();
-  const locationQuery = useReverseGeocodeQuery(coordinates);
   const forecastQuery = useForecastQuery(coordinates);
-
-  console.log(forecastQuery.data);
-  const locationName = locationQuery.data?.[0];
-  //console.log(locationName.name, locationName.country)
-
-
-  // Função de formatação de temperatura
-  const formatTemp = (temp) => `${Math.round(temp)}°C`;
 
   // Button for refetch
   const handleRefresh = () => {
@@ -30,9 +21,13 @@ const DashboardPage2 = () => {
     }
   };
 
+  // Busca a localização ou se ainda não tem os dados da previsão:
+  if (!forecastQuery.data || isLoading) {
+    return <LoadingSkeleton />;
+  }
 
 
-  // Se houver erro:
+  //Se a API de previsão de tempo deu erro
   if (forecastQuery.error) {
     return (
       <Alert.Root status="error">
@@ -50,10 +45,7 @@ const DashboardPage2 = () => {
     );
   }
 
-  if (!forecastQuery.data) {
-    return <LoadingSkeleton />;
-  }
-
+  // Se a API de previsão de tempo deu erro:
   if (error) {
     return (
       <Alert.Root className='p-5 bg-danger text-light d-flex align-items-start ' status="error">
@@ -72,6 +64,7 @@ const DashboardPage2 = () => {
     );
   }
 
+  // Verifica se não existem coordenadas (latitude e longitude).
   if (!coordinates) {
     return (
       <Alert.Root status="error">
@@ -100,14 +93,13 @@ const DashboardPage2 = () => {
     forecastByDay[date].push(item);
   });
 
-  console.log(forecastQuery.data.list)
   // Pegar as datas dos 5 primeiros dias
   const dailyTemperatures = Object.keys(forecastByDay)
     .slice(1, 6) // pegar os 5 próximos dias (pular o dia atual se quiser)
     .map(date => {
       const temps = forecastByDay[date];
 
-      // Pegar todas as temperaturas do dia
+      // Pegar todas as temperaturas do dia:
       const tempMins = temps.map(t => t.main.temp_min);
       const tempMaxs = temps.map(t => t.main.temp_max);
 
@@ -118,7 +110,7 @@ const DashboardPage2 = () => {
         icon: temps[0].weather[0].icon, // exemplo: pega o ícone da primeira previsão do dia
       };
     });
-  console.log(dailyTemperatures)
+
   return (
     <div className="container py-4">
       {/* Botão de Atualizar */}

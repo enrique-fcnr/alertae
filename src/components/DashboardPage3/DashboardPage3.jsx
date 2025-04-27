@@ -4,8 +4,9 @@ import './DashboardPage3.css';
 import { weatherAPI } from '../../APIs/weather';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faSun, faCloudShowersHeavy, faWind, faTint, faTachometerAlt, faSnowflake, faSmog, faTornado } from '@fortawesome/free-solid-svg-icons';
-import { cities, getIconWithTemp, filterConditions, legendaMeteorologica } from '../../../data-dashboard-page3'
+import { fetchAllWeather, getIconWithTemp, filterConditions, legendaMeteorologica, cities } from '../../../data-dashboard-page3'
 import CardDetails from '../CardDetails/CardDetails';
+
 
 
 const DashboardPage3 = () => {
@@ -14,26 +15,8 @@ const DashboardPage3 = () => {
 
 
   useEffect(() => {
-    const fetchAllWeather = async () => {
-      try {
-        const results = await Promise.all(
-          cities.map(async (city) => {
-            const data = await weatherAPI.getCurrentWeather({
-              lat: city.lat,
-              lon: city.lon
-            });
-            return { ...data, name: city.name };
-          })
-        );
-        setWeatherData(results);
-      } catch (error) {
-        console.error("Erro ao buscar dados do tempo:", error);
-      }
-    };
-
-    fetchAllWeather();
+    fetchAllWeather(cities, setWeatherData);
   }, []);
-
 
 
 

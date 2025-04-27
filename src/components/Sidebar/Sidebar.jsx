@@ -18,10 +18,10 @@ function Sidebar() {
 
         <nav className="sidebar-nav">
           <ul>
-            <li><Link to="/dashboard/teste"><FaSun /> Tempo do dia</Link></li>
-            <li><Link to="/dashboard/teste2"><FaCloudSunRain /> Previsões</Link></li>
-            <li><Link to="/dashboard/teste3"><FaMapMarkedAlt /> Mapa do tempo</Link></li>
-            <li><Link to="/contacts/2"><FaChartLine /> Estatísticas</Link></li>
+            <li><Link to="/dashboard/tempo-dia"><FaSun /> Tempo do dia</Link></li>
+            <li><Link to="/dashboard/previsoes"><FaCloudSunRain /> Previsões</Link></li>
+            <li><Link to="/dashboard/mapa-tempo"><FaMapMarkedAlt /> Mapa do tempo</Link></li>
+            <li><Link to="/dashboard/estastisticas"><FaChartLine /> Estatísticas</Link></li>
             <li><Link to="/contacts/3"><FaBars /> Outros dados</Link></li>
           </ul>
         </nav>

@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import Home from './pages/Home/Home.jsx';
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
-import Teste2 from './components/Teste2/Teste2.jsx';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
@@ -15,6 +14,7 @@ import { Provider } from "@/components/ui/provider"
 import DashboardPage1 from './components/DashboardPage1/DashboardPage1';
 import DashboardPage2 from './components/DashboardPage2/DashboardPage2'
 import DashboardPage3 from './components/DashboardPage3/DashboardPage3';
+import DashboardPage4 from './components/DashboardPage4/DashboardPage4';
 import 'font-awesome/css/font-awesome.min.css';
 
 
@@ -53,16 +53,20 @@ const router = createBrowserRouter([
         element: <Navigate to="teste" replace />,
       },
       {
-        path: "teste",
+        path: "tempo-dia",
         element: <DashboardPage1 />,
       },
       {
-        path: "teste2",
+        path: "previsoes",
         element: <DashboardPage2 />,
       },
       {
-        path: "teste3",
+        path: "mapa-tempo",
         element: <DashboardPage3 />,
+      },
+      {
+        path: "estastisticas",
+        element: <DashboardPage4 />,
       },
     ],
   },
