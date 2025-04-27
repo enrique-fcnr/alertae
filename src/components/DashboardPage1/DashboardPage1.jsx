@@ -28,8 +28,7 @@ function DashboardPage1() {
     }
   }
 
-  const locationName = locationQuery.data?.[0];
-  //console.log(locationQuery.data[0].name)
+  const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
 
 
   // Se houver error:
@@ -50,7 +49,7 @@ function DashboardPage1() {
     );
   }
 
-  if (!weatherQuery.data || !forecastQuery.data) {
+  if (!weatherQuery.data || !forecastQuery.data || !locationName) {
     return <LoadingSkeleton />
   }
 
@@ -109,8 +108,21 @@ function DashboardPage1() {
           <div className="col-12 col-md-6">
             <WeatherDetails data={weatherQuery.data} />
           </div>
-          <div className="col-12 col-md-6">
-            <HourlyTemperature data={forecastQuery.data} />
+
+
+          <div className="col-6 col-md-6">
+            <div className="card shadow-sm p-3 h-100">
+              <div className="card-header">
+                <h5 className="card-title mb-0">Variações do Dia</h5>
+              </div>
+
+              <HourlyTemperature
+                data={forecastQuery.data}
+                title="Temperaturas do dia"
+                valueMax={8}
+              />
+
+            </div>
           </div>
         </div>
 

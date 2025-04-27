@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useForecastQuery, useReverseGeocodeQuery } from '@/hooks/useWeather';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
+import HourlyTemperature from '../HourlyTemperature/HourlyTemperature'
+import { dataChart5Days } from '../../../data-hourly-temp-page';
 
-import { useForecastQuery, useReverseGeocodeQuery, useWeatherQuery } from '@/hooks/useWeather';
+
 
 const DashboardPage2 = () => {
   const { coordinates, error, getLocation, isLoading } = useGeolocation();
@@ -12,6 +15,9 @@ const DashboardPage2 = () => {
   const forecastQuery = useForecastQuery(coordinates);
 
   console.log(forecastQuery.data);
+  const locationName = locationQuery.data?.[0];
+  //console.log(locationName.name, locationName.country)
+
 
   // Função de formatação de temperatura
   const formatTemp = (temp) => `${Math.round(temp)}°C`;
@@ -24,8 +30,7 @@ const DashboardPage2 = () => {
     }
   };
 
-  const locationName = locationQuery.data?.[0];
-  //console.log(locationQuery.data[0].name)
+
 
   // Se houver erro:
   if (forecastQuery.error) {
@@ -95,9 +100,25 @@ const DashboardPage2 = () => {
     forecastByDay[date].push(item);
   });
 
+  console.log(forecastQuery.data.list)
   // Pegar as datas dos 5 primeiros dias
-  const forecastDates = Object.keys(forecastByDay).slice(0, 5);
+  const dailyTemperatures = Object.keys(forecastByDay)
+    .slice(1, 6) // pegar os 5 próximos dias (pular o dia atual se quiser)
+    .map(date => {
+      const temps = forecastByDay[date];
 
+      // Pegar todas as temperaturas do dia
+      const tempMins = temps.map(t => t.main.temp_min);
+      const tempMaxs = temps.map(t => t.main.temp_max);
+
+      return {
+        date,
+        minTemp: Math.min(...tempMins),
+        maxTemp: Math.max(...tempMaxs),
+        icon: temps[0].weather[0].icon, // exemplo: pega o ícone da primeira previsão do dia
+      };
+    });
+  console.log(dailyTemperatures)
   return (
     <div className="container py-4">
       {/* Botão de Atualizar */}
@@ -110,42 +131,54 @@ const DashboardPage2 = () => {
       {/* Caixa com a previsão do tempo */}
       <div className="card shadow-sm my-3 p-3 h-100">
         <div className="card-header">
-          <h5 className="card-title mb-0">Detalhes do Tempo</h5>
+          <h5 className="card-title mb-0">Próximos 5 dias</h5>
         </div>
 
         <div className="d-flex p-4 justify-content-between align-items-center">
-          {forecastDates.map((date, index) => {
-            const dayForecast = forecastByDay[date][0]; // Pega o primeiro item do dia
-            return (
-              <div key={index} className="text-center" style={{ minWidth: '60px' }}>
-                {/* Dia da Semana */}
-                <div className="font-size-small">
-                  <strong>{format(new Date(date), 'EEE', { locale: pt })}</strong> {/* Agora em português */}
-                  <div className="text-muted" style={{ fontSize: '0.75rem' }}>
-                    {format(new Date(date), 'dd/MM')}
-                  </div>
-                </div>
-
-
-                {/* Ícone do Clima */}
-                <img
-                  src={`https://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@2x.png`}
-                  alt="Ícone do Clima"
-                  style={{ width: '50px', height: '50px', margin: '0 auto', marginBottom: '8px' }}
-                />
-
-                {/* Temperatura Máxima */}
-                <div className="font-weight-bold text-danger mb-1">
-                  {formatTemp(dayForecast.main.temp_max)}
-                </div>
-
-                {/* Temperatura Mínima */}
-                <div className="text-primary" style={{ fontSize: '0.875rem' }}>
-                  {formatTemp(dayForecast.main.temp_min)}
+          {dailyTemperatures.map((day, index) => (
+            <div key={index} className="text-center" style={{ minWidth: '60px' }}>
+              {/* Dia da Semana */}
+              <div className="font-size-small">
+                <strong>{format(new Date(day.date), 'EEEE', { locale: pt })}</strong>
+                <div className="text-muted" style={{ fontSize: '0.75rem' }}>
+                  {format(new Date(day.date), 'dd/MM')}
                 </div>
               </div>
-            );
-          })}
+
+              {/* Ícone do Clima */}
+              <img
+                src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`}
+                alt="Ícone do Clima"
+                style={{ width: '50px', height: '50px', margin: '0 auto', marginBottom: '8px' }}
+              />
+
+              {/* Temperatura Máxima */}
+              <div className="font-weight-bold text-danger mb-1">
+                {Math.round(day.maxTemp)}°
+              </div>
+
+              {/* Temperatura Mínima */}
+              <div className="text-primary" style={{ fontSize: '0.875rem' }}>
+                {Math.round(day.minTemp)}°
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </div>
+
+      <div className="col-12 col-md-12">
+        <div className="card shadow-sm my-3 p-3 h-100">
+          <div className="card-header">
+            <h5 className="card-title mb-0">Variações dos Próximos 5 dias</h5>
+          </div>
+
+          <HourlyTemperature
+            data={forecastQuery.data}
+            title="Variação dos próximos 5 dias"
+            dataBuilder={dataChart5Days}
+          />
+
         </div>
       </div>
     </div>

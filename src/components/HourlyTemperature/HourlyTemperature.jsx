@@ -1,6 +1,6 @@
-import React from 'react'
-import { Card, Text } from "@chakra-ui/react"
-import { format } from 'date-fns'
+import React from 'react';
+import { Card, Text } from "@chakra-ui/react";
+import { dataChart24 } from '../../../data-hourly-temp-page'
 import {
   LineChart,
   Line,
@@ -11,28 +11,22 @@ import {
   Legend
 } from "recharts";
 
+function HourlyTemperature({ data, valueMax, dataBuilder }) {
+
+  dataChart24(data, valueMax)
 
 
-function HourlyTemperature({ data }) {
-
-  const chartData = data.list
-    .slice(0, 8) // Get next 24 hours (3-hour intervals)
-    .map((item) => ({
-      time: format(new Date(item.dt * 1000), "ha"),
-      temp: Math.round(item.main.temp),
-      feels_like: Math.round(item.main.feels_like),
-    }));
+  // Se vier uma função `dataBuilder`, usa ela. Senão, usa `dataChart24` padrão.
+  const chartData = dataBuilder ? dataBuilder(data) : dataChart24(data, valueMax);
 
   return (
     <Card.Root className='text-light bg-light border-0 p-5 shadow-sm' overflow="hidden">
 
-      <Card.Title className='fs-4' color="gray.600">Temperaturas do Dia</Card.Title>
       <Card.Body>
-
         <div className='p-0'>
-          <div className="w-100 " style={{ height: "270px" }}>
+          <div className="w-100" style={{ height: "270px" }}>
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={chartData} >
+              <LineChart data={chartData}>
                 <XAxis
                   dataKey="time"
                   stroke="#888888"
@@ -40,7 +34,6 @@ function HourlyTemperature({ data }) {
                   tickLine={false}
                   axisLine={false}
                   dy={15}
-
                 />
                 <YAxis
                   stroke="#888888"
@@ -55,22 +48,14 @@ function HourlyTemperature({ data }) {
                     if (active && payload && payload.length) {
                       return (
                         <div className="rounded border bg-white p-2 shadow-sm">
-                          <div className="row g-2">
-                            <div className="col d-flex flex-column">
-                              <span className="text-uppercase text-muted small">
-                                Temperatura
-                              </span>
-                              <span className="fw-bold">
-                                {payload[0].value}°
-                              </span>
+                          <div className="row g-1" >
+                            <div className="col d-flex flex-column f-flex justify-content-center ">
+                              <span className="text-uppercase  text-muted small" style={{ fontSize: '0.8rem' }}>Temperatura</span>
+                              <span className="fw-bold" style={{ color: '#2563eb' }}>{payload[0].value}°C</span>
                             </div>
-                            <div className="col d-flex flex-column">
-                              <span className="text-uppercase text-muted small">
-                                Sensação Térmica
-                              </span>
-                              <span className="fw-bold">
-                                {payload[1].value}°
-                              </span>
+                            <div className="col d-flex flex-column justify-content-center ">
+                              <span className="text-uppercase text-muted small " style={{ fontSize: '0.8rem' }} >Sensação Térmica</span>
+                              <span className="fw-bold" style={{ color: '#2563eb' }}>{payload[1].value}°C</span>
                             </div>
                           </div>
                         </div>
@@ -79,7 +64,6 @@ function HourlyTemperature({ data }) {
                     return null;
                   }}
                 />
-
                 <Legend />
                 <Line
                   type="monotone"
@@ -87,8 +71,7 @@ function HourlyTemperature({ data }) {
                   stroke="#2563eb"
                   strokeWidth={2}
                   dot={true}
-                  name='Temperatura'
-
+                  name="Temperatura"
                 />
                 <Line
                   type="monotone"
@@ -97,19 +80,15 @@ function HourlyTemperature({ data }) {
                   strokeWidth={2}
                   dot={false}
                   strokeDasharray="5 5"
-                  name='Sensação térmica'
+                  name="Sensação térmica"
                 />
               </LineChart>
-
             </ResponsiveContainer>
           </div>
-
         </div>
-
       </Card.Body>
-
     </Card.Root >
-  )
+  );
 }
 
-export default HourlyTemperature
+export default HourlyTemperature;
