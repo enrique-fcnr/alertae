@@ -10,7 +10,7 @@ function TemperatureChart() {
           data={weatherData.monthlyTemperature}
           margin={{ top: 10, right: 30, left: 0, bottom: 20 }}
         >
-          <CartesianGrid strokeDasharray="5 5" stroke="#e0e0e0" />
+          <CartesianGrid strokeDasharray="5 5" stroke="#a3a3a3" />
 
           <XAxis
             dataKey="month"
@@ -28,8 +28,8 @@ function TemperatureChart() {
           />
 
           <Tooltip
-            contentStyle={{ backgroundColor: '#6366f1', borderRadius: '10px', color: '#fff' }}
-            labelStyle={{ color: '#fff' }}
+            contentStyle={{ backgroundColor: '#ffffff', borderRadius: '10px', color: '#6366f1' }}
+            labelStyle={{ color: 'gray' }}
             formatter={(value) => `${value}°C`}
           />
 
