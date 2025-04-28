@@ -41,7 +41,7 @@ function Login() {
 
       // Aguarda 5 segundos e redireciona
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/dashboard/tempo-dia");
       }, 2000);
 
     } else {

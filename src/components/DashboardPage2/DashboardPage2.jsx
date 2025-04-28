@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useForecastQuery } from '@/hooks/useWeather';
 import { useGeolocation } from '../../hooks/useGeolocation';
-import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
+import LoadingSkeletonPrevisoes from '../LoadingSkeletonPrevisoes/LoadingSkeletonPrevisoes';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
-import HourlyTemperature from '../HourlyTemperature/HourlyTemperature'
+import Temperature5Days from '../Temperature5Days/Temperature5Days'
 import { dataChart5Days } from '../../../data-hourly-temp-page';
 
 
@@ -23,7 +23,7 @@ const DashboardPage2 = () => {
 
   // Busca a localização ou se ainda não tem os dados da previsão:
   if (!forecastQuery.data || isLoading) {
-    return <LoadingSkeleton />;
+    return <LoadingSkeletonPrevisoes />;
   }
 
 
@@ -165,7 +165,7 @@ const DashboardPage2 = () => {
             <h5 className="card-title mb-0">Variações dos Próximos 5 dias</h5>
           </div>
 
-          <HourlyTemperature
+          <Temperature5Days
             data={forecastQuery.data}
             title="Variação dos próximos 5 dias"
             dataBuilder={dataChart5Days}

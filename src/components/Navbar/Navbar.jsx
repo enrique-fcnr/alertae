@@ -3,11 +3,12 @@ import "./Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import LogoText from "../../assets/logo-branca-sem-fundo-alertae.png"
 import userImg from "../../assets/user-img.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [selectedItem, setSelectedItem] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cliente = localStorage.getItem("cliente");
@@ -17,6 +18,15 @@ const Navbar = () => {
   const handleItemClick = (item) => {
     setSelectedItem(selectedItem === item ? "" : item);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("cliente");
+    setIsLoggedIn(false);
+
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  }
 
   const menu = {
     section1: { title: "Sobre", subtitles: ["Quem Somos", "Proposito do App"] },
@@ -78,9 +88,16 @@ const Navbar = () => {
                   <ul className="dropdown-menu dropdown-menu-end">
                     <li>
                       <button className="dropdown-item" onClick={() => {
-                        localStorage.removeItem("cliente");
-                        window.location.reload(); // ou use navigate("/") se usar react-router
+                        setTimeout(() => {
+                          navigate("/dashboard/tempo-dia");
+                        }, 500);
+
                       }}>
+                        Dashboard
+                      </button>
+                    </li>
+                    <li>
+                      <button className="dropdown-item" onClick={handleLogout}>
                         Logout
                       </button>
                     </li>

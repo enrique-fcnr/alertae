@@ -12,7 +12,6 @@ function LoginPage() {
   const [displayForm, setDisplayForm] = useState(false);
 
   const handleForm = async (e) => {
-
     e.preventDefault();
     setDisplayForm(!displayForm)
     console.log(displayForm)
