@@ -1,6 +1,7 @@
 
 import L from 'leaflet';
 import { faGlobe, faSun, faCloudShowersHeavy, faWind, faTint, faTachometerAlt, faSnowflake, faSmog, faTornado } from '@fortawesome/free-solid-svg-icons';
+import { weatherAPI } from './src/APIs/weather'
 
 
 const cities = [
@@ -28,26 +29,8 @@ const cities = [
 
 ];
 
-const filterConditions = (data, filter) => {
-  const temp = data.main?.temp ?? 0;
-  const rain = data.rain?.['1h'] || 0;
-  const wind = data.wind?.speed ?? 0;
-  const gust = data.wind?.gust ?? 0;
-  const humidity = data.main?.humidity ?? 0;
-  const pressure = data.main?.pressure ?? 1013;
-  const visibility = data.visibility ?? 10000;
 
-  if (filter === 'all') return true;
-  if (filter === 'heat' && temp > 35) return true;
-  if (filter === 'rain' && rain > 10) return true;
-  if (filter === 'wind' && wind > 10) return true;
-  if (filter === 'cold' && temp < 5) return true;
-  if (filter === 'gust' && gust > 15) return true;
-  if (filter === 'dry' && humidity < 30) return true;
-  if (filter === 'lowPressure' && pressure < 1000) return true;
-  if (filter === 'fog' && visibility < 1000) return true;
-  return false;
-};
+
 
 
 
@@ -123,6 +106,29 @@ const legendaMeteorologica = [
     color: 'gray'
   },
 ];
+
+const filterConditions = (filter) => {
+  return (data) => {
+    const temp = data.main?.temp ?? 0;
+    const rain = data.rain?.['1h'] || 0;
+    const wind = data.wind?.speed ?? 0;
+    const gust = data.wind?.gust ?? 0;
+    const humidity = data.main?.humidity ?? 0;
+    const pressure = data.main?.pressure ?? 1013;
+    const visibility = data.visibility ?? 10000;
+
+    if (filter === 'all') return true;
+    if (filter === 'heat' && temp > 35) return true;
+    if (filter === 'rain' && rain > 10) return true;
+    if (filter === 'wind' && wind > 10) return true;
+    if (filter === 'cold' && temp < 5) return true;
+    if (filter === 'gust' && gust > 15) return true;
+    if (filter === 'dry' && humidity < 30) return true;
+    if (filter === 'lowPressure' && pressure < 1000) return true;
+    if (filter === 'fog' && visibility < 1000) return true;
+    return false;
+  };
+};
 
 const fetchAllWeather = async (cities, setWeatherData) => {
   try {
