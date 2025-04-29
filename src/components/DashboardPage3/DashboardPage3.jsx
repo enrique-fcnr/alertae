@@ -43,25 +43,29 @@ const DashboardPage3 = () => {
               className={filter === value ? 'active' : ''}
               onClick={() => setFilter(value)}
             >
-              <FontAwesomeIcon icon={icon} style={color ? { color } : {}} /> {label}
+              <FontAwesomeIcon icon={icon} style={color ? { color } : {}} />
+              <span className="remove-small-screen"> {label} </span>
             </button>
           ))}
         </div>
+
 
         {/* Legenda */}
         <div className="map-legend">
           <strong>Legenda:</strong>
           <ul className='legend-list'>
-            <li><FontAwesomeIcon icon={faSun} style={{ color: 'orange', marginRight: '10px' }} /> Calor intenso (&gt; 35°C)</li>
-            <li><FontAwesomeIcon icon={faCloudShowersHeavy} style={{ color: 'blue', marginRight: '10px' }} /> Chuva intensa (&gt; 10 mm/h)</li>
-            <li><FontAwesomeIcon icon={faWind} style={{ color: '#C5D3E8', marginRight: '10px' }} /> Ventos fortes (&gt; 10 m/s)</li>
-            <li><FontAwesomeIcon icon={faSnowflake} style={{ color: 'lightblue', marginRight: '10px' }} /> Frio intenso (&lt; 5°C)</li>
-            <li><FontAwesomeIcon icon={faTornado} style={{ color: 'darkgray', marginRight: '10px' }} /> Rajadas (&gt; 15 m/s)</li>
-            <li><FontAwesomeIcon icon={faTint} style={{ color: '#60B5FF', marginRight: '10px' }} /> Ar seco (&lt; 30%)</li>
-            <li><FontAwesomeIcon icon={faTachometerAlt} style={{ color: 'green', marginRight: '10px' }} /> Baixa pressão (&lt; 1000 hPa)</li>
-            <li><FontAwesomeIcon icon={faSmog} style={{ color: 'gray', marginRight: '10px' }} /> Neblina (&lt; 1000 m)</li>
+            <li><FontAwesomeIcon icon={faSun} style={{ color: 'orange', marginRight: '10px' }} /> <span className="remove-small-screen">Calor intenso (&gt; 35°C)</span></li>
+            <li><FontAwesomeIcon icon={faCloudShowersHeavy} style={{ color: 'blue', marginRight: '10px' }} /> <span className="remove-small-screen">Chuva intensa (&gt; 10 mm/h)</span></li>
+            <li><FontAwesomeIcon icon={faWind} style={{ color: '#C5D3E8', marginRight: '10px' }} /> <span className="remove-small-screen">Ventos fortes (&gt; 10 m/s)</span></li>
+            <li><FontAwesomeIcon icon={faSnowflake} style={{ color: 'lightblue', marginRight: '10px' }} /> <span className="remove-small-screen">Frio intenso (&lt; 5°C)</span></li>
+            <li><FontAwesomeIcon icon={faTornado} style={{ color: 'darkgray', marginRight: '10px' }} /> <span className="remove-small-screen">Rajadas (&gt; 15 m/s)</span></li>
+            <li><FontAwesomeIcon icon={faTint} style={{ color: '#60B5FF', marginRight: '10px' }} /> <span className="remove-small-screen">Ar seco (&lt; 30%)</span></li>
+            <li><FontAwesomeIcon icon={faTachometerAlt} style={{ color: 'green', marginRight: '10px' }} /> <span className="remove-small-screen">Baixa pressão (&lt; 1000 hPa)</span></li>
+            <li><FontAwesomeIcon icon={faSmog} style={{ color: 'gray', marginRight: '10px' }} /> <span className="remove-small-screen">Neblina (&lt; 1000 m)</span></li>
           </ul>
         </div>
+
+
 
         {/* Mapa padrão sem clustering */}
         <div className="w-100" style={{ height: '70vh' }}>
