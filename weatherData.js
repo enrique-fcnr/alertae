@@ -1,17 +1,17 @@
 export const weatherData = {
   monthlyTemperature: [
     { month: 'Jan', temp: 15, feelsLike: 17 },
-    { month: 'Feb', temp: 18, feelsLike: 19 },
+    { month: 'Fev', temp: 18, feelsLike: 19 },
     { month: 'Mar', temp: 22, feelsLike: 24 },
-    { month: 'Apr', temp: 25, feelsLike: 26 },
-    { month: 'May', temp: 28, feelsLike: 29 },
+    { month: 'Abr', temp: 25, feelsLike: 26 },
+    { month: 'Mai', temp: 28, feelsLike: 29 },
     { month: 'Jun', temp: 30, feelsLike: 31 },
     { month: 'Jul', temp: 35, feelsLike: 37 },
     { month: 'Aug', temp: 33, feelsLike: 34 },
-    { month: 'Sep', temp: 29, feelsLike: 30 },
-    { month: 'Oct', temp: 24, feelsLike: 25 },
+    { month: 'Set', temp: 29, feelsLike: 30 },
+    { month: 'Out', temp: 24, feelsLike: 25 },
     { month: 'Nov', temp: 20, feelsLike: 21 },
-    { month: 'Dec', temp: 17, feelsLike: 18 },
+    { month: 'Dez', temp: 17, feelsLike: 18 },
   ],
   weeklyRainVolume: [
     { week: 'Semana 1', rain: 20 },
