@@ -24,52 +24,36 @@ const DashboardPage3 = () => {
     <div>
       <div className='container-map'>
         {/* Buttons */}
-        <div className="filter-buttons">
-          {/* Todos */}
-          <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
-            <FontAwesomeIcon className="icon-tempo" icon={faGlobe} />  <span className="btn-tempo">Todos</span>
-          </button>
+<div className="filter-buttons">
+  <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
+    <FontAwesomeIcon icon={faGlobe} /> Todos
+  </button>
+  <button className={filter === 'heat' ? 'active' : ''} onClick={() => setFilter('heat')}>
+    <FontAwesomeIcon icon={faSun} style={{ color: 'orange' }} /> Calor
+  </button>
+  <button className={filter === 'rain' ? 'active' : ''} onClick={() => setFilter('rain')}>
+    <FontAwesomeIcon icon={faCloudShowersHeavy} style={{ color: 'blue' }} /> Chuva
+  </button>
+  <button className={filter === 'wind' ? 'active' : ''} onClick={() => setFilter('wind')}>
+    <FontAwesomeIcon icon={faWind} style={{ color: '#C5D3E8' }} /> Vento
+  </button>
+  <button className={filter === 'cold' ? 'active' : ''} onClick={() => setFilter('cold')}>
+    <FontAwesomeIcon icon={faSnowflake} style={{ color: 'lightblue' }} /> Frio
+  </button>
+  <button className={filter === 'gust' ? 'active' : ''} onClick={() => setFilter('gust')}>
+    <FontAwesomeIcon icon={faTornado} style={{ color: 'darkgray' }} /> Rajadas
+  </button>
+  <button className={filter === 'dry' ? 'active' : ''} onClick={() => setFilter('dry')}>
+    <FontAwesomeIcon icon={faTint} style={{ color: '#60B5FF' }} /> Ar seco
+  </button>
+  <button className={filter === 'lowPressure' ? 'active' : ''} onClick={() => setFilter('lowPressure')}>
+    <FontAwesomeIcon icon={faTachometerAlt} style={{ color: 'green' }} /> Baixa Pressão
+  </button>
+  <button className={filter === 'fog' ? 'active' : ''} onClick={() => setFilter('fog')}>
+    <FontAwesomeIcon icon={faSmog} style={{ color: 'gray' }} /> Neblina
+  </button>
+</div>
 
-          {/* Calor */}
-          <button className={filter === 'heat' ? 'active' : ''} onClick={() => setFilter('heat')}>
-            <FontAwesomeIcon className="icon-tempo" icon={faSun} style={{ color: 'orange' }} />  <span className="btn-tempo">Calor</span>
-          </button>
-
-          {/* Chuva */}
-          <button className={filter === 'rain' ? 'active' : ''} onClick={() => setFilter('rain')}>
-            <FontAwesomeIcon className="icon-tempo" icon={faCloudShowersHeavy} style={{ color: 'blue' }} />  <span className="btn-tempo">Chuva</span>
-          </button>
-
-          {/* Vento */}
-          <button className={filter === 'wind' ? 'active' : ''} onClick={() => setFilter('wind')}>
-            <FontAwesomeIcon className="icon-tempo" icon={faWind} style={{ color: '#C5D3E8' }} />  <span className="btn-tempo">Vento</span>
-          </button>
-
-          {/* Frio */}
-          <button className={filter === 'cold' ? 'active' : ''} onClick={() => setFilter('cold')}>
-            <FontAwesomeIcon className="icon-tempo" icon={faSnowflake} style={{ color: 'lightblue' }} />  <span className="btn-tempo">Frio</span>
-          </button>
-
-          {/* Rajadas */}
-          <button className={filter === 'gust' ? 'active' : ''} onClick={() => setFilter('gust')}>
-            <FontAwesomeIcon className="icon-tempo" icon={faTornado} style={{ color: 'darkgray' }} />  <span className="btn-tempo">Rajadas</span>
-          </button>
-
-          {/* Ar seco */}
-          <button className={filter === 'dry' ? 'active' : ''} onClick={() => setFilter('dry')}>
-            <FontAwesomeIcon className="icon-tempo" icon={faTint} style={{ color: '#60B5FF' }} />  <span className="btn-tempo">Ar seco</span>
-          </button>
-
-          {/* Baixa Pressão */}
-          <button className={filter === 'lowPressure' ? 'active' : ''} onClick={() => setFilter('lowPressure')}>
-            <FontAwesomeIcon className="icon-tempo" icon={faTachometerAlt} style={{ color: 'green' }} />  <span className="btn-tempo">Baixa Pressão</span>
-          </button>
-
-          {/* Neblina */}
-          <button className={filter === 'fog' ? 'active' : ''} onClick={() => setFilter('fog')}>
-            <FontAwesomeIcon className="icon-tempo" icon={faSmog} style={{ color: 'gray' }} />  <span className="btn-tempo">Neblina</span>
-          </button>
-        </div>
 
         {/* Legendas */}
         <div className="map-legend">
@@ -161,17 +145,31 @@ const DashboardPage3 = () => {
 
       </div>
       <div className="details-container card shadow-sm mb-4 p-3 h-100">
-        <div className="card-header">
-          <h5 className="card-title mb-0">Entenda como avaliar as Condições Climáticas: </h5>
-        </div>
-        <div className="card-body">
-          <div className="row h-100">
-            {legendaMeteorologica.map((data) => (
-              <CardDetails key={data.title} data={data} />
-            ))}
+  <div className="card-header">
+    <h5 className="card-title mb-0">Entenda como avaliar as Condições Climáticas:</h5>
+  </div>
+  <div className="card-body">
+    <div className="row g-3">
+      {legendaMeteorologica.map((data, index) => (
+        <div className="col-12 col-md-6" key={index}>
+          <div className="card legend-card shadow-sm p-3 d-flex flex-row align-items-center">
+            <div 
+              className="icon-wrapper me-3"
+              style={{ background: `linear-gradient(135deg, ${data.gradientStart}, ${data.gradientEnd})` }}
+            >
+              <FontAwesomeIcon icon={data.icone} style={{ fontSize: '1.5rem', color: 'white' }} />
+            </div>
+            <div>
+              <div className="legend-title fw-bold mb-1">{data.titulo}</div>
+              <div className="legend-desc small text-muted">{data.value}</div>
+            </div>
           </div>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
+
     </div>
   );
 };
