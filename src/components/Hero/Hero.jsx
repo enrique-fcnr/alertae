@@ -16,8 +16,8 @@ const Hero = () => {
                         Tome decisões seguras com informações confiáveis e rotas seguras, direto no seu celular.
                     </p>
                     <div className="hero-buttons">
-                        <button className="btn-primary">Me Cadastrar</button>
-                        <button className="btn-outline">Baixar o App</button>
+                        <a href="../Login/Login.jsx" className="btn-primary">Me Cadastrar</a>
+                        <a href="https://googleplay.com" className="btn-outline" target="_blank" rel="noopener noreferrer">Baixar o App </a>
                     </div>
                 </div>
 
