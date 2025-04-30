@@ -1,0 +1,33 @@
+/* DashboardPage4.css */
+
+.dashboard-wrapper {
+    background: #f9fafb;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+  
+  /* Cards */
+  .dashboard-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .dashboard-wrapper {
+      padding: 1rem;
+    }
+  
+    .dashboard-card {
+      padding: 1.2rem;
+    }
+  }
+  
