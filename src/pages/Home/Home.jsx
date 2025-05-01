@@ -12,11 +12,7 @@ import { useGeolocation } from "../../hooks/useGeolocation.jsx"
 
 function Home() {
 
-  const { coordinates, error: locationError, geoLocation, isLoading: locationLoading } = useGeolocation();
 
-
-
-  console.log(coordinates)
   return (
     <>
       <Navbar />
