@@ -6,7 +6,8 @@
 2. [Cores e Fontes](#cores-e-fontes)
 3. [Como usar localmente](#como-usar)
 4. [Contribuições](#contribuições)
-5. [Licença](#licença)
+5. [ConfigurarAPI](#ConfiguraraAPI)
+6. [Licença](#licença)
 
 
 ## Sobre o Projeto
@@ -81,6 +82,28 @@ VITE v4.0.0  ready in 300ms
   > Local:    http://localhost:5173/
   > Network:  http://192.168.x.x:5173/
 ```
+
+## ConfigurarAPI
+
+# Configurar a API Key do OpenWeatherMap
+
+Este projeto utiliza a API do [OpenWeatherMap](https://openweathermap.org/api) para obter dados meteorológicos.
+
+Para que tudo funcione corretamente, você precisará da sua própria chave de API.
+
+### 📌 Passo a passo:
+
+1. Acesse: [https://openweathermap.org/api](https://openweathermap.org/api)
+2. Crie uma conta ou faça login.
+3. No painel da sua conta, vá até **API keys**.
+4. Copie a sua chave de API (geralmente chamada de `default`).
+5. Na raiz do projeto, crie um arquivo `.env` e adicione a seguinte linha:
+
+```env
+VITE_WEATHER_API_KEY=sua_chave_aqui
+
+⚠️ Importante: Nunca compartilhe sua chave de API publicamente. Use variáveis de ambiente para protegê-la.
+
   
 
 ## Contribuições:
