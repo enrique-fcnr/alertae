@@ -8,20 +8,20 @@ import HourlyTemperature from '../HourlyTemperature/HourlyTemperature';
 import WeatherDetails from '../WeatherDetails/WeatherDetails';
 
 
+
 function DashboardPage1() {
+
   const { coordinates, error, getLocation, isLoading } = useGeolocation();
   const locationQuery = useReverseGeocodeQuery(coordinates)
   const weatherQuery = useWeatherQuery(coordinates)
   const forecastQuery = useForecastQuery(coordinates)
 
 
-  console.log(forecastQuery.data)
-
 
   // Button for refetch
   const handleRefresh = () => {
     getLocation()
-    if (coordinates) {
+    if (coordinates || coordinateBackUp) {
       weatherQuery.refetch()
       forecastQuery.refetch()
       locationQuery.refetch()
@@ -49,7 +49,7 @@ function DashboardPage1() {
     );
   }
 
-  if (!weatherQuery.data || !forecastQuery.data || !locationName) {
+  if (!weatherQuery.data || !forecastQuery.data || !locationName || isLoading) {
     return <LoadingSkeleton />
   }
 
@@ -76,18 +76,24 @@ function DashboardPage1() {
 
   if (!coordinates) {
     return (
-      <Alert.Root status="error">
-        <Alert.Indicator />
-        <Alert.Content>
-          <Alert.Title>Localização é necessária.</Alert.Title>
-          <Alert.Description>
-            <p>Por favor! Permita acesso para ver as funcionalidades do tempo.</p>
-            <Button variant="outline" onClick={getLocation}>
-              Permitir Localização
-            </Button>
+
+
+      <Alert.Root status="error" className='p-5 bg-danger text-light d-flex align-items-start'>
+        <Alert.Indicator className='fs-1 ' />
+        <Alert.Content className=''>
+          <Alert.Title className='fs-2 mt-2'>Localização é necessária.</Alert.Title>
+          <Alert.Description className='fs-4 mt-sm-3'>
+            {error}
+
           </Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
+          <Button className="m-0 bg-light fs-4 p-4 text-danger rounded-3 mt-sm-3 "
+
+            onClick={getLocation}>
+            Permitir Localização
+          </Button>
+
+        </Alert.Content >
+      </Alert.Root >
     )
   }
 
