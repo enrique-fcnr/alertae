@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaSun, FaCloudSunRain, FaMapMarkedAlt, FaChartLine, FaBars } from 'react-icons/fa';
 import './Sidebar.css';
 
 function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => setIsOpen(!isOpen);
+
   return (
-    <div className="sidebar">
-      <div className="sidebar-header">
-        <form className="search-form" role="search">
-          <input type="search" placeholder="Buscar..." className="search-input" />
-        </form>
-        <button className="btn-new">Novo</button>
-      </div>
+    <>
+      {/* Botão Hamburguer (visível apenas no mobile) */}
+      <button className="hamburger-btn" onClick={toggleSidebar}>
+        <FaBars />
+      </button>
 
-      <div id="sidebar">
-
+      <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+        <div className="sidebar-header">
+          <form className="search-form" role="search">
+            <input type="search" placeholder="Buscar..." className="search-input" />
+          </form>
+          <button className="btn-new">Novo</button>
+        </div>
 
         <nav className="sidebar-nav">
           <ul>
@@ -26,7 +33,7 @@ function Sidebar() {
           </ul>
         </nav>
       </div>
-    </div>
+    </>
   );
 }
 
