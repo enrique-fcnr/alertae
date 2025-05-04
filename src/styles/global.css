@@ -6,7 +6,9 @@
   font-family: 'Poppins', sans-serif;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   background-color: #fff !important;
   color: #000 !important;
   border: 1px solid #ccc !important;
@@ -26,14 +28,31 @@ html {
   background-color: #0c6be6;
 }
 
-html,
+/* html,
 body,
 #root {
   height: 100%;
   margin: 0;
 
+} */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+#root,
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
 
 /* Remove decoração de links */
 a {
