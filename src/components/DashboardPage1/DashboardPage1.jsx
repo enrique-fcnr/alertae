@@ -99,7 +99,7 @@ function DashboardPage1() {
 
   return (
     <>
-      <div className='container py-2 d-flex flex-column gap-3'>
+      <div className='py-2 d-flex flex-column gap-3'>
         <div className='d-flex justify-content-end mb-0'>
           <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>
             <i className="bi bi-arrow-clockwise"></i>

@@ -11,7 +11,7 @@ function Dashboard() {
       <div className="dashboard-layout" >
         <div className='dashboard-container'>
           <Sidebar />
-          <div className='container p-3'>
+          <div className='container-fluid p-3'>
             <Outlet />
           </div>
         </div>

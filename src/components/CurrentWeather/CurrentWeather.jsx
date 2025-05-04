@@ -29,7 +29,7 @@ function CurrentWeather({ data, locationName }) {
 
             {/* Temperatura principal */}
             <div className="d-flex align-items-center mb-4">
-              <p className="display-1 fw-bold mb-0">{formatTemp(temp)}</p>
+              <p style={{ color: '#1a73e8' }} className="display-1 fw-bold mb-0">{formatTemp(temp)}</p>
               <div className=" d-flex flex-column justify-content-center">
                 <div className='d-flex align-items-center mb-1 justify-content-center'>
                   <p className="small m-0  w-100">
