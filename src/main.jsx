@@ -23,7 +23,8 @@ import Propósito from './components/Proposito/Proposito';
 import Historia from './components/Historia/Historia';
 
 // **Alertas** Layout e Páginas
-
+import AlertasLayout from './pages/AlertasLayout /AlertasLayout '
+import SobreAlertas from './components/SobreAlertas/SobreAlertas'
 
 // **Previsões** Layout e Páginas
 
@@ -76,20 +77,20 @@ const router = createBrowserRouter([
   },
 
   // Rotas de Alertas (layout com children)
-  // {
-  //   path: '/alertas',
-  //   element: <AlertasLayout />,
-  //   children: [
-  //     {
-  //       index: true,
-  //       element: <OQueSaoAlertas />,
-  //     },
-  //     {
-  //       path: 'recomendacoes',
-  //       element: <Recomendacoes />,
-  //     }
-  //   ]
-  // },
+  {
+    path: '/alertas/sobre',
+    element: <AlertasLayout />,
+    children: [
+      {
+        index: true,
+        element: <SobreAlertas />,
+      },
+      // {
+      //   path: 'recomendacoes',
+      //   element: <Recomendacoes />,
+      // }
+    ]
+  },
 
   // Rotas de Previsões (layout com children)
   // {

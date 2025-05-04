@@ -39,7 +39,7 @@ const Navbar = () => {
     section2: {
       title: "Alertas",
       subtitles: [
-        { label: "O que são", path: "/alertas/o-que-sao" },
+        { label: "O que são", path: "/alertas/sobre" },
         { label: "Recomendações", path: "/alertas/recomendacoes" }
       ]
     },
