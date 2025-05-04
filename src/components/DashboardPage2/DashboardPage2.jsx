@@ -112,7 +112,7 @@ const DashboardPage2 = () => {
     });
 
   return (
-    <div className="container py-2">
+    <div className="container py-2 py-md-0">
       {/* Botão de Atualizar */}
       <div className='d-flex justify-content-end mb-0'>
         <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>

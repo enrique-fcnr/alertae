@@ -23,7 +23,7 @@ const DashboardPage3 = () => {
   }, []);
 
   return (
-    <div>
+    <div className=' py-5 py-md-0'>
       <div className='container-map'>
         {/* Botões de filtro */}
         <div className="filter-buttons">
