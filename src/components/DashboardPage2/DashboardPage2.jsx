@@ -112,14 +112,13 @@ const DashboardPage2 = () => {
     });
 
   return (
-    <div className="container py-4">
+    <div className="container py-2">
       {/* Botão de Atualizar */}
       <div className='d-flex justify-content-end mb-0'>
         <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>
           <i className="bi bi-arrow-clockwise"></i>
         </button>
       </div>
-
       {/* Caixa com a previsão do tempo */}
       <div className="card shadow-sm my-3 p-3 h-100">
         <div className="card-header">
