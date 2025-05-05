@@ -1,0 +1,16 @@
+/* DashboardPage1.css */
+
+.dashboard-refresh-btn {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .dashboard-refresh-btn:hover {
+    background-color: #f2f8ff;
+    transform: scale(1.05);
+  }
+  

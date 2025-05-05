@@ -23,22 +23,26 @@ function WeatherDetails({ data }) {
     {
       title: "Nascer do Sol",
       value: formatTime(sys.sunrise),
-      icon: <Sunrise size={30} className="text-warning me-2" />,
+      icon: <Sunrise size={26} color="white"
+      className="text-warning me-2" />,
     },
     {
       title: "Pôr do Sol",
       value: formatTime(sys.sunset),
-      icon: <Sunset size={30} className="text-primary me-2" />,
+      icon: <Sunset size={26} color="white"
+      className="text-primary me-2" />,
     },
     {
       title: "Direção dos Ventos",
       value: `${getWindDirection(wind.deg)} (${wind.deg}°)`,
-      icon: <Compass size={30} className="text-success me-2" />,
+      icon: <Compass size={26} color="white"
+       className="text-success me-2" />,
     },
     {
       title: "Pressão Atmosférica",
       value: `${main.pressure} hPa`,
-      icon: <Gauge size={30} className="text-purple me-2" />,
+      icon: <Gauge size={26} color="white"
+      className="text-purple me-2" />,
     },
   ];
 

@@ -6,6 +6,8 @@ import { Alert, Button } from "@chakra-ui/react"
 import CurrentWeather from '../CurrentWeather/CurrentWeather'
 import HourlyTemperature from '../HourlyTemperature/HourlyTemperature';
 import WeatherDetails from '../WeatherDetails/WeatherDetails';
+import './DashboardPage1.css';
+
 
 
 
@@ -101,9 +103,10 @@ function DashboardPage1() {
     <>
       <div className='d-flex flex-column gap-3'>
         <div className='d-flex justify-content-end mb-0'>
-          <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>
-            <i className="bi bi-arrow-clockwise"></i>
-          </button>
+        <button onClick={handleRefresh} className='dashboard-refresh-btn'>
+  <i className="bi bi-arrow-clockwise"></i>
+</button>
+
         </div>
 
         <CurrentWeather
