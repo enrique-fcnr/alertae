@@ -23,7 +23,7 @@ import Propósito from './components/Proposito/Proposito';
 import Historia from './components/Historia/Historia';
 
 // **Alertas** Layout e Páginas
-import AlertasLayout from './pages/AlertasLayout /AlertasLayout '
+import AlertasLayout from './pages/AlertasLayout/AlertasLayout'
 import SobreAlertas from './components/SobreAlertas/SobreAlertas'
 
 // **Previsões** Layout e Páginas
