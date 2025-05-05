@@ -1,0 +1,42 @@
+.historia-container {
+    background-color: #ffffff;
+    padding: 4rem 1rem;
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .historia-content {
+    max-width: 800px;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #f9fafc;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .historia-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+  }
+  
+  .historia-paragraph {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .historia-title {
+      font-size: 2rem;
+    }
+  
+    .historia-paragraph {
+      font-size: 1rem;
+      text-align: justify;
+    }
+  }
+  
