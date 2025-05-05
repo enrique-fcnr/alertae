@@ -29,11 +29,37 @@ const Navbar = () => {
   }
 
   const menu = {
-    section1: { title: "Sobre", subtitles: ["Quem Somos", "Proposito do App"] },
-    section2: { title: "Alertas", subtitles: ["O que são", "Recomendações"] },
-    section3: { title: "Previsões", subtitles: ["Previsão próximas 24h", "Previsão próximos 4 dias", "Termos Meteorológicos"] },
-    section4: { title: "Contatos", subtitles: ["Quando Contactar", "Contatos de Emergência"] }
+    section1: {
+      title: "Sobre",
+      subtitles: [
+        { label: "Quem Somos", path: "/sobre/quem-somos" },
+        { label: "Propósito do App", path: "/sobre/proposito" }
+      ]
+    },
+    section2: {
+      title: "Alertas",
+      subtitles: [
+        { label: "O que são", path: "/alertas/sobre" },
+        { label: "Recomendações", path: "/alertas/recomendacoes" }
+      ]
+    },
+    section3: {
+      title: "Previsões",
+      subtitles: [
+        { label: "Previsão próximas 24h", path: "/previsoes/24h" },
+        { label: "Previsão próximos 4 dias", path: "/previsoes/4-dias" },
+        { label: "Termos Meteorológicos", path: "/previsoes/termos" }
+      ]
+    },
+    section4: {
+      title: "Contatos",
+      subtitles: [
+        { label: "Quando Contactar", path: "/contatos/quando" },
+        { label: "Contatos de Emergência", path: "/contatos/emergencia" }
+      ]
+    }
   };
+
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
@@ -61,8 +87,12 @@ const Navbar = () => {
                     {title}
                   </button>
                   <ul className={`dropdown-menu ${selectedItem === key ? "show" : ""}`}>
-                    {subtitles.map((subtitle, idx) => (
-                      <li key={idx}><a className="dropdown-item" href="#">{subtitle}</a></li>
+                    {subtitles.map(({ label, path }, idx) => (
+                      <li key={idx}>
+                        <Link to={path} className="dropdown-item" onClick={() => setSelectedItem("")}>
+                          {label}
+                        </Link>
+                      </li>
                     ))}
                   </ul>
                 </li>

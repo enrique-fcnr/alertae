@@ -13,13 +13,34 @@
 
 .sidebar-header {
   display: flex;
-  gap: 10px;
   align-items: center;
   margin-bottom: 20px;
+  margin: 2rem 0 1.6rem 0;
+
 }
 
 .search-form {
-  flex: 1;
+  display: flex;
+  gap: 0.5rem;
+}
+
+
+
+.close-btn {
+  display: none;
+}
+
+.icon-close {
+  font-size: 25px;
+  color: #006eff;
+  width: 30px;
+  height: 30px;
+}
+
+.nodisplay-menu-btn {
+  display: none;
+  z-index: 0;
+
 }
 
 .search-input {
@@ -90,20 +111,34 @@
 }
 
 /* ============ MOBILE ============ */
-
 .hamburger-btn {
   display: none;
-  position: fixed;
-  top: 16px;
+  position: absolute;
+  top: 70px;
   left: 16px;
   background: #1a73e8;
   color: white;
-  padding: 10px 12px;
+  padding: 7px 13px;
   border: none;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 17px;
   z-index: 1100;
   cursor: pointer;
+  opacity: 0;
+  transform: translateX(-200%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-btn.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hamburger-btn.hide {
+  transform: translateX(-200%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 @media (max-width: 768px) {
@@ -117,7 +152,7 @@
     left: 0;
     height: 100%;
     transform: translateX(-100%);
-    z-index: 1000;
+    z-index: 10000;
     transition: transform 0.3s ease;
     width: 75%;
     max-width: 280px;
@@ -130,4 +165,14 @@
   .sidebar.open {
     transform: translateX(0);
   }
+
+  .close-btn {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+    cursor: pointer;
+
+  }
+
 }

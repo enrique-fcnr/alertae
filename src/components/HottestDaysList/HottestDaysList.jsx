@@ -20,7 +20,7 @@ const HottestDaysList = ({ data }) => {
     .slice(0, 5);
 
   return (
-    <div className="p-5 bg-light text-center" style={{ height: '100%', width: '100%' }}>
+    <div className="p-5 bg-light " style={{ width: '100%', height: '400px' }}>
       <h5 style={{ color: 'gray' }}>3 Dias Mais Quentes da Semana</h5>
       <ul className="list-group w-fill h-100  d-flex justify-content-center align-items-center">
         {hottestDays.map(([date, temp], idx) => (

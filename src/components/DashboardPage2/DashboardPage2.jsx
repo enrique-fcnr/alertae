@@ -112,18 +112,17 @@ const DashboardPage2 = () => {
     });
 
   return (
-    <div className="container py-4">
+    <div className=" py-2 py-md-0">
       {/* Botão de Atualizar */}
       <div className='d-flex justify-content-end mb-0'>
         <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>
           <i className="bi bi-arrow-clockwise"></i>
         </button>
       </div>
-
       {/* Caixa com a previsão do tempo */}
       <div className="card shadow-sm my-3 p-3 h-100">
         <div className="card-header">
-          <h5 className="card-title mb-0">Próximos 5 dias</h5>
+          <h5 style={{ color: 'gray' }} className="card-title mb-0">Próximos 5 dias</h5>
         </div>
 
         <div className="d-flex p-4 justify-content-between align-items-center">
@@ -131,7 +130,7 @@ const DashboardPage2 = () => {
             <div key={index} className="text-center" style={{ minWidth: '60px' }}>
               {/* Dia da Semana */}
               <div className="font-size-small">
-                <strong>{format(new Date(day.date), 'EEEE', { locale: pt })}</strong>
+                <strong style={{ color: '#1a73e8' }} > {format(new Date(day.date), 'EEEE', { locale: pt })}</strong>
                 <div className="text-muted" style={{ fontSize: '0.75rem' }}>
                   {format(new Date(day.date), 'dd/MM')}
                 </div>

@@ -101,7 +101,7 @@ function DashboardPage1() {
 
   return (
     <>
-      <div className='d-flex flex-column gap-3'>
+      <div className='py-2 d-flex flex-column gap-3'>
         <div className='d-flex justify-content-end mb-0'>
         <button onClick={handleRefresh} className='dashboard-refresh-btn'>
   <i className="bi bi-arrow-clockwise"></i>
@@ -119,7 +119,7 @@ function DashboardPage1() {
           </div>
 
 
-          <div className="col-6 col-md-6">
+          <div className="col-12 col-md-6">
             <div className="card shadow-sm p-3 h-100">
               <div className="card-header">
                 <h5 className="card-title mb-0">Variações do Dia</h5>
