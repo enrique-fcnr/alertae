@@ -108,11 +108,12 @@ const DashboardPage3 = () => {
         <div className="card-body">
           <div className="row g-3">
             {legendaMeteorologica.map((data, index) => (
-              <div className="col-12 col-md-6" key={index}>
+              <div className="col-12 col-md-6 " key={index}>
                 <div className="card legend-card shadow-sm p-3 d-flex flex-row align-items-center">
                   <div
-                    className="icon-wrapper me-3"
-                    style={{ background: `linear-gradient(135deg, ${data.gradientStart}, ${data.gradientEnd})` }}
+                    className="col-8 icon-wrapper me-3 "
+                    style={{ background: 'linear-gradient(135deg, #1a73e8, #00c3ff)' }}
+
                   >
                     <FontAwesomeIcon icon={data.icone} style={{ fontSize: '1.5rem', color: 'white' }} />
                   </div>
