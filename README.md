@@ -5,8 +5,8 @@
 1. [Sobre o Projeto](#sobre-o-projeto)
 2. [Cores e Fontes](#cores-e-fontes)
 3. [Como usar localmente](#como-usar)
-4. [Contribuições](#contribuições)
-5. [ConfigurarAPI](#ConfiguraraAPI)
+4. [ConfigurarAPI](#ConfiguraraAPI)
+5. [Contribuições](#contribuições)
 6. [Licença](#licença)
 
 
