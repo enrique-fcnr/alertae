@@ -10,7 +10,7 @@ const InterfaceApp = () => {
     <section className="interface-app-section">
       <div className="interface-app-content">
         <div className="interface-app-header">
-        <div className="interface-app-icon">
+          <div className="interface-app-icon">
             <span className="magic-icon">
               <FaMagic />
             </span>
@@ -40,3 +40,4 @@ const InterfaceApp = () => {
 };
 
 export default InterfaceApp;
+
