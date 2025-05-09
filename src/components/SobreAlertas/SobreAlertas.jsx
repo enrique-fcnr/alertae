@@ -1,10 +1,11 @@
 import React from 'react';
 import './SobreAlertas.css';
-import { FaCircle } from 'react-icons/fa';
+import { FaCloudShowersHeavy, FaThermometerHalf, FaTint, FaBolt } from 'react-icons/fa';
+import { FaCircle } from 'react-icons/fa6';
 
 const alertas = [
   {
-    corCustom: "#22c55e", // verde
+    corCustom: "#22c55e",
     titulo: "Alerta de Cor Verde – Sem perigo",
     pontos: [
       { label: "Situação", texto: "Condições normais do tempo." },
@@ -12,7 +13,7 @@ const alertas = [
     ]
   },
   {
-    corCustom: "#facc15", // amarelo
+    corCustom: "#facc15",
     titulo: "Alerta de Cor Amarela – Perigo Potencial",
     pontos: [
       { label: "Situação", texto: "Eventos moderadamente intensos (chuva forte isolada, ventos moderados, etc.)." },
@@ -21,7 +22,7 @@ const alertas = [
     ]
   },
   {
-    corCustom: "#fb923c", // laranja corrigido
+    corCustom: "#fb923c",
     titulo: "Alerta de Cor Laranja – Perigo",
     pontos: [
       { label: "Situação", texto: "Fenômenos meteorológicos intensos (chuvas volumosas, vendavais, geadas)." },
@@ -30,7 +31,7 @@ const alertas = [
     ]
   },
   {
-    corCustom: "#ef4444", // vermelho
+    corCustom: "#ef4444",
     titulo: "Alerta de Cor Vermelha – Grande Perigo",
     pontos: [
       { label: "Situação", texto: "Eventos climáticos extremos e excepcionais (enchentes graves, ciclones, calor/frios extremos)." },
@@ -40,27 +41,53 @@ const alertas = [
   }
 ];
 
+const exemplos = [
+  {
+    icone: <FaBolt size={26} className="text-primary" />,
+    titulo: "Tempestades severas",
+    descricao: "Ventos fortes, raios, granizo."
+  },
+  {
+    icone: <FaCloudShowersHeavy size={26} className="text-primary" />,
+    titulo: "Chuvas intensas",
+    descricao: "Risco de alagamentos ou deslizamentos."
+  },
+  {
+    icone: <FaThermometerHalf size={26} className="text-primary" />,
+    titulo: "Ondas de calor ou frio extremo",
+    descricao: "Riscos à saúde."
+  },
+  {
+    icone: <FaTint size={26} className="text-primary" />,
+    titulo: "Geadas ou secas prolongadas",
+    descricao: "Impacto na agricultura e abastecimento de água."
+  }
+];
+
 const SobreAlertas = () => {
   return (
     <main className='container my-5'>
-      <div>
-        <h2 className='mb-4'>O que são Alertas Climáticos?</h2>
+
+      <section className="intro-alertas">
+        <h2>O que são Alertas Climáticos?</h2>
         <p>
           Alertas climáticos são avisos emitidos por autoridades meteorológicas para informar a população sobre
           condições meteorológicas adversas que podem representar riscos à segurança, à saúde ou à infraestrutura.
         </p>
         <p>
-          Esses alertas servem para prevenir acidentes e minimizar danos e geralmente são classificados por cores ou níveis de
-          severidade, indicando o grau de perigo. Exemplos:
+          Esses alertas servem para prevenir acidentes e minimizar danos e são classificados por níveis de severidade ou indicando o grau de perigo.
         </p>
-        <ul>
-          <li>Tempestades severas: ventos fortes, raios, granizo.</li>
-          <li>Chuvas intensas: risco de alagamentos ou deslizamentos.</li>
-          <li>Ondas de calor ou frio extremo: riscos à saúde.</li>
-          <li>Vendavais ou ciclones: danos materiais e ferimentos.</li>
-          <li>Geadas ou secas prolongadas: impacto na agricultura e abastecimento de água.</li>
-        </ul>
-      </div>
+
+        <div className="exemplos-grid">
+          {exemplos.map((item, index) => (
+            <div className="exemplo-card" key={index}>
+              <div className="icone-exemplo">{item.icone}</div>
+              <h5>{item.titulo}</h5>
+              <p>{item.descricao}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <div className='mt-5'>
         <h2>Interpretando os Níveis de Alerta Climático:</h2>
