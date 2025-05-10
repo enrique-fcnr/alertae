@@ -111,7 +111,7 @@
 }
 
 /* ============ MOBILE ============ */
-.hamburger-btn {
+.menu-btn {
   display: none;
   position: absolute;
   top: 70px;
@@ -129,22 +129,48 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.hamburger-btn.show {
+.menu-btn.show {
   opacity: 1;
   transform: translateX(0);
 }
 
-.hamburger-btn.hide {
+.menu-btn.hide {
   transform: translateX(-200%);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
 }
 
+
+
+@media (min-width: 600px) and (max-width: 768px) {
+  /* Tablets em modo retrato */
+}
+
+
 @media (max-width: 768px) {
-  .hamburger-btn {
-    display: block;
+  .menu-btn {
+    display: fixed;
   }
+
+  .menu-btn {
+    display: block;
+    position: absolute;
+    top: 26px;
+    left: 16px;
+    background: #1a73e8;
+    color: white;
+    padding: 7.4px 13px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    z-index: 1100;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateX(-200%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
 
   .sidebar {
     position: fixed;

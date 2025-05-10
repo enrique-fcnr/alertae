@@ -29,11 +29,11 @@ function Sidebar() {
   };
 
   return (
-    <>
 
+    <div style={{ position: 'relative' }}>
       {/* Botão Hamburguer */}
       <button
-        className={`hamburger-btn ${showButton ? 'show' : 'hide'}`}
+        className={`menu-btn ${showButton ? 'show' : 'hide'}`}
         onClick={toggleSidebar}
       >
         Menu
@@ -65,8 +65,9 @@ function Sidebar() {
           </ul>
         </nav>
       </div>
+    </div>
 
-    </>
+
   );
 }
 
