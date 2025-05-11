@@ -9,10 +9,13 @@ import {
 import {
   fetchAllWeather,
   getIconWithTemp,
-  filterConditions,
   legendaMeteorologica,
   cities
 } from '../../../data-dashboard-page3';
+
+
+
+
 
 const DashboardPage3 = () => {
   const [weatherData, setWeatherData] = useState([]);
@@ -23,8 +26,12 @@ const DashboardPage3 = () => {
   }, []);
 
   return (
-    <div className=' py-5 py-md-0'>
-      <div className='container-map'>
+    <div className=' card shadow-sm mb-4 p-3 h-100'>
+      <h1 className='text-gray'>Mapa de Referências de alerta climático</h1>
+      <p className='p-0 text-start
+'>Para verificar cada fator climático basta selecionar o fator da caixa de fatores abaixo e clicar na região desejada dentro do mapa. </p>
+
+      <div className='container-map' style={{ position: 'relative' }}>
         {/* Botões de filtro */}
         <div className="filter-buttons">
           {[
@@ -42,13 +49,16 @@ const DashboardPage3 = () => {
               key={value}
               className={filter === value ? 'active' : ''}
               onClick={() => setFilter(value)}
+              data-tip={label}
             >
               <FontAwesomeIcon icon={icon} style={color ? { color } : {}} />
               <span className="remove-small-screen"> {label} </span>
             </button>
-          ))}
-        </div>
 
+          ))}
+
+
+        </div>
 
         {/* Legenda */}
         <div className="map-legend">
@@ -65,33 +75,45 @@ const DashboardPage3 = () => {
           </ul>
         </div>
 
-
-
-        {/* Mapa padrão sem clustering */}
+        {/* Mapa */}
         <div className="w-100" style={{ height: '70vh' }}>
           <MapContainer
             className="shadow bg-white rounded h-100"
             center={[-23.5, -46.9]}
             zoom={9.3}
-            style={{ width: '100%' }}
+            style={{ width: '100%', height: '100%', zIndex: 1 }}
           >
             <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
-            {weatherData.filter(filterConditions(filter)).map((data, i) => {
+            {weatherData.map((data, i) => {
               const temp = data.main?.temp ?? 0;
               const rain = data.rain?.['1h'] || 0;
               const wind = data.wind?.speed ?? 0;
+              const gust = data.wind?.gust ?? 0;
+              const humidity = data.main?.humidity ?? 0;
+              const pressure = data.main?.pressure ?? 1013;
+              const visibility = data.visibility ?? 10000;
+
+              const valueByFilter = {
+                heat: `🌡️ Temperatura: ${temp}°C`,
+                cold: `🌡️ Temperatura: ${temp}°C`,
+                rain: `🌧️ Chuva: ${rain} mm/h`,
+                wind: `💨 Vento: ${wind} m/s`,
+                gust: `🌪️ Rajadas: ${gust} m/s`,
+                dry: `💧 Umidade: ${humidity}%`,
+                lowPressure: `⚖️ Pressão: ${pressure} hPa`,
+                fog: `🌫️ Visibilidade: ${visibility} m`,
+                all: `🌡️ Temp: ${temp}°C | 🌧️ ${rain}mm | 💨 ${wind}m/s`
+              };
 
               return (
                 <Marker
                   key={i}
                   position={[data.coord?.lat, data.coord?.lon]}
-                  icon={getIconWithTemp({ temp, rain, wind })}
+                  icon={getIconWithTemp({ temp, rain, wind, filter })}
                 >
                   <Popup>
                     <strong>{data.name}</strong><br />
-                    🌡️ Temperatura: {temp}°C<br />
-                    🌧️ Chuva: {rain} mm/h<br />
-                    💨 Vento: {wind} m/s
+                    {valueByFilter[filter] || valueByFilter.all}
                   </Popup>
                 </Marker>
               );
@@ -108,12 +130,11 @@ const DashboardPage3 = () => {
         <div className="card-body">
           <div className="row g-3">
             {legendaMeteorologica.map((data, index) => (
-              <div className="col-12 col-md-6 " key={index}>
+              <div className="col-12 col-md-6" key={index}>
                 <div className="card legend-card shadow-sm p-3 d-flex flex-row align-items-center">
                   <div
-                    className="col-8 icon-wrapper me-3 "
+                    className="col-8 icon-wrapper me-3"
                     style={{ background: 'linear-gradient(135deg, #1a73e8, #00c3ff)' }}
-
                   >
                     <FontAwesomeIcon icon={data.icone} style={{ fontSize: '1.5rem', color: 'white' }} />
                   </div>
