@@ -1,7 +1,10 @@
 import React from 'react';
 import './SobreAlertas.css';
-import { FaCloudShowersHeavy, FaThermometerHalf, FaTint, FaBolt } from 'react-icons/fa';
+import { FaCloudShowersHeavy, FaThermometerHalf, FaTint, FaBolt, FaExclamationTriangle } from 'react-icons/fa';
 import { FaCircle } from 'react-icons/fa6';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationTriangle, faBolt } from '@fortawesome/free-solid-svg-icons';
+
 
 const alertas = [
   {
@@ -67,17 +70,39 @@ const exemplos = [
 const SobreAlertas = () => {
   return (
     <main className='container my-5'>
+      {/* Sobre alertas */}
+      <section className="containekr intro-alertas">
+        <div className='card p-5 d-flex flex-column gap-4 border-0 shadow-sm bg-light'>
+          <h2>O que são Alertas Climáticos?</h2>
+          <div className="row row-cols-1 row-cols-md-2 g-4">
+            <div className="col">
+              <div className="card h-100 text-center border-0 shadow-sm ">
+                <div className="card-body d-flex flex-column align-items-center">
+                  <FontAwesomeIcon icon={faExclamationTriangle} className="alerta-1 text-warning fs-2 mb-3 p-3 rounded-5" />
+                  <p className="card-text text-start">
+                    Alertas climáticos são avisos emitidos por autoridades meteorológicas para informar a população sobre
+                    condições meteorológicas adversas que podem representar riscos à segurança, à saúde ou à infraestrutura.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-      <section className="intro-alertas">
-        <h2>O que são Alertas Climáticos?</h2>
-        <p>
-          Alertas climáticos são avisos emitidos por autoridades meteorológicas para informar a população sobre
-          condições meteorológicas adversas que podem representar riscos à segurança, à saúde ou à infraestrutura.
-        </p>
-        <p>
-          Esses alertas servem para prevenir acidentes e minimizar danos e são classificados por níveis de severidade ou indicando o grau de perigo.
-        </p>
+            <div className="col">
+              <div className="card h-100 text-center border-0 shadow-sm">
+                <div className="card-body d-flex flex-column align-items-center">
+                  <FontAwesomeIcon icon={faBolt} className="alerta-2 text-danger fs-2 mb-3 p-3 rounded-5" />
+                  <p className="card-text text-start">
+                    Esses alertas servem para prevenir acidentes e minimizar danos e são classificados por níveis de severidade ou indicando o grau de perigo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+
+
+        {/* Alertas */}
         <div className="exemplos-grid">
           {exemplos.map((item, index) => (
             <div className="exemplo-card" key={index}>

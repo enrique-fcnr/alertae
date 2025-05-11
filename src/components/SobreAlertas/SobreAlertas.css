@@ -1,5 +1,5 @@
-.container > div:not(.alertas-grid-2),
-.container > div:not(.alertas-grid-2) > * {
+.container>div:not(.alertas-grid-2),
+.container>div:not(.alertas-grid-2)>* {
   text-align: center;
 }
 
@@ -8,11 +8,20 @@
   text-align: center;
 }
 
+.alerta-1 {
+  background-color: #ffc10743;
+}
+
+.alerta-2 {
+  background-color: rgba(255, 0, 0, 0.27);
+}
+
 .exemplos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   margin-top: 2.5rem;
+
 }
 
 .exemplo-card {
@@ -22,6 +31,7 @@
   padding: 1.5rem;
   text-align: center;
   transition: all 0.3s ease;
+
 }
 
 .exemplo-card:hover {
@@ -34,7 +44,8 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
-  height: 50px; /* ajustável conforme o tamanho do ícone */
+  height: 50px;
+  /* ajustável conforme o tamanho do ícone */
 }
 
 
@@ -114,4 +125,3 @@
   font-weight: 600;
   color: #1e293b;
 }
-
