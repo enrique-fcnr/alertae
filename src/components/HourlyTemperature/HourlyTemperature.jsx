@@ -16,7 +16,6 @@ function HourlyTemperature({ data, valueMax, dataBuilder }) {
 
   dataChart24(data, valueMax)
 
-
   // Se vier uma função `dataBuilder`, usa ela. Senão, usa `dataChart24` padrão.
   const chartData = dataBuilder ? dataBuilder(data) : dataChart24(data, valueMax);
 
@@ -41,7 +40,7 @@ function HourlyTemperature({ data, valueMax, dataBuilder }) {
                   fontSize={11}
                   tickLine={false}
                   axisLine={false}
-                  tickFormatter={(value) => `${value}°`}
+                  tickFormatter={(value) => `${value}°C`}
                   dy={1}
                 />
                 <CartesianGrid strokeDasharray="3 3" />

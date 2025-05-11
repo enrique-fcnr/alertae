@@ -7,23 +7,24 @@ import CurrentWeather from '../CurrentWeather/CurrentWeather'
 import HourlyTemperature from '../HourlyTemperature/HourlyTemperature';
 import WeatherDetails from '../WeatherDetails/WeatherDetails';
 import './DashboardPage1.css';
+import { cities } from '../../../data-dashboard-page3'
 
 
 
 
 function DashboardPage1() {
-
-  const { coordinates, error, getLocation, isLoading } = useGeolocation();
-  const locationQuery = useReverseGeocodeQuery(coordinates)
-  const weatherQuery = useWeatherQuery(coordinates)
-  const forecastQuery = useForecastQuery(coordinates)
+  const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
+  const { error, getLocation, isLoading } = useGeolocation();
+  const locationQuery = useReverseGeocodeQuery(coordinates1)
+  const weatherQuery = useWeatherQuery(coordinates1)
+  const forecastQuery = useForecastQuery(coordinates1)
 
 
 
   // Button for refetch
   const handleRefresh = () => {
     getLocation()
-    if (coordinates || coordinateBackUp) {
+    if (coordinates1 || coordinateBackUp) {
       weatherQuery.refetch()
       forecastQuery.refetch()
       locationQuery.refetch()
@@ -31,7 +32,7 @@ function DashboardPage1() {
   }
 
   const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
-
+  console.log(locationName)
 
   // Se houver error:
   if (weatherQuery.error || forecastQuery.error) {
@@ -76,7 +77,7 @@ function DashboardPage1() {
     )
   }
 
-  if (!coordinates) {
+  if (!coordinates1) {
     return (
 
 
@@ -114,20 +115,19 @@ function DashboardPage1() {
           locationName={locationName}
         />
         <div className="row d-flex gap-3 gap-md-0">
-          <div className="col-12 col-md-6">
+          <div className="col-12  col-lg-6">
             <WeatherDetails data={weatherQuery.data} />
           </div>
 
 
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-lg-6">
             <div className="card shadow-sm p-3 h-100">
               <div className="card-header">
-                <h5 className="card-title mb-0">Variações do Dia</h5>
+                <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Variações do Dia</h5>
               </div>
 
               <HourlyTemperature
                 data={forecastQuery.data}
-                title="Temperaturas do dia"
                 valueMax={8}
               />
 

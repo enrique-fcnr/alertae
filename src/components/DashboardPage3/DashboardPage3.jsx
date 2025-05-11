@@ -26,9 +26,9 @@ const DashboardPage3 = () => {
   }, []);
 
   return (
-    <div className=' card shadow-sm mb-4 p-3 h-100'>
-      <h1 className='text-gray'>Mapa de Referências de alerta climático</h1>
-      <p className='p-0 text-start
+    <div className=' card shadow-sm mb-4 p-3 h-100 p-4'>
+      <h1 style={{ color: '#4C585B' }}>Mapa de Referências de alerta climático</h1>
+      <p style={{ color: '#595b5b' }} className='p-0 text-start
 '>Para verificar cada fator climático basta selecionar o fator da caixa de fatores abaixo e clicar na região desejada dentro do mapa. </p>
 
       <div className='container-map' style={{ position: 'relative' }}>
@@ -123,9 +123,9 @@ const DashboardPage3 = () => {
       </div>
 
       {/* Explicações */}
-      <div className="details-container card shadow-sm mb-4 p-3 h-100">
-        <div className="card-header">
-          <h5 className="card-title mb-0">Entenda como avaliar as Condições Climáticas:</h5>
+      <div className="details-container card shadow-sm mb-3 p-4 h-100">
+        <div className="card-header mb-3">
+          <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Entenda como avaliar as Condições Climáticas:</h5>
         </div>
         <div className="card-body">
           <div className="row g-3">
@@ -139,7 +139,7 @@ const DashboardPage3 = () => {
                     <FontAwesomeIcon icon={data.icone} style={{ fontSize: '1.5rem', color: 'white' }} />
                   </div>
                   <div>
-                    <div className="legend-title fw-bold mb-1">{data.titulo}</div>
+                    <div style={{ color: '#4C585B' }} className="legend-title fw-bold mb-1">{data.titulo}</div>
                     <div className="legend-desc small text-muted">{data.value}</div>
                   </div>
                 </div>

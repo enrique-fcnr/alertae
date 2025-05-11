@@ -6,17 +6,18 @@ import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import Temperature5Days from '../Temperature5Days/Temperature5Days'
 import { dataChart5Days } from '../../../data-hourly-temp-page';
-
-
+import { cities } from '../../../data-dashboard-page3'
 
 const DashboardPage2 = () => {
-  const { coordinates, error, getLocation, isLoading } = useGeolocation();
-  const forecastQuery = useForecastQuery(coordinates);
+  const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
+  const { error, getLocation, isLoading } = useGeolocation();
+  const forecastQuery = useForecastQuery(coordinates1);
+
 
   // Button for refetch
   const handleRefresh = () => {
     getLocation();
-    if (coordinates) {
+    if (coordinates1) {
       forecastQuery.refetch();
     }
   };
@@ -65,7 +66,7 @@ const DashboardPage2 = () => {
   }
 
   // Verifica se não existem coordenadas (latitude e longitude).
-  if (!coordinates) {
+  if (!coordinates1) {
     return (
       <Alert.Root status="error">
         <Alert.Indicator />
@@ -122,7 +123,7 @@ const DashboardPage2 = () => {
       {/* Caixa com a previsão do tempo */}
       <div className="card shadow-sm my-0 p-3 h-100">
         <div className="card-header">
-          <h5 style={{ color: 'gray' }} className="card-title mb-0">Próximos 5 dias</h5>
+          <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Próximos 5 dias</h5>
         </div>
 
         <div className="row d-flex justify-content-center align-items-center gap-3 ">
@@ -166,7 +167,7 @@ const DashboardPage2 = () => {
       <div className="col-12 col-md-12">
         <div className="card shadow-sm my-3 p-3 h-100">
           <div className="card-header">
-            <h5 style={{ color: 'gray' }} className="card-title mb-0">Variações dos Próximos 5 dias</h5>
+            <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Variações dos Próximos 5 dias</h5>
           </div>
 
           <Temperature5Days

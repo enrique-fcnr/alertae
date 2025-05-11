@@ -9,7 +9,7 @@ const CardDetails = ({ data }) => {
           {data.icon}
         </div>
         <div className="card-details-info">
-          <p className="card-details-title mb-1 fw-semibold">{data.title}</p>
+          <p style={{ color: 'gray' }} className="card-details-title mb-1 fw-semibold">{data.title}</p>
           <p className="card-details-desc mb-0 text-muted">{data.value}</p>
         </div>
       </div>
