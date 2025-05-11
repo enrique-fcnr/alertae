@@ -9,22 +9,24 @@ function Dashboard() {
     <>
       <Navbar />
       <div className="dashboard-layout" >
-        <div className='dashboard-container'>
-          <Sidebar />
-          <div className='container-fluid p-3'>
-            <Outlet />
-          </div>
-        </div>
-        <div className="app-container" >
-          <footer className="footer-dashboard m-0 footer p-0 text-center ">
-            <div className="container d-md-flex flex-md-column">
-              <hr className="footer-bar mt-5" />
-              <p className="footer-rights mb-4">
-                &copy; {new Date().getFullYear()} Alertaê - Todos os direitos reservados.
-              </p>
+        <main style={{ position: "relative" }}>
+          <div className='dashboard-container'>
+            <Sidebar style={{ position: 'absolute' }} />
+            <div className='container-fluid p-3'>
+              <Outlet />
             </div>
-          </footer>
-        </div>
+          </div>
+          <div className="app-container" >
+            <footer className="footer-dashboard m-0 footer p-0 text-center ">
+              <div className="container d-md-flex flex-md-column">
+                <hr className="footer-bar mt-5" />
+                <p className="footer-rights mb-4">
+                  &copy; {new Date().getFullYear()} Alertaê - Todos os direitos reservados.
+                </p>
+              </div>
+            </footer>
+          </div>
+        </main>
       </div>
     </>
   );

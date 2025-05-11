@@ -4,6 +4,7 @@
   background-color: #1a73e8;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 100000;
 }
 
 .footer-img {

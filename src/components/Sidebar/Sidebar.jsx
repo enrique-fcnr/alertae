@@ -30,8 +30,8 @@ function Sidebar() {
 
   return (
 
-    <div style={{ position: 'relative' }}>
-      {/* Botão Hamburguer */}
+    <div className='side-container' style={{ position: 'relative' }}>
+      {/* Botão Menu */}
       <button
         className={`menu-btn ${showButton ? 'show' : 'hide'}`}
         onClick={toggleSidebar}
@@ -44,13 +44,15 @@ function Sidebar() {
         className={`sidebar ${isOpen ? 'open' : ''}`}
         onTransitionEnd={handleTransitionEnd}
       >
-        <button onClick={toggleSidebar} className="close-btn">
-          <FaWindowClose className='icon-close' />
-        </button>
+        <div className='container-close'>
+          <button onClick={toggleSidebar} className="close-btn">
+            <FaWindowClose className='icon-close' />
+          </button>
+        </div>
         <div className="sidebar-header">
           <form className="search-form" role="search">
-            <input type="search" placeholder="Buscar..." className="search-input" />
-            <button className="btn-new">Novo</button>
+            <input className="input-pesquisa" type="search" placeholder="Buscar..." />
+            <button className="btn-pesquisar">Buscar</button>
           </form>
 
         </div>

@@ -64,7 +64,7 @@ function Login() {
             value={formData.username}
             onChange={handleChange}
             required
-            className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+            className={`input-login form-control ${errors.username ? 'is-invalid' : ''}`}
           />
           {errors.username && <div className="invalid-feedback">{errors.username}</div>}
         </div>

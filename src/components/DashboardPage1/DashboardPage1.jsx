@@ -103,9 +103,9 @@ function DashboardPage1() {
     <>
       <div className='py-2 d-flex flex-column gap-3'>
         <div className='d-flex justify-content-end mb-0'>
-        <button onClick={handleRefresh} className='dashboard-refresh-btn'>
-  <i className="bi bi-arrow-clockwise"></i>
-</button>
+          <button onClick={handleRefresh} className='dashboard-refresh-btn'>
+            <i className="bi bi-arrow-clockwise"></i>
+          </button>
 
         </div>
 
