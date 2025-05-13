@@ -13,6 +13,12 @@
 .container-map {
   position: relative;
   width: 100%;
+
+
+}
+
+.leaflet-container {
+  z-index: 1 !important;
 }
 
 /* ===== BOTÕES DE FILTRO ===== */
@@ -20,16 +26,16 @@
   position: absolute;
   top: 10px;
   left: 50px;
-  right: 10px;
+  margin-right: 10px;
   background: var(--background-light);
-  border-radius: 16px;
-  padding: 12px 20px;
+  border-radius: 10px;
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
   justify-content: center;
+  gap: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 10;
   animation: fadeIn 1s ease;
 }
 
@@ -138,15 +144,15 @@
 
 /* Ícone quadrado */
 .icon-wrapper {
-  width: 80px;
-  height: 80px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a73e8, #00c3ff);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   margin-bottom: 1rem;
+
 }
 
 .icon-wrapper svg {
@@ -199,10 +205,10 @@
 
 
 /* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
+@media (max-width: 940px) {
   .filter-buttons {
     position: absolute;
-    width: 19%;
+    width: 60px;
     top: 83px;
     left: 7px;
     right: 10px;

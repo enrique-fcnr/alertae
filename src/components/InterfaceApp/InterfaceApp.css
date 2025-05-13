@@ -5,8 +5,6 @@
   justify-content: center;
 }
 
-
-
 .interface-app-content {
   max-width: 1400px;
   width: 100%;
@@ -79,20 +77,34 @@
   transform: scale(0.9);
 }
 
-
+/* Responsividade */
 @media (max-width: 900px) {
   .mockups-wrapper {
     flex-direction: column;
+    align-items: center;
     gap: 30px;
   }
 
   .mockup-item img {
-    max-width: 240px;
+    max-width: 220px;
   }
 
   .mockup-item.center img {
-    max-width: 280px;
+    max-width: 240px;
     transform: scale(1.05);
   }
-}
 
+  .interface-app-header h2 {
+    font-size: 24px;
+  }
+
+  .interface-app-header p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .interface-app-icon {
+    font-size: 13px;
+    padding: 4px 12px;
+  }
+}

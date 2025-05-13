@@ -9,6 +9,7 @@ function CurrentWeather({ data, locationName }) {
   } = data;
 
   const formatTemp = (t) => `${Math.round(t)}°`;
+  console.log(locationName)
 
   return (
     <div className="card overflow-hidden">
@@ -29,20 +30,20 @@ function CurrentWeather({ data, locationName }) {
 
             {/* Temperatura principal */}
             <div className="d-flex align-items-center mb-4">
-              <p className="display-1 fw-bold mb-0">{formatTemp(temp)}</p>
+              <p style={{ color: '#1a73e8' }} className="display-1 fw-bold mb-0">{formatTemp(temp)}C</p>
               <div className=" d-flex flex-column justify-content-center">
                 <div className='d-flex align-items-center mb-1 justify-content-center'>
                   <p className="small m-0  w-100">
                     Sensação térmica
                   </p>
-                  <span className='m-0 p-2 border border-3 rounded-2 border-primary'> {formatTemp(feels_like)}</span>
+                  <span style={{ color: '#dc5405' }} className='m-0 p-3  bg-light '> {formatTemp(feels_like)}C</span>
                 </div>
                 <div className="d-flex small  fw-medium justify-content-center ">
                   <span className="d-flex align-items-center text-primary me-3">
-                    <ArrowDown size={13} /> {formatTemp(temp_min)}
+                    <ArrowDown size={13} /> {formatTemp(temp_min)}C
                   </span>
                   <span className="d-flex align-items-center text-danger">
-                    <ArrowUp size={13} /> {formatTemp(temp_max)}
+                    <ArrowUp size={13} /> {formatTemp(temp_max)}C
                   </span>
                 </div>
               </div>

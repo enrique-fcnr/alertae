@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Text } from "@chakra-ui/react";
+import { Card } from "@chakra-ui/react";
 import { dataChart24 } from '../../../data-hourly-temp-page'
 import {
   LineChart,
@@ -8,13 +8,13 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  Legend
+  Legend,
+  CartesianGrid
 } from "recharts";
 
 function HourlyTemperature({ data, valueMax, dataBuilder }) {
 
   dataChart24(data, valueMax)
-
 
   // Se vier uma função `dataBuilder`, usa ela. Senão, usa `dataChart24` padrão.
   const chartData = dataBuilder ? dataBuilder(data) : dataChart24(data, valueMax);
@@ -40,9 +40,10 @@ function HourlyTemperature({ data, valueMax, dataBuilder }) {
                   fontSize={11}
                   tickLine={false}
                   axisLine={false}
-                  tickFormatter={(value) => `${value}°`}
+                  tickFormatter={(value) => `${value}°C`}
                   dy={1}
                 />
+                <CartesianGrid strokeDasharray="3 3" />
                 <Tooltip
                   content={({ active, payload }) => {
                     if (active && payload && payload.length) {
@@ -54,8 +55,8 @@ function HourlyTemperature({ data, valueMax, dataBuilder }) {
                               <span className="fw-bold" style={{ color: '#2563eb' }}>{payload[0].value}°C</span>
                             </div>
                             <div className="col d-flex flex-column justify-content-center ">
-                              <span className="text-uppercase text-muted small " style={{ fontSize: '0.8rem' }} >Sensação Térmica</span>
-                              <span className="fw-bold" style={{ color: '#2563eb' }}>{payload[1].value}°C</span>
+                              <span className="text-uppercase text-muted small " style={{ fontSize: '0.8rem', }} >Sensação Térmica</span>
+                              <span className="fw-bold" style={{ color: '#ff7300' }}>{payload[1].value}°C</span>
                             </div>
                           </div>
                         </div>
@@ -64,7 +65,7 @@ function HourlyTemperature({ data, valueMax, dataBuilder }) {
                     return null;
                   }}
                 />
-                <Legend />
+                <Legend verticalAlign="top" height={36} />
                 <Line
                   type="monotone"
                   dataKey="temp"
@@ -76,7 +77,7 @@ function HourlyTemperature({ data, valueMax, dataBuilder }) {
                 <Line
                   type="monotone"
                   dataKey="feels_like"
-                  stroke="#64748b"
+                  stroke="#ff7300"
                   strokeWidth={2}
                   dot={false}
                   strokeDasharray="5 5"

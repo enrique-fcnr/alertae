@@ -1,0 +1,19 @@
+.grid-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+}
+
+/* Para telas maiores: 3 boxes em cima e 2 embaixo */
+@media (min-width: 576px) and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Para telas muito pequenas: 2 por linha */
+@media (max-width: 575px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

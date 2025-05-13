@@ -1,0 +1,127 @@
+.container>div:not(.alertas-grid-2),
+.container>div:not(.alertas-grid-2)>* {
+  text-align: center;
+}
+
+/* NOVA SEÇÃO: "O que são Alertas Climáticos?" */
+.intro-alertas {
+  text-align: center;
+}
+
+.alerta-1 {
+  background-color: #ffc10743;
+}
+
+.alerta-2 {
+  background-color: rgba(255, 0, 0, 0.27);
+}
+
+.exemplos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+
+}
+
+.exemplo-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+
+}
+
+.exemplo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.icone-exemplo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  height: 50px;
+  /* ajustável conforme o tamanho do ícone */
+}
+
+
+.exemplo-card h5 {
+  font-size: 1.05rem;
+  color: #1e293b;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.exemplo-card p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+
+/* GRID DE ALERTAS */
+.alertas-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.alert-card-upgraded {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-card-upgraded:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.alert-card-upgraded h5 {
+  font-size: 1.05rem;
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.alert-card-upgraded ul {
+  padding-left: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.alert-card-upgraded li {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 0.8rem;
+  line-height: 1.45;
+}
+
+.alert-card-upgraded li strong {
+  display: inline-block;
+  font-weight: 600;
+  color: #1e293b;
+}

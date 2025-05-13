@@ -5,8 +5,8 @@
 1. [Sobre o Projeto](#sobre-o-projeto)
 2. [Cores e Fontes](#cores-e-fontes)
 3. [Como usar localmente](#como-usar)
-4. [Contribuições](#contribuições)
-5. [ConfigurarAPI](#ConfiguraraAPI)
+4. [ConfigurarAPI](#ConfiguraraAPI)
+5. [Contribuições](#contribuições)
 6. [Licença](#licença)
 
 
@@ -40,11 +40,11 @@ COLAR CÓDIGO NO <head> DO HTML
  - OPEN SANS (GOOGLE FONTS) - CORPO DO TEXTO, PARÁGRAFOS, INFORMAÇÕES <head> DO HTML
 
 ## Como usar
-# Instruções para Rodar o Projeto Localmente
+### Instruções para Rodar o Projeto Localmente
 
 Este guia explica como configurar e rodar o projeto **Vite** com **React** no seu computador.
 
-## 1. Instalar as Ferramentas Necessárias
+### 1. Instalar as Ferramentas Necessárias
 
 Antes de começar, você precisa ter algumas ferramentas instaladas no seu computador.
 
@@ -85,7 +85,7 @@ VITE v4.0.0  ready in 300ms
 
 ## ConfigurarAPI
 
-# Configurar a API Key do OpenWeatherMap
+### Configurar a API Key do OpenWeatherMap
 
 Este projeto utiliza a API do [OpenWeatherMap](https://openweathermap.org/api) para obter dados meteorológicos.
 

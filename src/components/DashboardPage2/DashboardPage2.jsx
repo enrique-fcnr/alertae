@@ -6,17 +6,18 @@ import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import Temperature5Days from '../Temperature5Days/Temperature5Days'
 import { dataChart5Days } from '../../../data-hourly-temp-page';
-
-
+import { cities } from '../../../data-dashboard-page3'
 
 const DashboardPage2 = () => {
-  const { coordinates, error, getLocation, isLoading } = useGeolocation();
-  const forecastQuery = useForecastQuery(coordinates);
+  const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
+  const { error, getLocation, isLoading } = useGeolocation();
+  const forecastQuery = useForecastQuery(coordinates1);
+
 
   // Button for refetch
   const handleRefresh = () => {
     getLocation();
-    if (coordinates) {
+    if (coordinates1) {
       forecastQuery.refetch();
     }
   };
@@ -65,7 +66,7 @@ const DashboardPage2 = () => {
   }
 
   // Verifica se não existem coordenadas (latitude e longitude).
-  if (!coordinates) {
+  if (!coordinates1) {
     return (
       <Alert.Root status="error">
         <Alert.Indicator />
@@ -112,26 +113,30 @@ const DashboardPage2 = () => {
     });
 
   return (
-    <div className="container py-4">
+    <div className="py-2 d-flex flex-column gap-3">
       {/* Botão de Atualizar */}
       <div className='d-flex justify-content-end mb-0'>
-        <button onClick={handleRefresh} className='bg-light py-1 px-2 rounded-2'>
+        <button onClick={handleRefresh} className='dashboard-refresh-btn'>
           <i className="bi bi-arrow-clockwise"></i>
         </button>
       </div>
-
       {/* Caixa com a previsão do tempo */}
-      <div className="card shadow-sm my-3 p-3 h-100">
+      <div className="card shadow-sm my-0 p-3 h-100">
         <div className="card-header">
-          <h5 className="card-title mb-0">Próximos 5 dias</h5>
+          <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Próximos 5 dias</h5>
         </div>
 
-        <div className="d-flex p-4 justify-content-between align-items-center">
+        <div className="row d-flex justify-content-center align-items-center gap-3 ">
           {dailyTemperatures.map((day, index) => (
-            <div key={index} className="text-center" style={{ minWidth: '60px' }}>
+            <div
+              key={index}
+              className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex flex-column justify-content-center align-items-center  text-center p-3 gap-2 bg-light mt-2 rounded-3"
+            >
               {/* Dia da Semana */}
               <div className="font-size-small">
-                <strong>{format(new Date(day.date), 'EEEE', { locale: pt })}</strong>
+                <strong style={{ color: '#1a73e8' }}>
+                  {format(new Date(day.date), 'EEEE', { locale: pt })}
+                </strong>
                 <div className="text-muted" style={{ fontSize: '0.75rem' }}>
                   {format(new Date(day.date), 'dd/MM')}
                 </div>
@@ -155,14 +160,14 @@ const DashboardPage2 = () => {
               </div>
             </div>
           ))}
-
         </div>
+
       </div>
 
       <div className="col-12 col-md-12">
         <div className="card shadow-sm my-3 p-3 h-100">
           <div className="card-header">
-            <h5 className="card-title mb-0">Variações dos Próximos 5 dias</h5>
+            <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Variações dos Próximos 5 dias</h5>
           </div>
 
           <Temperature5Days

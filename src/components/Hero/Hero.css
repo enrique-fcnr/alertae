@@ -1,135 +1,200 @@
 .hero {
-    width: 100%;
-    min-height: 100vh;
-    background: url("../../assets/bg-hero.png") center/cover no-repeat;
-    display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: url("../../assets/bg-hero.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 60px 20px;
+}
+
+.hero-content {
+  max-width: 1300px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.hero-content .btn {
+  font-size: 1rem;
+  padding: 12px 24px;
+}
+
+.hero-text {
+  flex: 1;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-text h1 {
+  font-size: 4.0rem;
+  color: #111;
+  font-weight: 600;
+}
+
+.hero-text h1 span {
+  color: #1a73e8;
+  font-weight: 700;
+}
+
+.hero-text p {
+  margin: 20px 0;
+  font-size: 1.1rem;
+  color: #555;
+  width: 100%;
+  max-width: 650px;
+  text-align: left;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #006eff, #00c3ff);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(1.08);
+}
+
+.btn-outline {
+  background: white;
+  color: #1a73e8;
+  padding: 12px 24px;
+  border: 2px solid #1a73e8;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background: #1a73e8;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  transform: scale(1.08);
+}
+
+.hero-mockups {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.mockup {
+  max-width: 340px;
+  height: auto;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mockup:hover {
+  transform: scale(1.08);
+}
+
+.mockup-back {
+  left: 40px;
+  transform: translateY(20px) scale(0.95);
+  z-index: 1;
+}
+
+.mockup-front {
+  right: 40px;
+  transform: translateY(-20px);
+  z-index: 2;
+}
+
+
+/* =====================
+   RESPONSIVIDADE
+===================== */
+@media (max-width: 1024px) {
+  .hero {
+    background: url("../../assets/bg-hero-mobile.png") center/cover no-repeat;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-content {
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    padding: 60px 20px;
+    text-align: center;
   }
 
-  .hero-content {
-    max-width: 1300px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-  
-  .hero-content .btn {
-    font-size: 1rem;
-    padding: 12px 24px;
-  }
-  
   .hero-text {
-    flex: 1;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* alinha tudo à esquerda */
-  }
-  
-  
-  .hero-text h1 {
-    font-size: 4.0rem;
-    color: #111;
-    font-weight: 600;
-  }
-  
-  .hero-text h1 span {
-    color: #1a73e8; /* azul destaque */
-    font-weight: 700;
-  }
-  
-  .hero-text p {
-    margin: 20px 0;
-    font-size: 1.1rem;
-    color: #555;
-    width: 100%; /* ocupa toda a largura disponível */
-    max-width: 650px; /* opcional: limita em telas gigantes */
-    text-align: left;
-  }
-  
- 
- 
-  
-  .hero-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  .btn-primary {
-    background: linear-gradient(90deg, #006eff, #00c3ff);
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    text-decoration: none;
-  }
-  .btn-primary:hover {
-    opacity: 0.9;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transform: scale(1.08); /* aumenta 8% no hover */
-  }
-  
-  .btn-outline {
-    background: white;
-    color: #1a73e8;
-    padding: 12px 24px;
-    border: 2px solid #1a73e8;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    text-decoration: none;
-  }
-  .btn-outline:hover {
-    background: #1a73e8;
-    color: #ffffff;
-    padding: 12px 24px;
-    border: 2px solid #ffffff;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transform: scale(1.08); /* aumenta 8% no hover */
-  }
-  
-  .hero-mockups {
-    flex: 1;
-    position: relative;
-    display: flex;
-    justify-content: center;
     align-items: center;
   }
-  
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+    color: #ffffff; /* cor visível em fundo azul */
+  }
+
+  .hero-text h1 span {
+    color: #ffffff; /* branco no fundo azul */
+  }
+
+  .hero-text p {
+    color: #e5e5e5;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-mockups {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 40px;
+  }
+
   .mockup {
-    max-width: 340px;
-    height: auto;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 250px;
   }
-  
-  .mockup:hover {
-    transform: scale(1.08); /* aumenta 8% no hover */
-  }
-  
+
   .mockup-back {
-    left: 40px;
-    transform: translateY(20px) scale(0.95);
-    z-index: 1;
+    display: none !important; /* remove o segundo mockup */
   }
-  
+
   .mockup-front {
-    right: 40px;
-    transform: translateY(-20px);
-    z-index: 2;
-  }  
+    position: static;
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .mockup {
+    max-width: 200px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
