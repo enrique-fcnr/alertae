@@ -37,16 +37,22 @@ function DashboardPage1() {
   // Se houver error:
   if (weatherQuery.error || forecastQuery.error) {
     return (
-      <Alert.Root status="error">
-        <Alert.Indicator />
-        <Alert.Content>
-          <Alert.Title>Erro</Alert.Title>
-          <Alert.Description>
-            <p>Falhor ao coletar informações sobre o tempo. Por favor, tente novamente!</p>
-            <Button variant="outline" onClick={getLocation}>
-              Tente novamente
-            </Button>
+
+
+      <Alert.Root className='p-5 bg-danger text-light d-flex align-items-start ' status="error">
+        <Alert.Indicator className='fs-1 ' />
+        <Alert.Content className=''>
+          <Alert.Title className='fs-4 mt-2'>Falhor ao coletar informações sobre o tempo. Por favor, tente novamente!</Alert.Title>
+          <Alert.Description className='fs-4 mt-sm-3'>
+            {error}
+
           </Alert.Description>
+          <Button className="m-0 bg-light fs-5 p-4 text-danger rounded-3 mt-sm-3 "
+
+            onClick={getLocation}>
+            Tente novamente
+          </Button>
+
         </Alert.Content>
       </Alert.Root>
     );
