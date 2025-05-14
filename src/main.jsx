@@ -13,7 +13,7 @@ import Home from './pages/Home/Home.jsx';
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
-import DashboardLayout from './pages/Dashboard/Dashboard.jsx';
+import DashboardLayout from './pages/DashboardLayout/DashboardLayout.jsx';
 import DashboardPage1 from './components/DashboardPage1/DashboardPage1';
 import DashboardPage2 from './components/DashboardPage2/DashboardPage2';
 import DashboardPage3 from './components/DashboardPage3/DashboardPage3';
