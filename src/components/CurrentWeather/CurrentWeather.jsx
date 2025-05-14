@@ -9,7 +9,7 @@ function CurrentWeather({ data, locationName }) {
   } = data;
 
   const formatTemp = (t) => `${Math.round(t)}°`;
-  console.log(locationName)
+
 
   return (
     <div className="card overflow-hidden">

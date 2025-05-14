@@ -5,7 +5,7 @@ import CardDetails from '../CardDetails/CardDetails'
 
 function WeatherDetails({ data }) {
   const { wind, main, sys } = data;
-  console.log(data)
+
 
 
   const formatTime = (timestamp) => {

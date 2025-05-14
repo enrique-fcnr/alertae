@@ -9,9 +9,6 @@ import WeatherDetails from '../WeatherDetails/WeatherDetails';
 import './DashboardPage1.css';
 import { cities } from '../../../data-dashboard-page3'
 
-
-
-
 function DashboardPage1() {
   const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
   const { error, getLocation, isLoading } = useGeolocation();
@@ -19,12 +16,10 @@ function DashboardPage1() {
   const weatherQuery = useWeatherQuery(coordinates1)
   const forecastQuery = useForecastQuery(coordinates1)
 
-
-
   // Button for refetch
   const handleRefresh = () => {
     getLocation()
-    if (coordinates1 || coordinateBackUp) {
+    if (coordinates1) {
       weatherQuery.refetch()
       forecastQuery.refetch()
       locationQuery.refetch()
@@ -32,12 +27,11 @@ function DashboardPage1() {
   }
 
   const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
-  console.log(locationName)
+
 
   // Se houver error:
   if (weatherQuery.error || forecastQuery.error) {
     return (
-
 
       <Alert.Root className='p-5 bg-danger text-light d-flex align-items-start ' status="error">
         <Alert.Indicator className='fs-1 ' />
@@ -85,8 +79,6 @@ function DashboardPage1() {
 
   if (!coordinates1) {
     return (
-
-
       <Alert.Root status="error" className='p-5 bg-danger text-light d-flex align-items-start'>
         <Alert.Indicator className='fs-1 ' />
         <Alert.Content className=''>
@@ -108,6 +100,7 @@ function DashboardPage1() {
 
   return (
     <>
+
       <div className='py-2 d-flex flex-column gap-3'>
         <div className='d-flex justify-content-end mb-0'>
           <button onClick={handleRefresh} className='dashboard-refresh-btn'>

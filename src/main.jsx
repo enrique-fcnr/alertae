@@ -166,7 +166,11 @@ const router = createBrowserRouter([
 
   // Outras rotas se tiver!
 
-]);
+], {
+  future: {
+    v7_relativeSplatPath: true,
+  }
+})
 
 // Renderizando a aplicação
 createRoot(document.getElementById('root')).render(
