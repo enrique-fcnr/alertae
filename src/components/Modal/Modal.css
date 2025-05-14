@@ -1,78 +1,138 @@
-/* Estilos gerais do modal */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1050;
 }
 
-.modal-content {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 20px;
-  width: 80%;
-  max-width: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.modal-content-popup {
+  position: relative;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 25px 30px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.modal-header {
-  background-color: #3182CE;
-  color: white;
-  padding: 15px;
+.modal-header-popup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.modal-title-popup {
   font-size: 1.5rem;
-  border-radius: 10px 10px 0 0;
-  text-align: center;
-}
-
-.modal-body {
-  font-size: 1rem;
-  padding: 15px 0;
-}
-
-.alert-box {
-  padding: 15px;
-  background-color: #f4f6f9;
-  border-left: 5px solid #3182CE;
-  margin-bottom: 10px;
-}
-
-.alert-box h5 {
-  margin-bottom: 10px;
-  color: #3182CE;
-}
-
-.alert-box p {
-  margin-bottom: 5px;
-
-}
-
-.alert-box .highlight {
   font-weight: bold;
-  color: #3182CE;
+  margin-bottom: 5px;
 }
 
-.modal-footer {
+.subtitle-popup {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #dbeafe;
+  margin-top: 5px;
+}
+
+.popup-data-cards {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.popup-card {
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  color: #ffffff;
+}
+
+.alert-flood {
+  background-color: rgba(0, 123, 255, 0.25);
+}
+
+.alert-rain {
+  background-color: rgba(30, 64, 175, 0.25);
+}
+
+.popup-card .icon {
+  min-width: 40px;
+  color: #90cdf4;
+  flex-shrink: 0;
+  margin-top: 12px;
+}
+
+.popup-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.popup-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #f1f5f9;
+}
+
+.modal-footer-popup {
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
+  margin-top: 25px;
 }
 
-.modal-footer button {
-  background-color: #3182CE;
-  color: white;
+.modal-footer-popup .btn {
+  background-color: #3b82f6;
   border: none;
+  border-radius: 6px;
   padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-.modal-footer button:hover {
-  background-color: #2b6cb0;
+.modal-footer-popup .btn:hover {
+  background-color: #2563eb;
+}
+
+/* Bolinha de alerta com animação pulsante */
+.alert-indicator {
+  position: absolute;
+  top: 22px;
+  right: 25px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  z-index: 2;
+  animation: pulse 1.5s infinite;
+}
+
+.alert-indicator.orange {
+  background-color: #f97316;
+  box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+  }
+  70% {
+    transform: scale(1.4);
+    box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+  }
 }
