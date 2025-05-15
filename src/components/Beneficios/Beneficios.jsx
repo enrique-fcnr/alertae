@@ -8,25 +8,30 @@ const Beneficios = () => {
     <section className="beneficios-section">
       <div className="beneficios-container">
 
-        <div className="beneficios-content">
-          <h2>benefícios</h2>
+        <div className="beneficios-image">
+          <img src={mockup6} alt="Mockup Benefícios" />
+        </div>
 
+        <div className="beneficios-content">
+          <h2>Sua família
+            <br /> merece estar segura!</h2>
+          <div className="line-gradient"></div>
           <ul className="beneficios-list">
             <li>
               <FiBox className="icon" />
-              Tenha tudo o que você precisa em um só lugar: segurança, agilidade e informações em tempo real sempre disponíveis.
+              Receba alertas sobre chuvas e calor extremo para proteger sua família com antecedência.
             </li>
             <li>
               <FiCheckCircle className="icon" />
-              Receba alertas personalizados e acionamentos rápidos em situações de emergência com apenas um toque.
+               Interface simples com toque único para emergências, ideal para a terceira idade.
             </li>
             <li>
               <FiGift className="icon" />
-              Desfrute de uma experiência simples, intuitiva e totalmente pensada para facilitar a sua rotina e garantir a sua segurança.
+              Tecnologia acessível com ícones grandes e leitura fácil para quem você ama.
             </li>
             <li>
               <FiClock className="icon" />
-              Ganhe tempo e tranquilidade com funcionalidades inteligentes que trabalham por você 24 horas por dia.
+              Aplicativo intuitivo que funciona 24h para garantir segurança na rotina diária.
             </li>
           </ul>
 
@@ -35,9 +40,7 @@ const Beneficios = () => {
           </button>
         </div>
 
-        <div className="beneficios-image">
-          <img src={mockup6} alt="Mockup Benefícios" />
-        </div>
+        
 
       </div>
     </section>

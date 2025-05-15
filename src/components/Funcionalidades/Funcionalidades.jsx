@@ -7,7 +7,7 @@ const Funcionalidades = () => {
     <section className="funcionalidades-section">
       <div className="funcionalidades-container">
         <h2>Funcionalidades</h2>
-        <div className="line-gradient"></div>
+        <div className="line-gradientt"></div>
         <p>Descubra tudo o que o Alertaê pode fazer para te manter protegido e informado onde quer que você esteja.</p>
 
         <div className="funcionalidades-grid">

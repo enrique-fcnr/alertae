@@ -52,6 +52,7 @@
 .contato-text {
   color: #555;
   font-size: 14px;
+  margin-left: -19px;
   margin-bottom: 30px;
   max-width: 350px;
   text-align: left;

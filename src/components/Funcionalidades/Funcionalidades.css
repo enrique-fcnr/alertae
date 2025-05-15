@@ -16,10 +16,10 @@
     margin-bottom: 5px;
   }
   
-  .line-gradient {
-    width: 80px;
+  .line-gradientt {
+    width: 260px;
     height: 3px;
-    margin: 0 auto 20px;
+    margin: 0 auto 20px; 
     background: linear-gradient(90deg, #006eff, #00c3ff);
     border-radius: 4px;
   }

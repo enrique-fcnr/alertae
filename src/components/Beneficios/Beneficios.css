@@ -22,8 +22,16 @@
     font-size: 32px;
     font-weight: 700;
     color: #222;
-    text-transform: lowercase;
+    ;
     margin-bottom: 30px;
+  }
+
+  .line-gradient {
+    width: 357px;
+    height: 3px;
+    margin: -20px auto 20px 0px;
+    background: linear-gradient(90deg, #006eff, #00c3ff);
+    border-radius: 4px;
   }
   
   .beneficios-list {
@@ -89,14 +97,18 @@
     display: flex;
     justify-content: center;
     transform: scale(1.08);
+    box-shadow: #000000;
     
   }
   
   .beneficios-image img {
-    max-width: 250px; /* ainda menor que antes */
-    width: 100%;
-    height: auto;
-  }
+  max-width: 380px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+
+  
+}
   
   @media (max-width: 992px) {
     .beneficios-container {

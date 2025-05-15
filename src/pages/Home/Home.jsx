@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar.jsx"
 import Hero from "../../components/Hero/Hero.jsx"
 import Funcionalidades from "../../components/Funcionalidades/Funcionalidades.jsx"
 import InterfaceApp from "../../components/InterfaceApp/InterfaceApp.jsx"
+import Beneficios from "../../components/Beneficios/Beneficios.jsx"
 import Planos from "../../components/Planos/Planos.jsx"
 import DownloadApp from "../../components/DownloadApp/DownloadApp.jsx"
 import Depoimentos from "../../components/Depoimentos/Depoimentos.jsx"
@@ -34,6 +35,7 @@ function Home() {
       <Navbar />
       <Hero />
       <Funcionalidades />
+      <Beneficios />
       <InterfaceApp />
       <Planos />
       <DownloadApp />

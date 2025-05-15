@@ -12,8 +12,8 @@ const Hero = () => {
                         Alertaê: <span>proteção em tempo real na palma da mão</span>
                     </h1>
                     <p>
-                        Receba alertas instantâneos sobre enchentes e emergências próximas.
-                        Tome decisões seguras com informações confiáveis e rotas seguras, direto no seu celular.
+                    Receba alertas de emergências climáticas e mantenha a sua família sempre em segurança.
+                    Tome decisões assertivas com informações confiáveis e rotas seguras, direto no seu celular.
                     </p>
                     <div className="hero-buttons">
                         <a href="../Login/Login.jsx" className="btn-primary">Me Cadastrar</a>
