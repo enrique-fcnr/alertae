@@ -32,7 +32,6 @@ function DashboardPage1() {
   // Se houver error:
   if (weatherQuery.error || forecastQuery.error) {
     return (
-
       <Alert.Root className='p-5 bg-danger text-light d-flex align-items-start ' status="error">
         <Alert.Indicator className='fs-1 ' />
         <Alert.Content className=''>

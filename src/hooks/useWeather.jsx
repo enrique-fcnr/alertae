@@ -6,6 +6,7 @@ export const WEATHER_KEYS = {
   forecast: (coords) => ["forecast", coords],
   location: (coords) => ["location", coords],
   search: (query) => ["location-search", query],
+  alert: (coords) => ['alert', coords]
 };
 
 export function useWeatherQuery(coordinates) {
@@ -38,5 +39,14 @@ export function useLocationSearch(query) {
     queryKey: WEATHER_KEYS.search(query),
     queryFn: () => weatherAPI.searchLocations(query),
     enabled: query.length >= 3,
+  });
+
+}
+
+export function useAlert(coordinates) {
+  return useQuery({
+    queryKey: WEATHER_KEYS.alert(coordinates || { lat: 0, lon: 0 }),
+    queryFn: () => (coordinates ? weatherAPI.getAlertsWeather(coordinates) : null),
+    enabled: !!coordinates,
   });
 }

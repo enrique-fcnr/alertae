@@ -1,10 +1,17 @@
-import { API_CONFIG } from "./config";
+import { API_CONFIG, API_CONFIG_ALERT } from "./config";
 
 class WeatherAPI {
   // Esse método é responsável por montar uma URL completa com os parâmetros certos de forma automática.
   createUrl(endpoint, params) {
     const searchParams = new URLSearchParams({
       appid: API_CONFIG.API_KEY,
+      ...params,
+    });
+    return `${endpoint}?${searchParams.toString()}`;
+  }
+  createAlertUrl(endpoint, params) {
+    const searchParams = new URLSearchParams({
+      appid: API_CONFIG_ALERT.API_KEY,
       ...params,
     });
     return `${endpoint}?${searchParams.toString()}`;
@@ -65,7 +72,20 @@ class WeatherAPI {
     });
     return this.fetchData(url);
   }
+
+  async getAlertsWeather({ lat, lon }) {
+    const url = this.createUrl(`${API_CONFIG_ALERT.BASE_URL}/alerts`, {
+      lat: lat.toString(),
+      lon: lon.toString(),
+      units: "metric",
+      lang: "pt",
+
+    });
+    return this.fetchData(url);
+  }
 }
+
+
 
 // É importante exportar uma instância da classe WeatherAPI (no caso, export const weatherAPI = new WeatherAPI();) é para garantir que a classe seja utilizada como um único ponto de acesso durante a execução do código. 
 export const weatherAPI = new WeatherAPI();
