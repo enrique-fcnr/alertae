@@ -1,5 +1,28 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Legend } from 'recharts';
 import { weatherData } from '../../../weatherData';
+import {
+  Chart as ChartJS,
+  LineElement,
+  PointElement,
+  LineController,
+  CategoryScale,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js';
+
+// Registro dos elementos
+ChartJS.register(
+  LineElement,
+  PointElement,
+  LineController,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend
+);
+
 
 function TemperatureChart() {
   return (
@@ -15,7 +38,7 @@ function TemperatureChart() {
 
           <XAxis
             dataKey="month"
-            tick={{ fontSize: 50 }}
+            tick={{ fontSize: 10 }}
             axisLine={{ stroke: '#ccc' }}
             tickLine={false}
           />

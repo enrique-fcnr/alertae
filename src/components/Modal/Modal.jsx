@@ -31,7 +31,7 @@ const Modal = ({ isOpen, onClose }) => {
             transition={{ duration: 0.3 }}
           >
             {/* Bolinha pulsante no canto superior direito */}
-            <span className="alert-indicator orange" />
+            <span className="alert-indicator orange1" />
 
             <div className="modal-header-popup">
               <IoWarningOutline size={24} />

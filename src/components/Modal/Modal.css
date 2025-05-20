@@ -1,3 +1,4 @@
+/* Escopo seguro para todo o modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -11,7 +12,7 @@
   z-index: 1050;
 }
 
-.modal-content-popup {
+.modal-overlay .modal-content-popup {
   position: relative;
   background: linear-gradient(135deg, #1e3a8a, #2563eb);
   color: #ffffff;
@@ -22,7 +23,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.modal-header-popup {
+.modal-overlay .modal-header-popup {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -31,27 +32,27 @@
   margin-bottom: 20px;
 }
 
-.modal-title-popup {
+.modal-overlay .modal-title-popup {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.subtitle-popup {
+.modal-overlay .subtitle-popup {
   font-size: 1rem;
   font-weight: 300;
   color: #dbeafe;
   margin-top: 5px;
 }
 
-.popup-data-cards {
+.modal-overlay .popup-data-cards {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.popup-card {
+.modal-overlay .popup-card {
   border-radius: 12px;
   padding: 18px;
   display: flex;
@@ -60,40 +61,40 @@
   color: #ffffff;
 }
 
-.alert-flood {
+.modal-overlay .alert-flood {
   background-color: rgba(0, 123, 255, 0.25);
 }
 
-.alert-rain {
+.modal-overlay .alert-rain {
   background-color: rgba(30, 64, 175, 0.25);
 }
 
-.popup-card .icon {
+.modal-overlay .popup-card .icon {
   min-width: 40px;
   color: #90cdf4;
   flex-shrink: 0;
   margin-top: 12px;
 }
 
-.popup-text {
+.modal-overlay .popup-text {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
 
-.popup-card p {
+.modal-overlay .popup-card p {
   margin: 0;
   font-size: 0.95rem;
   color: #f1f5f9;
 }
 
-.modal-footer-popup {
+.modal-overlay .modal-footer-popup {
   display: flex;
   justify-content: flex-end;
   margin-top: 25px;
 }
 
-.modal-footer-popup .btn {
+.modal-overlay .modal-footer-popup .btn {
   background-color: #3b82f6;
   border: none;
   border-radius: 6px;
@@ -101,12 +102,12 @@
   font-weight: bold;
 }
 
-.modal-footer-popup .btn:hover {
+.modal-overlay .modal-footer-popup .btn:hover {
   background-color: #2563eb;
 }
 
-/* Bolinha de alerta com animação pulsante */
-.alert-indicator {
+/* Bolinha de alerta pulsante, **restrita apenas ao modal** */
+.modal-overlay .modal-content-popup .alert-indicator {
   position: absolute;
   top: 22px;
   right: 25px;
@@ -114,23 +115,25 @@
   height: 12px;
   border-radius: 50%;
   z-index: 2;
-  animation: pulse 1.5s infinite;
+  animation: modal-pulse 1.5s infinite;
 }
 
-.alert-indicator.orange {
+.modal-overlay .modal-content-popup .alert-indicator.orange1 {
   background-color: #f97316;
   box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
 }
 
-@keyframes pulse {
+@keyframes modal-pulse {
   0% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
   }
+
   70% {
     transform: scale(1.4);
     box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
   }
+
   100% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
