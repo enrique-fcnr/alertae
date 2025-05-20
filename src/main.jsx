@@ -8,29 +8,31 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Provider } from "@/components/ui/provider";
 
-// 📦 chart.js registration (essencial para produção)
 import {
   Chart as ChartJS,
-  LineElement,
-  PointElement,
-  LineController,
-  CategoryScale,
-  LinearScale,
   Title,
   Tooltip,
   Legend,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  ArcElement,
+  ScatterController, // 👈 necessário
+  BubbleController,  // 👈 necessário para r (radius) nos dados
 } from 'chart.js';
 
 ChartJS.register(
-  LineElement,
-  PointElement,
-  LineController,
-  CategoryScale,
-  LinearScale,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  ArcElement,
+  ScatterController,
+  BubbleController
 );
+
 
 
 // Páginas

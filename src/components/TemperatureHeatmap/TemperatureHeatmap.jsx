@@ -1,3 +1,4 @@
+// components/TemperatureHeatmap.jsx
 import React from 'react';
 import { Scatter } from 'react-chartjs-2';
 import {
@@ -8,10 +9,11 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
-  ArcElement,
+  ScatterController,
+  BubbleController,
 } from 'chart.js';
 
-// Registrando os componentes do Chart.js
+// ✅ Registro obrigatório dos elementos usados
 ChartJS.register(
   Title,
   Tooltip,
@@ -19,80 +21,68 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
-  ArcElement
+  ScatterController,
+  BubbleController
 );
 
 const TemperatureHeatmap = ({ data }) => {
   if (!data) return null;
 
-  // Dados de Temperatura Real
+  // 🔵 Dados de Temperatura
   const tempData = data.temperatureHeatmap.map((item) => ({
-    x: parseInt(item.hour),
+    x: parseInt(item.hour, 10),
     y: item.temp,
     r: (item.temp + 30) / 1.5,
-    type: 'Temperatura',
   }));
 
-  // Dados de Sensação Térmica
+  // 🔴 Dados de Sensação Térmica
   const feelsLikeData = data.temperatureHeatmap.map((item) => ({
-    x: parseInt(item.hour),
+    x: parseInt(item.hour, 10),
     y: item.feelsLike,
     r: (item.feelsLike + 30) / 1,
-    type: 'Sensação Térmica',
   }));
 
-  // Dados para o gráfico
   const chartData = {
     datasets: [
       {
         label: 'Temperatura Real',
         data: tempData,
-        backgroundColor: 'rgba(255,99,132,0.7)', // Vermelho claro
-        borderColor: 'rgba(255,255,255,0.8)',
+        backgroundColor: 'rgba(255,99,132,0.7)',
+        borderColor: '#fff',
         borderWidth: 1,
-        hoverBorderWidth: 3,
         hoverBackgroundColor: 'rgba(255,99,132,1)',
       },
       {
         label: 'Sensação Térmica',
         data: feelsLikeData,
-        backgroundColor: 'rgba(54, 162, 235, 0.7)', // Azul claro
-        borderColor: 'rgba(255,255,255,0.8)',
+        backgroundColor: 'rgba(54, 162, 235, 0.7)',
+        borderColor: '#fff',
         borderWidth: 1,
-        hoverBorderWidth: 3,
         hoverBackgroundColor: 'rgba(54, 162, 235, 1)',
       },
     ],
   };
 
-  // Opções para o gráfico
   const options = {
     responsive: true,
     maintainAspectRatio: false,
     animation: {
-      duration: 2000,
-      easing: 'easeInOutElastic',
-      delay: (context) => context.dataIndex * 150,
+      duration: 1500,
+      easing: 'easeInOutCubic',
+      delay: (ctx) => ctx.dataIndex * 100,
     },
     plugins: {
       legend: {
-        display: true,
         position: 'top',
         labels: {
-          color: '#6a6b6b',
-          font: {
-            size: 14,
-            weight: 'bold',
-          },
+          color: '#4B5563',
+          font: { size: 14, weight: 'bold' },
         },
       },
       tooltip: {
-        enabled: true,
         backgroundColor: '#6366f1',
         borderColor: '#6366f1',
         borderWidth: 1,
-        titleFont: { size: 16 },
-        bodyFont: { size: 14 },
         callbacks: {
           label: (tooltipItem) => {
             const { x, y } = tooltipItem.raw;
@@ -103,47 +93,40 @@ const TemperatureHeatmap = ({ data }) => {
     },
     scales: {
       x: {
+        type: 'linear',
         title: {
           display: true,
           text: 'Hora do Dia',
-          font: { size: 16 },
+          font: { size: 14 },
           color: '#6B7280',
         },
         min: 0,
         max: 23,
-        type: 'linear',
-        ticks: { stepSize: 3 },
-        grid: {
-          color: 'rgba(200,200,200,0.2)',
-        },
+        ticks: { stepSize: 3, color: '#4B5563' },
+        grid: { color: 'rgba(200,200,200,0.2)' },
       },
       y: {
         title: {
           display: true,
           text: 'Temperatura (°C)',
-          font: { size: 16 },
+          font: { size: 14 },
           color: '#6B7280',
         },
         min: 10,
         max: 45,
         ticks: {
           stepSize: 5,
-          callback: function (value) {
-            return value % 5 === 0 ? value : null;
-          },
-          color: '#374151',
-          font: { size: 12 },
+          callback: (value) => value % 5 === 0 ? value : '',
+          color: '#4B5563',
         },
-        grid: {
-          color: 'rgba(200,200,200,0.2)',
-        },
+        grid: { color: 'rgba(200,200,200,0.2)' },
       },
     },
   };
 
   return (
-    <div className="p-5 bg-light " style={{ width: '100%', height: '400px' }}>
-      <h5 style={{ color: 'gray' }} className="text-lg mb-4 text-center text-indigo-600">
+    <div className="p-5 bg-light" style={{ width: '100%', height: '400px' }}>
+      <h5 className="text-lg mb-4 text-center text-indigo-600 font-semibold">
         Mapa de Calor - Temperatura vs Sensação Térmica
       </h5>
       <div style={{ width: '100%', height: '90%' }}>
