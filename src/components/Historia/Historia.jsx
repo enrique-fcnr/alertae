@@ -1,39 +1,45 @@
 import React from 'react';
 import './Historia.css';
 
+// Importações corretas das imagens
+import enriquefernandesImg from '../../assets/enriquefernandes.png';
+import milleneyoshinoImg from '../../assets/milleneyoshino.png';
+import gabrieleduardoImg from '../../assets/gabrieleduardo.png';
+import gabrielpachecoImg from '../../assets/gabrielpacheco.png';
+import kellycristinaImg from '../../assets/kellycristina.png';
+
 const integrantes = [
   {
     nome: 'Enrique Fernandes',
-    imagem: process.env.PUBLIC_URL + '/assets/enriquefernandes.png',
+    imagem: enriquefernandesImg,
     funcao: 'Product Designer e Front-End Developer',
     cargo: 'Responsável por identidade visual, protótipos e desenvolvimento da interface.',
   },
   {
     nome: 'Millene Yoshino Russo',
-    imagem: process.env.PUBLIC_URL + '/assets/milleneyoshino.png',
+    imagem: milleneyoshinoImg,
     funcao: 'Tech Architect & Back-End Developer',
     cargo: 'Trabalhou no desenvolvimento do back-end e participou da idealização da arquitetura da solução.',
   },
   {
     nome: 'Gabriel Eduardo Oliveira',
-    imagem: process.env.PUBLIC_URL + '/assets/gabrieleduardo.png',
+    imagem: gabrieleduardoImg,
     funcao: 'Project Manager & System Architect',
     cargo: 'Liderou a estruturação inicial do sistema e passou a base para o time de desenvolvimento.',
   },
   {
     nome: 'Gabriel Pacheco',
-    imagem: process.env.PUBLIC_URL + '/assets/gabrielpacheco.png',
+    imagem: gabrielpachecoImg,
     funcao: 'Business Analyst & Market Researcher',
     cargo: 'Realizou a análise de mercado, estudando a aderência e o posicionamento da solução no Brasil.',
   },
   {
     nome: 'Kelly Cristina Alves dos Reis',
-    imagem: process.env.PUBLIC_URL + '/assets/kellycristina.png',
+    imagem: kellycristinaImg,
     funcao: 'Tech Lead & Data Analyst',
     cargo: 'Coordenou a equipe, estruturou o back-end e trabalhou com análise de dados e liderança técnica.',
   },
 ];
-
 
 const Historia = () => {
   return (
@@ -84,4 +90,3 @@ const Historia = () => {
 };
 
 export default Historia;
-
