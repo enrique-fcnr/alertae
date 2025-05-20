@@ -4,8 +4,10 @@ import { weatherData } from '../../../weatherData';
 function TemperatureChart() {
   return (
     <div className="bg-light p-3 ">
-      <h2 style={{ color: '#606566' }} className="text-lg font-semibold mb-2 text-center text-indigo-600">Temperatura Média Mensal e Sensação Térmica</h2>
-      <h5 style={{ color: 'gray' }} className="text-lg font-semibold mb-4 text-center text-indigo-600 ">Ano: 2024</h5>
+      <header>
+        <h2 style={{ color: '#606566' }} className="text-lg font-semibold mb-2 text-center text-indigo-600">Temperatura Média Mensal e Sensação Térmica</h2>
+        <h5 style={{ color: 'gray' }} className="text-lg font-semibold mb-4 text-center text-indigo-600 ">Ano: 2024</h5>
+      </header>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
           data={weatherData.monthlyTemperature}

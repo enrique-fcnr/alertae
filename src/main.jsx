@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 
+
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Provider } from "@/components/ui/provider";
@@ -18,7 +19,9 @@ import {
   PointElement,
   ArcElement,
   ScatterController, // 👈 necessário
-  BubbleController,  // 👈 necessário para r (radius) nos dados
+  BubbleController,
+  LineElement,
+  LineController,  // 👈 necessário para r (radius) nos dados
 } from 'chart.js';
 
 ChartJS.register(
@@ -29,9 +32,12 @@ ChartJS.register(
   LinearScale,
   PointElement,
   ArcElement,
+  LineElement,        // NECESSÁRIO para gráficos de linha
+  LineController,
   ScatterController,
   BubbleController
 );
+
 
 
 
