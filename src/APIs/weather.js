@@ -1,4 +1,4 @@
-import { API_CONFIG, API_CONFIG_ALERT } from "./config";
+import { API_CONFIG } from "./config";
 
 class WeatherAPI {
   // Esse método é responsável por montar uma URL completa com os parâmetros certos de forma automática.
@@ -73,16 +73,7 @@ class WeatherAPI {
     return this.fetchData(url);
   }
 
-  async getAlertsWeather({ lat, lon }) {
-    const url = this.createUrl(`${API_CONFIG_ALERT.BASE_URL}/alerts`, {
-      lat: lat.toString(),
-      lon: lon.toString(),
-      units: "metric",
-      lang: "pt",
 
-    });
-    return this.fetchData(url);
-  }
 }
 
 

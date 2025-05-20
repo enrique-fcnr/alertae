@@ -4,14 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IoWarningOutline } from "react-icons/io5";
 import { PiWavesDuotone, PiCloudRainBold } from "react-icons/pi";
 import "./Modal.css";
-import { useAlert } from '@/hooks/useWeather';
 import { cities } from "../../../data-dashboard-page3";
 
 const Modal = ({ isOpen, onClose }) => {
-  const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
+  //const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
   const modalRoot = document.getElementById("modal-root");
   if (!modalRoot) return null;
-  const alert = useAlert(coordinates1)
+
 
 
   useEffect(() => {
