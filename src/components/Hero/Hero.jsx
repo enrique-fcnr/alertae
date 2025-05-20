@@ -16,7 +16,7 @@ const Hero = () => {
                     Tome decisões assertivas com informações confiáveis e rotas seguras, direto no seu celular.
                     </p>
                     <div className="hero-buttons">
-                        <a href="../Login/Login.jsx" className="btn-primary">Me Cadastrar</a>
+                        <a href="https://youtu.be/Rf00FlAprcY" className="btn-primary">Assitir Pitch</a>
                         <a href="https://googleplay.com" className="btn-outline" target="_blank" rel="noopener noreferrer">Baixar o App </a>
                     </div>
                 </div>

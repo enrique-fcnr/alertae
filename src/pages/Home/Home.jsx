@@ -14,6 +14,7 @@ import Modal from '../../components/Modal/Modal.jsx'
 
 
 
+
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

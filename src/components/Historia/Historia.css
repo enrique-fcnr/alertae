@@ -1,42 +1,119 @@
 .historia-container {
-    background-color: #ffffff;
-    padding: 4rem 1rem;
-    display: flex;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .historia-content {
-    max-width: 800px;
-    text-align: center;
-    padding: 2rem;
-    border-radius: 12px;
-    background-color: #f9fafc;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  }
-  
+  background-color: #ffffff;
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.historia-content {
+  max-width: 1000px;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f9fafc;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.historia-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+}
+
+.integrantes-title,
+.tecnologias-title {
+  font-size: 2rem;
+  color: #006eff;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.historia-paragraph {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.integrantes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.integrante-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 240px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.integrante-card:hover {
+  transform: translateY(-5px);
+}
+
+.integrante-foto {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.integrante-nome {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.integrante-funcao {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #006eff;
+  margin-top: 0.5rem;
+}
+
+.integrante-descricao {
+  font-size: 0.875rem;
+  color: #444;
+  margin-top: 0.5rem;
+}
+
+.tecnologias-lista {
+  text-align: left;
+  margin: 0 auto 2rem auto;
+  max-width: 600px;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.8;
+  padding-left: 1.5rem;
+}
+
+@media (max-width: 768px) {
   .historia-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 2rem;
+    font-size: 2rem;
   }
-  
-  .historia-paragraph {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 1.5rem;
+
+  .historia-paragraph,
+  .tecnologias-lista {
+    font-size: 1rem;
+    text-align: justify;
   }
-  
-  @media (max-width: 768px) {
-    .historia-title {
-      font-size: 2rem;
-    }
-  
-    .historia-paragraph {
-      font-size: 1rem;
-      text-align: justify;
-    }
+
+  .integrantes-grid {
+    flex-direction: column;
+    align-items: center;
   }
-  
+
+  .integrante-card {
+    width: 90%;
+  }
+}

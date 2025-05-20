@@ -30,9 +30,9 @@ const Navbar = () => {
 
   const menu = {
     section1: {
-      title: "Sobre",
+      title: "Sobre o projeto",
       subtitles: [
-        { label: "Quem Somos", path: "/sobre/quem-somos" },
+        { label: "Sobre o projeto", path: "/sobre/quem-somos" },
         { label: "Propósito do App", path: "/sobre/proposito" }
       ]
     },
