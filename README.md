@@ -65,13 +65,15 @@ Para verificar se o **Node.js** já está instalado, abra o terminal e digite:
 
 ```bash
 node -v
+````
+
 
 ## 4. Rodar o Projeto Localmente
 
 Agora que as dependências estão instaladas, você pode rodar o projeto localmente.
 
 ## Se estiver usando o **npm**, execute:
-
+```bash
 npm run dev
 
 
