@@ -102,9 +102,8 @@ Para que tudo funcione corretamente, você precisará da sua própria chave de A
 ```env
 VITE_WEATHER_API_KEY=sua_chave_aqui
 
-⚠️ Importante: Nunca compartilhe sua chave de API publicamente. Use variáveis de ambiente para protegê-la.
-
   ```
+  ⚠️ Importante: Nunca compartilhe sua chave de API publicamente. Use variáveis de ambiente para protegê-la.
 
 ## Contribuições:
 Agradecemos a todos que colaboraram para o desenvolvimento deste projeto:
