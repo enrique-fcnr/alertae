@@ -72,7 +72,6 @@ Agora que as dependências estão instaladas, você pode rodar o projeto localme
 
 Se estiver usando o **npm**, execute:
 
-```bash
 npm run dev
 
 
