@@ -57,6 +57,7 @@ O **Git** é essencial para clonar o repositório do GitHub no seu computador.
   ```bash
   brew install git
 
+````
   ### b. **Node.js e NPM (Node Package Manager)**
 
 O **Vite** e o **React** exigem o **Node.js** para rodar, e o **npm** ou **yarn** para gerenciar pacotes.
