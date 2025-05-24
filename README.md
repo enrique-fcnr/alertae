@@ -70,7 +70,7 @@ node -v
 
 Agora que as dependências estão instaladas, você pode rodar o projeto localmente.
 
-Se estiver usando o **npm**, execute:
+## Se estiver usando o **npm**, execute:
 
 npm run dev
 
