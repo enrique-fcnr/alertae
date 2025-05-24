@@ -54,15 +54,17 @@ O **Git** é essencial para clonar o repositório do GitHub no seu computador.
 
 - **Windows**: [Download Git](https://git-scm.com/download/win)
 - **Mac**: O **Git** geralmente já vem pré-instalado. Se não, use o **Homebrew**:
-  ```bash
+```bash
   brew install git
 
 ````
-  ### b. **Node.js e NPM (Node Package Manager)**
+### b. **Node.js e NPM (Node Package Manager)**
 
-O **Vite** e o **React** exigem o **Node.js** para rodar, e o **npm** ou **yarn** para gerenciar pacotes.
+O Vite e o React exigem o Node.js para rodar, e o npm ou yarn para gerenciar pacotes.
 
-Para verificar se o **Node.js** já está instalado, abra o terminal e digite:
+Para verificar se o Node.js já está instalado, abra o terminal e digite:
+
+
 
 ```bash
 node -v
