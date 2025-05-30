@@ -54,24 +54,28 @@ O **Git** é essencial para clonar o repositório do GitHub no seu computador.
 
 - **Windows**: [Download Git](https://git-scm.com/download/win)
 - **Mac**: O **Git** geralmente já vem pré-instalado. Se não, use o **Homebrew**:
-  ```bash
+```bash
   brew install git
 
-  ### b. **Node.js e NPM (Node Package Manager)**
+````
+### b. **Node.js e NPM (Node Package Manager)**
 
-O **Vite** e o **React** exigem o **Node.js** para rodar, e o **npm** ou **yarn** para gerenciar pacotes.
+O Vite e o React exigem o Node.js para rodar, e o npm ou yarn para gerenciar pacotes.
 
-Para verificar se o **Node.js** já está instalado, abra o terminal e digite:
+Para verificar se o Node.js já está instalado, abra o terminal e digite:
+
+
 
 ```bash
 node -v
+````
+
 
 ## 4. Rodar o Projeto Localmente
 
 Agora que as dependências estão instaladas, você pode rodar o projeto localmente.
 
-Se estiver usando o **npm**, execute:
-
+## Se estiver usando o **npm**, execute:
 ```bash
 npm run dev
 
@@ -102,9 +106,8 @@ Para que tudo funcione corretamente, você precisará da sua própria chave de A
 ```env
 VITE_WEATHER_API_KEY=sua_chave_aqui
 
-⚠️ Importante: Nunca compartilhe sua chave de API publicamente. Use variáveis de ambiente para protegê-la.
-
   ```
+  ⚠️ Importante: Nunca compartilhe sua chave de API publicamente. Use variáveis de ambiente para protegê-la.
 
 ## Contribuições:
 Agradecemos a todos que colaboraram para o desenvolvimento deste projeto:
