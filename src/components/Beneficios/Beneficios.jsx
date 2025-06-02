@@ -2,6 +2,7 @@ import React from 'react';
 import { FiBox, FiCheckCircle, FiGift, FiClock } from 'react-icons/fi';
 import mockup6 from '../../assets/mockup6.png';
 import './Beneficios.css';
+import { Link } from 'react-router-dom';
 
 const Beneficios = () => {
   return (
@@ -35,9 +36,11 @@ const Beneficios = () => {
             </li>
           </ul>
 
+           <Link to="/sobre/quem-somos">
           <button className="btn-gradiente">
             Saber Mais →
           </button>
+        </Link>
         </div>
 
         
