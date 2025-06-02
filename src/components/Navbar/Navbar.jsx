@@ -52,6 +52,15 @@ const Navbar = () => {
       ]
     },
     section4: {
+      title: "Dashboards",
+      subtitles: [
+        { label: "Tempo do dia", path: "/dashboard/tempo-dia" },
+        { label: "Previsões", path: "/dashboard/previsoes" },
+        { label: "Mapa do tempo", path: "/dashboard/mapa-tempo" },
+        { label: "Estatísticas", path: "/dashboard/estatisticas" }
+      ]
+    },
+    section5: {
       title: "Contatos",
       subtitles: [
         { label: "Quando Contactar", path: "/contatos/quando" },
