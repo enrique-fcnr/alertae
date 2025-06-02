@@ -126,16 +126,6 @@ const Navbar = () => {
                   </button>
                   <ul className="dropdown-menu dropdown-menu-end">
                     <li>
-                      <button className="dropdown-item" onClick={() => {
-                        setTimeout(() => {
-                          navigate("/dashboard/tempo-dia");
-                        }, 500);
-
-                      }}>
-                        Dashboard
-                      </button>
-                    </li>
-                    <li>
                       <button className="dropdown-item" onClick={handleLogout}>
                         Logout
                       </button>
