@@ -48,8 +48,8 @@ function Footer() {
             <div className="d-flex flex-column justify-content-center align-items-center">
               <ul className="list-unstyled">
                 <li> <h6 className="fw-bold links-title">LINKS ÚTEIS</h6></li>
-                <li><a href="#" className="link-animado text-decoration-none mb-1">Sobre nós</a></li>
-                <li><a href="#" className="link-animado text-decoration-none mb-1">Serviços</a></li>
+                <li><a href="/sobre/quem-somos" className="link-animado text-decoration-none mb-1">Sobre nós</a></li>
+                <li><a href="sobre/proposito" className="link-animado text-decoration-none mb-1">Serviços</a></li>
                 <li><a href="#" className="link-animado text-decoration-none mb-1">Blog</a></li>
                 <li><a href="#" className="link-animado text-decoration-none mb-1">Contato</a></li>
               </ul>

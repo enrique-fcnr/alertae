@@ -11,10 +11,10 @@ const DownloadApp = () => {
         <p>Disponível para iOS e Android. Tenha segurança, praticidade e agilidade na palma da sua mão.</p>
 
         <div className="download-buttons">
-          <a href="#">
+          <a href="https://www.apple.com/br/app-store/" target="_blank" rel="noopener noreferrer">
             <img src={appstore} alt="Download on App Store" />
           </a>
-          <a href="#">
+          <a href="https://play.google.com/store/apps?hl=pt_BR" target="_blank" rel="noopener noreferrer">
             <img src={googleplay} alt="Get it on Google Play" />
           </a>
         </div>

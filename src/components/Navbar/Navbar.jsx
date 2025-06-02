@@ -46,9 +46,9 @@ const Navbar = () => {
     section3: {
       title: "Previsões",
       subtitles: [
-        { label: "Previsão próximas 24h", path: "/previsoes/24h" },
-        { label: "Previsão próximos 4 dias", path: "/previsoes/4-dias" },
-        { label: "Termos Meteorológicos", path: "/previsoes/termos" }
+        { label: "Previsão próximas 24h", path: "#" },
+        { label: "Previsão próximos 4 dias", path: "#" },
+        { label: "Termos Meteorológicos", path: "#" }
       ]
     },
     section4: {
