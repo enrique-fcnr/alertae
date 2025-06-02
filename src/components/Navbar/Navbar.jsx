@@ -40,7 +40,7 @@ const Navbar = () => {
       title: "Alertas",
       subtitles: [
         { label: "O que são", path: "/alertas/sobre" },
-        { label: "Recomendações", path: "/alertas/recomendacoes" }
+        { label: "Recomendações", path: "#" }
       ]
     },
     section3: {
@@ -63,8 +63,8 @@ const Navbar = () => {
     section5: {
       title: "Contatos",
       subtitles: [
-        { label: "Quando Contactar", path: "/contatos/quando" },
-        { label: "Contatos de Emergência", path: "/contatos/emergencia" }
+        { label: "Quando Contactar", path: "#" },
+        { label: "Contatos de Emergência", path: "#" }
       ]
     }
   };
