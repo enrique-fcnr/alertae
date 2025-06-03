@@ -1,32 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import { useForecastQuery } from '@/hooks/useWeather';
+import { useForecastQuery, useReverseGeocodeQuery } from '@/hooks/useWeather';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import LoadingSkeletonPrevisoes from '../LoadingSkeletonPrevisoes/LoadingSkeletonPrevisoes';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
-import Temperature5Days from '../Temperature5Days/Temperature5Days'
+import Temperature5Days from '../Temperature5Days/Temperature5Days';
+import { Alert, Button } from "@chakra-ui/react";
+import CitySearch from '../CitySearch/CitySearch';
 import { dataChart5Days } from '../../../data-hourly-temp-page';
-import { cities } from '../../../data-dashboard-page3'
+import './DashboardPage2.css';
 
 const DashboardPage2 = () => {
-  const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
-  const { error, getLocation, isLoading } = useGeolocation();
-  const forecastQuery = useForecastQuery(coordinates1);
+  const [selectedCoordinates, setSelectedCoordinates] = useState(null);
+  const { coordinates, error, getLocation, isLoading } = useGeolocation();
+  const locationQuery = useReverseGeocodeQuery(selectedCoordinates);
+  const forecastQuery = useForecastQuery(selectedCoordinates);
 
+  // Efeito para atualizar as coordenadas quando a localização do usuário for obtida
+  useEffect(() => {
+    if (coordinates) {
+      setSelectedCoordinates(coordinates);
+    }
+  }, [coordinates]);
 
   // Button for refetch
   const handleRefresh = () => {
     getLocation();
-    if (coordinates1) {
+    if (selectedCoordinates) {
       forecastQuery.refetch();
+      locationQuery.refetch();
     }
   };
 
+  const handleCitySelect = (coordinates) => {
+    setSelectedCoordinates(coordinates);
+  };
+
+  const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
+
   // Busca a localização ou se ainda não tem os dados da previsão:
-  if (!forecastQuery.data || isLoading) {
+  if (!forecastQuery.data || !locationName || isLoading) {
     return <LoadingSkeletonPrevisoes />;
   }
-
 
   //Se a API de previsão de tempo deu erro
   if (forecastQuery.error) {
@@ -66,18 +81,19 @@ const DashboardPage2 = () => {
   }
 
   // Verifica se não existem coordenadas (latitude e longitude).
-  if (!coordinates1) {
+  if (!selectedCoordinates) {
     return (
-      <Alert.Root status="error">
-        <Alert.Indicator />
-        <Alert.Content>
-          <Alert.Title>Localização é necessária.</Alert.Title>
-          <Alert.Description>
-            <p>Por favor! Permita acesso para ver as funcionalidades do tempo.</p>
-            <Button variant="outline" onClick={getLocation}>
-              Permitir Localização
-            </Button>
+      <Alert.Root status="error" className='p-5 bg-danger text-light d-flex align-items-start'>
+        <Alert.Indicator className='fs-1 ' />
+        <Alert.Content className=''>
+          <Alert.Title className='fs-2 mt-2'>Localização é necessária.</Alert.Title>
+          <Alert.Description className='fs-4 mt-sm-3'>
+            Por favor, permita o acesso à sua localização para ver as informações do tempo.
           </Alert.Description>
+          <Button className="m-0 bg-light fs-4 p-4 text-danger rounded-3 mt-sm-3 "
+            onClick={getLocation}>
+            Permitir Localização
+          </Button>
         </Alert.Content>
       </Alert.Root>
     );
@@ -113,24 +129,38 @@ const DashboardPage2 = () => {
     });
 
   return (
-    <div className="py-2 d-flex flex-column gap-3">
-      {/* Botão de Atualizar */}
-      <div className='d-flex justify-content-end mb-0'>
-        <button onClick={handleRefresh} className='dashboard-refresh-btn'>
-          <i className="bi bi-arrow-clockwise"></i>
-        </button>
+    <div className='py-2 d-flex flex-column gap-3'>
+      <div className='d-flex justify-content-between align-items-center mb-0'>
+        <div className="current-location">
+          <h2 className="h3 mb-0 text-primary">
+            {locationName?.name}
+            {locationName?.state && (
+              <span className="text-muted">, {locationName.state}</span>
+            )}
+            {locationName?.country && (
+              <span className="text-muted">, {locationName.country}</span>
+            )}
+          </h2>
+        </div>
+        <div className="d-flex gap-2">
+          <CitySearch onCitySelect={handleCitySelect} />
+          <button onClick={handleRefresh} className='dashboard-refresh-btn'>
+            <i className="bi bi-arrow-clockwise"></i>
+          </button>
+        </div>
       </div>
+
       {/* Caixa com a previsão do tempo */}
       <div className="card shadow-sm my-0 p-3 h-100">
         <div className="card-header">
           <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Próximos 5 dias</h5>
         </div>
 
-        <div className="row d-flex justify-content-center align-items-center gap-3 ">
+        <div className="row d-flex justify-content-center align-items-center gap-3">
           {dailyTemperatures.map((day, index) => (
             <div
               key={index}
-              className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex flex-column justify-content-center align-items-center  text-center p-3 gap-2 bg-light mt-2 rounded-3"
+              className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex flex-column justify-content-center align-items-center text-center p-3 gap-2 bg-light mt-2 rounded-3"
             >
               {/* Dia da Semana */}
               <div className="font-size-small">
@@ -161,7 +191,6 @@ const DashboardPage2 = () => {
             </div>
           ))}
         </div>
-
       </div>
 
       <div className="col-12 col-md-12">
@@ -175,11 +204,9 @@ const DashboardPage2 = () => {
             title="Variação dos próximos 5 dias"
             dataBuilder={dataChart5Days}
           />
-
         </div>
       </div>
     </div>
-
   );
 };
 
