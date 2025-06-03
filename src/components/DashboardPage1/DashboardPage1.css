@@ -11,11 +11,36 @@
   font-size: 1.5rem;
   color: #4C585B;
   cursor: pointer;
+  transition: transform 0.3s ease;
   padding: 0.5rem;
-  transition: transform 0.2s ease;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dashboard-refresh-btn:hover {
   transform: rotate(180deg);
+  background-color: #f8f9fa;
+}
+
+.current-location {
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.current-location h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4C585B;
+  margin: 0;
+}
+
+.current-location .text-muted {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #6c757d;
 }
   

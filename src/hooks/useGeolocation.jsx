@@ -39,16 +39,16 @@ export function useGeolocation() {
 
         switch (error.code) {
           case 1:
-            errorMessage = "Permissão de localização negada.";
+            errorMessage = "Permissão de localização negada. Por favor, permita o acesso à sua localização para ver as informações do tempo.";
             break;
           case 2:
-            errorMessage = "A posição não está disponível.";
+            errorMessage = "A posição não está disponível. Por favor, verifique se o GPS está ativado.";
             break;
           case 3:
-            errorMessage = "Tempo esgotado ao tentar obter a localização.";
+            errorMessage = "Tempo esgotado ao tentar obter a localização. Por favor, tente novamente.";
             break;
           default:
-            errorMessage = "Ocorreu um erro desconhecido.";
+            errorMessage = "Ocorreu um erro ao obter sua localização. Por favor, tente novamente.";
         }
 
 
@@ -62,7 +62,7 @@ export function useGeolocation() {
       },
       {
         enableHighAccuracy: true,
-        timeout: 5000,
+        timeout: 10000,
         maximumAge: 0,
       }
     );
@@ -70,10 +70,10 @@ export function useGeolocation() {
 
 
 
-  // Chama a função assim que o componente é carregado
+  // Solicita a localização assim que o componente é montado
   useEffect(() => {
     getLocation();
-  }, []); // O array vazio indica que será chamado apenas uma vez após o primeiro render
+  }, []);
 
 
   return {

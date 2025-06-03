@@ -8,14 +8,21 @@ import WeatherDetails from '../WeatherDetails/WeatherDetails';
 import CitySearch from '../CitySearch/CitySearch';
 import './DashboardPage1.css';
 import { cities } from '../../../data-dashboard-page3'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function DashboardPage1() {
-  const [selectedCoordinates, setSelectedCoordinates] = useState({ lon: cities[0].lon, lat: cities[0].lat });
-  const { error, getLocation, isLoading } = useGeolocation();
+  const [selectedCoordinates, setSelectedCoordinates] = useState(null);
+  const { coordinates, error, getLocation, isLoading } = useGeolocation();
   const locationQuery = useReverseGeocodeQuery(selectedCoordinates)
   const weatherQuery = useWeatherQuery(selectedCoordinates)
   const forecastQuery = useForecastQuery(selectedCoordinates)
+
+  // Efeito para atualizar as coordenadas quando a localização do usuário for obtida
+  useEffect(() => {
+    if (coordinates) {
+      setSelectedCoordinates(coordinates);
+    }
+  }, [coordinates]);
 
   // Button for refetch
   const handleRefresh = () => {
@@ -81,7 +88,7 @@ function DashboardPage1() {
         <Alert.Content className=''>
           <Alert.Title className='fs-2 mt-2'>Localização é necessária.</Alert.Title>
           <Alert.Description className='fs-4 mt-sm-3'>
-            {error}
+            Por favor, permita o acesso à sua localização para ver as informações do tempo.
           </Alert.Description>
           <Button className="m-0 bg-light fs-4 p-4 text-danger rounded-3 mt-sm-3 "
             onClick={getLocation}>
@@ -95,14 +102,24 @@ function DashboardPage1() {
   return (
     <>
       <div className='py-2 d-flex flex-column gap-3'>
-        <div className='d-flex justify-content-end mb-0'>
-          <button onClick={handleRefresh} className='dashboard-refresh-btn'>
-            <i className="bi bi-arrow-clockwise"></i>
-          </button>
-        </div>
-
-        <div className="d-flex justify-content-end">
-          <CitySearch onCitySelect={handleCitySelect} />
+        <div className='d-flex justify-content-between align-items-center mb-0'>
+          <div className="current-location">
+            <h2 className="h3 mb-0 text-primary">
+              {locationName?.name}
+              {locationName?.state && (
+                <span className="text-muted">, {locationName.state}</span>
+              )}
+              {locationName?.country && (
+                <span className="text-muted">, {locationName.country}</span>
+              )}
+            </h2>
+          </div>
+          <div className="d-flex gap-2">
+            <CitySearch onCitySelect={handleCitySelect} />
+            <button onClick={handleRefresh} className='dashboard-refresh-btn'>
+              <i className="bi bi-arrow-clockwise"></i>
+            </button>
+          </div>
         </div>
 
         <CurrentWeather
