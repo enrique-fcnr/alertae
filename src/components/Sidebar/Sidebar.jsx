@@ -29,7 +29,6 @@ function Sidebar() {
   };
 
   return (
-
     <div className='side-container' style={{ position: 'relative' }}>
       {/* Botão Menu */}
       <button
@@ -54,7 +53,6 @@ function Sidebar() {
             <input className="input-pesquisa" type="search" placeholder="Buscar..." />
             <button className="btn-pesquisar">Buscar</button>
           </form>
-
         </div>
 
         <nav className="sidebar-nav">
@@ -68,8 +66,6 @@ function Sidebar() {
         </nav>
       </div>
     </div>
-
-
   );
 }
 

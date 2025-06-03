@@ -1,7 +1,6 @@
 .side-container {
   min-height: 100vh;
   background-color: white;
-
 }
 
 .sidebar {
@@ -22,7 +21,6 @@
   align-items: center;
   margin-bottom: 20px;
   margin: 2rem 0 1.6rem 0;
-
 }
 
 .search-form {
@@ -33,7 +31,6 @@
   gap: 0.5rem;
   width: 100%;
 }
-
 
 .close-btn {
   display: none;
@@ -49,9 +46,7 @@
 .nodisplay-menu-btn {
   display: none;
   z-index: 0;
-
 }
-
 
 .input-pesquisa {
   padding: 10px;
@@ -65,10 +60,7 @@
 .input-pesquisa:focus {
   border-color: #3b82f6;
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
-
 }
-
-
 
 .btn-pesquisar {
   background: linear-gradient(90deg, #006eff, #00c3ff);
@@ -81,7 +73,6 @@
   cursor: pointer;
   transition: transform 0.3s ease;
   width: 70%;
-
 }
 
 .btn-new:hover {
@@ -156,10 +147,7 @@
   z-index: 0;
 }
 
-
 @media (max-width: 768px) {
-
-
   .menu-btn {
     display: block;
     position: absolute;
@@ -177,7 +165,6 @@
     transform: translateX(-200%);
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
-
 
   .sidebar {
     position: fixed;
@@ -208,7 +195,6 @@
 
   .container-close {
     display: block;
-
   }
 
   .close-btn {
@@ -217,8 +203,6 @@
     margin-bottom: 10px;
     justify-content: flex-end;
     cursor: pointer;
-
-
   }
 
   .search-form {
@@ -226,11 +210,38 @@
     gap: 0.5rem;
     flex-direction: column;
     width: 100%;
-
   }
 
   .input-pesquisa {
     max-width: 100%;
   }
+}
 
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-result-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: #4C585B;
+}
+
+.search-result-item:hover {
+  background-color: #f7fafc;
 }

@@ -1,4 +1,3 @@
-
 import { useForecastQuery, useReverseGeocodeQuery, useWeatherQuery } from '@/hooks/useWeather';
 import { useGeolocation } from '../../hooks/useGeolocation'
 import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
@@ -6,28 +5,33 @@ import { Alert, Button } from "@chakra-ui/react"
 import CurrentWeather from '../CurrentWeather/CurrentWeather'
 import HourlyTemperature from '../HourlyTemperature/HourlyTemperature';
 import WeatherDetails from '../WeatherDetails/WeatherDetails';
+import CitySearch from '../CitySearch/CitySearch';
 import './DashboardPage1.css';
 import { cities } from '../../../data-dashboard-page3'
+import { useState } from 'react';
 
 function DashboardPage1() {
-  const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
+  const [selectedCoordinates, setSelectedCoordinates] = useState({ lon: cities[0].lon, lat: cities[0].lat });
   const { error, getLocation, isLoading } = useGeolocation();
-  const locationQuery = useReverseGeocodeQuery(coordinates1)
-  const weatherQuery = useWeatherQuery(coordinates1)
-  const forecastQuery = useForecastQuery(coordinates1)
+  const locationQuery = useReverseGeocodeQuery(selectedCoordinates)
+  const weatherQuery = useWeatherQuery(selectedCoordinates)
+  const forecastQuery = useForecastQuery(selectedCoordinates)
 
   // Button for refetch
   const handleRefresh = () => {
     getLocation()
-    if (coordinates1) {
+    if (selectedCoordinates) {
       weatherQuery.refetch()
       forecastQuery.refetch()
       locationQuery.refetch()
     }
   }
 
-  const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
+  const handleCitySelect = (coordinates) => {
+    setSelectedCoordinates(coordinates);
+  };
 
+  const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
 
   // Se houver error:
   if (weatherQuery.error || forecastQuery.error) {
@@ -38,14 +42,11 @@ function DashboardPage1() {
           <Alert.Title className='fs-4 mt-2'>Falhor ao coletar informações sobre o tempo. Por favor, tente novamente!</Alert.Title>
           <Alert.Description className='fs-4 mt-sm-3'>
             {error}
-
           </Alert.Description>
           <Button className="m-0 bg-light fs-5 p-4 text-danger rounded-3 mt-sm-3 "
-
             onClick={getLocation}>
             Tente novamente
           </Button>
-
         </Alert.Content>
       </Alert.Root>
     );
@@ -63,20 +64,17 @@ function DashboardPage1() {
           <Alert.Title className='fs-2 mt-2'>Localização Errada</Alert.Title>
           <Alert.Description className='fs-4 mt-sm-3'>
             {error}
-
           </Alert.Description>
           <Button className="m-0 bg-light fs-4 p-4 text-danger rounded-3 mt-sm-3 "
-
             onClick={getLocation}>
             Permitir Localização
           </Button>
-
         </Alert.Content>
       </Alert.Root>
     )
   }
 
-  if (!coordinates1) {
+  if (!selectedCoordinates) {
     return (
       <Alert.Root status="error" className='p-5 bg-danger text-light d-flex align-items-start'>
         <Alert.Indicator className='fs-1 ' />
@@ -84,14 +82,11 @@ function DashboardPage1() {
           <Alert.Title className='fs-2 mt-2'>Localização é necessária.</Alert.Title>
           <Alert.Description className='fs-4 mt-sm-3'>
             {error}
-
           </Alert.Description>
           <Button className="m-0 bg-light fs-4 p-4 text-danger rounded-3 mt-sm-3 "
-
             onClick={getLocation}>
             Permitir Localização
           </Button>
-
         </Alert.Content >
       </Alert.Root >
     )
@@ -99,13 +94,15 @@ function DashboardPage1() {
 
   return (
     <>
-
       <div className='py-2 d-flex flex-column gap-3'>
         <div className='d-flex justify-content-end mb-0'>
           <button onClick={handleRefresh} className='dashboard-refresh-btn'>
             <i className="bi bi-arrow-clockwise"></i>
           </button>
+        </div>
 
+        <div className="d-flex justify-content-end">
+          <CitySearch onCitySelect={handleCitySelect} />
         </div>
 
         <CurrentWeather
@@ -117,7 +114,6 @@ function DashboardPage1() {
             <WeatherDetails data={weatherQuery.data} />
           </div>
 
-
           <div className="col-12 col-lg-6">
             <div className="card shadow-sm p-3 h-100">
               <div className="card-header">
@@ -128,16 +124,10 @@ function DashboardPage1() {
                 data={forecastQuery.data}
                 valueMax={8}
               />
-
             </div>
           </div>
         </div>
-
-
       </div>
-
-
-
     </>
   )
 }

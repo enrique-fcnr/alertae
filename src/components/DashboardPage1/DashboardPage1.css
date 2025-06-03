@@ -1,16 +1,21 @@
 /* DashboardPage1.css */
 
+.city-search-container {
+  width: 300px;
+  position: relative;
+}
+
 .dashboard-refresh-btn {
-    background: white;
-    border: 1px solid #ddd;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .dashboard-refresh-btn:hover {
-    background-color: #f2f8ff;
-    transform: scale(1.05);
-  }
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #4C585B;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.dashboard-refresh-btn:hover {
+  transform: rotate(180deg);
+}
   
