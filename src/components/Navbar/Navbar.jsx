@@ -44,11 +44,11 @@ const Navbar = () => {
       ]
     },
     section3: {
-      title: "Previsões",
+      title: "Edukaê",
       subtitles: [
-        { label: "Previsão próximas 24h", path: "#" },
-        { label: "Previsão próximos 4 dias", path: "#" },
-        { label: "Termos Meteorológicos", path: "#" }
+        { label: "Quiz Alertas", path: "#" },
+        { label: "Meu Ranking", path: "#" },
+        { label: "Recompensas", path: "#" }
       ]
     },
     section4: {
@@ -61,9 +61,9 @@ const Navbar = () => {
       ]
     },
     section5: {
-      title: "Contatos",
+      title: "Emergências",
       subtitles: [
-        { label: "Quando Contactar", path: "#" },
+        { label: "Rotas Seguras", path: "#" },
         { label: "Contatos de Emergência", path: "#" }
       ]
     }
