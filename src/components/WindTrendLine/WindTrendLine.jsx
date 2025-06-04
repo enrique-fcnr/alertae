@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Chart as ChartJS, Title, Tooltip, Legend, CategoryScale, LinearScale, LineElement } from 'chart.js';
+import { format } from 'date-fns';
 
 // Registrando os componentes do Chart.js
 ChartJS.register(
@@ -15,22 +16,37 @@ const WindTrendLine = ({ data }) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
-  // Usamos o useEffect para recriar o gráfico sempre que os dados mudarem
+  // Processar dados da API para tendência diária de vento
+  let windSpeedTrend = [];
+  if (data && data.list) {
+    // Agrupar por dia e calcular média
+    const daily = {};
+    data.list.forEach(item => {
+      const day = format(new Date(item.dt * 1000), 'dd/MM');
+      if (!daily[day]) daily[day] = [];
+      daily[day].push(item.wind.speed);
+    });
+    windSpeedTrend = Object.entries(daily).map(([day, speeds]) => ({
+      day,
+      speed: speeds.reduce((a, b) => a + b, 0) / speeds.length
+    }));
+  }
+
   useEffect(() => {
     if (chartInstance.current) {
-      // Se houver uma instância anterior do gráfico, destruímos ela
       chartInstance.current.destroy();
     }
 
-    // Criar uma nova instância do gráfico
+    if (!windSpeedTrend.length) return;
+
     chartInstance.current = new ChartJS(chartRef.current, {
       type: 'line',
       data: {
-        labels: data.windSpeedTrend.map((item) => item.day),
+        labels: windSpeedTrend.map((item) => item.day),
         datasets: [
           {
             label: 'Velocidade do Vento (m/s)',
-            data: data.windSpeedTrend.map((item) => item.speed),
+            data: windSpeedTrend.map((item) => item.speed),
             fill: false,
             backgroundColor: '#FFD54F',
             borderColor: '#FFA000',
@@ -51,13 +67,12 @@ const WindTrendLine = ({ data }) => {
       },
     });
 
-    // Limpeza: destrói a instância do gráfico quando o componente for desmontado
     return () => {
       if (chartInstance.current) {
         chartInstance.current.destroy();
       }
     };
-  }, []);
+  }, [data]);
 
   return (
     <div className="p-5 bg-light text-center" style={{ height: '400px' }}>

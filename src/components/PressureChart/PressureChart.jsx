@@ -2,19 +2,19 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { format } from 'date-fns';
 
-const TemperatureChart = ({ data }) => {
+const PressureChart = ({ data }) => {
   if (!data || !data.list) return null;
 
-  // Processar os dados da API para o gráfico de temperatura
+  // Processar os dados da API para o gráfico de pressão
   const chartData = {
     labels: data.list.map(item => format(new Date(item.dt * 1000), 'dd/MM')),
     datasets: [
       {
-        label: 'Temperatura (°C)',
-        data: data.list.map(item => item.main.temp),
+        label: 'Pressão (hPa)',
+        data: data.list.map(item => item.main.pressure),
         fill: true,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+        borderColor: 'rgba(255, 159, 64, 1)',
         tension: 0.4
       }
     ]
@@ -29,14 +29,14 @@ const TemperatureChart = ({ data }) => {
       },
       title: {
         display: true,
-        text: 'Temperatura por Dia'
+        text: 'Pressão por Dia'
       }
     },
     scales: {
       y: {
         title: {
           display: true,
-          text: 'Temperatura (°C)'
+          text: 'Pressão (hPa)'
         }
       }
     }
@@ -49,4 +49,4 @@ const TemperatureChart = ({ data }) => {
   );
 };
 
-export default TemperatureChart;
+export default PressureChart; 
