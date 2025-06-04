@@ -65,8 +65,12 @@ import SobreAlertas from './components/SobreAlertas/SobreAlertas'
 import ContatosEmergencia from './components/ContatosEmergencia/ContatosEmergencia';
 import EmergenciasLayout from './pages/EmergenciasLayout/EmergenciasLayout';
 
-
 // **Contatos** Layout e Páginas
+
+// **Edukae** Layout e Páginas
+import RankingLayout from './pages/RankingLayout/RankingLayout';
+import Ranking from './components/Ranking/Ranking';
+
 
 // Configuração do React Query
 const queryClient = new QueryClient({
@@ -92,6 +96,7 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
 
+
   // Rotas de Quem Somos (layout com children)
   {
     path: '/sobre',
@@ -112,6 +117,24 @@ const router = createBrowserRouter([
 
     ],
   },
+
+  //Rotas de Edukae (layout com children)
+  {
+  path: '/edukae',
+  element: <RankingLayout />,
+  children: [
+    {
+      index: true,
+      element: <Navigate to="ranking" replace />,
+    },
+    {
+      path: 'ranking',
+      element: <Ranking />,
+    },
+  ]
+},
+
+
 
   // Rotas Emergencias
   {
