@@ -29,7 +29,6 @@ function Sidebar() {
   };
 
   return (
-
     <div className='side-container' style={{ position: 'relative' }}>
       {/* Botão Menu */}
       <button
@@ -54,7 +53,6 @@ function Sidebar() {
             <input className="input-pesquisa" type="search" placeholder="Buscar..." />
             <button className="btn-pesquisar">Buscar</button>
           </form>
-
         </div>
 
         <nav className="sidebar-nav">
@@ -63,13 +61,11 @@ function Sidebar() {
             <li><Link onClick={toggleSidebar} to="/dashboard/previsoes"><FaCloudSunRain /> Previsões</Link></li>
             <li><Link onClick={toggleSidebar} to="/dashboard/mapa-tempo"><FaMapMarkedAlt /> Mapa do tempo</Link></li>
             <li><Link onClick={toggleSidebar} to="/dashboard/estatisticas"><FaChartLine /> Estatísticas</Link></li>
-            <li><Link onClick={toggleSidebar} to="/contacts/3"><FaBars /> Outros dados</Link></li>
+            <li><Link onClick={toggleSidebar} to="#"><FaBars /> Outros dados</Link></li>
           </ul>
         </nav>
       </div>
     </div>
-
-
   );
 }
 

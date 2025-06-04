@@ -26,18 +26,28 @@ ChartJS.register(
 );
 
 const TemperatureHeatmap = ({ data }) => {
-  if (!data) return null;
+  if (!data || !data.list) return null;
+
+  // Processar os dados da API para o formato necessário
+  const processedData = data.list.map(item => {
+    const date = new Date(item.dt * 1000);
+    return {
+      hour: date.getHours(),
+      temp: item.main.temp,
+      feelsLike: item.main.feels_like
+    };
+  });
 
   // 🔵 Dados de Temperatura
-  const tempData = data.temperatureHeatmap.map((item) => ({
-    x: parseInt(item.hour, 10),
+  const tempData = processedData.map((item) => ({
+    x: item.hour,
     y: item.temp,
     r: (item.temp + 30) / 1.5,
   }));
 
   // 🔴 Dados de Sensação Térmica
-  const feelsLikeData = data.temperatureHeatmap.map((item) => ({
-    x: parseInt(item.hour, 10),
+  const feelsLikeData = processedData.map((item) => ({
+    x: item.hour,
     y: item.feelsLike,
     r: (item.feelsLike + 30) / 1,
   }));
@@ -86,7 +96,7 @@ const TemperatureHeatmap = ({ data }) => {
         callbacks: {
           label: (tooltipItem) => {
             const { x, y } = tooltipItem.raw;
-            return `Hora: ${x}h | Temperatura: ${y}°C`;
+            return `Hora: ${x}h | Temperatura: ${y.toFixed(1)}°C`;
           },
         },
       },

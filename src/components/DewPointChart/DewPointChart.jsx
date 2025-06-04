@@ -2,19 +2,19 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { format } from 'date-fns';
 
-const TemperatureChart = ({ data }) => {
+const DewPointChart = ({ data }) => {
   if (!data || !data.list) return null;
 
-  // Processar os dados da API para o gráfico de temperatura
+  // Processar os dados da API para o gráfico de ponto de orvalho
   const chartData = {
     labels: data.list.map(item => format(new Date(item.dt * 1000), 'dd/MM')),
     datasets: [
       {
-        label: 'Temperatura (°C)',
-        data: data.list.map(item => item.main.temp),
+        label: 'Ponto de Orvalho (°C)',
+        data: data.list.map(item => item.main.dew_point),
         fill: true,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
         tension: 0.4
       }
     ]
@@ -29,7 +29,7 @@ const TemperatureChart = ({ data }) => {
       },
       title: {
         display: true,
-        text: 'Temperatura por Dia'
+        text: 'Ponto de Orvalho por Dia'
       }
     },
     scales: {
@@ -49,4 +49,4 @@ const TemperatureChart = ({ data }) => {
   );
 };
 
-export default TemperatureChart;
+export default DewPointChart; 

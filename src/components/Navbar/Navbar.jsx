@@ -40,22 +40,31 @@ const Navbar = () => {
       title: "Alertas",
       subtitles: [
         { label: "O que são", path: "/alertas/sobre" },
-        { label: "Recomendações", path: "/alertas/recomendacoes" }
+        { label: "Recomendações", path: "#" }
       ]
     },
     section3: {
       title: "Previsões",
       subtitles: [
-        { label: "Previsão próximas 24h", path: "/previsoes/24h" },
-        { label: "Previsão próximos 4 dias", path: "/previsoes/4-dias" },
-        { label: "Termos Meteorológicos", path: "/previsoes/termos" }
+        { label: "Previsão próximas 24h", path: "#" },
+        { label: "Previsão próximos 4 dias", path: "#" },
+        { label: "Termos Meteorológicos", path: "#" }
       ]
     },
     section4: {
+      title: "Dashboards",
+      subtitles: [
+        { label: "Tempo do dia", path: "/dashboard/tempo-dia" },
+        { label: "Previsões", path: "/dashboard/previsoes" },
+        { label: "Mapa do tempo", path: "/dashboard/mapa-tempo" },
+        { label: "Estatísticas", path: "/dashboard/estatisticas" }
+      ]
+    },
+    section5: {
       title: "Contatos",
       subtitles: [
-        { label: "Quando Contactar", path: "/contatos/quando" },
-        { label: "Contatos de Emergência", path: "/contatos/emergencia" }
+        { label: "Quando Contactar", path: "#" },
+        { label: "Contatos de Emergência", path: "#" }
       ]
     }
   };
@@ -116,16 +125,6 @@ const Navbar = () => {
                     <span className="visually-hidden">Toggle Dropdown</span>
                   </button>
                   <ul className="dropdown-menu dropdown-menu-end">
-                    <li>
-                      <button className="dropdown-item" onClick={() => {
-                        setTimeout(() => {
-                          navigate("/dashboard/tempo-dia");
-                        }, 500);
-
-                      }}>
-                        Dashboard
-                      </button>
-                    </li>
                     <li>
                       <button className="dropdown-item" onClick={handleLogout}>
                         Logout

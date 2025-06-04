@@ -2,16 +2,16 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { format } from 'date-fns';
 
-const TemperatureChart = ({ data }) => {
+const UVIndexChart = ({ data }) => {
   if (!data || !data.list) return null;
 
-  // Processar os dados da API para o gráfico de temperatura
+  // Processar os dados da API para o gráfico de índice UV
   const chartData = {
     labels: data.list.map(item => format(new Date(item.dt * 1000), 'dd/MM')),
     datasets: [
       {
-        label: 'Temperatura (°C)',
-        data: data.list.map(item => item.main.temp),
+        label: 'Índice UV',
+        data: data.list.map(item => item.uvi),
         fill: true,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
@@ -29,14 +29,25 @@ const TemperatureChart = ({ data }) => {
       },
       title: {
         display: true,
-        text: 'Temperatura por Dia'
+        text: 'Índice UV por Dia'
       }
     },
     scales: {
       y: {
+        beginAtZero: true,
         title: {
           display: true,
-          text: 'Temperatura (°C)'
+          text: 'Índice UV'
+        },
+        ticks: {
+          callback: function(value) {
+            if (value === 0) return 'Baixo';
+            if (value === 3) return 'Moderado';
+            if (value === 6) return 'Alto';
+            if (value === 8) return 'Muito Alto';
+            if (value === 11) return 'Extremo';
+            return '';
+          }
         }
       }
     }
@@ -49,4 +60,4 @@ const TemperatureChart = ({ data }) => {
   );
 };
 
-export default TemperatureChart;
+export default UVIndexChart; 
