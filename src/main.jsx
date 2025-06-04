@@ -61,6 +61,10 @@ import SobreAlertas from './components/SobreAlertas/SobreAlertas'
 
 // **Previsões** Layout e Páginas
 
+// **Emergências** Layout e Páginas
+import ContatosEmergencia from './components/ContatosEmergencia/ContatosEmergencia';
+import EmergenciasLayout from './pages/EmergenciasLayout/EmergenciasLayout';
+
 
 // **Contatos** Layout e Páginas
 
@@ -108,6 +112,19 @@ const router = createBrowserRouter([
 
     ],
   },
+
+  // Rotas Emergencias
+  {
+  path: '/emergencias',
+  element: <EmergenciasLayout />,
+  children: [
+    {
+      path: 'contatos',
+      element: <ContatosEmergencia />
+    }
+  ]
+},
+
 
   // Rotas de Alertas (layout com children)
   {
