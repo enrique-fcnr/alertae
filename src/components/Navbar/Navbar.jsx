@@ -47,7 +47,7 @@ const Navbar = () => {
       subtitles: [
         { label: "Quiz Alertas", path: "/edukae/quiz" },
         { label: "Meu Ranking", path: "/edukae/ranking" },
-        { label: "Recompensas", path: "#" }
+        { label: "Recompensas", path: "edukae/recompensas" }
       ]
     },
     section4: {

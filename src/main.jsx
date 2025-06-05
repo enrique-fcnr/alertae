@@ -72,6 +72,9 @@ import Ranking from './components/Ranking/Ranking';
 // Edukaê - Quiz
 import EdukaeQuizLayout from './pages/EdukaeQuizLayout/EdukaeQuizLayout';
 
+// Edukaê - Recompensas
+import Recompensas from './components/Recompensas/Recompensas';
+
 // React Query config
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -140,6 +143,7 @@ const router = createBrowserRouter(
       children: [
         { index: true, element: <Navigate to="ranking" replace /> },
         { path: "ranking", element: <Ranking /> },
+        { path: "recompensas", element: <Recompensas /> }
       ],
     },
     {
@@ -151,7 +155,8 @@ const router = createBrowserRouter(
     future: {
       v7_relativeSplatPath: true,
     },
-  }
+  },
+  
 );
 
 // Renderização

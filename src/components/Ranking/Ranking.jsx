@@ -1,3 +1,5 @@
+// src/components/Ranking/Ranking.jsx
+
 import React from 'react';
 import './Ranking.css';
 import { FaMedal, FaCrown, FaTrophy, FaUserAlt } from 'react-icons/fa';
@@ -15,8 +17,8 @@ const rankingData = [
 
 const Ranking = () => {
   return (
-    <main className="ranking-container">
-      <section className="ranking-content">
+    <main className="ranking-page">
+      <section className="ranking-box">
         <h1 className="ranking-title">🏆 Ranking Edukaê</h1>
         <p className="ranking-subtitle">
           Veja os usuários com melhor desempenho nos quizzes sobre prevenção e segurança.
@@ -56,3 +58,4 @@ const Ranking = () => {
 };
 
 export default Ranking;
+
