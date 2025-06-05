@@ -35,19 +35,19 @@ const Recompensas = () => {
             <p>Acertou tudo? Prove que você é um expert em segurança.</p>
           </div>
 
-          <div className="recompensa-card">
+          <div className="recompensa-card destaque">
             <FaStore className="recompensa-icon verde" />
             <h3>Descontos em Parceiros</h3>
             <p>Ganhe cupons em lojas de EPI, farmácias e mercados locais.</p>
           </div>
 
-          <div className="recompensa-card">
+          <div className="recompensa-card destaque">
             <FaGift className="recompensa-icon roxo" />
             <h3>Brindes e Kits</h3>
             <p>Conquiste brindes físicos ao acumular pontos no app.</p>
           </div>
 
-          <div className="recompensa-card">
+          <div className="recompensa-card destaque">
             <FaHandsHelping className="recompensa-icon solidario" />
             <h3>Pontuação Solidária</h3>
             <p>Cada 1000 pontos = 1 kit de emergência doado por ONGs.</p>
