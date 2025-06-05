@@ -9,11 +9,11 @@ const Hero = () => {
             <div className="hero-content">
                 <div className="hero-text">
                     <h1>
-                        Alertaê: <span>proteção em tempo real na palma da mão</span>
+                        Alertaê: <span>esteja pronto antes, durante e depois do desastre</span>
                     </h1>
                     <p>
-                    Receba alertas de emergências climáticas e mantenha a sua família sempre em segurança.
-                    Tome decisões assertivas com informações confiáveis e rotas seguras, direto no seu celular.
+                        Do aviso em tempo real à rota segura, o Alertaê prepara você para agir com segurança,
+                        aprender sobre prevenção e proteger quem você ama.
                     </p>
                     <div className="hero-buttons">
                         <a href="https://youtu.be/Rf00FlAprcY" className="btn-primary">Assitir Pitch</a>

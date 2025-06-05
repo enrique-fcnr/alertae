@@ -20,19 +20,19 @@ const Beneficios = () => {
           <ul className="beneficios-list">
             <li>
               <FiBox className="icon" />
-              Receba alertas sobre chuvas e calor extremo para proteger sua família com antecedência.
+              Receba alertas sobre enchentes, calor e riscos com precisão, antes que a situação se agrave.
             </li>
             <li>
               <FiCheckCircle className="icon" />
-               Interface simples com toque único para emergências, ideal para a terceira idade.
-            </li>
-            <li>
-              <FiGift className="icon" />
-              Tecnologia acessível com ícones grandes e leitura fácil para quem você ama.
+               Acesse rotas seguras, pontos de apoio e contatos de emergência com um só toque.
             </li>
             <li>
               <FiClock className="icon" />
-              Aplicativo intuitivo que funciona 24h para garantir segurança na rotina diária.
+              Ensine sua família a se proteger com quizzes interativos e educativos do Edukaê.
+            </li>
+            <li>
+              <FiGift className="icon" />
+              Ganhe recompensas por participação e ajude causas sociais com sua pontuação.
             </li>
           </ul>
 
