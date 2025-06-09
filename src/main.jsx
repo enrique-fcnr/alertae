@@ -124,11 +124,7 @@ const router = createBrowserRouter(
     },
     {
       path: "/dashboard",
-      element: (
-        <PrivateRoute>
-          <DashboardLayout />
-        </PrivateRoute>
-      ),
+      element: <DashboardLayout />, // Removido <PrivateRoute>
       children: [
         { index: true, element: <Navigate to="tempo-dia" replace /> },
         { path: "tempo-dia", element: <DashboardPage1 /> },
@@ -137,6 +133,7 @@ const router = createBrowserRouter(
         { path: "estatisticas", element: <DashboardPage4 /> },
       ],
     },
+
     {
       path: "/edukae",
       element: <RankingLayout />,
@@ -156,7 +153,7 @@ const router = createBrowserRouter(
       v7_relativeSplatPath: true,
     },
   },
-  
+
 );
 
 // Renderização
