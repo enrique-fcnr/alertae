@@ -5,7 +5,6 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Provider } from "@/components/ui/provider";
 import { QuizProvider } from './context/quiz';
 
@@ -163,7 +162,6 @@ createRoot(document.getElementById('root')).render(
       <Provider>
         <QuizProvider>
           <RouterProvider router={router} />
-          <ReactQueryDevtools initialIsOpen={false} />
         </QuizProvider>
       </Provider>
     </QueryClientProvider>
