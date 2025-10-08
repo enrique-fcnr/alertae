@@ -6,7 +6,7 @@ const WEBHOOK_URL = import.meta.env.VITE_CHATBOT_WEBHOOK_URL;
 
 const ChatWidget = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Olá! Sou o Agente Alertaê. Qual a previsão do tempo para São Paulo hoje?' }
+    { sender: 'bot', text: 'Olá! Sou o Agente Alertaê. Como posso te ajudar hoje?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
