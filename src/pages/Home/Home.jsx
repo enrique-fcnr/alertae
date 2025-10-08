@@ -9,30 +9,26 @@ import DownloadApp from "../../components/DownloadApp/DownloadApp.jsx"
 import Depoimentos from "../../components/Depoimentos/Depoimentos.jsx"
 import Contato from "../../components/Contato/Contato.jsx"
 import Footer from "../../components/Footer/Footer.jsx"
-import Modal from '../../components/Modal/Modal.jsx'
+
+import ChatWidget from '../../components/ChatWidget/ChatWidget'; 
+import { BiMessageDots } from 'react-icons/bi';
 
 
 
 
 
 function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Estado para o Chat Widget
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const toggleChat = () => {
+    setIsChatOpen(prev => !prev);
+  };
 
-  useEffect(() => {
-    // Abre apenas na primeira renderização
-    setIsModalOpen(true);
-  }, []);
 
   return (
     <>
-
-
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="São Paulo - Hoje"
-      >
-      </Modal>
+      
       <Navbar />
       <Hero />
       <Funcionalidades />
@@ -43,6 +39,18 @@ function Home() {
       <Depoimentos />
       <Contato />
       <Footer />
+
+         {/* O Chat Widget (aparece ou desaparece com base no estado) */}
+      <ChatWidget isOpen={isChatOpen} onClose={toggleChat} />
+
+      {/* O Botão Flutuante (sempre visível) */}
+      <div 
+        className={`floating-chat-button ${isChatOpen ? 'is-open' : ''}`} 
+        onClick={toggleChat}
+      >
+        <BiMessageDots size={30} color="white" />
+      </div>
+
     </>
   );
 }

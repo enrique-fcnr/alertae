@@ -1,0 +1,140 @@
+/* Estilos para o botão flutuante (FAB) */
+.floating-chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #1a73e8; /* Cor primária do Alertaê */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 10000;
+  transition: transform 0.3s ease;
+}
+
+.floating-chat-button:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos para o container do ChatWidget */
+.chat-container {
+  position: fixed;
+  bottom: 90px; /* Fica acima do botão flutuante */
+  right: 20px;
+  width: 350px;
+  max-width: 90vw; /* Ajuste para telas pequenas */
+  height: 500px;
+  max-height: 80vh;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* Animação inicial */
+  transform: translateY(100%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.chat-container.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.chat-header {
+  background-color: #1a73e8;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.chat-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 80%;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.message.user {
+  background-color: #e0f2f1; 
+  align-self: flex-end;
+  text-align: right;
+  border-bottom-right-radius: 5px; /* Deixa uma ponta */
+}
+
+.message.bot {
+  background-color: #f1f5f9; 
+  align-self: flex-start;
+  text-align: left;
+  border-bottom-left-radius: 5px; /* Deixa uma ponta */
+}
+
+.chat-input-form {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.chat-input-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+  outline: none;
+  width: 100%; /* Garante que o input ocupe o espaço */
+}
+
+.chat-input-form button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.chat-input-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .chat-container {
+    width: 90%; 
+    right: 5%; 
+    bottom: 80px; 
+  }
+}
