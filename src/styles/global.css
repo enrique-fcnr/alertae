@@ -1,6 +1,9 @@
 @import "leaflet/dist/leaflet.css";
 
 /* === CSS RESET === */
+#root {
+  background-color: rgb(242, 242, 242);
+}
 
 * {
   font-family: 'Poppins', sans-serif;
@@ -22,6 +25,7 @@ select {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 html {
@@ -32,6 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
 }
 
 main {

@@ -1,0 +1,125 @@
+/* Garante que a página ocupe 100% da tela */
+
+
+
+/* O contêiner do mapa */
+#map {
+  height: 70vh;
+  width: 100%;
+  z-index: 0;
+  padding: 4rem;
+  justify-self: center;
+  align-self: center;
+}
+
+/* data distance and time*/
+
+.btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.distance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Botão fixo no canto da tela */
+.btn-rota {
+
+  padding: 4px 7px;
+  background-color: white;
+  color: #007bff;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid #007bff;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-rota:hover {
+  border-color: orange;
+}
+
+.btn-rota:active {
+  transform: scale(0.97);
+}
+
+
+
+/* Corrige popups do Leaflet para ficarem legíveis */
+.leaflet-popup-content {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Corrige posição de z-index para sobrepor botões e popups */
+.leaflet-container {
+  z-index: 1;
+}
+
+/* eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjAxZWJiZDk1YzQwZjQ1M2RhYTI5Y2FlZDUyOGNjOWYxIiwiaCI6Im11cm11cjY0In0=
+*/
+
+.user-icon-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.jumping-icon {
+  width: 40px;
+  height: 40px;
+  animation: jump 1s infinite;
+}
+
+@keyframes jump {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.pulse-circle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: -110px;
+  margin-bottom: -90px;
+  margin-top: 100px;
+  background: rgba(246, 87, 75, 0.4);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(2.3);
+    opacity: 0.1;
+  }
+
+  100% {
+    transform: scale(0.7);
+    opacity: 0.4;
+  }
+}

@@ -63,6 +63,7 @@ import SobreAlertas from './components/SobreAlertas/SobreAlertas';
 // Emergências
 import ContatosEmergencia from './components/ContatosEmergencia/ContatosEmergencia';
 import EmergenciasLayout from './pages/EmergenciasLayout/EmergenciasLayout';
+import RotasSeguras from './components/RotasSeguras/RotasSeguras';
 
 // Edukaê - Ranking
 import RankingLayout from './pages/RankingLayout/RankingLayout';
@@ -118,6 +119,7 @@ const router = createBrowserRouter(
       path: "/emergencias",
       element: <EmergenciasLayout />,
       children: [
+        { path: "rotas-seguras", element: <RotasSeguras /> },
         { path: "contatos", element: <ContatosEmergencia /> },
       ],
     },

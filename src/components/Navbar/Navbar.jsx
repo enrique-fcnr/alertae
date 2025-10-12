@@ -62,7 +62,7 @@ const Navbar = () => {
     section5: {
       title: "Emergências",
       subtitles: [
-        { label: "Rotas Seguras", path: "/dashboard/mapa-tempo" },
+        { label: "Rotas Seguras", path: "/emergencias/rotas-seguras" },
         { label: "Contatos de Emergência", path: "/emergencias/contatos" }
       ]
     }
