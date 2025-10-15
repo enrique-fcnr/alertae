@@ -42,7 +42,6 @@ ChartJS.register(
 import Home from './pages/Home/Home.jsx';
 import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
 // Dashboards
 import DashboardLayout from './pages/DashboardLayout/DashboardLayout.jsx';
