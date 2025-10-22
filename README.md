@@ -113,10 +113,7 @@ VITE_WEATHER_API_KEY=sua_chave_aqui
 Agradecemos a todos que colaboraram para o desenvolvimento deste projeto:
 
 - [Enrique Fernandes](https://github.com/enrique-fcnr)
-- [Gabriel Eduoli](https://github.com/gabrieleduoli)
-- [Gabriel Pacheco](https://linkedin.com/in/username3)
 - [Kelly Reis Lee](https://github.com/KellyReisLee)
-- [Millene Russo](https://github.com/millennium164)
 
 
 
