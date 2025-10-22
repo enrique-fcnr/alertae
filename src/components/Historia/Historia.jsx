@@ -4,20 +4,28 @@ import './Historia.css';
 // Importações corretas das imagens
 import enriquefernandesImg from '../../assets/enriquefernandes.png';
 import kellycristinaImg from '../../assets/kellycristina.png';
+import eduardoagustavoImg from '../../assets/eduardoagustavo.png';
+
 
 const integrantes = [
  {
   nome: 'Enrique Fernandes',
   imagem: enriquefernandesImg,
-  funcao: 'Product Designer & Front-End Developer',
-  cargo: 'Responsável por UX/UI, design system, protótipos e desenvolvimento completo do front-end com foco em acessibilidade e responsividade.',
+  funcao: 'Líder Técnico & Engenheiro de UX/UI',
+  cargo: 'Liderança técnica e de produto, definindo a arquitetura Front-End e identidade visual. Responsável pelo UX/UI, prototipagem (Figma) e desenvolvimento do Front-End, incluindo módulos inovadores como a Central Alertaê (IA) e o Edukaê (Quizzes).',
 },
 
 {
-  nome: 'Kelly Cristina Alves dos Reis',
+  nome: 'Kelly Cristina',
   imagem: kellycristinaImg,
-  funcao: 'Tech Lead & Back-End Developer',
-  cargo: 'Liderou a arquitetura técnica, desenvolveu APIs REST, integrou banco de dados e garantiu a escalabilidade e segurança do back-end.',
+  funcao: 'Desenvolvedora Front-End & Integração de Dados',
+  cargo: 'Especialista no desenvolvimento e implementação do Front-End da aplicação. Responsável por consumir e integrar APIs REST de dados meteorológicos para a criação de Dashboards intuitivos e responsivos.',
+},
+{
+  nome: 'Eduardo Agustavo',
+  imagem: eduardoagustavoImg,
+  funcao: 'Engenheiro de Back-End & Desenvolvedor de Roteamento',
+  cargo: 'Engenheiro de Back-End focado na lógica de sistemas críticos. Desenvolveu a arquitetura de envio de solicitações emergenciais e implementou a funcionalidade de "Rotas Seguras", integrando APIs de geolocalização para traçar caminhos otimizados para pontos de apoio.',
 }
 ];
 
