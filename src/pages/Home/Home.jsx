@@ -4,7 +4,6 @@ import Hero from "../../components/Hero/Hero.jsx"
 import Funcionalidades from "../../components/Funcionalidades/Funcionalidades.jsx"
 import InterfaceApp from "../../components/InterfaceApp/InterfaceApp.jsx"
 import Beneficios from "../../components/Beneficios/Beneficios.jsx"
-import Planos from "../../components/Planos/Planos.jsx"
 import DownloadApp from "../../components/DownloadApp/DownloadApp.jsx"
 import Depoimentos from "../../components/Depoimentos/Depoimentos.jsx"
 import Contato from "../../components/Contato/Contato.jsx"
@@ -125,9 +124,8 @@ function Home() {
             <Funcionalidades />
             <Beneficios />
             <InterfaceApp />
-            <Planos />
-            <DownloadApp />
             <Depoimentos />
+            <DownloadApp />
             <Contato />
             <Footer />
         </>
