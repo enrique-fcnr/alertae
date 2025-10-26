@@ -1,3 +1,4 @@
+/* Wrapper principal */
 .recompensas-wrapper {
   min-height: 100vh;
   background: linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);
@@ -5,9 +6,11 @@
   justify-content: center;
   align-items: center;
   padding: 4rem 1rem;
-  margin-bottom: -48px;
+  margin-bottom: -48px; /* Ajuste se necessário para layout */
+  overflow-x: hidden; /* Evita scroll horizontal */
 }
 
+/* Container branco central */
 .recompensas-container {
   background: white;
   padding: 3rem 2rem;
@@ -19,74 +22,262 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* --- Título e subtítulo Modernizados --- */
 .recompensas-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #003fa3;
-  margin-bottom: 1rem;
+  font-size: 2.8rem; /* Ligeiramente maior */
+  font-weight: 600; /* Um pouco mais leve */
+  /* Aplicando um gradiente sutil ao texto */
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* Necessário para o background-clip funcionar */
+  margin-bottom: 0.8rem; /* Ajusta a margem */
+  letter-spacing: -0.5px; /* Espaçamento levemente mais justo */
+  /* Sombra sutil para destacar do fundo branco */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .recompensas-subtitle {
-  font-size: 1.2rem;
-  color: #444;
-  margin-bottom: 2.5rem;
+  font-size: 1.1rem; /* Um pouco menor */
+  color: #555; /* Cinza um pouco mais escuro */
+  margin-bottom: 3rem; /* Aumenta a margem inferior */
+  font-weight: 400; /* Peso normal */
 }
 
+/* Grid para os cards */
 .recompensas-grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-content: center; /* Centraliza cards se não preencherem a linha */
 }
 
+/* --- Card Flip Styles --- */
+
+/* Contêiner do card (define perspectiva) */
 .recompensa-card {
-  background: #f9f9f9;
-  padding: 1.8rem 1.2rem;
+  background-color: transparent;
+  width: 100%;
+  height: 350px; /* Aumentei a altura */
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-  transition: transform 0.3s ease;
+  perspective: 1500px; /* Aumenta a perspectiva para um efeito 3D mais acentuado */
+  cursor: pointer;
 }
 
-.recompensa-card:hover {
-  transform: translateY(-5px);
+/* Elemento interno que gira */
+.recompensa-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1); /* Transição mais pronunciada */
+  transform-style: preserve-3d;
+  border-radius: 16px;
+  /* Sombra externa sutil */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Gira o elemento interno no hover do card pai */
+.recompensa-card:hover .recompensa-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Estilos comuns para frente e verso */
+.recompensa-card-front,
+.recompensa-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza verticalmente o conteúdo */
+  padding: 1.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil simulando vidro */
+  /* Sombra interna para dar profundidade */
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1), 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Efeito de brilho pseudo-elemento (linear para reflexo mais definido) */
+.recompensa-card-front::before,
+.recompensa-card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -85%; /* Posiciona fora para animar a entrada */
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%, /* Aumenta a opacidade do brilho */
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg); /* Inclina o reflexo */
+  opacity: 0;
+  transition: left 0.75s ease-in-out, opacity 0.6s ease-in-out; /* Transição mais lenta para o brilho */
+  pointer-events: none;
+}
+
+/* Anima o brilho no hover */
+.recompensa-card:hover .recompensa-card-front::before,
+.recompensa-card:hover .recompensa-card-back::before {
+  left: 130%; /* Move o brilho através do card */
+  opacity: 1; /* Mostra o brilho */
+  transition-delay: 0.1s; /* Pequeno delay para iniciar após o hover */
+}
+
+/* Estilo da frente do card */
+.recompensa-card-front {
+  /* Gradiente azul mais vibrante e com mais stops para efeito "glossy" */
+  background: linear-gradient(145deg, #1d4ed8 0%, #3b82f6 50%, #60a5fa 100%);
+  color: #fff;
+}
+
+/* Estilo do verso do card */
+.recompensa-card-back {
+  /* Gradiente invertido ou ligeiramente diferente para diferenciar */
+  background: linear-gradient(225deg, #1d4ed8 0%, #3b82f6 50%, #60a5fa 100%);
+  color: #fff;
+  transform: rotateY(180deg);
+  justify-content: space-evenly; /* Distribui o espaço entre os itens no verso */
+}
+
+/* Estilos específicos para o conteúdo do verso */
+.recompensa-card-back h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem; /* Ajusta a margem para dar espaço ao botão */
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Sombra mais forte no texto */
+}
+
+.recompensa-card-back p {
+  font-size: 0.9rem;
+  color: #e0e7ff;
+  line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem; /* Margem antes do botão */
+}
+
+/* --- Botão Resgatar --- */
+.resgatar-button {
+  background: linear-gradient(135deg, #f0f8ff, #e0e7ff); /* Gradiente claro para o botão */
+  color: #1e3a8a; /* Cor do texto do botão */
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px; /* Borda bem arredondada */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para o botão */
+  outline: none; /* Remove o contorno ao focar */
+  letter-spacing: 0.5px;
+}
+
+.resgatar-button:hover {
+  background: linear-gradient(135deg, #e0e7ff, #d1d8ef); /* Gradiente ligeiramente mais escuro no hover */
+  color: #0d286b; /* Cor do texto mais escura no hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px); /* Efeito de elevação */
+}
+
+.resgatar-button:active {
+  transform: translateY(0); /* Retorna à posição original ao clicar */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- Ícone Estilizado --- */
 .recompensa-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  display: block;
-  margin: 0 auto 1rem auto;
+  font-size: 4rem; /* Aumenta um pouco o tamanho */
+  margin-bottom: 0;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35)); /* Sombra mais pronunciada */
+  /* Efeito de brilho sutil no ícone */
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+  opacity: 0.9; /* Leve transparência para integrar com o fundo */
+  transition: transform 0.3s ease, text-shadow 0.3s ease; /* Transição suave */
 }
 
-.ouro {
-  color: #f7c600;
+/* Efeito no hover do card */
+.recompensa-card:hover .recompensa-icon {
+  transform: scale(1.1); /* Aumenta ligeiramente o ícone no hover */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 25px rgba(255, 255, 255, 0.3); /* Intensifica o brilho */
 }
 
-.prata {
-  color: #c0c0c0;
-}
 
-.bronze {
-  color: #cd7f32;
-}
+/* Cores dos ícones (mantidas e talvez ajustar brilho/saturação se necessário) */
+/* Usando cores mais vibrantes e claras para o efeito vidro/neon */
+.ouro { color: #fde047; } /* Amarelo mais claro */
+.prata { color: #f3f4f6; } /* Quase branco */
+.bronze { color: #fb923c; } /* Laranja claro */
+.azul { color: #93c5fd; } /* Azul bem claro */
+.verde { color: #6ee7b7; } /* Verde menta */
+.roxo { color: #c4b5fd; } /* Roxo claro */
+.solidario { color: #fda4af; } /* Rosa claro */
 
-.azul {
-  color: #0076ff;
-}
 
-.verde {
-  color: #3ab54a;
-}
-
-.roxo {
-  color: #7c4dff;
-}
-
-.solidario {
-  color: #ff6b6b;
-  
-}
-
+/* Remove estilo antigo 'destaque' que não é mais necessário */
 .destaque {
-  background: #fffefc;
-  border: 2px solid #eaeaea;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* --- Responsividade (mantida) --- */
+@media (max-width: 768px) {
+  .recompensas-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .recompensa-card {
+    height: 300px; /* Ajuste responsivo da altura */
+  }
+  .recompensas-title {
+    font-size: 2.2rem; /* Ajustado para mobile */
+  }
+  .recompensas-subtitle {
+    font-size: 1rem;
+  }
+  .recompensa-card-back h3 {
+    font-size: 1.1rem;
+  }
+  .recompensa-card-back p {
+    font-size: 0.85rem;
+  }
+  .recompensa-icon {
+    font-size: 3.5rem; /* Ajusta o tamanho do ícone para telas menores */
+  }
+  .resgatar-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .recompensas-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .recompensas-container {
+    padding: 2rem 1rem;
+  }
+  .recompensa-card {
+    height: 280px; /* Ajuste responsivo da altura */
+  }
+   .recompensas-title {
+    font-size: 2rem; /* Ajustado para mobile menor */
+  }
+  .recompensa-icon {
+    font-size: 3rem; /* Ajusta o tamanho do ícone para telas pequenas */
+  }
+  .resgatar-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
 }
