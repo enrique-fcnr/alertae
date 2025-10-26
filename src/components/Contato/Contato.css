@@ -42,11 +42,12 @@
 }
 
 .linha-azul {
-  width: 210px;
+  width: 199px;
   height: 4px;
   background: linear-gradient(135deg, #3b82f6, #60a5fa);
   margin-bottom: 20px;
   border-radius: 2px;
+  margin: -11px 0 30px 0;
 }
 
 .contato-text {
@@ -115,7 +116,7 @@
 }
 
 .contato-form button:hover {
-  background: linear-gradient(135deg,#60a5fa, #ffffff);
+  background: linear-gradient(135deg, #60a5fa, #ffffff);
   color: #1a73e8;
   transform: scale(1.08);
 }
@@ -155,5 +156,3 @@
     align-self: center;
   }
 }
-
-  
