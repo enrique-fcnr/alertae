@@ -19,26 +19,35 @@ const Ranking = () => {
   return (
     <main className="ranking-page">
       <section className="ranking-box">
-        <h1 className="ranking-title">🏆 Ranking Edukaê</h1>
+        <h1 className="ranking-title">Ranking Edukaê</h1>
         <p className="ranking-subtitle">
           Veja os usuários com melhor desempenho nos quizzes sobre prevenção e segurança.
         </p>
 
         <div className="podio">
+          {/* Segundo Lugar */}
           <div className="podio-item segundo">
-            <FaMedal className="podio-icon prata" />
-            <strong>{rankingData[1].nome}</strong>
-            <span>{rankingData[1].pontos} pts</span>
+            <div className="podio-icon-wrapper">
+              <FaMedal className="podio-icon prata" />
+            </div>
+            <strong className="podio-nome">{rankingData[1].nome}</strong>
+            <span className="podio-pontos">{rankingData[1].pontos} pts</span>
           </div>
+          {/* Primeiro Lugar */}
           <div className="podio-item primeiro">
-            <FaCrown className="podio-icon ouro" />
-            <strong>{rankingData[0].nome}</strong>
-            <span>{rankingData[0].pontos} pts</span>
+            <div className="podio-icon-wrapper">
+              <FaCrown className="podio-icon ouro" />
+            </div>
+            <strong className="podio-nome">{rankingData[0].nome}</strong>
+            <span className="podio-pontos">{rankingData[0].pontos} pts</span>
           </div>
+          {/* Terceiro Lugar */}
           <div className="podio-item terceiro">
-            <FaTrophy className="podio-icon bronze" />
-            <strong>{rankingData[2].nome}</strong>
-            <span>{rankingData[2].pontos} pts</span>
+            <div className="podio-icon-wrapper">
+              <FaTrophy className="podio-icon bronze" />
+            </div>
+            <strong className="podio-nome">{rankingData[2].nome}</strong>
+            <span className="podio-pontos">{rankingData[2].pontos} pts</span>
           </div>
         </div>
 
@@ -58,4 +67,3 @@ const Ranking = () => {
 };
 
 export default Ranking;
-

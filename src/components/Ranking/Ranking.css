@@ -1,133 +1,246 @@
 /* src/components/Ranking/Ranking.css */
 
+/* Fundo da página */
 .ranking-page {
   min-height: 100vh;
   background: linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
   font-family: 'Poppins', sans-serif;
-  margin-bottom: -48px;
+  margin-bottom: -48px; /* Ajuste conforme layout geral */
 }
 
+/* Container principal com efeito glassmorphism */
 .ranking-box {
-  background: white;
-  border-radius: 1.5rem;
-  padding: 3rem 2rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.1); /* Fundo branco semitransparente */
+  backdrop-filter: blur(15px); /* Efeito de vidro fosco */
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 24px; /* Bordas mais arredondadas */
+  padding: 3rem 2.5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25); /* Borda sutil */
   width: 100%;
-  max-width: 800px;
-  max-height: 110vh;
-  overflow-y: auto;
+  max-width: 850px; /* Um pouco maior */
   text-align: center;
-  margin-bottom: 30px;
+  color: #fff; /* Texto principal branco para contraste */
+  overflow: hidden; /* Garante que o blur não vaze */
 }
 
+/* Título modernizado */
 .ranking-title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #004aad;
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
 }
 
+/* Subtítulo ajustado */
 .ranking-subtitle {
-  color: #555;
-  font-size: 1rem;
-  margin-bottom: 2.5rem;
+  color: #e0e7ff; /* Cor mais clara para subtítulo */
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  font-weight: 400;
 }
 
+/* Pódio */
 .podio {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  align-items: flex-end; /* Alinha pela base */
+  gap: 1.5rem; /* Espaçamento entre itens */
+  margin-bottom: 3rem;
   flex-wrap: wrap;
 }
 
+/* Itens do pódio (base) */
 .podio-item {
-  background-color: #f9f9f9;
-  border-radius: 1rem;
-  padding: 1rem 1.2rem;
-  flex: 1;
-  max-width: 180px;
-  min-width: 120px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  background: rgba(255, 255, 255, 0.15); /* Fundo sutil */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  width: 160px; /* Largura fixa */
+  min-height: 200px; /* Altura mínima */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between; /* Espaça o conteúdo */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.podio-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Destaque para o primeiro lugar */
+.podio-item.primeiro {
+  min-height: 230px; /* Mais alto */
+  background: rgba(255, 215, 0, 0.2); /* Fundo dourado semitransparente */
+  border-color: rgba(255, 215, 0, 0.5);
+  transform: scale(1.05); /* Ligeiramente maior */
+}
+.podio-item.primeiro:hover {
+   transform: translateY(-8px) scale(1.08);
+}
+
+
+/* Wrapper para o ícone do pódio (para controle de tamanho/fundo) */
+.podio-icon-wrapper {
+  background: rgba(255, 255, 255, 0.2);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .podio-icon {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3)); /* Sombra no ícone */
 }
 
-.ouro {
-  color: #ffbf00;
+/* Cores dos ícones do pódio */
+.ouro { color: #fde047; }
+.prata { color: #f3f4f6; }
+.bronze { color: #f59e0b; } /* Bronze mais vibrante */
+
+.podio-nome {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.3rem;
 }
 
-.prata {
-  color: #c0c0c0;
+.podio-pontos {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #dbeafe; /* Azul claro para pontos */
 }
 
-.bronze {
-  color: #cd7f32;
-}
-
+/* Lista do ranking (4º em diante) */
 .ranking-lista {
   list-style: none;
   padding: 0;
   margin: 0;
+  max-height: 300px; /* Limita altura e adiciona scroll se necessário */
+  overflow-y: auto;
+  /* Estilização da barra de rolagem (opcional, mas melhora o visual) */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+/* Estilização da barra de rolagem para Webkit (Chrome, Safari) */
+.ranking-lista::-webkit-scrollbar {
+  width: 8px;
+}
+.ranking-lista::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ranking-lista::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
+/* Itens da lista do ranking */
 .ranking-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f4f4f4;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1); /* Fundo sutil */
+  border-radius: 10px;
   padding: 0.8rem 1.2rem;
   margin-bottom: 0.8rem;
   font-size: 1rem;
+  transition: background-color 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.usuario-icone {
-  margin: 0 0.5rem;
-  color: #004aad;
+.ranking-item:hover {
+  background: rgba(255, 255, 255, 0.2); /* Leve destaque no hover */
 }
 
 .posicao {
-  font-weight: bold;
-  color: #333;
+  font-weight: 700;
+  color: #e0e7ff; /* Azul bem claro */
+  min-width: 30px; /* Garante alinhamento */
+  text-align: right;
+  margin-right: 1rem;
+}
+
+.usuario-icone {
+  margin: 0 0.8rem;
+  color: #c7d2fe; /* Ícone mais claro */
+  font-size: 1.1rem;
 }
 
 .nome {
   flex-grow: 1;
   text-align: left;
-  margin-left: 0.5rem;
   font-weight: 500;
+  color: #fff;
 }
 
 .pontos {
-  font-weight: bold;
-  color: #222;
+  font-weight: 600;
+  color: #f0f9ff; /* Branco azulado */
+  min-width: 60px; /* Garante alinhamento */
+  text-align: right;
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .ranking-box {
+    padding: 2.5rem 1.5rem;
+  }
+  .ranking-title {
+    font-size: 2rem;
+  }
+  .ranking-subtitle {
+    font-size: 1rem;
+  }
+  .podio {
+    gap: 1rem;
+  }
+  .podio-item {
+    width: 140px;
+    min-height: 180px;
+  }
+  .podio-item.primeiro {
+    min-height: 200px;
+  }
+}
+
 
 @media (max-width: 600px) {
   .ranking-box {
     padding: 2rem 1rem;
   }
-
   .podio {
-    flex-direction: column;
-    align-items: center;
+    /* Mantém lado a lado se couber, senão quebra */
+     flex-wrap: wrap;
+     gap: 1rem;
   }
+  /* Remove a necessidade de empilhar explicitamente com flex-direction: column */
 
   .ranking-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
+    /* Mantém flex, mas ajusta espaçamento/tamanho da fonte se necessário */
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+  }
+  .posicao {
+     margin-right: 0.5rem;
+  }
+   .usuario-icone {
+     margin: 0 0.5rem;
   }
 }
-
