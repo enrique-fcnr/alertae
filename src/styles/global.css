@@ -81,6 +81,5 @@ select {
 /* Cursor em botões */
 button {
   cursor: pointer;
-  border: none;
-  background: none;
+
 }

@@ -23,6 +23,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* Modal Header */
 .modal-overlay .modal-header-popup {
   display: flex;
   align-items: center;
@@ -32,6 +33,33 @@
   margin-bottom: 20px;
 }
 
+.container-red {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Alinha título e botão */
+}
+
+.modal-title-city {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Bolinha de alerta pulsante */
+.modal-overlay .modal-content-popup .alert-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: modal-pulse 1.5s infinite;
+}
+
+.modal-overlay .modal-content-popup .alert-indicator.red {
+  background-color: #FE5052;
+  box-shadow: 0 0 0 0 rgba(254, 80, 82, 0.7);
+}
+
+/* Títulos e subtítulos */
 .modal-overlay .modal-title-popup {
   font-size: 1.5rem;
   font-weight: bold;
@@ -45,6 +73,7 @@
   margin-top: 5px;
 }
 
+/* Popup cards */
 .modal-overlay .popup-data-cards {
   margin-top: 20px;
   display: flex;
@@ -88,39 +117,33 @@
   color: #f1f5f9;
 }
 
+/* Footer */
 .modal-overlay .modal-footer-popup {
   display: flex;
   justify-content: flex-end;
   margin-top: 25px;
 }
 
-.modal-overlay .modal-footer-popup .btn {
-  background-color: #3b82f6;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 20px;
-  font-weight: bold;
-}
-
-.modal-overlay .modal-footer-popup .btn:hover {
-  background-color: #2563eb;
-}
-
-/* Bolinha de alerta pulsante, **restrita apenas ao modal** */
-.modal-overlay .modal-content-popup .alert-indicator {
-  position: relative;
-  top: 0px;
-  right: 0px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  z-index: 2;
-  animation: modal-pulse 1.5s infinite;
-}
-
-.modal-overlay .modal-content-popup .alert-indicator.orange1 {
+.modal-overlay .btn-rota-segura {
   background-color: #FE5052;
-  box-shadow: 0 0 0 0 rgba(2254, 80, 82, 0.7);
+  color: #FFFFFF;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.modal-overlay .btn-rota-segura:hover {
+  background-color: #e64749;
+}
+
+.modal-overlay .btn-rota-segura:active {
+  background-color: #cc3739;
 }
 
 .rotas-seguras-link {
@@ -129,41 +152,40 @@
   width: 100%;
 }
 
-.btn-rota-segura {
-  background-color: #FE5052;
-  /* Vermelho do botão */
-  color: #FFFFFF;
-  /* Texto branco */
-  border: none;
-  padding: 16px 24px;
-  border-radius: 20px;
-  /* Arredondamento */
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  width: 100%;
-  /* Ocupa toda a largura disponível */
-  display: block;
+
+
+/* Botão de fechar ao lado do título */
+.close-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: white;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
   transition: 0.2s ease-in-out;
+  font-size: 1.2rem;
+  border: 2px solid white;
 }
 
-/* Efeito ao passar o mouse */
-.btn-rota-segura:hover {
+.close-btn:hover {
   background-color: #e64749;
+  transform: scale(1.08);
 }
 
-/* Efeito ao clicar */
-.btn-rota-segura:active {
+.close-btn:active {
   background-color: #cc3739;
+  transform: scale(0.95);
 }
 
+/* Pulse animation da bolinha */
 @keyframes modal-pulse {
   0% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(254, 80, 82, 0.7);
   }
-
 
   70% {
     transform: scale(1.4);
