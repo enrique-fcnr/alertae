@@ -39,16 +39,15 @@ const Navbar = () => {
     section2: {
       title: "Alertas",
       subtitles: [
-        { label: "O que são", path: "/alertas/sobre" },
-        { label: "Recomendações", path: "#" }
+        { label: "Conhecer Alertas", path: "/alertas/sobre" },
       ]
     },
     section3: {
-      title: "Previsões",
+      title: "Edukaê",
       subtitles: [
-        { label: "Previsão próximas 24h", path: "#" },
-        { label: "Previsão próximos 4 dias", path: "#" },
-        { label: "Termos Meteorológicos", path: "#" }
+        { label: "Quiz Alertas", path: "/edukae/quiz" },
+        { label: "Meu Ranking", path: "/edukae/ranking" },
+        { label: "Recompensas", path: "/edukae/recompensas" }
       ]
     },
     section4: {
@@ -61,10 +60,10 @@ const Navbar = () => {
       ]
     },
     section5: {
-      title: "Contatos",
+      title: "Emergências",
       subtitles: [
-        { label: "Quando Contactar", path: "#" },
-        { label: "Contatos de Emergência", path: "#" }
+        { label: "Rotas Seguras", path: "/emergencias/rotas-seguras" },
+        { label: "Contatos de Emergência", path: "/emergencias/contatos" }
       ]
     }
   };

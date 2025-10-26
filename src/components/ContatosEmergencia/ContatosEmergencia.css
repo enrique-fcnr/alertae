@@ -1,0 +1,107 @@
+.emergencia-container {
+  background-color: #f8faff;
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.emergencia-content {
+  max-width: 1100px;
+  text-align: center;
+}
+
+.emergencia-title {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.emergencia-subtitle {
+  font-size: 1.125rem;
+  color: #555;
+  margin-bottom: 3rem;
+}
+
+.contatos-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contato-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 300px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.contato-card:hover {
+  transform: translateY(-6px);
+}
+
+.contato-icone {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.policia .contato-icone {
+  color: #004aad;
+}
+.bombeiros .contato-icone {
+  color: #ff3d3d;
+}
+.samu .contato-icone {
+  color: #18a999;
+}
+
+.contato-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.contato-card p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.contato-botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  transition: opacity 0.2s ease;
+}
+
+.contato-botao:hover {
+  opacity: 0.9;
+}
+
+.policia-botao {
+  background: linear-gradient(90deg, #004aad, #0076ff);
+}
+
+.bombeiros-botao {
+  background: linear-gradient(90deg, #e30000, #ff5e5e);
+}
+
+.samu-botao {
+  background: linear-gradient(90deg, #1ac9a5, #0b8c7e);
+}
+
+@media (max-width: 768px) {
+  .contato-card {
+    width: 90%;
+  }
+}

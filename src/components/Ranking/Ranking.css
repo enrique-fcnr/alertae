@@ -1,0 +1,133 @@
+/* src/components/Ranking/Ranking.css */
+
+.ranking-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: -48px;
+}
+
+.ranking-box {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 800px;
+  max-height: 110vh;
+  overflow-y: auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.ranking-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #004aad;
+  margin-bottom: 0.5rem;
+}
+
+.ranking-subtitle {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.podio {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.podio-item {
+  background-color: #f9f9f9;
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  flex: 1;
+  max-width: 180px;
+  min-width: 120px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.podio-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.ouro {
+  color: #ffbf00;
+}
+
+.prata {
+  color: #c0c0c0;
+}
+
+.bronze {
+  color: #cd7f32;
+}
+
+.ranking-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f4f4f4;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.usuario-icone {
+  margin: 0 0.5rem;
+  color: #004aad;
+}
+
+.posicao {
+  font-weight: bold;
+  color: #333;
+}
+
+.nome {
+  flex-grow: 1;
+  text-align: left;
+  margin-left: 0.5rem;
+  font-weight: 500;
+}
+
+.pontos {
+  font-weight: bold;
+  color: #222;
+}
+
+@media (max-width: 600px) {
+  .ranking-box {
+    padding: 2rem 1rem;
+  }
+
+  .podio {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ranking-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}
+

@@ -1,0 +1,42 @@
+/* src/components/EdukaeQuiz/GameOver.css */
+
+.gameover-container {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.gameover-container h2 {
+  font-size: 2rem;
+  color: #004aad;
+  margin-bottom: 1rem;
+}
+
+.gameover-container p {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 2rem;
+}
+
+.gameover-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.gameover-buttons button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #0076ff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gameover-buttons button:hover {
+  background-color: #005ecc;
+}

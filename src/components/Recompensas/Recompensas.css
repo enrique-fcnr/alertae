@@ -1,0 +1,92 @@
+.recompensas-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  margin-bottom: -48px;
+}
+
+.recompensas-container {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  max-width: 1000px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.recompensas-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #003fa3;
+  margin-bottom: 1rem;
+}
+
+.recompensas-subtitle {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 2.5rem;
+}
+
+.recompensas-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.recompensa-card {
+  background: #f9f9f9;
+  padding: 1.8rem 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease;
+}
+
+.recompensa-card:hover {
+  transform: translateY(-5px);
+}
+
+.recompensa-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.ouro {
+  color: #f7c600;
+}
+
+.prata {
+  color: #c0c0c0;
+}
+
+.bronze {
+  color: #cd7f32;
+}
+
+.azul {
+  color: #0076ff;
+}
+
+.verde {
+  color: #3ab54a;
+}
+
+.roxo {
+  color: #7c4dff;
+}
+
+.solidario {
+  color: #ff6b6b;
+  
+}
+
+.destaque {
+  background: #fffefc;
+  border: 2px solid #eaeaea;
+}

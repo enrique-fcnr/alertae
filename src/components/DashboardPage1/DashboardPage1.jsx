@@ -5,28 +5,24 @@ import { Alert, Button } from "@chakra-ui/react"
 import CurrentWeather from '../CurrentWeather/CurrentWeather'
 import HourlyTemperature from '../HourlyTemperature/HourlyTemperature';
 import WeatherDetails from '../WeatherDetails/WeatherDetails';
-import CitySearch from '../CitySearch/CitySearch';
 import './DashboardPage1.css';
 import { cities } from '../../../data-dashboard-page3'
 import { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 function DashboardPage1() {
-  const [selectedCoordinates, setSelectedCoordinates] = useState(null);
-  const { coordinates, error, getLocation, isLoading } = useGeolocation();
+  const { selectedCoordinates } = useOutletContext();
+
+  useEffect(() => {
+    console.log("DashboardPage1 received coordinates:", selectedCoordinates);
+  }, [selectedCoordinates]);
+
   const locationQuery = useReverseGeocodeQuery(selectedCoordinates)
   const weatherQuery = useWeatherQuery(selectedCoordinates)
   const forecastQuery = useForecastQuery(selectedCoordinates)
 
-  // Efeito para atualizar as coordenadas quando a localização do usuário for obtida
-  useEffect(() => {
-    if (coordinates) {
-      setSelectedCoordinates(coordinates);
-    }
-  }, [coordinates]);
-
   // Button for refetch
   const handleRefresh = () => {
-    getLocation()
     if (selectedCoordinates) {
       weatherQuery.refetch()
       forecastQuery.refetch()
@@ -34,66 +30,35 @@ function DashboardPage1() {
     }
   }
 
-  const handleCitySelect = (coordinates) => {
-    setSelectedCoordinates(coordinates);
-  };
-
   const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
 
-  // Se houver error:
-  if (weatherQuery.error || forecastQuery.error) {
+  if (!weatherQuery.data || !forecastQuery.data || !locationName) {
+    return <LoadingSkeleton />
+  }
+
+  if (locationQuery.error || weatherQuery.error || forecastQuery.error) {
     return (
       <Alert.Root className='p-5 bg-danger text-light d-flex align-items-start ' status="error">
         <Alert.Indicator className='fs-1 ' />
         <Alert.Content className=''>
           <Alert.Title className='fs-4 mt-2'>Falhor ao coletar informações sobre o tempo. Por favor, tente novamente!</Alert.Title>
           <Alert.Description className='fs-4 mt-sm-3'>
-            {error}
+            Erro ao carregar dados do tempo.
           </Alert.Description>
-          <Button className="m-0 bg-light fs-5 p-4 text-danger rounded-3 mt-sm-3 "
-            onClick={getLocation}>
-            Tente novamente
-          </Button>
         </Alert.Content>
       </Alert.Root>
     );
   }
 
-  if (!weatherQuery.data || !forecastQuery.data || !locationName || isLoading) {
-    return <LoadingSkeleton />
-  }
-
-  if (error) {
-    return (
-      <Alert.Root className='p-5 bg-danger text-light d-flex align-items-start ' status="error">
-        <Alert.Indicator className='fs-1 ' />
-        <Alert.Content className=''>
-          <Alert.Title className='fs-2 mt-2'>Localização Errada</Alert.Title>
-          <Alert.Description className='fs-4 mt-sm-3'>
-            {error}
-          </Alert.Description>
-          <Button className="m-0 bg-light fs-4 p-4 text-danger rounded-3 mt-sm-3 "
-            onClick={getLocation}>
-            Permitir Localização
-          </Button>
-        </Alert.Content>
-      </Alert.Root>
-    )
-  }
-
   if (!selectedCoordinates) {
     return (
-      <Alert.Root status="error" className='p-5 bg-danger text-light d-flex align-items-start'>
+      <Alert.Root status="info" className='p-5 bg-primary text-light d-flex align-items-start'>
         <Alert.Indicator className='fs-1 ' />
         <Alert.Content className=''>
-          <Alert.Title className='fs-2 mt-2'>Localização é necessária.</Alert.Title>
+          <Alert.Title className='fs-2 mt-2'>Selecione uma localização.</Alert.Title>
           <Alert.Description className='fs-4 mt-sm-3'>
-            Por favor, permita o acesso à sua localização para ver as informações do tempo.
+            Por favor, utilize a barra de busca na sidebar para selecionar uma cidade.
           </Alert.Description>
-          <Button className="m-0 bg-light fs-4 p-4 text-danger rounded-3 mt-sm-3 "
-            onClick={getLocation}>
-            Permitir Localização
-          </Button>
         </Alert.Content >
       </Alert.Root >
     )
@@ -115,7 +80,6 @@ function DashboardPage1() {
             </h2>
           </div>
           <div className="d-flex gap-2">
-            <CitySearch onCitySelect={handleCitySelect} />
             <button onClick={handleRefresh} className='dashboard-refresh-btn'>
               <i className="bi bi-arrow-clockwise"></i>
             </button>

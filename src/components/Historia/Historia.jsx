@@ -3,42 +3,30 @@ import './Historia.css';
 
 // Importações corretas das imagens
 import enriquefernandesImg from '../../assets/enriquefernandes.png';
-import milleneyoshinoImg from '../../assets/milleneyoshino.png';
-import gabrieleduardoImg from '../../assets/gabrieleduardo.png';
-import gabrielpachecoImg from '../../assets/gabrielpacheco.png';
 import kellycristinaImg from '../../assets/kellycristina.png';
+import eduardoagustavoImg from '../../assets/eduardoagustavo.png';
+
 
 const integrantes = [
-  {
-    nome: 'Enrique Fernandes',
-    imagem: enriquefernandesImg,
-    funcao: 'Product Designer e Front-End Developer',
-    cargo: 'Responsável por identidade visual, protótipos e desenvolvimento da interface.',
-  },
-  {
-    nome: 'Millene Yoshino Russo',
-    imagem: milleneyoshinoImg,
-    funcao: 'Tech Architect & Back-End Developer',
-    cargo: 'Trabalhou no desenvolvimento do back-end e participou da idealização da arquitetura da solução.',
-  },
-  {
-    nome: 'Gabriel Eduardo Oliveira',
-    imagem: gabrieleduardoImg,
-    funcao: 'Project Manager & System Architect',
-    cargo: 'Liderou a estruturação inicial do sistema e passou a base para o time de desenvolvimento.',
-  },
-  {
-    nome: 'Gabriel Pacheco',
-    imagem: gabrielpachecoImg,
-    funcao: 'Business Analyst & Market Researcher',
-    cargo: 'Realizou a análise de mercado, estudando a aderência e o posicionamento da solução no Brasil.',
-  },
-  {
-    nome: 'Kelly Cristina Alves dos Reis',
-    imagem: kellycristinaImg,
-    funcao: 'Tech Lead & Data Analyst',
-    cargo: 'Coordenou a equipe, estruturou o back-end e trabalhou com análise de dados e liderança técnica.',
-  },
+ {
+  nome: 'Enrique Fernandes',
+  imagem: enriquefernandesImg,
+  funcao: 'Líder Técnico & Engenheiro de UX/UI',
+  cargo: 'Liderança técnica e de produto, definindo a arquitetura Front-End e identidade visual. Responsável pelo UX/UI, prototipagem (Figma) e desenvolvimento do Front-End, incluindo módulos inovadores como a Central Alertaê (IA) e o Edukaê (Quizzes).',
+},
+
+{
+  nome: 'Kelly Cristina',
+  imagem: kellycristinaImg,
+  funcao: 'Desenvolvedora Front-End & Integração de Dados',
+  cargo: 'Especialista no desenvolvimento e implementação do Front-End da aplicação. Responsável por consumir e integrar APIs REST de dados meteorológicos para a criação de Dashboards intuitivos e responsivos.',
+},
+{
+  nome: 'Eduardo Agustavo',
+  imagem: eduardoagustavoImg,
+  funcao: 'Engenheiro de Back-End & Desenvolvedor de Roteamento',
+  cargo: 'Engenheiro de Back-End focado na lógica de sistemas críticos. Desenvolveu a arquitetura de envio de solicitações emergenciais e implementou a funcionalidade de "Rotas Seguras", integrando APIs de geolocalização para traçar caminhos otimizados para pontos de apoio.',
+}
 ];
 
 const Historia = () => {

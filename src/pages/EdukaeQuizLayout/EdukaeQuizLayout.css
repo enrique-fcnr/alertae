@@ -1,0 +1,42 @@
+/* src/pages/EdukaeQuizLayout/EdukaeQuizLayout.css */
+
+.quiz-layout-wrapper {
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: -48px;
+}
+
+.quiz-box {
+  width: 100%;
+  max-width: 750px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  animation: fadeInUp 0.5s ease-in-out;
+  overflow-y: auto;
+  max-height: calc(100vh - 160px); /* Deixa espaço para navbar + footer */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsivo para mobile */
+@media (max-width: 768px) {
+  .quiz-box {
+    padding: 2rem 1.25rem;
+  }
+}
