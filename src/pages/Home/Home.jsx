@@ -8,6 +8,7 @@ import DownloadApp from "../../components/DownloadApp/DownloadApp.jsx"
 import Depoimentos from "../../components/Depoimentos/Depoimentos.jsx"
 import Contato from "../../components/Contato/Contato.jsx"
 import Footer from "../../components/Footer/Footer.jsx"
+import HomeQuiz from "@/components/HomeQuiz/QuizHome.jsx"
 import avatarChat from "../../assets/avatar-chat.png"
 import Modal from "@/components/Modal/Modal.jsx"
 
@@ -124,6 +125,7 @@ function Home() {
             <Funcionalidades />
             <Beneficios />
             <InterfaceApp />
+            <HomeQuiz />
             <Depoimentos />
             <DownloadApp />
             <Contato />
