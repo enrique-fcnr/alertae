@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { IoWarningOutline } from "react-icons/io5";
 import { PiWavesDuotone, PiCloudRainBold } from "react-icons/pi";
+import { Link } from "react-router-dom";
 import "./Modal.css";
-import { cities } from "../../../data-dashboard-page3";
 
 const Modal = ({ isOpen, onClose }) => {
   //const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
@@ -30,11 +29,11 @@ const Modal = ({ isOpen, onClose }) => {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Bolinha pulsante no canto superior direito */}
-            <span className="alert-indicator orange1" />
+
 
             <div className="modal-header-popup">
-              <IoWarningOutline size={24} />
+              {/* Bolinha pulsante no canto superior direito */}
+              <span className="alert-indicator orange1" />
               <span>São Paulo - Hoje</span>
             </div>
 
@@ -62,9 +61,11 @@ const Modal = ({ isOpen, onClose }) => {
             </div>
 
             <div className="modal-footer-popup">
-              <button onClick={onClose} className="btn btn-primary">
-                Fechar
-              </button>
+              <Link className="rotas-seguras-link" to="/emergencias/rotas-seguras">
+                <button onClick={onClose} className="btn-rota-segura">
+                  Rotas Seguras
+                </button>
+              </Link>
             </div>
           </motion.div>
         </div>

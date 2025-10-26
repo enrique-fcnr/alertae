@@ -26,7 +26,7 @@
 .modal-overlay .modal-header-popup {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 20px;
@@ -108,30 +108,66 @@
 
 /* Bolinha de alerta pulsante, **restrita apenas ao modal** */
 .modal-overlay .modal-content-popup .alert-indicator {
-  position: absolute;
-  top: 22px;
-  right: 25px;
-  width: 12px;
-  height: 12px;
+  position: relative;
+  top: 0px;
+  right: 0px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   z-index: 2;
   animation: modal-pulse 1.5s infinite;
 }
 
 .modal-overlay .modal-content-popup .alert-indicator.orange1 {
-  background-color: #f97316;
-  box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+  background-color: #FE5052;
+  box-shadow: 0 0 0 0 rgba(2254, 80, 82, 0.7);
+}
+
+.rotas-seguras-link {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.btn-rota-segura {
+  background-color: #FE5052;
+  /* Vermelho do botão */
+  color: #FFFFFF;
+  /* Texto branco */
+  border: none;
+  padding: 16px 24px;
+  border-radius: 20px;
+  /* Arredondamento */
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  /* Ocupa toda a largura disponível */
+  display: block;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+/* Efeito ao passar o mouse */
+.btn-rota-segura:hover {
+  background-color: #e64749;
+}
+
+/* Efeito ao clicar */
+.btn-rota-segura:active {
+  background-color: #cc3739;
 }
 
 @keyframes modal-pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+    box-shadow: 0 0 0 0 rgba(254, 80, 82, 0.7);
   }
+
 
   70% {
     transform: scale(1.4);
-    box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+    box-shadow: 0 0 0 9px rgba(249, 115, 22, 0);
   }
 
   100% {
