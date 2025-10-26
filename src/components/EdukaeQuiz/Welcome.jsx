@@ -9,13 +9,13 @@ const Welcome = () => {
 
   return (
     <div className="welcome-container">
-      <div className="welcome-icon">
-        <BsCloudLightningRainFill />
+      <div className="welcome-icon-wrapper">
+        <BsCloudLightningRainFill className="welcome-icon"/>
       </div>
 
-      <h1>Bem-vindo ao Edukaê Quiz!</h1>
-      <p>Teste seus conhecimentos sobre prevenção e segurança em situações de risco.</p>
-      <button onClick={() => dispatch({ type: "CHOOSE_LANG" })}>
+      <h1 className="welcome-title">Bem-vindo ao Edukaê Quiz!</h1>
+      <p className="welcome-subtitle">Teste seus conhecimentos sobre prevenção e segurança em situações de risco.</p>
+      <button className="welcome-button" onClick={() => dispatch({ type: "CHOOSE_LANG" })}>
         Começar Quiz
       </button>
     </div>

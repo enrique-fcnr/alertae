@@ -2,26 +2,52 @@
 
 .quiz-layout-wrapper {
   min-height: 100vh;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem; /* Aumentado padding vertical */
   background: linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  margin-bottom: -48px;
+  margin-bottom: -48px; /* Ajuste conforme layout geral */
 }
 
 .quiz-box {
+  /* Estilos Glassmorphism */
+  background: rgba(255, 255, 255, 0.1); /* Fundo branco semitransparente */
+  backdrop-filter: blur(15px); /* Efeito de vidro fosco */
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 24px; /* Bordas mais arredondadas */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+  border: 1px solid rgba(255, 255, 255, 0.25); /* Borda sutil */
+  overflow: hidden; /* Garante que o blur não vaze */
+
+  /* Layout e Tamanho */
   width: 100%;
   max-width: 750px;
-  background-color: #ffffff;
-  border-radius: 20px;
-  padding: 3rem 2rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  /* padding: 3rem 2rem; */ /* Removido - componentes internos terão padding */
+  padding: 0; /* Remove padding para os componentes internos controlarem */
   animation: fadeInUp 0.5s ease-in-out;
-  overflow-y: auto;
+  overflow-y: auto; /* Permite scroll se conteúdo for maior */
   max-height: calc(100vh - 160px); /* Deixa espaço para navbar + footer */
+
+ /* Estilização da barra de rolagem (opcional, mas melhora o visual glass) */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
+/* Estilização da barra de rolagem para Webkit (Chrome, Safari) */
+.quiz-box::-webkit-scrollbar {
+  width: 8px;
+}
+.quiz-box::-webkit-scrollbar-track {
+  background: transparent; /* Fundo transparente */
+}
+.quiz-box::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* Cor translúcida */
+  border-radius: 10px;
+  border: 2px solid transparent; /* Espaço ao redor */
+  background-clip: content-box;
+}
+
 
 @keyframes fadeInUp {
   from {
@@ -36,7 +62,19 @@
 
 /* Responsivo para mobile */
 @media (max-width: 768px) {
-  .quiz-box {
-    padding: 2rem 1.25rem;
+  .quiz-layout-wrapper {
+    padding: 3rem 1rem; /* Reduz padding em telas menores */
   }
+  .quiz-box {
+    max-height: calc(100vh - 120px); /* Ajusta altura máxima */
+    /* padding: 2rem 1.25rem; */ /* Removido */
+  }
+}
+@media (max-width: 480px) {
+   .quiz-layout-wrapper {
+    padding: 2rem 0.5rem; /* Menor padding */
+  }
+   .quiz-box {
+     border-radius: 16px; /* Bordas menos arredondadas */
+   }
 }

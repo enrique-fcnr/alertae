@@ -3,24 +3,28 @@
 import React, { useContext } from "react";
 import "./ChooseLang.css";
 import { QuizContext } from "../../context/quiz";
+import { FaWater, FaTemperatureHigh, FaMountain } from 'react-icons/fa'; // Icons for categories
 
 const ChooseLang = () => {
   const [quizState, dispatch] = useContext(QuizContext);
 
   return (
     <div className="choose-lang">
-      <h2>Escolha a categoria</h2>
-      <p>Você pode aprender mais sobre como agir em diferentes situações de risco.</p>
+      <h2 className="choose-lang-title">Escolha a Categoria</h2>
+      <p className="choose-lang-subtitle">Aprenda a agir em diferentes situações de risco.</p>
 
       <div className="btn-lang-container">
-        <button onClick={() => dispatch({ type: "CHANGE_STATE_HTML" })}>
-          Inundações
+        <button className="category-button" onClick={() => dispatch({ type: "CHANGE_STATE_HTML" })}>
+          <FaWater className="category-icon" />
+          <span>Inundações</span>
         </button>
-        <button onClick={() => dispatch({ type: "CHANGE_STATE_CSS" })}>
-          Calor Extremo
+        <button className="category-button" onClick={() => dispatch({ type: "CHANGE_STATE_CSS" })}>
+          <FaTemperatureHigh className="category-icon" />
+          <span>Calor Extremo</span>
         </button>
-        <button onClick={() => dispatch({ type: "CHANGE_STATE_JAVASCRIPT" })}>
-          Deslizamentos
+        <button className="category-button" onClick={() => dispatch({ type: "CHANGE_STATE_JAVASCRIPT" })}>
+          <FaMountain className="category-icon" />
+          <span>Deslizamentos</span>
         </button>
       </div>
     </div>
@@ -28,3 +32,4 @@ const ChooseLang = () => {
 };
 
 export default ChooseLang;
+
