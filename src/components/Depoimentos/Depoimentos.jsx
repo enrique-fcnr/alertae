@@ -29,28 +29,32 @@ const depoimentos = [
 const Depoimentos = () => {
   return (
     <section className="depoimentos-section">
-      <Swiper
-        modules={[Pagination, Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        loop={true}
-        speed={800}
-      >
-        {depoimentos.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className="depoimento-card fade-in">
-              <img src={item.imagem} alt={item.nome} className="avatar" />
-              <h3>{item.nome}</h3>
-              <div className="estrelas">
-                {'★'.repeat(item.estrelas)}{'☆'.repeat(5 - item.estrelas)}
+      <h2 className="header-title">Depoimentos</h2>
+      <div className="line-gradient-depoiments"></div>
+      <div className="depoiments">
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          loop={true}
+          speed={800}
+        >
+          {depoimentos.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="depoimento-card fade-in">
+                <img src={item.imagem} alt={item.nome} className="avatar" />
+                <h3>{item.nome}</h3>
+                <div className="estrelas">
+                  {'★'.repeat(item.estrelas)}{'☆'.repeat(5 - item.estrelas)}
+                </div>
+                <p>"{item.texto}"</p>
               </div>
-              <p>"{item.texto}"</p>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 };

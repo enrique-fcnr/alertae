@@ -171,14 +171,13 @@
 }
 
 .close-btn:hover {
-  background-color: #e64749;
-  transform: scale(1.08);
+  background-color: rgba(255, 255, 255, 0.905);
+  border: 2px solid rgba(255, 255, 255, 0.905);
+  color: #2563eb;
+  transform: scale(1.04);
 }
 
-.close-btn:active {
-  background-color: #cc3739;
-  transform: scale(0.95);
-}
+
 
 /* Pulse animation da bolinha */
 @keyframes modal-pulse {
