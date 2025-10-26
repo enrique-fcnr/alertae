@@ -43,7 +43,7 @@ function Home() {
                             "right": 20,
                             "bottom": 20,
                             "size": 100,
-                            "iconColor": "transparent",
+                            "iconColor": "#050505",
 
                             // Ícone customizado
                             "customIconSrc": avatarChat,
