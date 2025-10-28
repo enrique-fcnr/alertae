@@ -1,6 +1,5 @@
 import { useForecastQuery, useReverseGeocodeQuery, useWeatherQuery } from '@/hooks/useWeather';
 import { useGeolocation } from '../../hooks/useGeolocation'
-import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
 import { Alert, Button } from "@chakra-ui/react"
 import CurrentWeather from '../CurrentWeather/CurrentWeather'
 import HourlyTemperature from '../HourlyTemperature/HourlyTemperature';
@@ -20,6 +19,9 @@ function DashboardPage1() {
   const locationQuery = useReverseGeocodeQuery(selectedCoordinates)
   const weatherQuery = useWeatherQuery(selectedCoordinates)
   const forecastQuery = useForecastQuery(selectedCoordinates)
+  const geolocation = useGeolocation(selectedCoordinates)
+
+  console.log(locationQuery.data)
 
   // Button for refetch
   const handleRefresh = () => {
@@ -32,16 +34,13 @@ function DashboardPage1() {
 
   const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
 
-  if (!weatherQuery.data || !forecastQuery.data || !locationName) {
-    return <LoadingSkeleton />
-  }
 
   if (locationQuery.error || weatherQuery.error || forecastQuery.error) {
     return (
       <Alert.Root className='p-5 bg-danger text-light d-flex align-items-start ' status="error">
         <Alert.Indicator className='fs-1 ' />
         <Alert.Content className=''>
-          <Alert.Title className='fs-4 mt-2'>Falhor ao coletar informações sobre o tempo. Por favor, tente novamente!</Alert.Title>
+          <Alert.Title className='fs-4 mt-2'>Falha ao coletar informações sobre o tempo. Por favor, tente novamente!</Alert.Title>
           <Alert.Description className='fs-4 mt-sm-3'>
             Erro ao carregar dados do tempo.
           </Alert.Description>

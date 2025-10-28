@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForecastQuery, useReverseGeocodeQuery } from '@/hooks/useWeather';
 import { useGeolocation } from '../../hooks/useGeolocation';
-import LoadingSkeletonPrevisoes from '../LoadingSkeletonPrevisoes/LoadingSkeletonPrevisoes';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import Temperature5Days from '../Temperature5Days/Temperature5Days';
@@ -25,10 +24,6 @@ const DashboardPage2 = () => {
 
   const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
 
-  // Busca a localização ou se ainda não tem os dados da previsão:
-  if (!forecastQuery.data || !locationName) {
-    return <LoadingSkeletonPrevisoes />;
-  }
 
   //Se a API de previsão de tempo deu erro
   if (forecastQuery.error || locationQuery.error) {
@@ -54,7 +49,7 @@ const DashboardPage2 = () => {
         <Alert.Content className=''>
           <Alert.Title className='fs-2 mt-2'>Selecione uma localização.</Alert.Title>
           <Alert.Description className='fs-4 mt-sm-3'>
-            Por favor, utilize a barra de busca na sidebar para selecionar uma cidade.
+            Por favor, utilize a barra de busca no sidebar para selecionar uma cidade.
           </Alert.Description>
         </Alert.Content>
       </Alert.Root>
@@ -63,6 +58,7 @@ const DashboardPage2 = () => {
 
   // Agrupar os dados de previsão por data
   const forecastByDay = {};
+
 
   forecastQuery.data.list.forEach((item) => {
     const date = format(new Date(item.dt_txt), 'yyyy-MM-dd');
