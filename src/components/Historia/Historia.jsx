@@ -5,6 +5,8 @@ import './Historia.css';
 import enriquefernandesImg from '../../assets/enriquefernandes.png';
 import kellycristinaImg from '../../assets/kellycristina.png';
 import eduardoagustavoImg from '../../assets/eduardoagustavo.png';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaGitAlt, FaGithub, FaFigma, FaBootstrap } from 'react-icons/fa'; // Ícones de tecnologias
+import { FaCloud, FaDatabase } from 'react-icons/fa6'; // Ícones de tecnologias
 
 
 const integrantes = [
@@ -29,10 +31,24 @@ const integrantes = [
 }
 ];
 
+const tecnologias = [
+  { nome: 'HTML', icon: <FaHtml5 /> },
+  { nome: 'CSS', icon: <FaCss3Alt /> },
+  { nome: 'JavaScript', icon: <FaJsSquare /> },
+  { nome: 'React.js', icon: <FaReact /> },
+  { nome: 'Git', icon: <FaGitAlt /> },
+  { nome: 'GitHub', icon: <FaGithub /> },
+  { nome: 'APIs REST', icon: <FaCloud /> },
+  { nome: 'JSON', icon: <FaDatabase /> },
+  { nome: 'Figma', icon: <FaFigma /> },
+  { nome: 'Bootstrap', icon: <FaBootstrap /> },
+];
+
 const Historia = () => {
   return (
     <main className="historia-container">
-      <section className="historia-content">
+      {/* Container Glassmorphism */}
+      <section className="historia-glass-content">
         <h1 className="historia-title">Sobre o Projeto</h1>
 
         <p className="historia-paragraph">
@@ -46,8 +62,11 @@ const Historia = () => {
         <h2 className="integrantes-title">Equipe Responsável</h2>
         <div className="integrantes-grid">
           {integrantes.map((pessoa, index) => (
+            // Card Glassmorphism para integrantes
             <div key={index} className="integrante-card">
-              <img src={pessoa.imagem} alt={pessoa.nome} className="integrante-foto" />
+              <div className="integrante-foto-wrapper">
+                <img src={pessoa.imagem} alt={pessoa.nome} className="integrante-foto" />
+              </div>
               <h3 className="integrante-nome">{pessoa.nome}</h3>
               <p className="integrante-funcao">{pessoa.funcao}</p>
               <p className="integrante-descricao">{pessoa.cargo}</p>
@@ -56,20 +75,20 @@ const Historia = () => {
         </div>
 
         <h2 className="tecnologias-title">Tecnologias Utilizadas</h2>
-        <p className="historia-paragraph">
+        <p className="historia-paragraph tech-intro">
           O projeto foi desenvolvido com tecnologias ensinadas até a Fase 7 do curso, incluindo:
         </p>
-        <ul className="tecnologias-lista">
-          <li>✔️ HTML, CSS e JavaScript para estrutura e estilo;</li>
-          <li>✔️ React.js para construção do front-end;</li>
-          <li>✔️ Git e GitHub para versionamento e colaboração;</li>
-          <li>✔️ APIs REST para integração com dados climáticos;</li>
-          <li>✔️ JSON para manipulação de dados e simulação de base;</li>
-          <li>✔️ Figma para prototipagem e design da interface;</li>
-          <li>✔️ Bootstrap para responsividade e componentes.</li>
-        </ul>
+        {/* Grid de Tecnologias */}
+        <div className="tecnologias-grid">
+          {tecnologias.map((tech, index) => (
+            <div key={index} className="tecnologia-item">
+              <span className="tecnologia-icon">{tech.icon}</span>
+              <span className="tecnologia-nome">{tech.nome}</span>
+            </div>
+          ))}
+        </div>
 
-        <p className="historia-paragraph">
+        <p className="historia-paragraph final-paragraph">
           Cada integrante atuou de forma estratégica dentro de sua especialidade, com base nas disciplinas práticas do curso, criando uma solução funcional, inovadora e socialmente necessária.
         </p>
       </section>
@@ -78,3 +97,4 @@ const Historia = () => {
 };
 
 export default Historia;
+
