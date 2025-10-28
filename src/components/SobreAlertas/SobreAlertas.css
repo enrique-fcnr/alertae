@@ -1,127 +1,315 @@
-.container>div:not(.alertas-grid-2),
-.container>div:not(.alertas-grid-2)>* {
+/* src/components/SobreAlertas/SobreAlertas.css */
+
+.sobre-alertas-container {
+  /* Fundo gradiente padrão */
+  background: linear-gradient(to bottom right, #798597, #377dd3, #121b95, #3e0e6b);
+  padding: 5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinhar ao topo */
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: -48px; /* Ajuste para o footer */
+}
+
+/* Container principal com efeito glass */
+.sobre-alertas-glass-content {
+  background: rgba(255, 255, 255, 0.15); /* Fundo branco levemente translúcido */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  max-width: 1300px;
+  width: 100%;
   text-align: center;
+  color: #fff; /* Cor do texto principal (Branco) */
+  overflow: hidden;
 }
 
-/* NOVA SEÇÃO: "O que são Alertas Climáticos?" */
-.intro-alertas {
-  text-align: center;
+/* Títulos e Textos */
+.main-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff; /* Branco */
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para contraste */
 }
 
-.alerta-1 {
-  background-color: #ffc10743;
+.section-title {
+  font-size: 2rem;
+  color: #e0f2fe; /* Branco azulado claro */
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.alerta-2 {
-  background-color: rgba(255, 0, 0, 0.27);
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #c7d2fe; /* Branco azulado mais claro */
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.exemplos-grid {
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent); /* Divisor branco translúcido */
+  margin: 3.5rem auto;
+  width: 80%;
+}
+
+/* Seção Intro */
+.intro-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
-.exemplo-card {
-  background-color: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  padding: 1.5rem;
+.intro-card {
+  background: rgba(255, 255, 255, 0.1); /* Fundo interno mais sutil */
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  transition: all 0.3s ease;
-
+  color: #fff; /* Texto branco */
 }
 
-.exemplo-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-}
-
-.icone-exemplo {
+.intro-card-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
-  height: 50px;
-  /* ajustável conforme o tamanho do ícone */
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
+.intro-card-icon-wrapper.warning {
+  background: rgba(250, 204, 21, 0.25); /* Fundo Amarelo translúcido */
+  color: #fde047; /* Ícone Amarelo mais vivo */
+}
+
+.intro-card-icon-wrapper.danger {
+  background: rgba(239, 68, 68, 0.25); /* Fundo Vermelho translúcido */
+  color: #fca5a5; /* Ícone Vermelho mais claro */
+}
+
+.intro-card-text {
+  font-size: 1rem;
+  color: #e0f2fe; /* Branco azulado claro */
+  line-height: 1.7;
+}
+
+/* Seção Exemplos */
+.exemplos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.exemplo-card {
+  background: rgba(255, 255, 255, 0.08); /* Fundo sutil */
+  backdrop-filter: blur(5px) saturate(120%);
+  -webkit-backdrop-filter: blur(5px) saturate(120%);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff; /* Texto branco */
+}
+
+.exemplo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.exemplo-icon-wrapper {
+  font-size: 2rem;
+  color: #c7d2fe; /* Branco azulado para ícones */
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2)); /* Sombra no ícone */
+}
 
 .exemplo-card h5 {
-  font-size: 1.05rem;
-  color: #1e293b;
+  font-size: 1.1rem;
   font-weight: 600;
+  color: #fff; /* Branco */
   margin-bottom: 0.5rem;
 }
 
 .exemplo-card p {
-  color: #475569;
-  font-size: 0.95rem;
-  line-height: 1.4;
+  color: #e0f2fe; /* Branco azulado claro */
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-
-/* GRID DE ALERTAS */
-.alertas-grid-2 {
+/* Seção Níveis de Alerta */
+.alertas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(4, 1fr); /* Força 4 colunas */
+  gap: 1.5rem;
 }
 
-.alert-card-upgraded {
-  background-color: #ffffff;
-  border-radius: 14px;
+.alert-card {
+  background: rgba(255, 255, 255, 0.1); /* Fundo interno mais sutil */
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff; /* Texto branco */
+  text-align: left;
   display: flex;
   flex-direction: column;
+}
+
+.alert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.alert-card-header {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
 }
 
-.alert-card-upgraded:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-}
-
-.icon-wrapper {
-  width: 42px;
-  height: 42px;
+.alert-icon-wrapper {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  flex-shrink: 0;
+  /* background é inline */
 }
 
-.alert-card-upgraded h5 {
-  font-size: 1.05rem;
-  text-align: center;
-  color: #1e293b;
-  margin-bottom: 1rem;
+.alert-card h5 {
+  font-size: 1.1rem;
   font-weight: 600;
+  color: #fff; /* Branco */
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.alert-card-upgraded ul {
-  padding-left: 0;
+.alert-card ul {
+  padding-left: 0.5rem;
   list-style: none;
-  width: 100%;
+  margin: 0;
+  flex-grow: 1;
 }
 
-.alert-card-upgraded li {
-  font-size: 0.95rem;
-  color: #475569;
-  margin-bottom: 0.8rem;
-  line-height: 1.45;
+.alert-card li {
+  font-size: 0.9rem;
+  color: #e0f2fe; /* Branco azulado claro */
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 1.2rem;
 }
 
-.alert-card-upgraded li strong {
+.alert-card li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: #c7d2fe; /* Branco azulado */
+  font-weight: bold;
+}
+
+.alert-card li strong {
   display: inline-block;
   font-weight: 600;
-  color: #1e293b;
+  color: #fff; /* Branco */
+  margin-right: 0.3rem;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .alertas-grid {
+     /* Volta para auto-fit se não couber 4 */
+     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .sobre-alertas-glass-content {
+    padding: 2.5rem 2rem;
+    max-width: 95%;
+  }
+  .main-title {
+    font-size: 2.4rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .alertas-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.2rem;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+   .section-subtitle, .intro-card-text, .exemplo-card p, .alert-card li {
+    font-size: 0.95rem;
+    text-align: left; /* Manter justificado? Ou left? */
+  }
+   .exemplos-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+   }
+    .alertas-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .sobre-alertas-container {
+     padding: 4rem 0.5rem;
+  }
+  .sobre-alertas-glass-content {
+    padding: 2rem 1rem;
+  }
+  .main-title {
+    font-size: 2rem;
+  }
+   .section-title {
+    font-size: 1.5rem;
+  }
+   .intro-cards-grid {
+      grid-template-columns: 1fr;
+   }
+   .exemplos-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+   }
+   .alertas-grid {
+       grid-template-columns: 1fr;
+       gap: 1rem;
+   }
+   .alert-card li {
+     font-size: 0.9rem;
+   }
 }
