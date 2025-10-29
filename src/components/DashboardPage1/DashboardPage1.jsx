@@ -19,7 +19,6 @@ function DashboardPage1() {
   const locationQuery = useReverseGeocodeQuery(selectedCoordinates)
   const weatherQuery = useWeatherQuery(selectedCoordinates)
   const forecastQuery = useForecastQuery(selectedCoordinates)
-  const geolocation = useGeolocation(selectedCoordinates)
 
   console.log(locationQuery.data)
 
@@ -55,7 +54,7 @@ function DashboardPage1() {
         <Alert.Indicator className='fs-1 ' />
         <Alert.Content className=''>
           <Alert.Title className='fs-2 mt-2'>Selecione uma localização.</Alert.Title>
-          <Alert.Description className='fs-4 mt-sm-3'>
+          <Alert.Description style={{ lineHeight: "30px" }} className='fs-5 mt-sm-3'>
             Por favor, utilize a barra de busca na sidebar para selecionar uma cidade.
           </Alert.Description>
         </Alert.Content >
