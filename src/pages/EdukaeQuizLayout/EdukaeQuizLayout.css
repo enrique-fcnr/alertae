@@ -3,7 +3,7 @@
 .quiz-layout-wrapper {
   min-height: 100vh;
   padding: 4rem 1rem; /* Aumentado padding vertical */
-  background: linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,12 +13,11 @@
 
 .quiz-box {
   /* Estilos Glassmorphism */
-  background: rgba(255, 255, 255, 0.1); /* Fundo branco semitransparente */
+  background: linear-gradient(to bottom right,#0c6be6, #1a73e8, #0c6be6); /* Fundo branco semitransparente */
   backdrop-filter: blur(15px); /* Efeito de vidro fosco */
   -webkit-backdrop-filter: blur(15px);
   border-radius: 24px; /* Bordas mais arredondadas */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
-  border: 1px solid rgba(255, 255, 255, 0.25); /* Borda sutil */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.715); /* Sombra mais pronunciada */
   overflow: hidden; /* Garante que o blur não vaze */
 
   /* Layout e Tamanho */
