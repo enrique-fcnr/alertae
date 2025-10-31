@@ -2,7 +2,7 @@
 
 .proposito-container {
   /* Fundo gradiente padrão */
-  background: linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);
+  background: #ffffff;
   padding: 5rem 1rem;
   display: flex;
   justify-content: center;
@@ -14,13 +14,12 @@
 
 /* Container principal com efeito glass */
 .proposito-glass-content {
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(to bottom right,#0c6be6, #1a73e8, #0c6be6);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-radius: 24px;
   padding: 3rem 2.5rem;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.715);
   max-width: 900px; /* Ajustar largura se necessário */
   width: 100%;
   text-align: center;
