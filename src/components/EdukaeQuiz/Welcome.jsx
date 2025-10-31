@@ -1,8 +1,7 @@
-// src/components/EdukaeQuiz/Welcome.jsx
 import React, { useContext } from "react";
 import "./Welcome.css";
-import { QuizContext } from "../../context/quiz";
-import { BsCloudLightningRainFill } from "react-icons/bs"; // Ícone de tempestade/quiz
+import { QuizContext } from "../../context/quiz"; // Voltando para o caminho relativo
+import { FaGraduationCap } from "react-icons/fa"; // Ícone de formatura
 
 const Welcome = () => {
   const [quizState, dispatch] = useContext(QuizContext);
@@ -10,7 +9,7 @@ const Welcome = () => {
   return (
     <div className="welcome-container">
       <div className="welcome-icon-wrapper">
-        <BsCloudLightningRainFill className="welcome-icon"/>
+        <FaGraduationCap className="welcome-icon"/>
       </div>
 
       <h1 className="welcome-title">Bem-vindo ao Edukaê Quiz!</h1>

@@ -44,7 +44,7 @@ function Home() {
                             "right": 20,
                             "bottom": 20,
                             "size": 100,
-                            "iconColor": "#050505",
+                            "iconColor": "#1a73e8",
 
                             // Ícone customizado
                             "customIconSrc": avatarChat,
@@ -81,7 +81,7 @@ function Home() {
                                 "placeholder": "Pergunte sobre clima...",
                                 "backgroundColor": "#ffffff",
                                 "textColor": "#1e1e1f",
-                                "sendButtonColor": "#00c3ff", /* Azul Secundário para o botão de envio */
+                                "sendButtonColor": "#1a73e8", /* Azul Secundário para o botão de envio */
                                 "borderRadius": 40,
                                 "sendButtonBorderRadius": 50
                             }

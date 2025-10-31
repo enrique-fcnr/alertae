@@ -39,12 +39,17 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* Animação de chacoalhada sutil */
+  animation: subtle-shake 3s ease-in-out infinite;
+  transform-origin: center;
 }
 
 .tip-button:hover {
   background: rgba(255, 255, 255, 0.25);
   color: #fff;
   transform: scale(1.05);
+  /* Pausa a animação de shake no hover para priorizar o scale */
+  animation-play-state: paused;
 }
 
 .tip-text {
@@ -60,6 +65,18 @@
   gap: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Keyframes para a chacoalhada */
+@keyframes subtle-shake {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-2deg); }
+  20% { transform: rotate(2deg); }
+  30% { transform: rotate(-2deg); }
+  40% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+  /* 50% de pausa */
+}
+
 
 /* Next Button */
 .next-btn {

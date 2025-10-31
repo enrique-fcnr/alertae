@@ -38,12 +38,15 @@
   margin: 0 auto 1.5rem auto;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Animação de pular movida para o wrapper */
+  animation: jump 1.5s ease-in-out infinite;
 }
 
 .welcome-icon {
   font-size: 2.5rem; /* Adjusted size */
   color: #ffffff; /* White icon */
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  /* Animação removida daqui */
 }
 
 /* Button Styling */
@@ -74,13 +77,15 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Remove pulse animation as it might conflict with glassmorphism */
-/*
-@keyframes pulse {
-  ...
+/* Keyframes para a animação de pular */
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
-.welcome-icon { animation: pulse 1.5s ease-in-out infinite; }
-
 
 /* Responsive */
 @media (max-width: 480px) {
