@@ -1,78 +1,147 @@
+:root {
+  --max-width: 1300px;
+  --muted: #616161;
+  --accent: #006eff;
+  --heading: #4d4d4d;
+  --bg: #ffffff;
+  --gap: 3rem;
+  --feature-width: 360px;
+  --font-sans: "Inter", "Segoe UI", Roboto, sans-serif;
+}
+
 .funcionalidades-section {
-    padding: 40px 20px;
-    background-color: #fff;
-  }
-  
-  .funcionalidades-container {
-    max-width: 1500px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .funcionalidades-container h2 {
-    font-size: 30px;
-    font-weight: 700;
-    color: #222;
-    margin-bottom: 5px;
-  }
-  
-  .line-gradientt {
-    width: 260px;
-    height: 3px;
-    margin: 0 auto 20px; 
-    background: linear-gradient(90deg, #006eff, #00c3ff);
-    border-radius: 4px;
-  }
-  
-  .funcionalidades-container p {
-    max-width: 600px;
-    margin: 0 auto 30px;
-    font-size: 13px;
-    color: #666;
-    line-height: 1.4;
-  }
-  
+  padding: 72px 20px;
+  background-color: var(--bg);
+  font-family: var(--font-sans);
+  color: var(--heading);
+}
+
+/* Container centralizado; título e subtítulo centrados */
+.funcionalidades-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.funcionalidades-container h2 {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--heading);
+  margin: 0;
+  line-height: 1;
+
+}
+
+.line-gradientt {
+  width: 300px;
+  height: 6px;
+  margin: 12px auto 18px;
+  background: linear-gradient(90deg, var(--accent), #00c3ff);
+  border-radius: 6px;
+
+}
+
+.section-sub {
+  max-width: 760px;
+  margin: 2rem auto 4.6rem;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+
+}
+
+/* GRID: 3 colunas desktop, 2 tablet, 1 mobile */
+
+.funcionalidades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  align-items: start;
+  justify-items: center;
+  /* centraliza cada coluna no seu espaço */
+  margin-top: 24px;
+  padding: 0 8px;
+}
+
+/* Item: alinhamento interno à esquerda (conteúdo) */
+.funcionalidade-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: var(--feature-width);
+  box-sizing: border-box;
+}
+
+/* Ícone dentro de bolinha */
+.icon-wrapper {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(0, 110, 255, 0.06);
+  margin-bottom: 14px;
+  flex-shrink: 0;
+
+}
+
+.funcionalidade-item .icon {
+  font-size: 22px;
+  color: var(--accent);
+}
+
+/* Conteúdo textual alinhado à esquerda, com largura confortável */
+.funcionalidade-item .content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Título do card */
+.funcionalidade-item h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #484848;
+  margin: 0 0 8px 0;
+  line-height: 1.25;
+  margin: 1rem 0rem 0.7rem 0rem;
+}
+
+/* Parágrafo — legível e alinhado à esquerda */
+.funcionalidade-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1024px) {
   .funcionalidades-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px 20px;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
+}
+
+@media (max-width: 640px) {
+  .funcionalidades-container {
+    text-align: left;
+    /* deixa título/subdescrição alinhados à esquerda no mobile (opcional) */
+  }
+
+  .line-gradientt {
+    margin-left: 0;
+  }
+
+  .funcionalidades-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
   .funcionalidade-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    max-width: 100%;
   }
-  
-  .funcionalidade-item .icon {
-    font-size: 30px;
-    color: #007bff;
-    margin-bottom: 8px;
-  }
-  
-  .funcionalidade-item h3 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #222;
-  }
-  
-  .funcionalidade-item p {
-    font-size: 12px;
-    color: #666;
-    max-width: 350px;
-  }
-  
-  @media (max-width: 768px) {
-    .funcionalidades-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .funcionalidades-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
+}

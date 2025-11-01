@@ -11,17 +11,17 @@
   .header-title {
     font-size: 32px;
     font-weight: 700;
-    color: #222;
+    color: #434343;
     ;
     margin-bottom: 30px;
   }
 
   .line-gradient-depoiments {
     width: 224px;
-    height: 3px;
+    height: 6px;
     margin: -26px 0 30px 0;
     background: linear-gradient(90deg, #006eff, #00c3ff);
-    border-radius: 4px;
+    border-radius: 3px;
     margin-bottom: 3rem;
   }
 
