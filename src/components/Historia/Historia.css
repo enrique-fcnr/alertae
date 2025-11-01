@@ -205,7 +205,7 @@
   font-size: 1.5rem;
   /* Tamanho do ícone */
   margin-right: 0.6rem;
-  color: #a5b4fc;
+  color: #e3e8ff;
   /* Cor do ícone */
   display: flex;
   align-items: center;
@@ -215,7 +215,7 @@
   font-size: 0.95rem;
   /* Tamanho do texto */
   font-weight: 500;
-  color: #e0e7ff;
+  color: #f4f7fe;
 }
 
 /* Parágrafo final */

@@ -76,7 +76,7 @@ const Historia = () => {
 
         <h2 className="tecnologias-title">Tecnologias Utilizadas</h2>
         <p className="historia-paragraph tech-intro">
-          O projeto foi desenvolvido com tecnologias ensinadas até a Fase 7 do curso, incluindo:
+          O projeto foi desenvolvido com tecnologias ensinadas até a Fase 7 do primeiro ano do curso, incluindo:
         </p>
         {/* Grid de Tecnologias */}
         <div className="tecnologias-grid">
@@ -88,9 +88,6 @@ const Historia = () => {
           ))}
         </div>
 
-        <p className="historia-paragraph final-paragraph">
-          Cada integrante atuou de forma estratégica dentro de sua especialidade, com base nas disciplinas práticas do curso, criando uma solução funcional, inovadora e socialmente necessária.
-        </p>
       </section>
     </main>
   );
