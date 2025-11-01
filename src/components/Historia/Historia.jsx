@@ -10,25 +10,25 @@ import { FaCloud, FaDatabase } from 'react-icons/fa6'; // Ícones de tecnologias
 
 
 const integrantes = [
- {
-  nome: 'Enrique Fernandes',
-  imagem: enriquefernandesImg,
-  funcao: 'Líder Técnico & Engenheiro de UX/UI',
-  cargo: 'Liderança técnica e de produto, definindo a arquitetura Front-End e identidade visual. Responsável pelo UX/UI, prototipagem (Figma) e desenvolvimento do Front-End, incluindo módulos inovadores como a Central Alertaê (IA) e o Edukaê (Quizzes).',
-},
+  {
+    nome: 'Enrique Fernandes',
+    imagem: enriquefernandesImg,
+    funcao: 'Líder Técnico & Engenheiro de UX/UI',
+    cargo: 'Liderança técnica e de produto, definindo arquitetura Front-End e identidade visual, responsável por UX/UI, prototipagem (Figma) e desenvolvimento de módulos inovadores como Central Alertaê (IA) e Edukaê (Quizzes).',
+  },
 
-{
-  nome: 'Kelly Cristina',
-  imagem: kellycristinaImg,
-  funcao: 'Desenvolvedora Front-End & Integração de Dados',
-  cargo: 'Especialista no desenvolvimento e implementação do Front-End da aplicação. Responsável por consumir e integrar APIs REST de dados meteorológicos para a criação de Dashboards intuitivos e responsivos.',
-},
-{
-  nome: 'Eduardo Agustavo',
-  imagem: eduardoagustavoImg,
-  funcao: 'Engenheiro de Back-End & Desenvolvedor de Roteamento',
-  cargo: 'Engenheiro de Back-End focado na lógica de sistemas críticos. Desenvolveu a arquitetura de envio de solicitações emergenciais e implementou a funcionalidade de "Rotas Seguras", integrando APIs de geolocalização para traçar caminhos otimizados para pontos de apoio.',
-}
+  {
+    nome: 'Kelly Cristina',
+    imagem: kellycristinaImg,
+    funcao: 'Desenvolvedora Front-End & Integração de Dados',
+    cargo: 'Especialista em Front-End, responsável pelo consumo e integração de APIs REST de dados meteorológicos para criar dashboards intuitivos e responsivos.',
+  },
+  {
+    nome: 'Eduardo Agustavo',
+    imagem: eduardoagustavoImg,
+    funcao: 'Engenheiro de Back-End & Desenvolvedor de Roteamento',
+    cargo: 'Engenheiro de Back-End, desenvolveu arquitetura para envio de solicitações emergenciais e implementou APIs de geolocalização para caminhos otimizados.',
+  }
 ];
 
 const tecnologias = [

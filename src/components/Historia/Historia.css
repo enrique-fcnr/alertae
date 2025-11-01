@@ -3,32 +3,40 @@
 .historia-container {
   /* Fundo gradiente padrão */
   background: #ffffff;
-  padding: 5rem 1rem; /* Aumentar padding */
+  padding: 5rem 1rem;
+  /* Aumentar padding */
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Alinhar ao topo */
+  align-items: flex-start;
+  /* Alinhar ao topo */
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
-  margin-bottom: -48px; /* Ajuste para o footer */
+  margin-bottom: -48px;
+  /* Ajuste para o footer */
 }
 
 /* Container principal com efeito glass */
 .historia-glass-content {
-  background: linear-gradient(to bottom right,#0c6be6, #1a73e8, #0c6be6);
+  background: linear-gradient(to bottom right, #0c6be6, #1a73e8, #0c6be6);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-radius: 24px;
-  padding: 3rem 2.5rem; /* Ajustar padding interno */
+  padding: 3rem 2.5rem;
+  /* Ajustar padding interno */
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.715);
-  max-width: 1100px; /* Aumentar largura */
+  max-width: 1100px;
+  /* Aumentar largura */
   width: 100%;
   text-align: center;
-  color: #fff; /* Cor do texto principal */
-  overflow: hidden; /* Para garantir que o blur não vaze */
+  color: #fff;
+  /* Cor do texto principal */
+  overflow: hidden;
+  /* Para garantir que o blur não vaze */
 }
 
 .historia-title {
-  font-size: 2.8rem; /* Ajustar tamanho */
+  font-size: 2.8rem;
+  /* Ajustar tamanho */
   font-weight: 700;
   color: #fff;
   margin-bottom: 2rem;
@@ -38,21 +46,29 @@
 .integrantes-title,
 .tecnologias-title {
   font-size: 2rem;
-  color: #e0e7ff; /* Tom claro para subtítulos */
-  margin-top: 3.5rem; /* Aumentar espaçamento */
-  margin-bottom: 2rem; /* Aumentar espaçamento */
+  color: #ffffff;
+  /* Tom claro para subtítulos */
+  margin-top: 3.5rem;
+  /* Aumentar espaçamento */
+  margin-bottom: 2rem;
+  /* Aumentar espaçamento */
   font-weight: 600;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .historia-paragraph {
-  font-size: 1.1rem; /* Ajustar tamanho */
+  font-size: 1.1rem;
+  /* Ajustar tamanho */
   line-height: 1.8;
-  color: #e0e7ff; /* Tom claro para parágrafos */
+  color: #ffffff;
+  /* Tom claro para parágrafos */
   margin-bottom: 1.5rem;
-  max-width: 800px; /* Limitar largura para leitura */
+  max-width: 800px;
+  /* Limitar largura para leitura */
   margin-left: auto;
   margin-right: auto;
+  letter-spacing: 1px;
+  text-align: left;
 }
 
 .historia-paragraph strong {
@@ -64,28 +80,36 @@
 .integrantes-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem; /* Aumentar gap */
+  gap: 2.5rem;
+  /* Aumentar gap */
   justify-content: center;
-  margin-bottom: 3rem; /* Aumentar margem */
+  margin-bottom: 3rem;
+  /* Aumentar margem */
 }
 
 /* Card de integrante com efeito glass */
 .integrante-card {
-  background: rgba(255, 255, 255, 0.15); /* Fundo um pouco mais opaco */
+  background: rgba(255, 255, 255, 0.876);
+  /* Fundo um pouco mais opaco */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px; /* Aumentar border-radius */
-  padding: 2rem 1.5rem; /* Ajustar padding */
-  width: 280px; /* Aumentar largura */
+  border-radius: 16px;
+  /* Aumentar border-radius */
+  padding: 2rem 1.2rem;
+  /* Ajustar padding */
+  width: 280px;
+  /* Aumentar largura */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #fff; /* Texto dentro do card branco */
+  color: #fff;
+  /* Texto dentro do card branco */
 }
 
 .integrante-card:hover {
-  transform: translateY(-8px); /* Efeito de elevação maior */
+  transform: translateY(-8px);
+  /* Efeito de elevação maior */
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -94,9 +118,12 @@
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  margin: 0 auto 1.5rem auto; /* Aumentar margem */
-  padding: 4px; /* Espaço para a borda */
-  background: linear-gradient(to bottom right, #60a5fa, #a78bfa); /* Gradiente da borda */
+  margin: 0 auto 1.5rem auto;
+  /* Aumentar margem */
+  padding: 4px;
+  /* Espaço para a borda */
+  background: linear-gradient(90deg, var(--accent), #00c3ff);
+  /* Gradiente da borda */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -105,34 +132,43 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid rgba(0, 0, 0, 0.2); /* Borda interna escura para contraste */
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  /* Borda interna escura para contraste */
 }
 
 .integrante-nome {
-  font-size: 1.2rem; /* Ajustar */
+  font-size: 1.6rem;
+  /* Ajustar */
   font-weight: 600;
-  color: #fff;
+  color: #1a73e8;
   margin-bottom: 0.25rem;
 }
 
 .integrante-funcao {
-  font-size: 1rem; /* Ajustar */
+  font-size: 0.9rem;
+  /* Ajustar */
   font-weight: 500;
-  color: #c7d2fe; /* Azul bem claro */
-  margin-top: 0.25rem;
-  margin-bottom: 0.75rem; /* Aumentar margem */
+  color: #4d4d4d;
+  /* Azul bem claro */
+  margin-top: 0.8rem;
+  margin-bottom: 0.75rem;
+  /* Aumentar margem */
 }
 
 .integrante-descricao {
-  font-size: 0.9rem; /* Ajustar */
-  color: #e0e7ff; /* Tom claro */
-  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.67px;
+  /* Ajustar */
+  color: #4d4d4d;
+  /* Tom claro */
+  margin-top: 1.8rem;
   line-height: 1.6;
 }
 
 /* Seção de Tecnologias */
 .historia-paragraph.tech-intro {
-  margin-bottom: 2rem; /* Mais espaço antes da lista */
+  margin-bottom: 2rem;
+  /* Mais espaço antes da lista */
 }
 
 /* Grid de tecnologias */
@@ -140,8 +176,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem; /* Espaçamento entre itens */
-  margin: 0 auto 2.5rem auto; /* Centralizar e adicionar margem */
+  gap: 1.5rem;
+  /* Espaçamento entre itens */
+  margin: 0 auto 2.5rem auto;
+  /* Centralizar e adicionar margem */
   max-width: 800px;
 }
 
@@ -151,7 +189,8 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  padding: 0.6rem 1rem; /* Padding */
+  padding: 0.6rem 1rem;
+  /* Padding */
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -163,15 +202,18 @@
 }
 
 .tecnologia-icon {
-  font-size: 1.5rem; /* Tamanho do ícone */
+  font-size: 1.5rem;
+  /* Tamanho do ícone */
   margin-right: 0.6rem;
-  color: #a5b4fc; /* Cor do ícone */
+  color: #a5b4fc;
+  /* Cor do ícone */
   display: flex;
   align-items: center;
 }
 
 .tecnologia-nome {
-  font-size: 0.95rem; /* Tamanho do texto */
+  font-size: 0.95rem;
+  /* Tamanho do texto */
   font-weight: 500;
   color: #e0e7ff;
 }
@@ -200,7 +242,8 @@
 
   .historia-paragraph {
     font-size: 1rem;
-    text-align: left; /* Justificar em telas menores */
+    text-align: left;
+    /* Justificar em telas menores */
   }
 
   .integrantes-grid {
@@ -208,43 +251,54 @@
   }
 
   .integrante-card {
-    width: calc(50% - 1rem); /* Duas colunas */
+    width: calc(50% - 1rem);
+    /* Duas colunas */
     padding: 1.5rem 1rem;
   }
 
   .tecnologias-grid {
-     gap: 1rem;
+    gap: 1rem;
   }
-   .tecnologia-item {
+
+  .tecnologia-item {
     padding: 0.5rem 0.8rem;
   }
-   .tecnologia-icon {
+
+  .tecnologia-icon {
     font-size: 1.3rem;
   }
-   .tecnologia-nome {
+
+  .tecnologia-nome {
     font-size: 0.9rem;
   }
 }
 
 @media (max-width: 576px) {
   .historia-container {
-     padding: 4rem 0.5rem;
+    padding: 4rem 0.5rem;
   }
+
   .historia-glass-content {
     padding: 2rem 1rem;
   }
+
   .historia-title {
     font-size: 2rem;
   }
-   .integrantes-title,
+
+  .integrantes-title,
   .tecnologias-title {
     font-size: 1.6rem;
   }
+
   .integrante-card {
-    width: 80%; /* Uma coluna */
+    width: 80%;
+    /* Uma coluna */
   }
-   .tecnologia-item {
-     width: calc(50% - 0.5rem); /* Duas colunas para tecnologias */
-     justify-content: center;
+
+  .tecnologia-item {
+    width: calc(50% - 0.5rem);
+    /* Duas colunas para tecnologias */
+    justify-content: center;
   }
 }
