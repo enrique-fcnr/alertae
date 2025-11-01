@@ -52,7 +52,7 @@ const Historia = () => {
         <h1 className="historia-title">Sobre o Projeto</h1>
 
         <p className="historia-paragraph">
-          O <strong>Alertaê</strong> foi desenvolvido por alunos do curso de Engenharia de Software da FIAP com o propósito de salvar vidas e prevenir tragédias causadas por desastres climáticos. Por meio de tecnologia acessível e linguagem simples, o app entrega alertas instantâneos sobre enchentes, calor extremo e outros eventos ambientais críticos.
+          O <strong>Alertaê</strong>, criado por alunos de Engenharia de Software da FIAP, visa salvar vidas prevenindo desastres climáticos. Com tecnologia acessível e linguagem simples, envia alertas instantâneos sobre enchentes, calor extremo e outros eventos críticos. Sua interface amigável, avisos personalizáveis e foco em públicos vulneráveis tornam-no uma solução social de potencial impacto nacional.
         </p>
 
         <p className="historia-paragraph">

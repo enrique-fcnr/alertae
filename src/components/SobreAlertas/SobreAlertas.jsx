@@ -1,13 +1,13 @@
 import React from 'react';
 import './SobreAlertas.css';
 import { FaCloudShowersHeavy, FaThermometerHalf, FaTint, FaBolt } from 'react-icons/fa'; // Mantidos ícones relevantes
-import { FaCircle } from 'react-icons/fa6';
+import { FaCircle, FaArrowRight } from 'react-icons/fa6';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationTriangle, faBolt as faSolidBolt } from '@fortawesome/free-solid-svg-icons'; // Usar faSolidBolt para evitar conflito de nome
 
 
 const alertas = [
- {
+  {
     corCustom: "#22c55e", // Verde
     titulo: "Alerta Verde – Sem Perigo",
     pontos: [
@@ -89,7 +89,7 @@ const SobreAlertas = () => {
             {/* Card 2 */}
             <div className="intro-card">
               <div className="intro-card-icon-wrapper danger">
-                 <FontAwesomeIcon icon={faSolidBolt} /> {/* Usando ícone renomeado */}
+                <FontAwesomeIcon icon={faSolidBolt} /> {/* Usando ícone renomeado */}
               </div>
               <p className="intro-card-text">
                 Servem para prevenir acidentes e minimizar danos, classificados por níveis de severidade para indicar o grau de perigo.
@@ -100,12 +100,12 @@ const SobreAlertas = () => {
 
         {/* Seção Exemplos */}
         <div className='section-divider'></div>
-        <h2 className="section-title">Exemplos Comuns de Alertas</h2>
-         <div className="exemplos-grid">
+        <h2 className="section-title-examples">Exemplos Comuns de Alertas</h2>
+        <div className="exemplos-grid">
           {exemplos.map((item, index) => (
             <div className="exemplo-card" key={index}>
               <div className="exemplo-icon-wrapper">
-                 {item.icone}
+                {item.icone}
               </div>
               <h5>{item.titulo}</h5>
               <p>{item.descricao}</p>
@@ -126,12 +126,15 @@ const SobreAlertas = () => {
                 <div className="alert-icon-wrapper" style={{ backgroundColor: `${alerta.corCustom}30` }}> {/* Fundo com opacidade */}
                   <FaCircle style={{ color: alerta.corCustom }} size={14} />
                 </div>
-                <h5>{alerta.titulo}</h5>
+                <h5 className='alerta-card-description'>{alerta.titulo}</h5>
               </div>
               <ul>
                 {alerta.pontos.map((ponto, i) => (
                   <li key={i}>
-                    <strong>{ponto.label}:</strong> {ponto.texto}
+                    <div className='alerta-card-arrows'>
+                      <span className='alerta-card-arrows-icon'> <FaArrowRight /></span>
+                      {ponto.texto}
+                    </div>
                   </li>
                 ))}
               </ul>
