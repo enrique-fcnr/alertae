@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForecastQuery, useReverseGeocodeQuery, useWeatherQuery } from '@/hooks/useWeather';
-import { Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/alert";
+import { Alert } from "@chakra-ui/react";
 import CurrentWeather from '../CurrentWeather/CurrentWeather';
 import HourlyTemperature from '../HourlyTemperature/HourlyTemperature';
 import WeatherDetails from '../WeatherDetails/WeatherDetails';
@@ -21,32 +21,22 @@ function DashboardPage1() {
 
   const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
 
-  // Erro geral de fetch
-  if (locationQuery.error || weatherQuery.error || forecastQuery.error) {
-    return (
-      <Alert status="error" className="p-5 bg-danger text-light d-flex align-items-start">
-        <AlertIcon />
-        <div>
-          <AlertTitle>Falha ao coletar informações sobre o tempo</AlertTitle>
-          <AlertDescription>Por favor, tente novamente.</AlertDescription>
-        </div>
-      </Alert>
-    );
-  }
 
-  // Sem coordenadas selecionadas
+
+  // Sem coordenadas
   if (!selectedCoordinates) {
     return (
-      <Alert status="info" className="p-5 bg-primary text-light d-flex align-items-start">
-        <AlertIcon />
-        <div>
-          <AlertTitle>Selecione uma localização</AlertTitle>
-          <AlertDescription>Use a barra de busca na sidebar para selecionar uma cidade.</AlertDescription>
-        </div>
-      </Alert>
+      <Alert.Root status="info" className='p-5 bg-primary text-light d-flex align-items-start'>
+        <Alert.Indicator className='fs-1 ' />
+        <Alert.Content className=''>
+          <Alert.Title className='fs-2 mt-2'>Selecione uma localização.</Alert.Title>
+          <Alert.Description style={{ lineHeight: "30px" }} className='fs-5 mt-sm-3'>
+            Por favor, utilize a barra de busca na sidebar para selecionar uma cidade.
+          </Alert.Description>
+        </Alert.Content >
+      </Alert.Root >
     );
   }
-
   // Loading
   if (locationQuery.isLoading || weatherQuery.isLoading || forecastQuery.isLoading) {
     return (
