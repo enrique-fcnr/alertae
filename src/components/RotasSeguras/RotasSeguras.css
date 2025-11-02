@@ -1,7 +1,5 @@
 /* Garante que a página ocupe 100% da tela */
 
-
-
 /* O contêiner do mapa */
 #map {
   height: 70vh;
@@ -80,6 +78,76 @@
   height: 40px;
   animation: jump 1s infinite;
 }
+
+.container-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.7rem 0rem;
+}
+
+.label-title {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 0.4rem;
+}
+
+.label-title svg {
+  stroke: #007bff;
+  stroke-width: 4;
+  width: 25px;
+  height: 25px;
+
+
+}
+
+.label-title p {
+  margin: 0;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+  padding: 0rem;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: rgb(74, 74, 74);
+
+}
+
+.distance {
+  margin-bottom: 1rem;
+}
+
+.btns-rotas {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+
+
+}
+
+.btn-rota {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #006eff, #3b8ffc);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.btn-rota svg {
+  width: 20px;
+  height: 20px;
+}
+
+
 
 @keyframes jump {
 
