@@ -26,17 +26,59 @@ const TemperatureChart = ({ data }) => {
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          font: {
+            size: 15 // tamanho da fonte da legenda
+          }
+        }
       },
       title: {
         display: true,
-        text: 'Temperatura por Dia'
+        text: 'Temperatura por Dia',
+        font: {
+          size: 20 // tamanho do título do gráfico
+        },
+
+      },
+      tooltip: {
+        titleFont: { size: 15 },
+        bodyFont: { size: 15 },
+        callbacks: {
+          title: function (tooltipItems) {
+            // tooltipItems é um array, geralmente com um item
+            const label = tooltipItems[0].label; // "02/11"
+            return `Dia ${label}`; // adiciona "Dia " antes da data
+          }
+        }
       }
     },
     scales: {
-      y: {
+      x: {
+        ticks: {
+          font: {
+            size: 15 // tamanho das labels do eixo X
+          }
+        },
         title: {
           display: true,
-          text: 'Temperatura (°C)'
+          text: 'Dia',
+          font: {
+            size: 15 // título do eixo X
+          }
+        }
+      },
+      y: {
+        ticks: {
+          font: {
+            size: 15 // tamanho das labels do eixo Y
+          }
+        },
+        title: {
+          display: true,
+          text: 'Temperatura (°C)',
+          font: {
+            size: 15 // título do eixo Y
+          }
         }
       }
     }

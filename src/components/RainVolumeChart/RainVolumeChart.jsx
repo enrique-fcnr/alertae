@@ -11,7 +11,7 @@ const RainVolumeChart = ({ data }) => {
     datasets: [
       {
         label: 'Volume de Chuva (mm)',
-        data: data.list.map(item => item.rain ? item.rain['3h'] || 0 : 0),
+        data: data.list.map(item => (item.rain ? item.rain['3h'] || 0 : 0)),
         fill: true,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
@@ -26,19 +26,33 @@ const RainVolumeChart = ({ data }) => {
     plugins: {
       legend: {
         position: 'top',
+        labels: { font: { size: 13 } }
       },
       title: {
         display: true,
-        text: 'Volume de Chuva por Dia'
+        text: 'Volume de Chuva por Dia',
+        font: { size: 16 }
+      },
+      tooltip: {
+        titleFont: { size: 15 },
+        bodyFont: { size: 14 },
+        callbacks: {
+          title: function (tooltipItems) {
+            const label = tooltipItems[0].label;
+            return `Dia ${label}`;
+          }
+        }
       }
     },
     scales: {
+      x: {
+        ticks: { font: { size: 14 } },
+        title: { display: true, text: 'Dia', font: { size: 15 } }
+      },
       y: {
         beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Volume (mm)'
-        }
+        ticks: { font: { size: 14 } },
+        title: { display: true, text: 'Volume (mm)', font: { size: 15 } }
       }
     }
   };

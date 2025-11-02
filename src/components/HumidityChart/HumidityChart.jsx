@@ -26,20 +26,34 @@ const HumidityChart = ({ data }) => {
     plugins: {
       legend: {
         position: 'top',
+        labels: { font: { size: 14 } }
       },
       title: {
         display: true,
-        text: 'Umidade por Dia'
+        text: 'Umidade por Dia',
+        font: { size: 16 }
+      },
+      tooltip: {
+        titleFont: { size: 15 },
+        bodyFont: { size: 13 },
+        callbacks: {
+          title: function (tooltipItems) {
+            const label = tooltipItems[0].label;
+            return `Dia ${label}`;
+          }
+        }
       }
     },
     scales: {
+      x: {
+        ticks: { font: { size: 13 } },
+        title: { display: true, text: 'Dia', font: { size: 15 } }
+      },
       y: {
         beginAtZero: true,
         max: 100,
-        title: {
-          display: true,
-          text: 'Umidade (%)'
-        }
+        ticks: { font: { size: 13 } },
+        title: { display: true, text: 'Umidade (%)', font: { size: 15 } }
       }
     }
   };

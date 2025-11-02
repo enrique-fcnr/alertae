@@ -104,12 +104,12 @@ const DashboardPage4 = () => {
             </div>
           </div>
 
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-5">
             <div className="dashboard-card">
               <HottestDaysList key="HottestDays-chart" data={forecastQuery.data} />
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-7">
             <div className="dashboard-card">
               <TemperatureHeatmap key="TemperatureHeatmap-chart" data={forecastQuery.data} />
             </div>
