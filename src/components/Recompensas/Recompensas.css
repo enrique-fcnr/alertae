@@ -1,49 +1,63 @@
 /* Wrapper principal */
 .recompensas-wrapper {
   min-height: 100vh;
-  background: #ffffff;/*linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);*/
+  background: #ffffff;
+  /*linear-gradient(to bottom right, #eaf3ff, #478fe7, #121b95, #3e0e6b);*/
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4rem 1rem;
-  margin-bottom: -48px; /* Ajuste se necessário para layout */
-  overflow-x: hidden; /* Evita scroll horizontal */
+  margin-bottom: -48px;
+  /* Ajuste se necessário para layout */
+  overflow-x: hidden;
+  /* Evita scroll horizontal */
 }
 
 /* Container principal com efeito glassmorphism */
 .recompensas-container {
   /* Estilos Glassmorphism */
-  background: linear-gradient(to bottom right,#0c6be6, #1a73e8, #0c6be6); /* Fundo branco semitransparente */
-  backdrop-filter: blur(15px); /* Efeito de vidro fosco */
+  background: linear-gradient(to bottom right, #0c6be6, #1a73e8, #03469d);
+  /* Fundo branco semitransparente */
+  backdrop-filter: blur(15px);
+  /* Efeito de vidro fosco */
   -webkit-backdrop-filter: blur(15px);
-  border-radius: 24px; /* Bordas mais arredondadas */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.715); /* Sombra mais pronunciada */
-  overflow: hidden; /* Garante que o blur não vaze */
+  border-radius: 24px;
+  /* Bordas mais arredondadas */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.715);
+  /* Sombra mais pronunciada */
+  overflow: hidden;
+  /* Garante que o blur não vaze */
 
   /* Layout e espaçamento */
-  padding: 3rem 2.5rem; /* Ajuste no padding */
+  padding: 3rem 2.5rem;
+  /* Ajuste no padding */
   max-width: 1000px;
   width: 100%;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  color: #fff; /* Muda a cor padrão do texto para branco */
+  color: #fff;
+  /* Muda a cor padrão do texto para branco */
 }
 
 
 /* --- Título e subtítulo Ajustados para Glassmorphism --- */
 .recompensas-title {
   font-size: 2.8rem;
-  font-weight: 700; /* Voltando para 700 para mais destaque */
-  color: #ffffff; /* Cor branca sólida */
+  font-weight: 700;
+  /* Voltando para 700 para mais destaque */
+  color: #ffffff;
+  /* Cor branca sólida */
   margin-bottom: 0.8rem;
   letter-spacing: -0.5px;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4); /* Sombra para destacar no fundo claro */
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  /* Sombra para destacar no fundo claro */
   /* Removido o background-clip pois o fundo agora é translúcido */
 }
 
 .recompensas-subtitle {
   font-size: 1.1rem;
-  color: #e0e7ff; /* Cor clara para subtítulo */
+  color: #e0e7ff;
+  /* Cor clara para subtítulo */
   margin-bottom: 3rem;
   font-weight: 400;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
@@ -55,7 +69,8 @@
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  justify-content: center; /* Centraliza cards se não preencherem a linha */
+  justify-content: center;
+  /* Centraliza cards se não preencherem a linha */
 }
 
 /* --- Card Flip Styles (Mantidos) --- */
@@ -115,16 +130,15 @@
   left: -85%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%);
   transform: skewX(-25deg);
   opacity: 0;
   transition: left 0.75s ease-in-out, opacity 0.6s ease-in-out;
   pointer-events: none;
+  border: none;
 }
 
 .recompensa-card:hover .recompensa-card-front::before,
@@ -136,14 +150,15 @@
 
 /* Estilo da frente do card */
 .recompensa-card-front {
-  background: linear-gradient(145deg, #1d4ed8 0%, #3b82f6 50%, #60a5fa 100%);
+  background: linear-gradient(145deg, #1d4ed8 0%, #4d8aec 50%, #0c59de 100%);
   color: #fff;
+  cursor: pointer;
 }
 
 /* Estilo do verso do card */
 .recompensa-card-back {
-  background: #1d4ed8;
-  color: #fff;
+  background: rgba(255, 255, 255, 0.893);
+  color: #0c59de;
   transform: rotateY(180deg);
   justify-content: space-evenly;
 }
@@ -151,23 +166,22 @@
 .recompensa-card-back h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: #0c59de;
   font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+
 }
 
 .recompensa-card-back p {
   font-size: 0.9rem;
-  color: #e0e7ff;
+  color: #4f4f50;
   line-height: 1.4;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   margin-bottom: 1rem;
 }
 
 /* --- Botão Resgatar (Mantido) --- */
 .resgatar-button {
-  background: linear-gradient(135deg, #f0f8ff, #e0e7ff);
-  color: #1e3a8a;
+  background: linear-gradient(135deg, #0c59de, #5c8df6);
+  color: white;
   border: none;
   padding: 0.8rem 1.8rem;
   border-radius: 50px;
@@ -208,13 +222,33 @@
 }
 
 /* Cores dos ícones (Mantidas) */
-.ouro { color: #fde047; }
-.prata { color: #f3f4f6; }
-.bronze { color: #fb923c; }
-.azul { color: #93c5fd; }
-.verde { color: #6ee7b7; }
-.roxo { color: #c4b5fd; }
-.solidario { color: #fda4af; }
+.ouro {
+  color: #fde047;
+}
+
+.prata {
+  color: #f3f4f6;
+}
+
+.bronze {
+  color: #fb923c;
+}
+
+.azul {
+  color: #93c5fd;
+}
+
+.verde {
+  color: #6ee7b7;
+}
+
+.roxo {
+  color: #c4b5fd;
+}
+
+.solidario {
+  color: #fda4af;
+}
 
 /* Remove estilo antigo 'destaque' */
 .destaque {
@@ -226,29 +260,38 @@
 /* --- Responsividade (Mantida) --- */
 @media (max-width: 768px) {
   .recompensas-container {
-    padding: 2.5rem 1.5rem; /* Ajuste no padding */
+    padding: 2.5rem 1.5rem;
+    /* Ajuste no padding */
   }
+
   .recompensas-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+
   .recompensa-card {
     height: 300px;
   }
+
   .recompensas-title {
     font-size: 2.2rem;
   }
+
   .recompensas-subtitle {
     font-size: 1rem;
   }
+
   .recompensa-card-back h3 {
     font-size: 1.1rem;
   }
+
   .recompensa-card-back p {
     font-size: 0.85rem;
   }
+
   .recompensa-icon {
     font-size: 3.5rem;
   }
+
   .resgatar-button {
     padding: 0.7rem 1.5rem;
     font-size: 0.9rem;
@@ -257,21 +300,27 @@
 
 @media (max-width: 480px) {
   .recompensas-container {
-    padding: 2rem 1rem; /* Ajuste no padding */
+    padding: 2rem 1rem;
+    /* Ajuste no padding */
   }
+
   .recompensas-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
   .recompensa-card {
     height: 280px;
   }
-   .recompensas-title {
+
+  .recompensas-title {
     font-size: 2rem;
   }
+
   .recompensa-icon {
     font-size: 3rem;
   }
+
   .resgatar-button {
     padding: 0.6rem 1.2rem;
     font-size: 0.85rem;

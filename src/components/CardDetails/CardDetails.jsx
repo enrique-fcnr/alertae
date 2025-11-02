@@ -4,9 +4,9 @@ import './CardDetails.css';
 const CardDetails = ({ data }) => {
   return (
     <div className="col-12 col-md-6 mb-3">
-      <div className="card-details-wrapper shadow-sm rounded-3 p-3 d-flex align-items-center gap-3 h-100">
-        <div className="card-details-icon">
-          {data.icon}
+      <div className="card-details-wrapper shadow-sm rounded-3 p-3 d-flex align-items-center gap-1 h-100">
+        <div className="card-details-icon-container m-0">
+          <div className='card-details-icon'>{data.icon}</div>
         </div>
         <div className="card-details-info">
           <p style={{ color: 'gray' }} className="card-details-title mb-1 fw-semibold">{data.title}</p>
