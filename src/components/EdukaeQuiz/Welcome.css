@@ -1,60 +1,109 @@
 /* src/components/EdukaeQuiz/Welcome.css */
 
 .welcome-container {
+  /* Glassmorphism background effect - applied via .quiz-box in EdukaeQuizLayout.css */
   text-align: center;
-  margin-top: 5rem;
-  padding: 2rem;
+  padding: 3rem 1.5rem; /* Increased padding */
   font-family: 'Poppins', sans-serif;
+  color: #fff; /* Default text color to white */
 }
 
-.welcome-container h1 {
+.welcome-title {
   font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
   margin-bottom: 1rem;
-  color: #004aad;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
 }
 
-.welcome-container p {
-  font-size: 1.2rem;
-  color: #444;
-  margin-bottom: 2rem;
+.welcome-subtitle {
+  font-size: 1.1rem;
+  color: #e0e7ff; /* Lighter color */
+  margin-bottom: 2.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  max-width: 500px; /* Limit width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.welcome-container button {
-  background: linear-gradient(to right, #004aad, #0076ff);
-  color: white;
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.welcome-container button:hover {
-  opacity: 0.9;
+/* Icon Styling */
+.welcome-icon-wrapper {
+  background: rgba(255, 255, 255, 0.2); /* Subtle background */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Animação de pular movida para o wrapper */
+  animation: jump 1.5s ease-in-out infinite;
 }
 
 .welcome-icon {
-  font-size: 3.5rem;
-  color: #004aad;
-  margin: 0 auto 1rem auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: pulse 1.5s ease-in-out infinite;
+  font-size: 2.5rem; /* Adjusted size */
+  color: #ffffff; /* White icon */
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  /* Animação removida daqui */
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.9;
+/* Button Styling */
+.welcome-button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%); /* Light glassy gradient */
+  color: #fff; /* White text */
+  padding: 0.9rem 2.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle border */
+  border-radius: 50px; /* Fully rounded */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.welcome-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes para a animação de pular */
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
   }
   50% {
-    transform: scale(1.1);
-    opacity: 1;
+    transform: translateY(-10px);
   }
-  100% {
-    transform: scale(1);
-    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .welcome-title {
+    font-size: 2rem;
+  }
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+  .welcome-button {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+  }
+  .welcome-icon-wrapper {
+      width: 70px;
+      height: 70px;
+  }
+  .welcome-icon {
+      font-size: 2rem;
   }
 }

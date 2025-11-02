@@ -18,7 +18,7 @@
 .interface-app-header h2 {
   font-size: 32px;
   font-weight: 700;
-  color: #222;
+  color: #434343;
   margin-bottom: 10px;
 }
 
@@ -53,8 +53,10 @@
 .mockup-item {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .mockup-item:hover {
-  transform: scale(1.08); /* aumenta 8% no hover */
+  transform: scale(1.08);
+  /* aumenta 8% no hover */
 }
 
 .mockup-item img {
@@ -71,6 +73,7 @@
   opacity: 0.6;
   transform: scale(0.9);
 }
+
 .mockup-item.side :hover {
   opacity: 1.0;
   transition-duration: 2.2s;

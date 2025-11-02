@@ -1,17 +1,13 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { IoWarningOutline } from "react-icons/io5";
 import { PiWavesDuotone, PiCloudRainBold } from "react-icons/pi";
+import { Link } from "react-router-dom";
 import "./Modal.css";
-import { cities } from "../../../data-dashboard-page3";
 
 const Modal = ({ isOpen, onClose }) => {
-  //const coordinates1 = { lon: cities[0].lon, lat: cities[0].lat };
   const modalRoot = document.getElementById("modal-root");
   if (!modalRoot) return null;
-
-
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
@@ -30,24 +26,35 @@ const Modal = ({ isOpen, onClose }) => {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Bolinha pulsante no canto superior direito */}
-            <span className="alert-indicator orange1" />
-
             <div className="modal-header-popup">
-              <IoWarningOutline size={24} />
-              <span>São Paulo - Hoje</span>
+              <span className="alert-indicator red" />
+              <div className="container-red">
+                <span className="modal-title-city">São Paulo - Hoje</span>
+                <button
+                  style={{ display: 'block' }}
+                  onClick={onClose}
+                  className="close-btn"
+                  aria-label="Fechar"
+                >
+                  ×
+                </button>
+              </div>
             </div>
 
             <div className="modal-title-popup">
               Notificações de hoje na sua região
-              <p className="subtitle-popup">Tome decisões com base no clima atual</p>
+              <p className="subtitle-popup">
+                Tome decisões com base no clima atual
+              </p>
             </div>
 
             <div className="popup-data-cards">
               <div className="popup-card alert-flood">
                 <PiWavesDuotone size={40} className="icon" />
                 <div className="popup-text">
-                  <p><strong>Alerta de enchente!</strong></p>
+                  <p>
+                    <strong>Alerta de enchente!</strong>
+                  </p>
                   <p>Evite áreas alagadas e busque rotas seguras.</p>
                 </div>
               </div>
@@ -55,21 +62,26 @@ const Modal = ({ isOpen, onClose }) => {
               <div className="popup-card alert-rain">
                 <PiCloudRainBold size={40} className="icon" />
                 <div className="popup-text">
-                  <p><strong>Fortes chuvas:</strong> 12 mm</p>
+                  <p>
+                    <strong>Fortes chuvas:</strong> 12 mm
+                  </p>
                   <p>Volume ideal: 0 mm a 3 mm. Risco de alagamento elevado.</p>
                 </div>
               </div>
             </div>
 
             <div className="modal-footer-popup">
-              <button onClick={onClose} className="btn btn-primary">
-                Fechar
-              </button>
+              <Link
+                className="rotas-seguras-link"
+                to="/emergencias/rotas-seguras"
+              >
+                <button className="btn-rota-segura">Rotas Seguras</button>
+              </Link>
             </div>
           </motion.div>
-        </div>
+        </div >
       )}
-    </AnimatePresence>,
+    </AnimatePresence >,
     modalRoot
   );
 };

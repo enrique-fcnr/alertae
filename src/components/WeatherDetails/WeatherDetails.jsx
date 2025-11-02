@@ -1,12 +1,11 @@
 import { format } from "date-fns";
 import { Sunrise, Sunset, Compass, Gauge } from "lucide-react";
 import CardDetails from '../CardDetails/CardDetails'
+import './WeatherDetails.css'
 
 
 function WeatherDetails({ data }) {
   const { wind, main, sys } = data;
-
-
 
   const formatTime = (timestamp) => {
     return format(new Date(timestamp * 1000), "h:mm a");
@@ -48,8 +47,8 @@ function WeatherDetails({ data }) {
 
   return (
     <div className="card shadow-sm mb-4 p-3 h-100">
-      <div className="card-header">
-        <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Detalhes do Dia</h5>
+      <div className="card-header bg-primary">
+        <h5 style={{ color: 'white' }} className="card-title mb-0 ">Detalhes do Dia</h5>
       </div>
       <div className="card-body">
         <div className="row h-100">

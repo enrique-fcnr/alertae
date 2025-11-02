@@ -23,15 +23,43 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* Modal Header */
 .modal-overlay .modal-header-popup {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 20px;
 }
 
+.container-red {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Alinha título e botão */
+}
+
+.modal-title-city {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Bolinha de alerta pulsante */
+.modal-overlay .modal-content-popup .alert-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: modal-pulse 1.5s infinite;
+}
+
+.modal-overlay .modal-content-popup .alert-indicator.red {
+  background-color: #FE5052;
+  box-shadow: 0 0 0 0 rgba(254, 80, 82, 0.7);
+}
+
+/* Títulos e subtítulos */
 .modal-overlay .modal-title-popup {
   font-size: 1.5rem;
   font-weight: bold;
@@ -45,6 +73,7 @@
   margin-top: 5px;
 }
 
+/* Popup cards */
 .modal-overlay .popup-data-cards {
   margin-top: 20px;
   display: flex;
@@ -88,50 +117,78 @@
   color: #f1f5f9;
 }
 
+/* Footer */
 .modal-overlay .modal-footer-popup {
   display: flex;
   justify-content: flex-end;
   margin-top: 25px;
 }
 
-.modal-overlay .modal-footer-popup .btn {
-  background-color: #3b82f6;
+.modal-overlay .btn-rota-segura {
+  background-color: #FE5052;
+  color: #FFFFFF;
   border: none;
-  border-radius: 6px;
-  padding: 10px 20px;
-  font-weight: bold;
+  padding: 16px 24px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 
-.modal-overlay .modal-footer-popup .btn:hover {
-  background-color: #2563eb;
+.modal-overlay .btn-rota-segura:hover {
+  background-color: #e64749;
 }
 
-/* Bolinha de alerta pulsante, **restrita apenas ao modal** */
-.modal-overlay .modal-content-popup .alert-indicator {
-  position: absolute;
-  top: 22px;
-  right: 25px;
-  width: 12px;
-  height: 12px;
+.modal-overlay .btn-rota-segura:active {
+  background-color: #cc3739;
+}
+
+.rotas-seguras-link {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+
+
+/* Botão de fechar ao lado do título */
+.close-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  z-index: 2;
-  animation: modal-pulse 1.5s infinite;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease-in-out;
+  font-size: 1.2rem;
+  border: 2px solid white;
 }
 
-.modal-overlay .modal-content-popup .alert-indicator.orange1 {
-  background-color: #f97316;
-  box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+.close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.905);
+  border: 2px solid rgba(255, 255, 255, 0.905);
+  color: #2563eb;
+  transform: scale(1.04);
 }
 
+
+
+/* Pulse animation da bolinha */
 @keyframes modal-pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+    box-shadow: 0 0 0 0 rgba(254, 80, 82, 0.7);
   }
 
   70% {
     transform: scale(1.4);
-    box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+    box-shadow: 0 0 0 9px rgba(249, 115, 22, 0);
   }
 
   100% {

@@ -1,7 +1,7 @@
 /* Footer Custom Styles */
 .footer {
   font-size: 0.95rem;
-  background-color: #1a73e8;
+  background-color: #0c6be6;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   z-index: 100000;
@@ -10,6 +10,12 @@
 .footer-img {
   width: 70%;
 }
+
+.form-input::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
 
 .footer-slogan {
   font-size: 0.95rem;

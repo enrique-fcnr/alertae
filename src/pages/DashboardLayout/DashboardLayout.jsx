@@ -10,10 +10,8 @@ import { useEffect, useState } from 'react';
 
 function Dashboard() {
   const [selectedCoordinates, setSelectedCoordinates] = useState(null);
-  const { coordinates, error, getLocation, isLoading } = useGeolocation();
-  const locationQuery = useReverseGeocodeQuery(selectedCoordinates)
-  const weatherQuery = useWeatherQuery(selectedCoordinates)
-  const forecastQuery = useForecastQuery(selectedCoordinates)
+  const { coordinates } = useGeolocation();
+
 
   useEffect(() => {
     if (coordinates) {

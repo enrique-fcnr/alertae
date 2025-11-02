@@ -1,42 +1,88 @@
 /* src/components/EdukaeQuiz/ChooseLang.css */
 
 .choose-lang {
+  /* Glassmorphism background effect - applied via .quiz-box in EdukaeQuizLayout.css */
   text-align: center;
-  margin-top: 4rem;
+  padding: 2rem 1.5rem; /* Added padding */
   font-family: 'Poppins', sans-serif;
+  color: #fff; /* Default text color to white */
 }
 
-.choose-lang h2 {
+.choose-lang-title {
   font-size: 2.2rem;
-  color: #004aad;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
 }
 
-.choose-lang p {
-  font-size: 1rem;
-  color: #444;
-  margin-bottom: 2rem;
+.choose-lang-subtitle {
+  font-size: 1.1rem;
+  color: #e0e7ff; /* Lighter color */
+  margin-bottom: 2.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-lang-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 300px;
+  gap: 1.2rem; /* Increased gap */
+  max-width: 350px; /* Slightly wider */
   margin: 0 auto;
 }
 
-.btn-lang-container button {
-  background: linear-gradient(to right, #004aad, #0076ff);
-  color: white;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 25px;
+/* Styling for category buttons */
+.category-button {
+  display: flex; /* Use flexbox for icon and text alignment */
+  align-items: center;
+  justify-content: center; /* Center content */
+  gap: 0.8rem; /* Space between icon and text */
+
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%); /* Glassy gradient */
+  color: #fff;
+  padding: 1rem 1.5rem; /* Increased padding */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  border-radius: 12px; /* Slightly less rounded */
   font-size: 1rem;
+  font-weight: 600; /* Bolder text */
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.btn-lang-container button:hover {
-  opacity: 0.9;
+.category-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px); /* Lift effect */
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.category-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.category-icon {
+  font-size: 1.2rem; /* Adjust icon size */
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .choose-lang-title {
+    font-size: 1.8rem;
+  }
+  .choose-lang-subtitle {
+    font-size: 1rem;
+  }
+  .category-button {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem;
+  }
 }

@@ -44,7 +44,7 @@ function Footer() {
 
 
           {/* Links úteis */}
-          <div className="col-sm-6 col-md-3 mb-4 d-flex flex-column justify-content-center align-items-center d-none d-md-block">
+          <div className="col-sm-6 col-md-3 mt-3 mb-5 d-flex flex-column justify-content-center align-items-center d-none d-md-block">
             <div className="d-flex flex-column justify-content-center align-items-center">
               <ul className="list-unstyled">
                 <li> <h6 className="fw-bold links-title">LINKS ÚTEIS</h6></li>
@@ -58,7 +58,7 @@ function Footer() {
           </div>
 
           {/* Informações */}
-          <div className="col-sm-6 col-md-3 mb-4 d-flex flex-column justify-content-center align-items-center d-none d-md-block ">
+          <div className="col-sm-6 col-md-3 mt-3 mb-4 d-flex flex-column justify-content-center align-items-center d-none d-md-block ">
             <div className="d-flex flex-column justify-content-center align-items-center ">
               <ul className="list-unstyled">
                 <li><h6 className="links-title fw-bold ">INFORMAÇÕES</h6></li>
@@ -71,11 +71,48 @@ function Footer() {
           </div>
 
           {/* Ícones sociais - só em telas ≥ sm */}
-          <div className="icons-container col-md-3 mb-4 d-flex justify-content-center align-items-start d-none d-md-flex">
-            <a href="#" className="icons-sociais border border-3 rounded-circle"><i className="bi bi-facebook fs-3 p-2"></i></a>
-            <a href="#" className="icons-sociais border border-3 rounded-circle"><i className="bi bi-twitter fs-3 p-2"></i></a>
-            <a href="#" className="icons-sociais border border-3 rounded-circle"><i className="bi bi-instagram fs-3 p-2"></i></a>
-            <a href="#" className="icons-sociais border border-3 rounded-circle"><i className="bi bi-youtube fs-3 p-2"></i></a>
+          <div className="icons-container mt-3 col-md-3 mb-4 d-flex justify-content-center align-items-start d-none d-md-flex">
+            <a
+              href="https://www.facebook.com/"
+              className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visite nossa página no Facebook"
+            >
+              <i className="bi bi-facebook fs-4"></i>
+            </a>
+
+            <a
+              href="https://twitter.com/"
+              className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visite nosso perfil no Twitter"
+            >
+              <i className="bi bi-twitter fs-4"></i>
+            </a>
+
+            <a
+              href="https://www.instagram.com/"
+              className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visite nosso perfil no Instagram"
+            >
+              <i className="bi bi-instagram fs-4"></i>
+            </a>
+
+            <a
+              href="https://www.youtube.com/"
+              className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visite nosso canal no YouTube"
+            >
+              <i className="bi bi-youtube fs-4"></i>
+            </a>
+
+
           </div>
         </div>
 
@@ -129,10 +166,46 @@ function Footer() {
 
         {/* Ícones sociais - apenas no mobile (após newsletter) */}
         <div className="container-icons mb-4 mt-4 d-flex justify-content-center gap-3 gap-md-4 d-md-none">
-          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-facebook fs-2  "></i></a>
-          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-twitter fs-2  "></i></a>
-          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-instagram fs-2  "></i></a>
-          <a href="#" className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"><i className="bi bi-youtube fs-2  "></i></a>
+          <a
+            href="https://www.facebook.com/"
+            className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visite nossa página no Facebook"
+          >
+            <i className="bi bi-facebook fs-4"></i>
+          </a>
+
+          <a
+            href="https://twitter.com/"
+            className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visite nosso perfil no Twitter"
+          >
+            <i className="bi bi-twitter fs-4"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/"
+            className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visite nosso perfil no Instagram"
+          >
+            <i className="bi bi-instagram fs-4"></i>
+          </a>
+
+          <a
+            href="https://www.youtube.com/"
+            className="icons-sociais border border-3 rounded-circle d-flex justify-content-center align-items-center ms-0"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visite nosso canal no YouTube"
+          >
+            <i className="bi bi-youtube fs-4"></i>
+          </a>
+
         </div>
 
 

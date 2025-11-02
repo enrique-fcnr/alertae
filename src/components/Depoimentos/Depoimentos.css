@@ -1,9 +1,28 @@
   .depoimentos-section {
-    padding: 60px 20px;
+    padding: 7rem 0rem;
     background-color: #f9f9f9;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+  }
+
+  .header-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #434343;
+    ;
+    margin-bottom: 30px;
+  }
+
+  .line-gradient-depoiments {
+    width: 224px;
+    height: 6px;
+    margin: -26px 0 30px 0;
+    background: linear-gradient(90deg, #006eff, #00c3ff);
+    border-radius: 3px;
+    margin-bottom: 3rem;
   }
 
   .swiper {
@@ -15,7 +34,7 @@
     display: flex !important;
     justify-content: center;
   }
-  
+
   .depoimento-card {
     width: 100%;
     max-width: 700px;
@@ -26,7 +45,7 @@
     text-align: center;
     transition: all 0.5s ease;
   }
-  
+
   .avatar {
     width: 100px;
     height: 100px;
@@ -39,7 +58,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   h3 {
     font-size: 20px;
     color: #1a1a1a;
@@ -48,7 +67,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .estrelas {
     font-size: 20px;
     color: #ffc107;
@@ -57,7 +76,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   p {
     font-size: 16px;
     color: #333;
@@ -68,22 +87,23 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .fade-in {
     animation: fadeIn 0.6s ease-in-out;
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(10px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
+
   /* Swiper pagination bullets estilo "barras azuis" */
   .swiper-pagination-bullet {
     width: 30px;
@@ -97,10 +117,17 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .swiper-pagination-bullet-active {
     background: #007bff;
     text-align: center;
     align-items: center;
     justify-content: center;
-  }  
+  }
+
+
+  @media (max-width: 943px) {
+    .depoimentos-section {
+      padding: 2rem 0rem;
+    }
+  }

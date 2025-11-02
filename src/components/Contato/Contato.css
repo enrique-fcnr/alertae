@@ -39,23 +39,26 @@
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 10px;
+  color: #4d4d4d;
 }
 
 .linha-azul {
-  width: 210px;
-  height: 4px;
+  width: 199px;
+  height: 6px;
   background: linear-gradient(135deg, #3b82f6, #60a5fa);
-  margin-bottom: 20px;
-  border-radius: 2px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  margin: -11px 0 15px 0;
 }
 
 .contato-text {
   color: #555;
-  font-size: 14px;
+  font-size: 16px;
   margin-left: -19px;
   margin-bottom: 30px;
   max-width: 350px;
   text-align: left;
+
 }
 
 .contato-item {
@@ -103,7 +106,7 @@
 
 .contato-form button {
   padding: 10px 20px;
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  background: linear-gradient(90deg, #006eff, #00c3ff);
   color: white;
   border: none;
   border-radius: 6px;
@@ -115,8 +118,8 @@
 }
 
 .contato-form button:hover {
-  background: linear-gradient(135deg,#60a5fa, #ffffff);
-  color: #1a73e8;
+  background: linear-gradient(90deg, #006eff, #00c3ff);
+  color: white;
   transform: scale(1.08);
 }
 
@@ -155,5 +158,3 @@
     align-self: center;
   }
 }
-
-  

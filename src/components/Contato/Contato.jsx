@@ -6,14 +6,12 @@ function Contato() {
   return (
     <section className="contato-section">
       <div className="contato-container">
-        
+
         <div className="contato-info">
           <h2 className="contato-title">Fale Conosco!</h2>
           <div className="linha-azul"></div>
           <p className="contato-text">
-            Estamos aqui para ajudar. Se você tiver dúvidas, sugestões ou quiser
-            saber mais sobre nossos serviços, envie uma mensagem.
-            Retornaremos o mais breve possível!
+            Estamos aqui para ajudar! Envie sua mensagem e retornaremos o mais breve possível.
           </p>
 
           <div className="contato-item">

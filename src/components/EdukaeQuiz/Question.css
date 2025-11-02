@@ -1,35 +1,126 @@
 /* src/components/EdukaeQuiz/Question.css */
 
 .question-container {
+  /* Glassmorphism background effect - applied via .quiz-box in EdukaeQuizLayout.css */
   text-align: center;
-  padding: 2rem;
+  padding: 2.5rem 1.5rem; /* Adjusted padding */
   font-family: 'Poppins', sans-serif;
+  color: #fff; /* Default text color to white */
 }
 
-.question-container h2 {
-  font-size: 1.6rem;
-  color: #333;
-  margin-bottom: 1.5rem;
-}
-
-.tip {
-  margin-top: 1rem;
-  color: #0076ff;
+.question-counter {
+  font-size: 0.9rem;
+  color: #e0e7ff; /* Lighter color */
+  margin-bottom: 0.5rem;
   font-weight: 500;
 }
 
-.next-btn {
+.question-text {
+  font-size: 1.5rem; /* Slightly smaller */
+  font-weight: 600; /* Bolder */
+  color: #ffffff;
+  margin-bottom: 2.5rem; /* Increased margin */
+  line-height: 1.5; /* Better line spacing */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Tip Section */
+.tip-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 1.5rem;
   padding: 0.6rem 1.2rem;
-  background-color: #004aad;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15); /* Subtle background */
+  color: #e0e7ff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  /* Animação de chacoalhada sutil */
+  animation: subtle-shake 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.tip-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transform: scale(1.05);
+  /* Pausa a animação de shake no hover para priorizar o scale */
+  animation-play-state: paused;
+}
+
+.tip-text {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.2); /* Darker background for tip */
+  border-radius: 8px;
+  color: #c7d2fe; /* Light blue text */
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Keyframes para a chacoalhada */
+@keyframes subtle-shake {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-2deg); }
+  20% { transform: rotate(2deg); }
+  30% { transform: rotate(-2deg); }
+  40% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+  /* 50% de pausa */
+}
+
+
+/* Next Button */
+.next-btn {
+  margin-top: 2rem;
+  padding: 0.9rem 2.2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .next-btn:hover {
-  background-color: #0066cc;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+.next-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading state */
+.loading-question {
+  color: #e0e7ff;
+  font-size: 1.2rem;
+  padding: 3rem 1rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .question-text {
+    font-size: 1.3rem;
+  }
+  .next-btn, .tip-button {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.8rem;
+  }
 }

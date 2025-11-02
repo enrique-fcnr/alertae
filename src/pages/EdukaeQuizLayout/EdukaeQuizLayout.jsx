@@ -36,4 +36,3 @@ const EdukaeQuizLayout = () => {
 };
 
 export default EdukaeQuizLayout;
-

@@ -1,42 +1,91 @@
+/* src/components/Proposito/Proposito.css */
+
 .proposito-container {
-    background-color: #ffffff;
-    padding: 4rem 1rem;
-    display: flex;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
+  /* Fundo gradiente padrão */
+  background: #ffffff;
+  padding: 5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Alinhar ao topo */
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: -48px;
+  /* Ajuste para o footer */
+}
+
+/* Container principal com efeito glass */
+.proposito-glass-content {
+  background: linear-gradient(to bottom right, #0c6be6, #1a73e8, #0c6be6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 15px 35px rgba(93, 93, 93, 0.715);
+  max-width: 900px;
+  /* Ajustar largura se necessário */
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  /* Cor do texto principal */
+  overflow: hidden;
+}
+
+.proposito-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.proposito-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #f2f4fb;
+  /* Tom claro para parágrafos */
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  /* Limitar largura para leitura */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.proposito-paragraph strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .proposito-glass-content {
+    padding: 2.5rem 2rem;
   }
-  
-  .proposito-content {
-    max-width: 800px;
-    text-align: center;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    background-color: #f9fafc;
-  }
-  
+}
+
+@media (max-width: 768px) {
   .proposito-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 2rem;
+    font-size: 2.2rem;
   }
-  
+
   .proposito-paragraph {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    text-align: left;
+    /* Justificar em telas menores */
   }
-  
-  @media (max-width: 768px) {
-    .proposito-title {
-      font-size: 2rem;
-    }
-  
-    .proposito-paragraph {
-      font-size: 1rem;
-      text-align: justify;
-    }
+}
+
+@media (max-width: 576px) {
+  .proposito-container {
+    padding: 4rem 0.5rem;
   }
-  
+
+  .proposito-glass-content {
+    padding: 2rem 1rem;
+  }
+
+  .proposito-title {
+    font-size: 2rem;
+  }
+}

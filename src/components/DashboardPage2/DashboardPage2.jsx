@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useForecastQuery, useReverseGeocodeQuery } from '@/hooks/useWeather';
-import { useGeolocation } from '../../hooks/useGeolocation';
-import LoadingSkeletonPrevisoes from '../LoadingSkeletonPrevisoes/LoadingSkeletonPrevisoes';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import Temperature5Days from '../Temperature5Days/Temperature5Days';
-import { Alert, Button } from "@chakra-ui/react";
+import { Alert } from "@chakra-ui/react";
 import { dataChart5Days } from '../../../data-hourly-temp-page';
 import './DashboardPage2.css';
 import { useOutletContext } from 'react-router-dom';
@@ -15,7 +13,6 @@ const DashboardPage2 = () => {
   const locationQuery = useReverseGeocodeQuery(selectedCoordinates);
   const forecastQuery = useForecastQuery(selectedCoordinates);
 
-  // Button for refetch
   const handleRefresh = () => {
     if (selectedCoordinates) {
       forecastQuery.refetch();
@@ -25,12 +22,7 @@ const DashboardPage2 = () => {
 
   const locationName = Array.isArray(locationQuery.data) ? locationQuery.data[0] : null;
 
-  // Busca a localização ou se ainda não tem os dados da previsão:
-  if (!forecastQuery.data || !locationName) {
-    return <LoadingSkeletonPrevisoes />;
-  }
-
-  //Se a API de previsão de tempo deu erro
+  // Erros de API
   if (forecastQuery.error || locationQuery.error) {
     return (
       <Alert.Root status="error">
@@ -38,47 +30,42 @@ const DashboardPage2 = () => {
         <Alert.Content>
           <Alert.Title>Erro</Alert.Title>
           <Alert.Description>
-            <p>Falhor ao coletar informações sobre o tempo. Por favor, tente novamente!</p>
-            {/* Consider if a refresh button is still appropriate here or if location selection in sidebar is the primary method */}
+            <p>Falha ao coletar informações sobre o tempo. Por favor, tente novamente!</p>
           </Alert.Description>
         </Alert.Content>
       </Alert.Root>
     );
   }
 
-  // Verifica se não existem coordenadas (latitude e longitude).
+  // Sem coordenadas
   if (!selectedCoordinates) {
     return (
       <Alert.Root status="info" className='p-5 bg-primary text-light d-flex align-items-start'>
         <Alert.Indicator className='fs-1 ' />
         <Alert.Content className=''>
           <Alert.Title className='fs-2 mt-2'>Selecione uma localização.</Alert.Title>
-          <Alert.Description className='fs-4 mt-sm-3'>
+          <Alert.Description style={{ lineHeight: "30px" }} className='fs-5 mt-sm-3'>
             Por favor, utilize a barra de busca na sidebar para selecionar uma cidade.
           </Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
+        </Alert.Content >
+      </Alert.Root >
     );
   }
 
-  // Agrupar os dados de previsão por data
+  // Agrupar dados da previsão por dia de forma segura
+  const forecastList = forecastQuery.data?.list ?? [];
   const forecastByDay = {};
 
-  forecastQuery.data.list.forEach((item) => {
+  forecastList.forEach(item => {
     const date = format(new Date(item.dt_txt), 'yyyy-MM-dd');
-    if (!forecastByDay[date]) {
-      forecastByDay[date] = [];
-    }
+    if (!forecastByDay[date]) forecastByDay[date] = [];
     forecastByDay[date].push(item);
   });
 
-  // Pegar as datas dos 5 primeiros dias
   const dailyTemperatures = Object.keys(forecastByDay)
-    .slice(1, 6) // pegar os 5 próximos dias (pular o dia atual se quiser)
+    .slice(1, 6) // próximos 5 dias
     .map(date => {
       const temps = forecastByDay[date];
-
-      // Pegar todas as temperaturas do dia:
       const tempMins = temps.map(t => t.main.temp_min);
       const tempMaxs = temps.map(t => t.main.temp_max);
 
@@ -86,22 +73,19 @@ const DashboardPage2 = () => {
         date,
         minTemp: Math.min(...tempMins),
         maxTemp: Math.max(...tempMaxs),
-        icon: temps[0].weather[0].icon, // exemplo: pega o ícone da primeira previsão do dia
+        icon: temps[0]?.weather[0]?.icon || '01d', // fallback para ícone
       };
     });
 
   return (
     <div className='py-2 d-flex flex-column gap-3'>
+      {/* Header */}
       <div className='d-flex justify-content-between align-items-center mb-0'>
         <div className="current-location">
           <h2 className="h3 mb-0 text-primary">
             {locationName?.name}
-            {locationName?.state && (
-              <span className="text-muted">, {locationName.state}</span>
-            )}
-            {locationName?.country && (
-              <span className="text-muted">, {locationName.country}</span>
-            )}
+            {locationName?.state && <span className="text-muted">, {locationName.state}</span>}
+            {locationName?.country && <span className="text-muted">, {locationName.country}</span>}
           </h2>
         </div>
         <div className="d-flex gap-2">
@@ -111,19 +95,18 @@ const DashboardPage2 = () => {
         </div>
       </div>
 
-      {/* Caixa com a previsão do tempo */}
+      {/* Previsão dos próximos 5 dias */}
       <div className="card shadow-sm my-0 p-3 h-100">
-        <div className="card-header">
-          <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Próximos 5 dias</h5>
+        <div className="card-header bg-primary">
+          <h5 style={{ color: 'white' }} className="card-title mb-0">Próximos 5 dias</h5>
         </div>
 
         <div className="row d-flex justify-content-center align-items-center gap-3">
           {dailyTemperatures.map((day, index) => (
             <div
               key={index}
-              className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex flex-column justify-content-center align-items-center text-center p-3 gap-2 bg-light mt-2 rounded-3"
+              className="col-12 col-sm-6 col-md-4 col-lg-2  d-flex flex-column justify-content-beetween align-items-center text-center p-3 gap-2  mt-2 rounded-3"
             >
-              {/* Dia da Semana */}
               <div className="font-size-small">
                 <strong style={{ color: '#1a73e8' }}>
                   {format(new Date(day.date), 'EEEE', { locale: pt })}
@@ -133,31 +116,26 @@ const DashboardPage2 = () => {
                 </div>
               </div>
 
-              {/* Ícone do Clima */}
               <img
                 src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`}
                 alt="Ícone do Clima"
                 style={{ width: '50px', height: '50px', margin: '0 auto', marginBottom: '8px' }}
               />
 
-              {/* Temperatura Máxima */}
-              <div className="font-weight-bold text-danger mb-1">
-                {Math.round(day.maxTemp)}°
-              </div>
-
-              {/* Temperatura Mínima */}
-              <div className="text-primary" style={{ fontSize: '0.875rem' }}>
-                {Math.round(day.minTemp)}°
+              <div className='temperatures-max-min'>
+                <div className="max-temp bg-danger" style={{ fontSize: '0.77rem' }}>{Math.round(day.maxTemp)}°C</div>
+                <div className="min-temp bg-primary" style={{ fontSize: '0.77rem' }}>{Math.round(day.minTemp)}°C</div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
+      {/* Gráfico Variações */}
       <div className="col-12 col-md-12">
         <div className="card shadow-sm my-3 p-3 h-100">
-          <div className="card-header">
-            <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Variações dos Próximos 5 dias</h5>
+          <div className="card-header bg-primary">
+            <h5 style={{ color: 'white' }} className="card-title mb-0">Variações dos Próximos 5 dias</h5>
           </div>
 
           <Temperature5Days

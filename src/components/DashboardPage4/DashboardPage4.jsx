@@ -8,7 +8,6 @@ import HottestDaysList from '../HottestDaysList/HottestDaysList';
 import WindTrendLine from '../WindTrendLine/WindTrendLine';
 import TemperatureHeatmap from '../TemperatureHeatmap/TemperatureHeatmap';
 import { Alert, Button } from "@chakra-ui/react";
-import LoadingSkeleton from '../LoadingSkeleton/LoadingSkeleton';
 import './DashboardPage4.css';
 import { useOutletContext } from 'react-router-dom';
 
@@ -45,11 +44,6 @@ const DashboardPage4 = () => {
     );
   }
 
-  // Busca a localização ou se ainda não tem os dados da previsão:
-  if (!forecastQuery.data || !weatherQuery.data || !locationName) {
-    return <LoadingSkeleton />;
-  }
-
   // Verifica se não existem coordenadas (latitude e longitude).
   if (!selectedCoordinates) {
     return (
@@ -57,11 +51,11 @@ const DashboardPage4 = () => {
         <Alert.Indicator className='fs-1 ' />
         <Alert.Content className=''>
           <Alert.Title className='fs-2 mt-2'>Selecione uma localização.</Alert.Title>
-          <Alert.Description className='fs-4 mt-sm-3'>
+          <Alert.Description style={{ lineHeight: "30px" }} className='fs-5 mt-sm-3'>
             Por favor, utilize a barra de busca na sidebar para selecionar uma cidade.
           </Alert.Description>
-        </Alert.Content>
-      </Alert.Root>
+        </Alert.Content >
+      </Alert.Root >
     );
   }
 
@@ -110,12 +104,12 @@ const DashboardPage4 = () => {
             </div>
           </div>
 
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-5">
             <div className="dashboard-card">
               <HottestDaysList key="HottestDays-chart" data={forecastQuery.data} />
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-7">
             <div className="dashboard-card">
               <TemperatureHeatmap key="TemperatureHeatmap-chart" data={forecastQuery.data} />
             </div>
