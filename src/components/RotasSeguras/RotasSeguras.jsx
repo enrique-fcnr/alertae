@@ -387,7 +387,7 @@ const RotasSeguras = () => {
         <div className='card shadow-sm m-4 p-3 h-100 p-4'>
           <h1 style={{ color: '#4C585B' }}>Encontre o lugar seguro mais próximo</h1>
           <p style={{ color: '#595b5b' }} className='p-0 text-start'>
-            O mapa localiza automaticamente sua posição e indica até 15 pontos seguros num raio de 10 km. Ao clicar em um ícone e selecionar o modo de locomoção, o trajeto até o destino será exibido.
+            O mapa localiza automaticamente sua posição e mostra os lugares seguros próximos. Clique em um ícone e escolha o modo de locomoção para ver o trajeto até o destino.
           </p>
           <div className="w-100" style={{ height: '70vh' }}>
             <div id="map" />
