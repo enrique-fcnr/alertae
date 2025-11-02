@@ -4,6 +4,31 @@
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
 }
 
+.temperatures-max-min {
+  display: flex;
+  gap: 0rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.max-temp,
+.min-temp {
+  color: white;
+  padding: 0.4rem 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.max-temp {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.min-temp {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
 /* Para telas maiores: 3 boxes em cima e 2 embaixo */
 @media (min-width: 576px) and (max-width: 768px) {
   .grid-container {

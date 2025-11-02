@@ -97,15 +97,15 @@ const DashboardPage2 = () => {
 
       {/* Previsão dos próximos 5 dias */}
       <div className="card shadow-sm my-0 p-3 h-100">
-        <div className="card-header">
-          <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Próximos 5 dias</h5>
+        <div className="card-header bg-primary">
+          <h5 style={{ color: 'white' }} className="card-title mb-0">Próximos 5 dias</h5>
         </div>
 
         <div className="row d-flex justify-content-center align-items-center gap-3">
           {dailyTemperatures.map((day, index) => (
             <div
               key={index}
-              className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex flex-column justify-content-center align-items-center text-center p-3 gap-2 bg-light mt-2 rounded-3"
+              className="col-12 col-sm-6 col-md-4 col-lg-2  d-flex flex-column justify-content-beetween align-items-center text-center p-3 gap-2  mt-2 rounded-3"
             >
               <div className="font-size-small">
                 <strong style={{ color: '#1a73e8' }}>
@@ -122,8 +122,10 @@ const DashboardPage2 = () => {
                 style={{ width: '50px', height: '50px', margin: '0 auto', marginBottom: '8px' }}
               />
 
-              <div className="font-weight-bold text-danger mb-1">{Math.round(day.maxTemp)}°</div>
-              <div className="text-primary" style={{ fontSize: '0.875rem' }}>{Math.round(day.minTemp)}°</div>
+              <div className='temperatures-max-min'>
+                <div className="max-temp bg-danger" style={{ fontSize: '0.77rem' }}>{Math.round(day.maxTemp)}°C</div>
+                <div className="min-temp bg-primary" style={{ fontSize: '0.77rem' }}>{Math.round(day.minTemp)}°C</div>
+              </div>
             </div>
           ))}
         </div>
@@ -132,8 +134,8 @@ const DashboardPage2 = () => {
       {/* Gráfico Variações */}
       <div className="col-12 col-md-12">
         <div className="card shadow-sm my-3 p-3 h-100">
-          <div className="card-header">
-            <h5 style={{ color: '#4C585B' }} className="card-title mb-0">Variações dos Próximos 5 dias</h5>
+          <div className="card-header bg-primary">
+            <h5 style={{ color: 'white' }} className="card-title mb-0">Variações dos Próximos 5 dias</h5>
           </div>
 
           <Temperature5Days
